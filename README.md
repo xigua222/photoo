@@ -1,6 +1,6 @@
 <img src="logo.png" width="150" alt="photoo" align="center" />
 
-# photoo
+# PHOTOO
 
 [![License](https://img.shields.io/badge/License-photoo%20Source%20License-blue.svg)](LICENSE)
 ![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
