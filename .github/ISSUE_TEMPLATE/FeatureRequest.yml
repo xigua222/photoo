@@ -2,8 +2,7 @@ name: 功能请求
 description: 为 Photoo 提出一项新的功能。
 title: （将此栏【替换】为你的标题）
 labels: ["新功能"]
-assignees: ["xigua222"]
-type: Feature
+type: 特性
 body:
   - type: markdown
     attributes:
