@@ -1,7 +1,7 @@
 name: Bug 反馈
 description: 在使用 Photoo 的过程中遇到了 Bug
 title: （将此栏【替换】为你的标题）
-labels: ["Bug"]
+labels: ["Bug","待查看"]
 type: Bug
 body:
   - type: markdown
