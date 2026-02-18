@@ -3,7 +3,7 @@ description: 在使用 Photoo 的过程中遇到了 Bug
 title: （将此栏【替换】为你的标题）
 labels: ["Bug"]
 assignees: ["xigua222"]
-type: Bug
+labels: ["Bug"]
 body:
   - type: markdown
     attributes:
