@@ -1,0 +1,75 @@
+name: Bug 反馈
+description: 在使用 Photoo 的过程中遇到了 Bug
+title: （将此栏【替换】为你的标题）
+labels: ["Bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您进行 Bug 反馈。请在上面的文本框⬆起一个能够清晰描述您的问题的标题，便于开发者解决您的问题。
+        
+        > [!important]
+        > 重要：如果要提出**多个 Bug**，请为每一个 Bug 开一个单独的 issue。
+        >
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 检查清单
+      description: 在开始反馈这个问题之前，请先检查：
+      options:
+        - label: 我已更新到最新版 ![最新的版本号](https://github.com/xigua222/photoo?include_prereleases&style=flat-square&label=) 或 ![最新的版本号](https://github.com/xigua222/photoo?style=flat-square&label=) 测试，并看过 [最新提交](https://github.com/xigua222/photoo/commits/dev/)，确认这一 Bug 还没有修复。我也已在 [Issues](https://github.com/xigua222/photoo/issues?q=type%3ABug) 中检索，确认这一 Bug 未被提交过。
+          required: true
+        - label: 我已经仔细阅读过选项里的内容，并且知道这个选项不用勾选。
+          required: true
+  - type: markdown
+    attributes: 
+      value: |
+        ### Bug 信息
+
+        描述您遇到的 Bug。您可以附上截图、录屏、堆栈跟踪、日志等材料，便于开发者追踪问题。
+
+        > [!note]
+        > 上传附件时**请优先使用 GitHub 的附件系统上传附件**，将需要上传的附件粘贴或拖动到撰写区域即可上传。多个文件可打包为 zip 格式后上传。**尽量避免使用需要登陆或安装客户端才能接收附件的网盘（如\*度网盘、\*克网盘）上传附件**，以避免开发者因不具有对应网盘客户端或账户而延误问题诊断。
+  - type: textarea
+    id: excepted
+    attributes:
+      label: 期望的行为
+      description: 详细的描述你期望发生的行为，突出与目前（可能不正确的）行为的不同。
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 实际结果
+      description: 实际发生的行为。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: 重现步骤
+      description: |
+        详细描述要怎么操作才能再次触发这个 Bug。
+      placeholder: |
+        1. 首先……
+        2. 然后……
+        3. ……
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: 联系方式（可选）
+      description: 我们可能需要向你进一步询问了解您碰到的问题，你可以选择性填写您的联系方式（如QQ号、邮箱等）。
+      placeholder: xxxxxxx@qq.com
+    validations:
+      required: false
+  - type: checkboxes
+    id: revision
+    attributes:
+      label: 最后一步
+      description: 回顾您的回答
+      options:
+        - label: 我认为上述的描述已经足以详细，以允许开发人员能复现该问题。如果我的 issue 没有按照上述的要求填写，可能会被无条件关闭。
+          required: true
