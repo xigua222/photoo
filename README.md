@@ -8,6 +8,8 @@
 
 [English](README_EN.md) | [中文](README.md)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I01XARUK)
+
 ---
 
 ## 🎯 photoo 是什么？
