@@ -78,6 +78,15 @@ cd android
 
 ## 📄 License
 
+**At this time, we have only made the source code for the initial 2.0 release publicly available. This was part of our commitment to security, transparency, and privacy protection.**
+
+**However, we have come to realize that, in order to support future copyright registration, app store distribution, the protection of third-party copyrights included in the app package, and to better prevent counterfeit or repackaged versions of the app—which has, in fact, already occurred—we have decided to temporarily stop updating the public source code.**
+
+**That said, our commitment to privacy protection remains unchanged. Our promise that all features up to version 3.0 will remain permanently free also remains unchanged. You can continue to use the app fully offline, without any network connection.**
+
+**In the future, we still plan to open-source parts of the code at an appropriate time, and we will continue to uphold our principles of transparency and privacy first.**
+
+
 This project uses the **photoo Source Code License Agreement**.
 
 * ✅ Available for security auditing
