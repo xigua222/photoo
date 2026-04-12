@@ -6,6 +6,8 @@
 ![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
 ![Status](https://img.shields.io/badge/Status-Beta-blue.svg)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I01XARUK)
+
 [English](README_EN.md) | [中文](README.md)
 
 ---
