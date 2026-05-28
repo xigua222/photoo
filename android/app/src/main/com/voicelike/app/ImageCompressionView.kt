@@ -987,6 +987,10 @@ private suspend fun saveCompressedImage(
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         val pendingValues = ContentValues().apply {
             put(MediaStore.Images.Media.IS_PENDING, 0)
+            if (originalDateAdded > 0) {
+                put(MediaStore.Images.Media.DATE_ADDED, originalDateAdded)
+                put(MediaStore.Images.Media.DATE_MODIFIED, originalDateAdded)
+            }
         }
         resolver.update(uri, pendingValues, null, null)
     }

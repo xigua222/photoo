@@ -977,6 +977,10 @@ private suspend fun saveCompressedVideo(
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         val pendingValues = ContentValues().apply {
             put(MediaStore.Video.Media.IS_PENDING, 0)
+            if (originalDateAdded > 0) {
+                put(MediaStore.Video.Media.DATE_ADDED, originalDateAdded)
+                put(MediaStore.Video.Media.DATE_MODIFIED, originalDateAdded)
+            }
         }
         resolver.update(uri, pendingValues, null, null)
     }
