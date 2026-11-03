@@ -1,0 +1,592 @@
+[
+    {
+        "paletteId": "builtin_hald:black-white-era-converted-with-color-10",
+        "demoAssetName": "color_card_filter_feed_demo/sample_0.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_0.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-converted-with-color-11",
+        "demoAssetName": "color_card_filter_feed_demo/sample_1.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_1.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-converted-with-color-8",
+        "demoAssetName": "color_card_filter_feed_demo/sample_2.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_2.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-converted-with-color-9",
+        "demoAssetName": "color_card_filter_feed_demo/sample_3.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_3.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-agfa-apx-100",
+        "demoAssetName": "color_card_filter_feed_demo/sample_4.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_4.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-agfa-apx-25",
+        "demoAssetName": "color_card_filter_feed_demo/sample_5.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_5.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-fuji-neopan-1600",
+        "demoAssetName": "color_card_filter_feed_demo/sample_6.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_6.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-fuji-neopan-acros-100",
+        "demoAssetName": "color_card_filter_feed_demo/sample_7.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_7.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-delta-100",
+        "demoAssetName": "color_card_filter_feed_demo/sample_8.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_8.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-delta-3200",
+        "demoAssetName": "color_card_filter_feed_demo/sample_9.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_9.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-delta-400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_10.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_10.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-fp4-plus-125",
+        "demoAssetName": "color_card_filter_feed_demo/sample_11.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_11.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-hp5-plus-400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_12.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_12.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-hps-800",
+        "demoAssetName": "color_card_filter_feed_demo/sample_13.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_13.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-pan-f-plus-50",
+        "demoAssetName": "color_card_filter_feed_demo/sample_14.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_14.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-ilford-xp2",
+        "demoAssetName": "color_card_filter_feed_demo/sample_15.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_15.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-kodak-bw-400-cn",
+        "demoAssetName": "color_card_filter_feed_demo/sample_16.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_16.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-kodak-hie-hs-infra",
+        "demoAssetName": "color_card_filter_feed_demo/sample_17.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_17.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-kodak-t-max-100",
+        "demoAssetName": "color_card_filter_feed_demo/sample_18.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_18.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-kodak-t-max-3200",
+        "demoAssetName": "color_card_filter_feed_demo/sample_19.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_19.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-kodak-t-max-400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_20.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_20.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-kodak-tri-x-400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_21.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_21.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-polaroid-664",
+        "demoAssetName": "color_card_filter_feed_demo/sample_22.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_22.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-polaroid-667",
+        "demoAssetName": "color_card_filter_feed_demo/sample_23.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_23.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-polaroid-672",
+        "demoAssetName": "color_card_filter_feed_demo/sample_24.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_24.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-rollei-ir-400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_25.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_25.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-rollei-ortho-25",
+        "demoAssetName": "color_card_filter_feed_demo/sample_26.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_26.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-rollei-retro-100-tonal",
+        "demoAssetName": "color_card_filter_feed_demo/sample_27.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_27.webp"
+    },
+    {
+        "paletteId": "builtin_hald:black-white-era-rollei-retro-80s",
+        "demoAssetName": "color_card_filter_feed_demo/sample_28.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_28.webp"
+    },
+    {
+        "paletteId": "builtin_hald:amy",
+        "demoAssetName": "color_card_filter_feed_demo/sample_0.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_29.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cms",
+        "demoAssetName": "color_card_filter_feed_demo/sample_1.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_30.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematic",
+        "demoAssetName": "color_card_filter_feed_demo/sample_2.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_31.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematicx-rec-709",
+        "demoAssetName": "color_card_filter_feed_demo/sample_3.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_32.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematicx-rec-709-2",
+        "demoAssetName": "color_card_filter_feed_demo/sample_4.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_33.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematicx-rec-709-3",
+        "demoAssetName": "color_card_filter_feed_demo/sample_5.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_34.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematicx-rec-709-4",
+        "demoAssetName": "color_card_filter_feed_demo/sample_6.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_35.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematicx-rec-709-5",
+        "demoAssetName": "color_card_filter_feed_demo/sample_7.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_36.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinematicx-rec-709-6",
+        "demoAssetName": "color_card_filter_feed_demo/sample_8.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_37.webp"
+    },
+    {
+        "paletteId": "builtin_hald:claire",
+        "demoAssetName": "color_card_filter_feed_demo/sample_9.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_38.webp"
+    },
+    {
+        "paletteId": "builtin_hald:fg-cinebright",
+        "demoAssetName": "color_card_filter_feed_demo/sample_10.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_39.webp"
+    },
+    {
+        "paletteId": "builtin_hald:fg-cinevibrant1",
+        "demoAssetName": "color_card_filter_feed_demo/sample_11.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_40.webp"
+    },
+    {
+        "paletteId": "builtin_hald:fuj-07-velvia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_12.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_41.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-boost-10",
+        "demoAssetName": "color_card_filter_feed_demo/sample_13.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_42.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-tone-3",
+        "demoAssetName": "color_card_filter_feed_demo/sample_14.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_43.webp"
+    },
+    {
+        "paletteId": "builtin_hald:generate-by-resolve",
+        "demoAssetName": "color_card_filter_feed_demo/sample_15.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_44.webp"
+    },
+    {
+        "paletteId": "builtin_hald:generate-by-resolve-2",
+        "demoAssetName": "color_card_filter_feed_demo/sample_16.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_45.webp"
+    },
+    {
+        "paletteId": "builtin_hald:generate-by-resolve-3",
+        "demoAssetName": "color_card_filter_feed_demo/sample_17.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_46.webp"
+    },
+    {
+        "paletteId": "builtin_hald:generated-by-3d-lut-creator-pro-c-oleg-sharonov",
+        "demoAssetName": "color_card_filter_feed_demo/sample_18.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_47.webp"
+    },
+    {
+        "paletteId": "builtin_hald:hklike",
+        "demoAssetName": "color_card_filter_feed_demo/sample_19.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_48.webp"
+    },
+    {
+        "paletteId": "builtin_hald:m-fahri-100c-negative",
+        "demoAssetName": "color_card_filter_feed_demo/sample_20.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_49.webp"
+    },
+    {
+        "paletteId": "builtin_hald:moewarm",
+        "demoAssetName": "color_card_filter_feed_demo/sample_21.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_50.webp"
+    },
+    {
+        "paletteId": "builtin_hald:ogs",
+        "demoAssetName": "color_card_filter_feed_demo/sample_22.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_51.webp"
+    },
+    {
+        "paletteId": "builtin_hald:presetpro-rich-tines",
+        "demoAssetName": "color_card_filter_feed_demo/sample_23.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_52.webp"
+    },
+    {
+        "paletteId": "builtin_hald:presetpro-santorini",
+        "demoAssetName": "color_card_filter_feed_demo/sample_24.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_53.webp"
+    },
+    {
+        "paletteId": "builtin_hald:presetpro-sunset",
+        "demoAssetName": "color_card_filter_feed_demo/sample_25.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_54.webp"
+    },
+    {
+        "paletteId": "builtin_hald:print-film-2",
+        "demoAssetName": "color_card_filter_feed_demo/sample_26.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_55.webp"
+    },
+    {
+        "paletteId": "builtin_hald:converted-with-color",
+        "demoAssetName": "color_card_filter_feed_demo/sample_27.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_56.webp"
+    },
+    {
+        "paletteId": "builtin_hald:astia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_28.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_57.webp"
+    },
+    {
+        "paletteId": "builtin_hald:bleach-bypass",
+        "demoAssetName": "color_card_filter_feed_demo/sample_0.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_58.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cinema3",
+        "demoAssetName": "color_card_filter_feed_demo/sample_1.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_59.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-chrome",
+        "demoAssetName": "color_card_filter_feed_demo/sample_2.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_60.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-neg",
+        "demoAssetName": "color_card_filter_feed_demo/sample_3.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_61.webp"
+    },
+    {
+        "paletteId": "builtin_hald:eterna",
+        "demoAssetName": "color_card_filter_feed_demo/sample_4.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_62.webp"
+    },
+    {
+        "paletteId": "builtin_hald:fj",
+        "demoAssetName": "color_card_filter_feed_demo/sample_5.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_63.webp"
+    },
+    {
+        "paletteId": "builtin_hald:moeot",
+        "demoAssetName": "color_card_filter_feed_demo/sample_6.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_64.webp"
+    },
+    {
+        "paletteId": "builtin_hald:nostalgic-neg",
+        "demoAssetName": "color_card_filter_feed_demo/sample_7.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_65.webp"
+    },
+    {
+        "paletteId": "builtin_hald:polaroid-669",
+        "demoAssetName": "color_card_filter_feed_demo/sample_8.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_66.webp"
+    },
+    {
+        "paletteId": "builtin_hald:polaroid-690",
+        "demoAssetName": "color_card_filter_feed_demo/sample_9.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_67.webp"
+    },
+    {
+        "paletteId": "builtin_hald:polaroid-polachrome",
+        "demoAssetName": "color_card_filter_feed_demo/sample_10.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_68.webp"
+    },
+    {
+        "paletteId": "builtin_hald:polaroid-px-680-warm",
+        "demoAssetName": "color_card_filter_feed_demo/sample_11.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_69.webp"
+    },
+    {
+        "paletteId": "builtin_hald:pro-neg-hi",
+        "demoAssetName": "color_card_filter_feed_demo/sample_12.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_70.webp"
+    },
+    {
+        "paletteId": "builtin_hald:pro-neg-std",
+        "demoAssetName": "color_card_filter_feed_demo/sample_13.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_71.webp"
+    },
+    {
+        "paletteId": "builtin_hald:provia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_14.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_72.webp"
+    },
+    {
+        "paletteId": "builtin_hald:reala-ace",
+        "demoAssetName": "color_card_filter_feed_demo/sample_15.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_73.webp"
+    },
+    {
+        "paletteId": "builtin_hald:velvia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_16.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_74.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-astia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_17.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_75.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-bleach-bypass",
+        "demoAssetName": "color_card_filter_feed_demo/sample_18.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_76.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-classic-chrome",
+        "demoAssetName": "color_card_filter_feed_demo/sample_19.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_77.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-classic-neg",
+        "demoAssetName": "color_card_filter_feed_demo/sample_20.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_78.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-eterna",
+        "demoAssetName": "color_card_filter_feed_demo/sample_21.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_79.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-nostalgic-neg",
+        "demoAssetName": "color_card_filter_feed_demo/sample_22.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_80.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-pro-neg-hi",
+        "demoAssetName": "color_card_filter_feed_demo/sample_23.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_81.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-pro-neg-std",
+        "demoAssetName": "color_card_filter_feed_demo/sample_24.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_82.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-provia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_25.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_83.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-reala-ace",
+        "demoAssetName": "color_card_filter_feed_demo/sample_26.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_84.webp"
+    },
+    {
+        "paletteId": "builtin_hald:classic-memory-velvia",
+        "demoAssetName": "color_card_filter_feed_demo/sample_27.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_85.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-5219",
+        "demoAssetName": "color_card_filter_feed_demo/sample_28.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_86.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-c200",
+        "demoAssetName": "color_card_filter_feed_demo/sample_0.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_87.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-ektar100",
+        "demoAssetName": "color_card_filter_feed_demo/sample_1.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_88.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-pro400h",
+        "demoAssetName": "color_card_filter_feed_demo/sample_2.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_89.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-spgold200",
+        "demoAssetName": "color_card_filter_feed_demo/sample_3.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_90.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-tx400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_4.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_91.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-vivid250d",
+        "demoAssetName": "color_card_filter_feed_demo/sample_5.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_92.webp"
+    },
+    {
+        "paletteId": "builtin_hald:film-sim-allround400",
+        "demoAssetName": "color_card_filter_feed_demo/sample_6.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_93.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cc",
+        "demoAssetName": "color_card_filter_feed_demo/sample_7.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_94.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cc1",
+        "demoAssetName": "color_card_filter_feed_demo/sample_8.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_95.webp"
+    },
+    {
+        "paletteId": "builtin_hald:cc2",
+        "demoAssetName": "color_card_filter_feed_demo/sample_9.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_96.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-2",
+        "demoAssetName": "color_card_filter_feed_demo/sample_10.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_97.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-3",
+        "demoAssetName": "color_card_filter_feed_demo/sample_11.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_98.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-4",
+        "demoAssetName": "color_card_filter_feed_demo/sample_12.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_99.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-5",
+        "demoAssetName": "color_card_filter_feed_demo/sample_13.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_100.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-6",
+        "demoAssetName": "color_card_filter_feed_demo/sample_14.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_101.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-7",
+        "demoAssetName": "color_card_filter_feed_demo/sample_15.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_102.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-8",
+        "demoAssetName": "color_card_filter_feed_demo/sample_16.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_103.webp"
+    },
+    {
+        "paletteId": "builtin_hald:j-fresh-bright-1",
+        "demoAssetName": "color_card_filter_feed_demo/sample_17.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_104.webp"
+    },
+    {
+        "paletteId": "builtin_creative:selective-red",
+        "demoAssetName": "color_card_filter_feed_demo/sample_18.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_105.webp"
+    },
+    {
+        "paletteId": "builtin_creative:selective-green",
+        "demoAssetName": "color_card_filter_feed_demo/sample_19.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_106.webp"
+    },
+    {
+        "paletteId": "builtin_creative:selective-blue",
+        "demoAssetName": "color_card_filter_feed_demo/sample_20.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_107.webp"
+    },
+    {
+        "paletteId": "builtin_creative:black-mist",
+        "demoAssetName": "color_card_filter_feed_demo/sample_21.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_108.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-yellow",
+        "demoAssetName": "color_card_filter_feed_demo/sample_22.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_109.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-red",
+        "demoAssetName": "color_card_filter_feed_demo/sample_23.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_110.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-blue",
+        "demoAssetName": "color_card_filter_feed_demo/sample_24.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_111.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-gray",
+        "demoAssetName": "color_card_filter_feed_demo/sample_25.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_112.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-primary-yellow",
+        "demoAssetName": "color_card_filter_feed_demo/sample_26.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_113.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-primary-blue",
+        "demoAssetName": "color_card_filter_feed_demo/sample_27.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_114.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-primary-red",
+        "demoAssetName": "color_card_filter_feed_demo/sample_28.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_115.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-original",
+        "demoAssetName": "color_card_filter_feed_demo/sample_0.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_116.webp"
+    },
+    {
+        "paletteId": "builtin_pixel:pixel-beads",
+        "demoAssetName": "color_card_filter_feed_demo/sample_1.webp",
+        "assetName": "color_card_filter_feed_bootstrap/bootstrap_117.webp"
+    }
+]

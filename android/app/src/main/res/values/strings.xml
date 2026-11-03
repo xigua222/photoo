@@ -4,4 +4,15 @@
     <string name="title_activity_main">photoo</string>
     <string name="package_name">com.photoo.app</string>
     <string name="custom_url_scheme">com.photoo.app</string>
+    <string name="widget_likes_name">喜欢照片</string>
+    <string name="widget_likes_empty">点击选择喜欢照片</string>
+    <string name="widget_likes_picker_title">选择小组件照片</string>
+    <string name="widget_likes_picker_back">返回</string>
+    <string name="widget_likes_picker_loading">正在读取喜欢列表…</string>
+    <string name="widget_likes_picker_empty">喜欢列表暂无照片</string>
+    <string name="widget_likes_picker_hint">从喜欢列表选择一张照片，立刻替换小组件展示图</string>
+    <string name="color_card_discard_dialog_title">&#x9000;&#x51FA;&#x5F53;&#x524D;&#x8C03;&#x8272;</string>
+    <string name="color_card_discard_dialog_message">&#x5F53;&#x524D;&#x4FEE;&#x6539;&#x8FD8;&#x6CA1;&#x6709;&#x4FDD;&#x7559;&#xFF0C;&#x786E;&#x8BA4;&#x73B0;&#x5728;&#x8FD4;&#x56DE;&#x5417;&#xFF1F;</string>
+    <string name="color_card_discard_dialog_confirm">&#x8FD4;&#x56DE;</string>
+    <string name="color_card_discard_dialog_dismiss">&#x7EE7;&#x7EED;&#x7F16;&#x8F91;</string>
 </resources>

@@ -1,98 +1,50 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-android {
-    namespace = "com.voicelike.app"
-    compileSdk = rootProject.ext.compileSdkVersion
-    defaultConfig {
-        applicationId "com.photoo.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 21
-        versionName "2.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        aaptOptions {
-             // Files and dirs to omit from the packaged assets dir
-            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
-        }
+buildscript {
+    
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.13.2'
+        classpath 'com.google.gms:google-services:4.4.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.10"
+        classpath "org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.3.10"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:13.1.0"
+        // A dependency ships Kotlin 2.4-built code (kotlin-stdlib 2.4.0 lands in the graph);
+        // Kotlin 2.4 metadata needs R8 >= 9.1.29. Buildscript classpath resolves to the
+        // highest r8 present (official override).
+        classpath 'com.android.tools:r8:9.4.28'
 
-    splits {
-        abi {
-            enable true
-            reset()
-            include "armeabi-v7a", "arm64-v8a"
-            universalApk false
-        }
-    }
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.5.8'
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = '17'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
-    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
-    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    implementation "androidx.exifinterface:exifinterface:1.3.7"
+apply from: "variables.gradle"
 
-    // Native Kotlin + Compose Dependencies
-    implementation platform('androidx.compose:compose-bom:2024.02.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.ui:ui-graphics'
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
-    implementation 'androidx.compose.material:material-icons-extended'
-    implementation 'androidx.activity:activity-compose:1.8.2'
-    implementation 'io.coil-kt:coil-compose:2.5.0'
-    implementation 'io.coil-kt:coil-video:2.5.0' // For video frames
-    debugImplementation 'androidx.compose.ui:ui-tooling'
-    
-    // Media3 for Video Playback
-    implementation "androidx.media3:media3-exoplayer:1.2.0"
-    implementation "androidx.media3:media3-ui:1.2.0"
-    implementation "androidx.media3:media3-common:1.2.0"
-    implementation "androidx.media3:media3-transformer:1.2.0"
-
-    // Gson for persistence
-    implementation 'com.google.code.gson:gson:2.10.1'
-
-    // ML Kit Image Labeling (Bundled version for China/Offline support)
-    implementation 'com.google.mlkit:image-labeling:17.0.7'
-    
-    // ML Kit Face Detection (Bundled version for China/Offline support)
-    implementation 'com.google.mlkit:face-detection:16.1.6'
-    
-    // Coroutines Play Services support (for await())
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
-try {
-    def servicesJSON = file('google-services.json')
-    if (servicesJSON.text) {
-        apply plugin: 'com.google.gms.google-services'
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            project.android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_17
+                    targetCompatibility JavaVersion.VERSION_17
+                }
+            }
+        }
     }
-} catch(Exception e) {
-    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

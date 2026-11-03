@@ -1,0 +1,1422 @@
+package com.yourapp.cleanup
+
+
+object RoastLibrary {
+
+    // MLKit label → group key
+    private val labelToGroup = mapOf(
+        "Food" to "food_general",
+        "Fast food" to "food_fastfood",
+        "Cheeseburger" to "food_fastfood",
+        "Hot dog" to "food_fastfood",
+        "Pizza" to "food_fastfood",
+        "Sushi" to "food_fancy",
+        "Bento" to "food_fancy",
+        "Gelato" to "food_sweets",
+        "Cookie" to "food_sweets",
+        "Cake" to "food_sweets",
+        "Pie" to "food_sweets",
+        "Bread" to "food_general",
+        "Meat" to "food_general",
+        "Vegetable" to "food_general",
+        "Fruit" to "food_general",
+        "Couscous" to "food_fancy",
+        "Pho" to "food_fancy",
+        "Coffee" to "drink_coffee",
+        "Cappuccino" to "drink_coffee",
+        "Juice" to "drink_soft",
+        "Cola" to "drink_soft",
+        "Wine" to "drink_alcohol",
+        "Alcoholic beverage" to "drink_alcohol",
+        "Dining" to "meal_together",
+        "Dinner" to "meal_together",
+        "Lunch" to "meal_together",
+        "Cutlery" to "meal_together",
+        "Tableware" to "meal_together",
+        "Screenshot" to "doc_screenshot",
+        "Web page" to "doc_screenshot",
+        "Receipt" to "doc_receipt",
+        "Passport" to "doc_official",
+        "Paper" to "doc_official",
+        "Presentation" to "doc_work",
+        "Whiteboard" to "doc_work",
+        "Blackboard" to "doc_work",
+        "Menu" to "doc_menu",
+        "Newspaper" to "doc_reading",
+        "Novel" to "doc_reading",
+        "Sky" to "sky_blue",
+        "Cloud" to "sky_blue",
+        "Sunset" to "sky_sunset",
+        "Aurora" to "sky_special",
+        "Rainbow" to "sky_special",
+        "Lightning" to "sky_drama",
+        "Storm" to "sky_drama",
+        "Fog" to "sky_drama",
+        "Mountain" to "nature_mountain",
+        "Glacier" to "nature_mountain",
+        "Volcano" to "nature_mountain",
+        "Canyon" to "nature_mountain",
+        "Cliff" to "nature_mountain",
+        "Beach" to "nature_beach",
+        "Reef" to "nature_beach",
+        "Forest" to "nature_forest",
+        "Field" to "nature_forest",
+        "Prairie" to "nature_forest",
+        "River" to "nature_water",
+        "Waterfall" to "nature_water",
+        "Cave" to "nature_water",
+        "Desert" to "nature_desert",
+        "Dune" to "nature_desert",
+        "Iceberg" to "nature_desert",
+        "Selfie" to "selfie_normal",
+        "Smile" to "selfie_happy",
+        "Laughing" to "selfie_happy",
+        "Eyelash" to "selfie_closeup",
+        "Skin" to "selfie_closeup",
+        "Beard" to "selfie_closeup",
+        "Muscle" to "selfie_fitness",
+        "Party" to "social_party",
+        "Crowd" to "social_party",
+        "Team" to "social_group",
+        "Community" to "social_group",
+        "Graduation" to "social_milestone",
+        "Prom" to "social_milestone",
+        "Wedding" to "social_wedding",
+        "Marriage" to "social_wedding",
+        "Bride" to "social_wedding",
+        "Grandparent" to "social_family",
+        "Brother" to "social_family",
+        "Cat" to "pet_cat",
+        "Dog" to "pet_dog",
+        "Bird" to "pet_other",
+        "Duck" to "pet_other",
+        "Turtle" to "pet_other",
+        "Penguin" to "pet_other",
+        "Seal" to "pet_other",
+        "Waterfowl" to "pet_other",
+        "Pet" to "pet_other",
+        "Shetland sheepdog" to "pet_dog",
+        "Dachshund" to "pet_dog",
+        "Dalmatian" to "pet_dog",
+        "Basset hound" to "pet_dog",
+        "Cavalier" to "pet_dog",
+        "Horse" to "pet_large",
+        "Crocodilian" to "pet_large",
+        "Insect" to "pet_wild",
+        "Larva" to "pet_wild",
+        "Gerbil" to "pet_small",
+        "Running" to "sport_run",
+        "Marathon" to "sport_run",
+        "Swimming" to "sport_water",
+        "Surfing" to "sport_water",
+        "Scuba diving" to "sport_water",
+        "Snorkeling" to "sport_water",
+        "Water skiing" to "sport_water",
+        "Wakeboard" to "sport_water",
+        "Skiing" to "sport_snow",
+        "Snowboarding" to "sport_snow",
+        "Cycling" to "sport_street",
+        "Skateboarding" to "sport_street",
+        "Longboard" to "sport_street",
+        "Soccer" to "sport_team",
+        "Rugby" to "sport_team",
+        "Polo" to "sport_team",
+        "Badminton" to "sport_team",
+        "Gymnastics" to "sport_gym",
+        "Training" to "sport_gym",
+        "Kayak" to "sport_outdoor",
+        "Canoe" to "sport_outdoor",
+        "Archery" to "sport_outdoor",
+        "Rowing" to "sport_outdoor",
+        "Racing" to "sport_race",
+        "Bull riding" to "sport_race",
+        "Rodeo" to "sport_race",
+        "Vacation" to "travel_general",
+        "Safari" to "travel_general",
+        "Museum" to "travel_culture",
+        "Church" to "travel_culture",
+        "Mosque" to "travel_culture",
+        "Temple" to "travel_culture",
+        "Cathedral" to "travel_culture",
+        "Castle" to "travel_culture",
+        "Palace" to "travel_culture",
+        "Monument" to "travel_culture",
+        "Ruins" to "travel_culture",
+        "Lighthouse" to "travel_landmark",
+        "Tower" to "travel_landmark",
+        "Bridge" to "travel_landmark",
+        "Skyscraper" to "travel_landmark",
+        "Skyline" to "travel_landmark",
+        "Amusement park" to "travel_fun",
+        "Ferris wheel" to "travel_fun",
+        "Carnival" to "travel_fun",
+        "Park" to "travel_park",
+        "Pier" to "travel_park",
+        "Aquarium" to "travel_park",
+        "Sphinx" to "travel_landmark",
+        "Concert" to "night_concert",
+        "Musical" to "night_concert",
+        "Singer" to "night_concert",
+        "Musician" to "night_concert",
+        "DJ" to "night_club",
+        "Nightclub" to "night_club",
+        "Ballroom" to "night_club",
+        "Casino" to "night_club",
+        "Fireworks" to "night_fireworks",
+        "Neon" to "night_street",
+        "Bedroom" to "home_bedroom",
+        "Bathroom" to "home_bathroom",
+        "Kitchen" to "home_kitchen",
+        "Room" to "fallback",
+        "Couch" to "home_room",
+        "Sofa" to "home_room",
+        "Armchair" to "home_room",
+        "Chair" to "home_room",
+        "Pillow" to "home_room",
+        "Curtain" to "home_room",
+        "Shelf" to "home_stuff",
+        "Cabinet" to "home_stuff",
+        "Drawer" to "home_stuff",
+        "Refrigeration" to "home_stuff",
+        "TV" to "home_stuff",
+        "Bunk bed" to "home_stuff",
+        "Airplane" to "transport_air",
+        "Helicopter" to "transport_air",
+        "Aircraft" to "transport_air",
+        "Car" to "transport_road",
+        "Bus" to "transport_road",
+        "Motorcycle" to "transport_road",
+        "Van" to "transport_road",
+        "Tractor" to "transport_road",
+        "Boat" to "transport_water",
+        "Sailboat" to "transport_water",
+        "Speedboat" to "transport_water",
+        "Submarine" to "transport_water",
+        "Warship" to "transport_water",
+        "Sled" to "transport_special",
+        "Rocket" to "transport_special",
+        "Dress" to "fashion_clothes",
+        "Jacket" to "fashion_clothes",
+        "Shorts" to "fashion_clothes",
+        "Jeans" to "fashion_clothes",
+        "Coat" to "fashion_clothes",
+        "Jersey" to "fashion_clothes",
+        "Swimwear" to "fashion_clothes",
+        "Tuxedo" to "fashion_clothes",
+        "Sari" to "fashion_clothes",
+        "Leggings" to "fashion_clothes",
+        "Tights" to "fashion_clothes",
+        "Sunglasses" to "fashion_accessories",
+        "Hat" to "fashion_accessories",
+        "Cap" to "fashion_accessories",
+        "Scarf" to "fashion_accessories",
+        "Balaclava" to "fashion_accessories",
+        "Sneakers" to "fashion_shoes",
+        "Shoe" to "fashion_shoes",
+        "Bag" to "fashion_bag",
+        "Handbag" to "fashion_bag",
+        "Pocket" to "fashion_bag",
+        "Necklace" to "fashion_jewelry",
+        "Bracelet" to "fashion_jewelry",
+        "Jewelry" to "fashion_jewelry",
+        "Lipstick" to "fashion_beauty",
+        "Hair" to "fashion_beauty",
+        "Tattoo" to "fashion_beauty",
+        "Christmas" to "festival_winter",
+        "Hanukkah" to "festival_winter",
+        "Santa claus" to "festival_winter",
+        "Thanksgiving" to "festival_general",
+        "Balloon" to "festival_birthday",
+        "Garland" to "festival_general",
+        "Piano" to "music_instrument",
+        "Musical instrument" to "music_instrument",
+        "Song" to "music_performance",
+        "Pop music" to "music_performance",
+        "Dance" to "music_dance",
+        "Dancer" to "music_dance",
+        "Watercolor paint" to "art_making",
+        "Comics" to "art_viewing",
+        "Statue" to "art_viewing",
+        "Sculpture" to "art_viewing",
+        "Camping" to "outdoor_camping",
+        "Bonfire" to "outdoor_camping",
+        "Backpacking" to "outdoor_camping",
+        "Picnic" to "outdoor_picnic",
+        "Garden" to "outdoor_picnic",
+        "Farm" to "outdoor_picnic",
+        "Playground" to "outdoor_play",
+        "Roller" to "outdoor_play",
+        "Computer" to "work_desk",
+        "School" to "work_study",
+        "Class" to "work_study",
+        "Construction" to "work_site",
+        "Factory" to "work_site",
+        "Infrastructure" to "work_site",
+        "Building" to "work_site",
+        "Sleeping" to "life_sleep",
+        "Sleep" to "life_sleep",
+        "Reading" to "life_quiet",
+        "Book" to "life_quiet",
+        "Shopping" to "life_shopping",
+        "Store" to "life_shopping",
+        "Cooking" to "life_cooking",
+        "Cookware" to "life_cooking",
+        "Person" to "fallback",
+        "Sitting" to "fallback",
+        "Interaction" to "fallback",
+        "Fun" to "fallback",
+        "Love" to "fallback",
+        "Leisure" to "fallback",
+        "Activity" to "fallback",
+        "Product" to "fallback",
+        "Sport" to "fallback",
+    )
+
+    // 普通食物
+    private val `food_general` = listOf(
+        "生活就是这样,平平淡淡也挺好",
+        "不用想吃什么的日子,最省心",
+        "有时候简单一点反而最舒服",
+        "这一顿,养活了那一天的自己",
+        "普通的一餐,也是认真生活过",
+        "填饱肚子这件事,从不马虎",
+        "那些随便吃的日子,也是日子啊",
+        "看着普通,但吃完就满足了",
+        "生活嘛,大多时候就这样",
+        "每一顿都算数,哪怕很普通"
+    )
+
+    // 快餐/街头小吃
+    private val `food_fastfood` = listOf(
+        "深夜的快乐,就这么简单",
+        "有时候就想吃点不健康的",
+        "对付自己的那顿,也记得拍照",
+        "饿的时候,这就是全世界",
+        "快餐也是真心喜欢过的",
+        "来不及好好吃饭的日子",
+        "深夜外卖,陪我熬过多少夜",
+        "那个忙到只能随便吃的时候",
+        "有它在,至少不会饿着",
+        "偶尔放纵一下,没什么不好"
+    )
+
+    // 精致餐食
+    private val `food_fancy` = listOf(
+        "难得对自己好一次",
+        "值得记录的美好时刻",
+        "这顿饭,吃的是仪式感",
+        "偶尔也要活得精致一点",
+        "特别的日子,特别的一餐",
+        "那天的自己,值得被好好对待",
+        "花了心思的美好,要留住",
+        "认真生活的证据之一",
+        "有些时刻,就该这样纪念",
+        "为了这一餐,期待了好久"
+    )
+
+    // 甜品/蛋糕
+    private val `food_sweets` = listOf(
+        "甜的东西,总能治愈点什么",
+        "给自己的小小奖励",
+        "这份甜,当时真的很需要",
+        "一个人的甜蜜时光",
+        "那天的心情,和它一样甜",
+        "有些快乐,甜甜的就够了",
+        "犒劳自己这件事,很重要",
+        "吃甜食的瞬间,烦恼都散了",
+        "这份甜,是当时的小确幸",
+        "懂得对自己好的那一刻"
+    )
+
+    // 咖啡
+    private val `drink_coffee` = listOf(
+        "每天的续命时刻",
+        "一杯咖啡,一段发呆的时间",
+        "那个需要咖啡因的早晨",
+        "工作日的救命稻草",
+        "喝咖啡的时候,可以什么都不想",
+        "这一杯,陪我撑过了那天",
+        "属于自己的片刻安静",
+        "有了它,这天才算开始",
+        "一个人坐着的放空时光",
+        "这杯咖啡懂我"
+    )
+
+    // 酒
+    private val `drink_alcohol` = listOf(
+        "那晚聊了很多,也喝了不少",
+        "微醺的夜晚,格外真实",
+        "干杯的瞬间,什么都值得",
+        "有些话,只有喝酒时才说得出",
+        "那晚的酒,喝的是心情",
+        "和你们喝酒的日子,我记得",
+        "醉得刚好的那个夜晚",
+        "举杯的时候,感觉不孤单",
+        "这一杯,敬过去的自己",
+        "有酒有你们,就够了"
+    )
+
+    // 饮料/奶茶
+    private val `drink_soft` = listOf(
+        "当时就是很想喝",
+        "排了好久队才买到的快乐",
+        "那杯奶茶,是那天的小确幸",
+        "发朋友圈的素材有了",
+        "喝奶茶的仪式感,不能少",
+        "这一杯,甜了一整天",
+        "犒劳自己的方式之一",
+        "那个喝饮料就开心的时刻",
+        "拿到手的瞬间,心情就好了",
+        "简单的快乐,就这么简单"
+    )
+
+    // 聚餐/饭桌
+    private val `meal_together` = listOf(
+        "难得聚在一起的时光",
+        "这桌人,都是重要的人",
+        "一起吃饭的日子,越来越珍贵",
+        "能坐在一起,就是幸福",
+        "那顿饭,吃的是陪伴",
+        "这些人,这些笑声,我都记得",
+        "好久不见,一起吃顿饭吧",
+        "围坐一桌的温暖,忘不了",
+        "和你们在一起的时候,最放松",
+        "这一桌,装满了回忆"
+    )
+
+    // 手机截图
+    private val `doc_screenshot` = listOf(
+        "当时觉得挺重要的",
+        "存下来的那一刻,有原因的",
+        "有些信息,怕忘记就截了",
+        "那时候发生了点什么",
+        "手机里的碎片记忆",
+        "这张图,记录了某个瞬间",
+        "当时为什么截图,现在想不起来了",
+        "数字生活的痕迹之一",
+        "这些截图,都是故事",
+        "那个需要记住的时刻"
+    )
+
+    // 收据/账单
+    private val `doc_receipt` = listOf(
+        "每一笔花销,都是生活过的证明",
+        "那次买的东西,还记得吗",
+        "这张小票,见证了当时的选择",
+        "钱花哪了,这里都有答案",
+        "那天为了什么,花了这么多",
+        "账单背后,都是真实的日子",
+        "这些数字,记录着怎么活过来的",
+        "报销的时候翻到的回忆",
+        "存小票的习惯,留住了时光",
+        "每一张都是认真生活的证据"
+    )
+
+    // 工作/白板
+    private val `doc_work` = listOf(
+        "那天开会好像讨论了很久",
+        "当时觉得这个想法还不错",
+        "有些思路现在都记不清了",
+        "那段时间挺忙的吧",
+        "会议室的白板承载了不少",
+        "这页PPT改了好多遍吧",
+        "工作的痕迹也值得留着",
+        "那天大家一起想出来的",
+        "当时的你也挺拼的",
+        "这些想法后来用上了吗"
+    )
+
+    // 菜单
+    private val `doc_menu` = listOf(
+        "看着就饿了",
+        "当时纠结了好久吧",
+        "选择困难症又犯了",
+        "这家后来去了吗",
+        "美食总要认真对待",
+        "拍下来就不怕忘记了",
+        "那顿饭应该挺好吃",
+        "发给朋友一起研究",
+        "点菜也是个技术活",
+        "好想再去吃一次"
+    )
+
+    // 证件/文件
+    private val `doc_official` = listOf(
+        "这些东西总在关键时候要用",
+        "当时应该挺急的",
+        "重要的事情拍下来安心",
+        "有些证件真的很重要",
+        "那段时间在忙这个吧",
+        "拍下来以防万一",
+        "这种时候手机真方便",
+        "办事的时候总要准备齐全",
+        "当时肯定顾不上整理",
+        "这些记录也是生活的一部分"
+    )
+
+    // 书/文章
+    private val `doc_reading` = listOf(
+        "那段话当时真的有触动",
+        "存下来总觉得会再看",
+        "这些文字懂你那时的心情",
+        "有些东西值得慢慢消化",
+        "想法太多来不及记",
+        "当时看到这里停下来了",
+        "这本书陪你走过一段路",
+        "有共鸣的句子总要留下",
+        "那天读到这里心里一动",
+        "文字有时候真的很治愈"
+    )
+
+    // 蓝天/白云
+    private val `sky_blue` = listOf(
+        "那天心情不错吧",
+        "抬头就看见了这片天空",
+        "天空也在陪着你",
+        "让人心情好",
+        "随手一拍都是美好",
+        "那天的天气真好啊",
+        "蓝天白云治愈一切",
+        "窗外的景色也值得留念",
+        "那一刻觉得世界真好",
+        "简简单单的美好"
+    )
+
+    // 日落/晚霞
+    private val `sky_sunset` = listOf(
+        "那天的晚霞真的很美",
+        "一个人看日落也挺好",
+        "那时候舍不得走吧",
+        "天空的颜色记住那一天",
+        "晚霞会记得你的心情",
+        "那个傍晚特别温柔",
+        "这种颜色看一次少一次",
+        "站在那里看了好久吧",
+        "日落的时候总会想些什么",
+        "那天的云染上了温柔"
+    )
+
+    // 极光/彩虹
+    private val `sky_special` = listOf(
+        "这辈子能看到真幸运",
+        "那一刻的震撼说不出来",
+        "专门等的果然没白等",
+        "有些美景可遇不可求",
+        "当时激动坏了吧",
+        "这种时刻值得被记住",
+        "大自然的礼物收到了",
+        "那天真的太特别了",
+        "这画面估计忘不掉",
+        "见证了难得的瞬间"
+    )
+
+    // 乌云/闪电/雾
+    private val `sky_drama` = listOf(
+        "这天气有种说不出的感觉",
+        "压抑但又莫名好看",
+        "那天的心情也有点复杂吧",
+        "暴风雨前的宁静",
+        "这种天空有种力量感",
+        "当时的心情应该也不平静",
+        "乌云也有它的美",
+        "那天的氛围很特别",
+        "这种天气配什么心情都行",
+        "压抑的美也是美"
+    )
+
+    // 山/峰/悬崖
+    private val `nature_mountain` = listOf(
+        "爬上去的感觉还记得吗",
+        "那时候累但值得",
+        "站在山顶的风吹过来",
+        "那一刻觉得自己还挺厉害",
+        "山会记得你来过",
+        "当时的你真的很棒",
+        "这段路不好走但走过了",
+        "山顶的风景是给坚持的人",
+        "那天的疲惫也变成了回忆",
+        "征服一座山的感觉真好"
+    )
+
+    // 海滩/海边
+    private val `nature_beach` = listOf(
+        "海浪声还记得吗",
+        "那时候就想一直待着",
+        "海边的风很温柔吧",
+        "踩在沙滩上的感觉真好",
+        "大海包容了很多情绪",
+        "那天在海边什么都没想",
+        "海会记得你来过",
+        "浪花一遍遍冲刷着沙滩",
+        "海边的时光总是慢一点",
+        "那个下午只属于你和海"
+    )
+
+    // 森林/田野
+    private val `nature_forest` = listOf(
+        "那天好像什么都不用想",
+        "绿色真的能让人放松",
+        "一个人走走也挺好的",
+        "那会儿心里安静了好久",
+        "想起来就觉得治愈",
+        "还挺想再去一次的",
+        "没人的地方最自在",
+        "那片绿色好像还记得",
+        "散步遇到的小确幸",
+        "那天的风都是温柔的"
+    )
+
+    // 河流/瀑布
+    private val `nature_water` = listOf(
+        "就站在那里听了很久",
+        "流动的水声很催眠",
+        "发呆也是一种休息",
+        "那种安静现在还想要",
+        "脑子空了好一会儿",
+        "水流走了很多烦心事",
+        "那天真的放空了",
+        "听着水声什么都不想",
+        "时间好像慢下来了",
+        "那会儿心里特别平静"
+    )
+
+    // 沙漠/荒原/冰川
+    private val `nature_desert` = listOf(
+        "那趟路真的值得",
+        "空旷到能听见自己呼吸",
+        "好远才到的地方",
+        "和日常生活完全不一样",
+        "那种辽阔看一次就够了",
+        "世界原来可以这么大",
+        "站在那里觉得人好小",
+        "去了一次记一辈子",
+        "那片空旷还印在脑子里",
+        "和平时的世界不太一样"
+    )
+
+    // 日常自拍
+    private val `selfie_normal` = listOf(
+        "那天下午随手拍的",
+        "也不知道为什么留着",
+        "就是某个普通的日子",
+        "现在看看还挺有意思",
+        "那时候的自己还挺可爱",
+        "某天的某个瞬间",
+        "也没什么特别就是想拍",
+        "那个下午的光线刚好",
+        "普通的一天也值得记录",
+        "那会儿的状态还不错"
+    )
+
+    // 开心在笑
+    private val `selfie_happy` = listOf(
+        "那天是真的开心",
+        "笑起来就忍不住拍了",
+        "现在看还能想起那种开心",
+        "那个瞬间真的很快乐",
+        "开心到藏不住",
+        "那天的笑是真心的",
+        "好久没这么开心过了",
+        "快乐会写在脸上的",
+        "那种开心现在还记得",
+        "笑得眼睛都弯了"
+    )
+
+    // 特写/细节
+    private val `selfie_closeup` = listOf(
+        "那天试了新口红",
+        "换发型的纪念",
+        "想记住这个细节",
+        "那会儿对自己还挺满意",
+        "小小的改变也想留下",
+        "那个细节当时很在意",
+        "换个造型换个心情",
+        "记录一下新的自己",
+        "那天觉得自己还挺好看",
+        "这个变化想记住"
+    )
+
+    // 健身/锻炼
+    private val `selfie_fitness` = listOf(
+        "那段时间真的很自律",
+        "努力过的样子",
+        "那会儿坚持了好久",
+        "打卡的日子也挺充实",
+        "那时候对自己还挺狠的",
+        "汗水都是值得的",
+        "自律起来还挺厉害",
+        "那段时间的自己很棒",
+        "努力的样子值得记录",
+        "那会儿的状态真好"
+    )
+
+    // 聚会/派对
+    private val `social_party` = listOf(
+        "那晚大家都在真好",
+        "后来就没怎么聚了",
+        "那个夜晚很开心",
+        "现在想起来还是暖的",
+        "那时候总能聚在一起",
+        "那晚的氛围刚刚好",
+        "后来就各奔东西了",
+        "那种热闹现在挺想念",
+        "大家都在的日子",
+        "那晚笑了一整夜"
+    )
+
+    // 集体照
+    private val `social_group` = listOf(
+        "现在还联系的有几个呢",
+        "那时候总在一起",
+        "某个组织的回忆",
+        "后来大家都散了",
+        "那段时光挺特别的",
+        "一起做过很多事",
+        "那会儿关系都很近",
+        "某次活动的纪念",
+        "那些人那些事都还记得",
+        "后来就渐行渐远了"
+    )
+
+    // 毕业/典礼
+    private val `social_milestone` = listOf(
+        "那时候大家都还年轻",
+        "某个节点的定格",
+        "毕业那天说了很多再见",
+        "那是个结束也是开始",
+        "青春定格在那一刻",
+        "那天以后就不一样了",
+        "重要时刻的见证",
+        "那个瞬间改变了很多",
+        "后来就各自出发了",
+        "那天的自己还什么都不知道"
+    )
+
+    // 婚礼
+    private val `social_wedding` = listOf(
+        "那天真的好感动啊",
+        "见证幸福的时刻",
+        "这场面,一辈子就一次",
+        "当时眼眶都湿了",
+        "能参加真的很幸运",
+        "盛大的日子,值得纪念",
+        "看着他们就想起自己",
+        "这么隆重,必须拍下来",
+        "那种氛围,现在还记得",
+        "原来幸福长这样"
+    )
+
+    // 家人
+    private val `social_family` = listOf(
+        "现在看看,好珍贵",
+        "和家人的照片总是太少",
+        "那时候还不懂珍惜",
+        "这张必须好好留着",
+        "家人在一起就是好",
+        "难得拍一张全家福",
+        "看着看着就想家了",
+        "这一刻很平常也很珍贵",
+        "当时觉得普通,现在很想念",
+        "有他们在就安心"
+    )
+
+    // 猫
+    private val `pet_cat` = listOf(
+        "这傻样儿太可爱了",
+        "睡成这样也是没谁了",
+        "突然看过来的眼神",
+        "每次看都想笑",
+        "这小表情绝了",
+        "睡着了还是那么萌",
+        "猫就是这么治愈",
+        "傻乎乎的样子爱了",
+        "那个瞬间抓拍到了",
+        "看我干嘛,继续睡啊"
+    )
+
+    // 狗
+    private val `pet_dog` = listOf(
+        "这眼神,懂的都懂",
+        "摇尾巴的样子太暖了",
+        "一直陪在身边的小家伙",
+        "看着我的眼神好纯粹",
+        "有它在就不孤单",
+        "这个表情太治愈了",
+        "狗狗的快乐就是这么简单",
+        "它总是最懂我的",
+        "那个瞬间心都化了",
+        "陪我的日子都记得"
+    )
+
+    // 小动物
+    private val `pet_small` = listOf(
+        "小小的,软软的",
+        "照顾它的日子好温柔",
+        "这么小一只,好心疼",
+        "每天看它就很治愈",
+        "养它的时光很美好",
+        "小家伙给的陪伴",
+        "那么软那么乖",
+        "看着它就觉得岁月静好",
+        "照顾它也是被治愈",
+        "小小的存在,大大的温暖"
+    )
+
+    // 大动物/马
+    private val `pet_large` = listOf(
+        "第一次离这么近,震撼",
+        "那种力量感太真实了",
+        "平时真的见不到",
+        "站在旁边都觉得壮观",
+        "难得的体验,必须记录",
+        "比想象中还要震撼",
+        "这画面太难忘了",
+        "近距离看真的不一样",
+        "那种感觉说不出来",
+        "终于见到真的了"
+    )
+
+    // 野生动物/昆虫
+    private val `pet_wild` = listOf(
+        "路上突然遇到的",
+        "意外发现的小惊喜",
+        "没想到能碰见",
+        "动物园那天还挺有趣",
+        "偶遇也是种缘分",
+        "这也能被我拍到",
+        "野生的就是不一样",
+        "看到的瞬间很兴奋",
+        "大自然的小礼物",
+        "这一幕可遇不可求"
+    )
+
+    // 其他动物
+    private val `pet_other` = listOf(
+        "遇到了就随手拍了",
+        "这小家伙挺可爱",
+        "看到它突然就想拍",
+        "日常遇见的小美好",
+        "慢悠悠的样子好治愈",
+        "路过看到的小生灵",
+        "它也是生活的一部分",
+        "这个瞬间值得记录",
+        "平常的一天,不平常的遇见",
+        "看着它就觉得世界很可爱"
+    )
+
+    // 跑步
+    private val `sport_run` = listOf(
+        "那个清晨的风还记得",
+        "坚持下来的自己真棒",
+        "又是打卡的一天",
+        "每次跑完都很爽",
+        "这些天数是自己的勋章",
+        "早起跑步的人懂",
+        "那天状态特别好",
+        "一个人的清晨时光",
+        "为坚持的自己点赞",
+        "跑着跑着就习惯了"
+    )
+
+    // 水上运动
+    private val `sport_water` = listOf(
+        "第一次冲浪,太刺激了",
+        "水下的世界好安静",
+        "浮潜看到的太美了",
+        "在水里的感觉很自由",
+        "那种宁静很难得",
+        "水里的世界是另一个宇宙",
+        "第一次尝试,很难忘",
+        "水下的安静让人放空",
+        "看到的景色值得了",
+        "在海里的那刻什么都忘了"
+    )
+
+    // 雪地运动
+    private val `sport_snow` = listOf(
+        "第一次摔,现在想起来还笑",
+        "那天风好大,你还是上去了",
+        "雪地里摔了多少次来着",
+        "山顶那会儿冷得要命",
+        "现在看还觉得腿软",
+        "那天的勇气,现在还记得",
+        "摔完站起来的样子真帅",
+        "风吹得脸疼,心里挺爽的",
+        "第一次滑下来的感觉忘不了",
+        "那个冬天,你很勇敢"
+    )
+
+    // 街头运动
+    private val `sport_street` = listOf(
+        "那时候真敢骑",
+        "城市是你的游乐场",
+        "风从耳边吹过的感觉",
+        "那段路你闭着眼都能过",
+        "穿过人群的瞬间好爽",
+        "那会儿觉得自己无敌",
+        "在自己的城市里飞",
+        "每条街都有你的印记",
+        "骑累了就停下看看天",
+        "那个转弯你练了好久"
+    )
+
+    // 团队运动
+    private val `sport_team` = listOf(
+        "那球传得真漂亮",
+        "输赢不重要,在一起就好",
+        "你们配合得真默契",
+        "那次进球大家都疯了",
+        "场上的队友,场下的兄弟",
+        "累成狗也开心",
+        "那场比赛你们拼了命",
+        "一起流的汗都没白费",
+        "有你们在,什么都不怕",
+        "赢了一起疯,输了一起扛"
+    )
+
+    // 健身/训练
+    private val `sport_gym` = listOf(
+        "那段时间你真的很拼",
+        "镜子里的自己在发光",
+        "一点点变强的感觉",
+        "汗水不会骗人",
+        "那时候对自己挺狠的",
+        "看着自己一天天改变",
+        "累到不行也没放弃",
+        "那个时期的你,真酷",
+        "镜子记得你的努力",
+        "每滴汗都算数"
+    )
+
+    // 户外运动
+    private val `sport_outdoor` = listOf(
+        "原来你还有这一面",
+        "那天好像换了个人",
+        "和平时完全不一样",
+        "大自然让你变了样",
+        "那个瞬间你活过来了",
+        "看着你玩得那么开心",
+        "原来你可以这么野",
+        "那天的你,最像自己",
+        "在那里,你是真的自由",
+        "忘了时间忘了烦恼"
+    )
+
+    // 竞技/赛事
+    private val `sport_race` = listOf(
+        "紧张到手心出汗",
+        "那个瞬间,全世界都在看",
+        "不管结果,你都很棒",
+        "站在那里的感觉忘不了",
+        "那天你超越了自己",
+        "输赢都是你的故事",
+        "赛场上的你,闪闪发光",
+        "那个时刻,你拼尽全力",
+        "结果怎样都值得记住",
+        "为那个瞬间准备了那么久"
+    )
+
+    // 旅行途中
+    private val `travel_general` = listOf(
+        "那天下午你在想什么",
+        "在路上的感觉真好",
+        "那座城市还记得你",
+        "慢慢走,不用赶",
+        "某个街角的某个瞬间",
+        "一个人在路上也挺好",
+        "那天的风,那天的你",
+        "走着走着就到了这里",
+        "旅途中总有这样的时刻",
+        "那个下午,时间慢下来了"
+    )
+
+    // 博物馆/宗教建筑
+    private val `travel_culture` = listOf(
+        "那天你特别安静",
+        "走得很慢,看得很久",
+        "感受到了什么说不出的东西",
+        "和平时的自己不太一样",
+        "那里让你静下来了",
+        "一个人慢慢看的感觉",
+        "那种氛围很特别",
+        "像是和历史对话",
+        "心突然就安静下来",
+        "原来你也喜欢这样的地方"
+    )
+
+    // 地标/建筑
+    private val `travel_landmark` = listOf(
+        "人山人海也要拍一张",
+        "终于站到这里了",
+        "虽然人多,还是值得",
+        "打卡也是一种仪式感",
+        "站在那里的瞬间还记得",
+        "人再多也挡不住你的开心",
+        "终于来了,不虚此行",
+        "挤也要挤进去看一眼",
+        "那个地方,你心心念念很久",
+        "照片拍糊了,心情没糊"
+    )
+
+    // 游乐场/嘉年华
+    private val `travel_fun` = listOf(
+        "笑得像个小孩",
+        "好久没这么开心了",
+        "那天你玩疯了",
+        "什么烦恼都忘了",
+        "原来你还能这么放得开",
+        "尖叫声都是快乐",
+        "那种快乐好久没体会了",
+        "像回到小时候一样",
+        "玩得头发都乱了",
+        "开心到忘了形象"
+    )
+
+    // 公园/码头
+    private val `travel_park` = listOf(
+        "有些时候就想坐一会儿",
+        "不赶时间的感觉真好",
+        "发呆也是在生活啊",
+        "那天风很舒服吧",
+        "走走停停也挺治愈",
+        "偶尔需要这样的下午",
+        "慢下来的时候想了很多",
+        "就这样坐着什么都不想",
+        "那会儿心里挺平静的",
+        "散步的人都不着急"
+    )
+
+    // 演唱会/演出
+    private val `night_concert` = listOf(
+        "唱到那首歌眼眶湿了",
+        "人群里哭也没人看见",
+        "终于听到现场版了",
+        "那一刻什么都值得",
+        "跟着唱出来就不难过了",
+        "好久没这么开心过",
+        "回家路上还在回味",
+        "现场的感觉真的不一样",
+        "那晚好像做了场梦",
+        "和很多人一起喊出来"
+    )
+
+    // 酒吧/夜店
+    private val `night_club` = listOf(
+        "那晚玩得挺疯的",
+        "后来想起来还会笑",
+        "嘈杂里反而放松了",
+        "有些夜晚就该这样",
+        "难得放纵一次自己",
+        "音乐一响什么都忘了",
+        "那群人那个夜晚",
+        "喝多了但很开心",
+        "乱七八糟也挺好的",
+        "偶尔需要释放一下"
+    )
+
+    // 烟花
+    private val `night_fireworks` = listOf(
+        "亮了一下就没了",
+        "那年跨年的烟花",
+        "抬头看的时候许了愿",
+        "好看但有点伤感",
+        "转瞬即逝的美好",
+        "身边那个人还在吗",
+        "那一刻很想留住",
+        "烟花散了人也散了",
+        "绚烂过后回归平静",
+        "值得抬头看一次"
+    )
+
+    // 夜晚街头/霓虹
+    private val `night_street` = listOf(
+        "一个人走夜路的时候",
+        "城市的光很温柔",
+        "夜晚适合想心事",
+        "霓虹下都是故事",
+        "那条街走了好多次",
+        "有点孤独但也自由",
+        "夜色里什么都模糊了",
+        "这个城市还醒着",
+        "一个人的深夜散步",
+        "路灯知道你的心事"
+    )
+
+    // 卧室
+    private val `home_bedroom` = listOf(
+        "那天早上阳光很好",
+        "躺着刷手机的时光",
+        "睡前想了很多事",
+        "这是我的小世界",
+        "床上最放松了",
+        "窝在被子里的安全感",
+        "某个周末的慵懒",
+        "卧室知道所有秘密",
+        "一个人的时候最真实",
+        "这里可以不用伪装"
+    )
+
+    // 厨房
+    private val `home_kitchen` = listOf(
+        "那天心血来潮做了饭",
+        "烟火气最治愈人",
+        "做给自己吃也开心",
+        "厨房里的小确幸",
+        "手忙脚乱但挺有趣",
+        "那顿饭吃得很满足",
+        "生活需要点仪式感",
+        "做饭的时候在想你",
+        "油烟味里是家的感觉",
+        "自己动手真的不一样"
+    )
+
+    // 浴室
+    private val `home_bathroom` = listOf(
+        "镜子里的自己还好吗",
+        "洗漱间隙发了会呆",
+        "那天状态不太好",
+        "对着镜子笑了一下",
+        "卸妆后的真实样子",
+        "浴室里想通了很多事",
+        "冲澡的时候哭了",
+        "热水冲走了疲惫",
+        "镜子不会说谎",
+        "一个人对自己诚实"
+    )
+
+    // 房间/客厅
+    private val `home_room` = listOf(
+        "那天下午光线正好",
+        "宅着也是种幸福",
+        "这个家慢慢有样子了",
+        "阳光洒进来很温暖",
+        "窝在沙发上的周末",
+        "这就是想要的生活",
+        "客厅见证了很多时刻",
+        "一个人住的小日子",
+        "光影变化里度过一天",
+        "属于自己的小天地"
+    )
+
+    // 家里的东西
+    private val `home_stuff` = listOf(
+        "冰箱装满了就安心",
+        "这些东西都是精心挑的",
+        "某个角落藏着小心思",
+        "这些物件陪了很久",
+        "看到就想起买它的那天",
+        "生活藏在这些细节里",
+        "慢慢把房子变成家",
+        "每样东西都有故事",
+        "这些是生活的证据",
+        "添置新物的小快乐"
+    )
+        // 游乐/公园活动
+    private val `outdoor_play` = listOf(
+        "那个周末，你真的放松了",
+        "偶尔做回小孩，挺好的",
+        "难得这么松弛的一天",
+        "那天玩得像个孩子",
+        "这种放空的时候太少了",
+        "你需要的就是这样的周末",
+        "那天的你，眼里有光",
+        "偶尔放肆一下，真爽",
+        "这才是周末该有的样子",
+        "难得这么无所事事"
+    )
+
+    // 工位/电脑
+    private val `work_desk` = listOf(
+        "那段时间，真的辛苦了",
+        "熬过来了，不容易",
+        "那阵子忙得天昏地暗",
+        "你比自己想的更能扛",
+        "每个深夜都算数",
+        "那时的拼命，现在想起来",
+        "加班的日子，也是在发光",
+        "撑下来了，挺厉害的",
+        "那段忙碌，是你的勋章",
+        "工位见证了你的努力"
+    )
+
+    // 学校/课堂
+    private val `work_study` = listOf(
+        "教室的光，还记得吗",
+        "那时候的烦恼，现在想想",
+        "上学的日子，回不去了",
+        "那节课的自己，好青涩",
+        "教室里的时光，慢慢的",
+        "那时候不懂珍惜",
+        "课桌上的阳光还在",
+        "学生时代，真的回不去了",
+        "那个教室，装着你的青春",
+        "那时的你，还不知道以后"
+    )
+
+    // 工地/厂房
+    private val `work_site` = listOf(
+        "那次经历，挺特别的",
+        "平时看不到的世界",
+        "那天的见闻，印象深刻",
+        "不一样的场景，不一样的感受",
+        "那次参观，开了眼界",
+        "那段经历，很难忘",
+        "走进了不同的世界",
+        "那天看到的，还记得清楚",
+        "这种体验不多",
+        "换个场景，换种心情"
+    )
+
+    // 睡眠/休息
+    private val `life_sleep` = listOf(
+        "那个早晨，真的不想起",
+        "难得赖床的时光",
+        "慵懒的早晨，最治愈",
+        "那天睡到自然醒",
+        "这种放松，太奢侈了",
+        "补觉的幸福感",
+        "难得睡个够",
+        "那个早晨，属于你自己",
+        "没睡够的日子太多了",
+        "这才是休息日该有的样子"
+    )
+
+    // 阅读/安静时光
+    private val `life_quiet` = listOf(
+        "一个人的时光，很珍贵",
+        "那本书，那段安静",
+        "难得这么静下来",
+        "独处的时候，最像自己",
+        "那个安静的角落",
+        "一个人待着，也挺好",
+        "这种安静，太难得了",
+        "那段时光，只属于你",
+        "静静待着的感觉",
+        "这种安静，很治愈"
+    )
+
+    // 做饭/烹饪
+    private val `life_cooking` = listOf(
+        "那天的饭，有你的味道",
+        "烟火气，是生活的底色",
+        "自己做的，就是香",
+        "下厨的时候，很踏实",
+        "那道菜，做得还不错",
+        "锅碗瓢盆里的幸福",
+        "认真生活的样子",
+        "做饭的时候，最有烟火气",
+        "那顿饭，用心了",
+        "厨房里的时光，温暖的"
+    )
+
+    // 购物
+    private val `life_shopping` = listOf(
+        "那天逛了好久",
+        "挑来挑去的过程",
+        "买的时候很爽",
+        "那次血拼，过瘾",
+        "逛街的快乐，简单纯粹",
+        "纠结了半天的战利品",
+        "那天的购物欲",
+        "买完就后悔，但也值了",
+        "逛街治愈一切不开心",
+        "那些袋子，装着小确幸"
+    )
+
+    // 模糊/失焦
+    private val `blurry` = listOf(
+        "笑得太开心，糊了",
+        "那个瞬间，来不及对焦",
+        "当时太激动了",
+        "抓拍的都是真实",
+        "糊了，但情绪在",
+        "那一刻，顾不上清晰",
+        "模糊的照片,清晰的回忆",
+        "笑得太用力,画面都晃了",
+        "慌乱中按下的快门",
+        "糊掉的,是最真实的瞬间"
+    )
+
+    // 过曝
+    private val `overexposed` = listOf(
+        "那天阳光太好了",
+        "亮得晃眼的幸福",
+        "光太强,心情也太好",
+        "海边的正午,刺眼的快乐",
+        "过曝的画面,满溢的心情",
+        "那天的阳光,记忆里还亮着",
+        "太开心了,连光都溢出来",
+        "曝光过度,但快乐刚好",
+        "在很亮的地方,心情也很亮",
+        "那束光,是当时的心情"
+    )
+
+    // 欠曝/太暗
+    private val `underexposed` = listOf(
+        "黑漆漆的,但你还是按下快门了",
+        "那晚的光不够,心情也是",
+        "深夜的事,总是说不太清",
+        "暗着的,可能更接近真实",
+        "有些时刻,就适合这样暗着",
+        "夜里的你,也不知道在想什么",
+        "拍糊了,但那个瞬间是真的",
+        "黑暗里也有想记住的东西",
+        "这张暗的,反而记得最清楚",
+        "光线不好,可那一刻很重要"
+    )
+
+    // 连拍重复
+    private val `duplicate` = listOf(
+        "连按了好几下,怕它跑掉",
+        "那瞬间太好,一张不够",
+        "激动的时候手就停不下来",
+        "怕拍虚了,多拍几张总没错",
+        "想留住的东西,总是多拍几张",
+        "这一刻值得反复确认",
+        "舍不得,所以按了好多次",
+        "怕错过,就多按了几下",
+        "重要的时刻,一张怎么够",
+        "那时候真的很想留住什么"
+    )
+
+    // 文件极小/误存
+    private val `tiny_file` = listOf(
+        "这图不知道从哪来的",
+        "模糊的,但你还是存了",
+        "当时转发的,现在还在",
+        "小小一张,也是回忆的碎片",
+        "说不清为什么存,但就是存了",
+        "误存的也是那天的一部分",
+        "这张小图,也陪你到了现在",
+        "糊成这样,你还留着呢",
+        "不知道啥时候存的,但它在",
+        "一个小小的表情,一段旧时光"
+    )
+
+    // 兜底（通用）
+    private val `fallback` = listOf(
+        "这一张,只有你懂",
+        "时间过去了,照片还在",
+        "那天的事,现在想起来还是会笑",
+        "平平常常的一天,却特别想留住",
+        "有些照片,不用解释",
+        "这一刻,现在看还是会有感觉",
+        "说不出什么特别,但就是忘不掉",
+        "你的故事,都藏在这些照片里",
+        "时间在走,这些瞬间还陪着你",
+        "每一张,都是你真实活过的证明"
+    )
+
+    /**
+     * @param labels   MLKit ImageLabel.text 列表
+     * @param extraTag "blurry"|"overexposed"|"underexposed"|"duplicate"|"tiny_file"
+     */
+    fun get(labels: List<String>, extraTag: String? = null): String {
+        extraTag?.let {
+            val list = when (it) {
+                "blurry" -> `blurry`
+                "overexposed" -> `overexposed`
+                "underexposed" -> `underexposed`
+                "duplicate" -> `duplicate`
+                "tiny_file" -> `tiny_file`
+                else -> null
+            }
+            if (list != null) return list.random()
+        }
+        for (label in labels) {
+            val list = when (labelToGroup[label]) {
+                "food_general" -> `food_general`
+                "food_fastfood" -> `food_fastfood`
+                "food_fancy" -> `food_fancy`
+                "food_sweets" -> `food_sweets`
+                "drink_coffee" -> `drink_coffee`
+                "drink_alcohol" -> `drink_alcohol`
+                "drink_soft" -> `drink_soft`
+                "meal_together" -> `meal_together`
+                "doc_screenshot" -> `doc_screenshot`
+                "doc_receipt" -> `doc_receipt`
+                "doc_work" -> `doc_work`
+                "doc_menu" -> `doc_menu`
+                "doc_official" -> `doc_official`
+                "doc_reading" -> `doc_reading`
+                "sky_blue" -> `sky_blue`
+                "sky_sunset" -> `sky_sunset`
+                "sky_special" -> `sky_special`
+                "sky_drama" -> `sky_drama`
+                "nature_mountain" -> `nature_mountain`
+                "nature_beach" -> `nature_beach`
+                "nature_forest" -> `nature_forest`
+                "nature_water" -> `nature_water`
+                "nature_desert" -> `nature_desert`
+                "selfie_normal" -> `selfie_normal`
+                "selfie_happy" -> `selfie_happy`
+                "selfie_closeup" -> `selfie_closeup`
+                "selfie_fitness" -> `selfie_fitness`
+                "social_party" -> `social_party`
+                "social_group" -> `social_group`
+                "social_milestone" -> `social_milestone`
+                "social_wedding" -> `social_wedding`
+                "social_family" -> `social_family`
+                "pet_cat" -> `pet_cat`
+                "pet_dog" -> `pet_dog`
+                "pet_small" -> `pet_small`
+                "pet_large" -> `pet_large`
+                "pet_wild" -> `pet_wild`
+                "pet_other" -> `pet_other`
+                "sport_run" -> `sport_run`
+                "sport_water" -> `sport_water`
+                "sport_snow" -> `sport_snow`
+                "sport_street" -> `sport_street`
+                "sport_team" -> `sport_team`
+                "sport_gym" -> `sport_gym`
+                "sport_outdoor" -> `sport_outdoor`
+                "sport_race" -> `sport_race`
+                "travel_general" -> `travel_general`
+                "travel_culture" -> `travel_culture`
+                "travel_landmark" -> `travel_landmark`
+                "travel_fun" -> `travel_fun`
+                "travel_park" -> `travel_park`
+                "night_concert" -> `night_concert`
+                "night_club" -> `night_club`
+                "night_fireworks" -> `night_fireworks`
+                "night_street" -> `night_street`
+                "home_bedroom" -> `home_bedroom`
+                "home_kitchen" -> `home_kitchen`
+                "home_bathroom" -> `home_bathroom`
+                "home_room" -> `home_room`
+                "home_stuff" -> `home_stuff`
+                "transport_air" -> `transport_air`
+                "transport_road" -> `transport_road`
+                "transport_water" -> `transport_water`
+                "transport_special" -> `transport_special`
+                "fashion_clothes" -> `fashion_clothes`
+                "fashion_shoes" -> `fashion_shoes`
+                "fashion_bag" -> `fashion_bag`
+                "fashion_accessories" -> `fashion_accessories`
+                "fashion_jewelry" -> `fashion_jewelry`
+                "fashion_beauty" -> `fashion_beauty`
+                "festival_birthday" -> `festival_birthday`
+                "festival_winter" -> `festival_winter`
+                "festival_general" -> `festival_general`
+                "music_instrument" -> `music_instrument`
+                "music_performance" -> `music_performance`
+                "music_dance" -> `music_dance`
+                "art_viewing" -> `art_viewing`
+                "art_making" -> `art_making`
+                "outdoor_camping" -> `outdoor_camping`
+                "outdoor_picnic" -> `outdoor_picnic`
+                "outdoor_play" -> `outdoor_play`
+                "work_desk" -> `work_desk`
+                "work_study" -> `work_study`
+                "work_site" -> `work_site`
+                "life_sleep" -> `life_sleep`
+                "life_quiet" -> `life_quiet`
+                "life_cooking" -> `life_cooking`
+                "life_shopping" -> `life_shopping`
+                else -> null
+            }
+            if (list != null) return list.random()
+        }
+        return `fallback`.random()
+    }
+}

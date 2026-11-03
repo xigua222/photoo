@@ -1,0 +1,119 @@
+{
+ "swatches_d": [
+  {
+    "name": "Nile Blue",
+    "cmyk": [ 25, 0, 10, 0 ],
+    "combinations": [ 25, 250, 268, 302, 306, 330, 345 ]
+  },
+  {
+    "name": "Pale King's Blue",
+    "cmyk": [ 33, 4, 7, 0 ],
+    "combinations": [ 16, 49, 72, 75, 167, 196, 213, 234, 287 ]
+  },
+  {
+    "name": "Light Glaucous Blue",
+    "cmyk": [ 35, 10, 14, 0 ],
+    "combinations": [ 54, 93, 119, 152, 178, 204, 227, 320, 339, 341 ]
+  },
+  {
+    "name": "Salvia Blue",
+    "cmyk": [ 41, 25, 10, 0 ],
+    "combinations": [ 29, 129, 135, 139, 142, 188, 209, 212, 237, 272, 294, 321, 330 ]
+  },
+  {
+    "name": "Cobalt Green",
+    "cmyk": [ 42, 0, 42, 0 ],
+    "combinations": [ 156, 188, 201, 202, 230, 271, 281, 282, 290, 291, 308, 333 ]
+  },
+  {
+    "name": "Calamine BLue",
+    "cmyk": [ 50, 0, 20, 0 ],
+    "combinations": [ 20, 41, 65, 159, 176, 255, 261, 287, 291, 300 ]
+  },
+  {
+    "name": "Venice Green",
+    "cmyk": [ 58, 0, 30, 0 ],
+    "combinations": [ 78, 128, 138, 189, 283, 345 ]
+  },
+  {
+    "name": "Cerulian Blue",
+    "cmyk": [ 84, 26, 32, 0 ],
+    "combinations": [ 1, 63, 99, 125, 148, 227, 240, 264 ]
+  },
+  {
+    "name": "Peacock Blue",
+    "cmyk": [ 100, 19, 43, 0 ],
+    "combinations": [ 131, 286 ]
+  },
+  {
+    "name": "Green Blue",
+    "cmyk": [ 82, 24, 40, 3 ],
+    "combinations": [ 12, 74, 79, 178, 208, 252, 259, 271, 330 ]
+  },
+  {
+    "name": "Olympic Blue",
+    "cmyk": [ 69, 44, 10, 0 ],
+    "combinations": [ 44, 67, 157, 194, 231, 274, 324 ]
+  },
+  {
+    "name": "Blue",
+    "cmyk": [ 95, 54, 0, 0 ],
+    "combinations": [ 49, 51, 88, 143, 154, 186, 191, 215, 257, 267, 295, 333 ]
+  },
+  {
+    "name": "Antwarp Blue",
+    "cmyk": [ 100, 40, 30, 10 ],
+    "combinations": [ 85, 106, 114, 140, 163, 172, 208, 244, 258, 281, 299, 302, 334 ]
+  },
+  {
+    "name": "Helvetia Blue",
+    "cmyk": [ 100, 62, 19, 10 ],
+    "combinations": [ 39, 48, 161, 187, 218, 259, 312, 347 ]
+  },
+  {
+    "name": "Dark Medici Blue",
+    "cmyk": [ 70, 45, 45, 15 ],
+    "combinations": [ 160, 224, 241, 249 ]
+  },
+  {
+    "name": "Dusky Green",
+    "cmyk": [ 100, 30, 64, 50 ],
+    "combinations": [ 94, 219, 225, 278, 284, 318, 332, 338 ]
+  },
+  {
+    "name": "Deep Lyons Blue",
+    "cmyk": [ 100, 85, 15, 6 ],
+    "combinations": [ 22, 38, 101, 126, 179, 199, 236, 247, 314, 344 ]
+  },
+  {
+    "name": "Violet Blue",
+    "cmyk": [ 85, 79, 38, 16 ],
+    "combinations": [ 75, 83, 89, 98, 125, 233, 286, 289, 297, 309, 339 ]
+  },
+  {
+    "name": "Vandar Poel's Blue",
+    "cmyk": [ 100, 73, 43, 10 ],
+    "combinations": [ 5, 77, 151, 167, 168, 309, 343 ]
+  },
+  {
+    "name": "Dark Tyrian Blue",
+    "cmyk": [ 90, 66, 36, 50 ],
+    "combinations": [ 2, 60, 67, 119, 141, 245, 279 ]
+  },
+  {
+    "name": "Dull Violet Black",
+    "cmyk": [ 95, 106, 38, 50 ],
+    "combinations": [ 95, 106, 145, 265, 277, 289, 295, 331 ]
+  },
+  {
+    "name": "Deep Indigo",
+    "cmyk": [ 100, 92, 52, 60 ],
+    "combinations": [ 6, 28, 139, 155, 182, 211, 232 ]
+  },
+  {
+    "name": "Deep Slate Green",
+    "cmyk": [ 80, 50, 60, 70 ],
+    "combinations": [ 84, 149, 166, 271, 318, 325 ]
+  }
+ ]
+}

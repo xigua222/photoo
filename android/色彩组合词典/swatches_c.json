@@ -1,0 +1,119 @@
+{
+ "swatches_c": [
+  {
+    "name": "Turquoise Green",
+    "cmyk": [ 29, 0, 24, 0 ],
+    "combinations": [ 36, 74, 147, 163, 173, 202, 223, 230, 263, 272, 285, 293, 300, 305, 317, 346 ]
+  },
+  {
+    "name": "Glaucous Green",
+    "cmyk": [ 30, 9, 24, 0 ],
+    "combinations": [ 7, 150, 171, 207, 239, 260 ]
+  },
+  {
+    "name": "Dark Greenish Glaucous",
+    "cmyk": [ 30, 15, 36, 0 ],
+    "combinations": [ 264, 311 ]
+  },
+  {
+    "name": "Yellow Green",
+    "cmyk": [ 35, 0, 72, 0 ],
+    "combinations": [ 111, 141, 276, 326, 334 ]
+  },
+  {
+    "name": "Light Green Yellow",
+    "cmyk": [ 26, 5, 85, 0 ],
+    "combinations": [ 61, 289, 291, 311, 346 ]
+  },
+  {
+    "name": "Night Green",
+    "cmyk": [ 52, 0, 100, 0 ],
+    "combinations": [ 19, 32, 158, 326 ]
+  },
+  {
+    "name": "Olive Yellow",
+    "cmyk": [ 40, 30, 80, 0 ],
+    "combinations": [ 124, 211, 265, 347 ]
+  },
+  {
+    "name": "Artemesia Green",
+    "cmyk": [ 57, 28, 39, 8 ],
+    "combinations": [ 293, 312 ]
+  },
+  {
+    "name": "Andover Green",
+    "cmyk": [ 60, 40, 50, 10 ],
+    "combinations": [ 244, 346 ]
+  },
+  {
+    "name": "Rainette Green",
+    "cmyk": [ 42, 20, 62, 10 ],
+    "combinations": [ 73, 162, 188, 266, 301 ]
+  },
+  {
+    "name": "Chromium Green",
+    "cmyk": [ 50, 16, 58, 20 ],
+    "combinations": [ 105, 200, 219, 283 ]
+  },
+  {
+    "name": "Pistachio Green",
+    "cmyk": [ 64, 29, 56, 6 ],
+    "combinations": [ 127, 137 ]
+  },
+  {
+    "name": "Sea Green",
+    "cmyk": [ 80, 0, 51, 0 ],
+    "combinations": [ 17, 21, 58, 86, 133, 250, 260, 284, 291, 340, 347 ]
+  },
+  {
+    "name": "Benzol Green",
+    "cmyk": [ 100, 15, 55, 0 ],
+    "combinations": [ 15, 54, 92, 122, 155, 247, 266, 267, 281, 304, 306 ]
+  },
+  {
+    "name": "Light Porcelain Green",
+    "cmyk": [ 86, 22, 50, 3 ],
+    "combinations": [ 44, 193, 328 ]
+  },
+  {
+    "name": "Green",
+    "cmyk": [ 75, 21, 73, 0 ],
+    "combinations": [ 198, 216, 293 ]
+  },
+  {
+    "name": "Dull Viridian Green",
+    "cmyk": [ 90, 20, 80, 0 ],
+    "combinations": [ 136, 256, 306, 316 ]
+  },
+  {
+    "name": "Oil Green",
+    "cmyk": [ 53, 28, 100, 8 ],
+    "combinations": [ 245, 299, 320 ]
+  },
+  {
+    "name": "Diamine Green",
+    "cmyk": [ 87, 32, 91, 18 ],
+    "combinations": [ 38, 146, 217, 242, 251, 313 ]
+  },
+  {
+    "name": "Cossack Green",
+    "cmyk": [ 76, 32, 91, 18 ],
+    "combinations": [ 5, 135, 262, 270, 278, 294, 319, 341, 348 ]
+  },
+  {
+    "name": "Lincoln Green",
+    "cmyk": [ 60, 48, 86, 37 ],
+    "combinations": [ 70, 121, 203, 210, 280, 290 ]
+  },
+  {
+    "name": "Blackish Olive",
+    "cmyk": [ 56, 32, 63, 55 ],
+    "combinations": [ 109, 318, 336 ]
+  },
+  {
+    "name": "Deep Slate Olive",
+    "cmyk": [ 76, 60, 80, 62 ],
+    "combinations": [ 189, 229, 268, 303, 310, 321, 332, 341, 342, 348 ]
+  }
+ ]
+}

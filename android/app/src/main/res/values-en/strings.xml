@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="color_card_discard_dialog_title">Leave editing</string>
+    <string name="color_card_discard_dialog_message">Current changes are not saved. Leave now?</string>
+    <string name="color_card_discard_dialog_confirm">Leave</string>
+    <string name="color_card_discard_dialog_dismiss">Keep editing</string>
+</resources>

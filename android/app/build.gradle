@@ -1,5 +1,1935 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import javax.imageio.ImageIO
+import java.security.MessageDigest
+import java.awt.Graphics2D
+import java.awt.RenderingHints
+import java.awt.image.BufferedImage
+import java.util.Locale
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.kotlin.plugin.compose'
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
+
+// --- Minimal mechanized quality gate ---
+// ktlintCheck hooks into `check` automatically; the baseline file exempts the
+// pre-existing style debt so the gate only blocks newly introduced violations.
+ktlint {
+    android = true
+    baseline = file("ktlint-baseline.xml")
+}
+
+// Make `./gradlew check` a single gate that runs style lint, Android Lint and
+// unit tests together (debug unit tests are enough for the local gate).
+afterEvaluate {
+    tasks.named("check").configure {
+        dependsOn("testDebugUnitTest")
+    }
+}
+
+def generatedColorCardAssetsDir = file("$buildDir/generated/assets/color_cards")
+def generatedBuiltinHaldAssetsDir = file("$generatedColorCardAssetsDir/color_card_hald")
+def generatedFilmGrainAssetsDir = file("$generatedColorCardAssetsDir/color_card_film_grain")
+def generatedAiMnnAssetsDir = file("$generatedColorCardAssetsDir/color_card_ai/filters")
+def generatedAiMnnJniDir = file("$buildDir/generated/jni/mnn")
+def mnnSourceRootDir = file("$rootDir/../MNN-master")
+def mnnRuntimeBuildDir = file("$mnnSourceRootDir/build-android-arm64-jni3")
+// Cross-platform Android SDK / NDK path resolution
+def detectAndroidSdkDir = {
+    // 1. ANDROID_HOME / ANDROID_SDK_ROOT environment variable
+    def envSdk = System.getenv('ANDROID_HOME') ?: System.getenv('ANDROID_SDK_ROOT')
+    if (envSdk && new File(envSdk).isDirectory()) return envSdk
+    // 2. local.properties sdk.dir
+    def localPropsFile = rootProject.file('local.properties')
+    if (localPropsFile.exists()) {
+        def props = new Properties()
+        localPropsFile.withInputStream { props.load(it) }
+        def sdkDir = props.getProperty('sdk.dir')
+        if (sdkDir && new File(sdkDir).isDirectory()) return sdkDir
+    }
+    // 3. Platform-specific default locations
+    def os = System.getProperty('os.name').toLowerCase(Locale.ROOT)
+    if (os.contains('windows')) {
+        def localAppData = System.getenv('LOCALAPPDATA')
+        if (localAppData) return "${localAppData}/Android/Sdk"
+    } else if (os.contains('mac')) {
+        def macDefault = "${System.getProperty('user.home')}/Library/Android/sdk"
+        if (new File(macDefault).isDirectory()) return macDefault
+    } else {
+        def linuxDefault = "${System.getProperty('user.home')}/Android/Sdk"
+        if (new File(linuxDefault).isDirectory()) return linuxDefault
+    }
+    return null
+}
+def androidSdkDir = detectAndroidSdkDir()
+def detectNdkPrebuiltDir = {
+    if (!androidSdkDir) return null
+    def ndkBase = new File(androidSdkDir, 'ndk')
+    if (!ndkBase.isDirectory()) return null
+    def versions = ndkBase.listFiles()?.findAll { it.isDirectory() }?.sort { it.name }
+    return versions ? versions.last().absolutePath : null
+}
+def ndkPrebuiltDir = detectNdkPrebuiltDir()
+def detectHostTag = {
+    def os = System.getProperty('os.name').toLowerCase(Locale.ROOT)
+    def arch = System.getProperty('os.arch').toLowerCase(Locale.ROOT)
+    if (os.contains('windows')) return 'windows-x86_64'
+    if (os.contains('mac')) return arch.contains('aarch64') || arch.contains('arm') ? 'darwin-arm64' : 'darwin-x86_64'
+    return 'linux-x86_64'
+}
+def arm64LibcxxSharedFile = ndkPrebuiltDir ?
+    file("${ndkPrebuiltDir}/toolchains/llvm/prebuilt/${detectHostTag()}/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so") :
+    file("${rootProject.buildDir}/_nonexistent_ndk_placeholder/libc++_shared.so")
+def campfirePayBaseUrl = (findProperty("campfirePayBaseUrl") ?: "").toString().trim()
+def prebuiltColorCardAssetsDir = file("$projectDir/prebuilt_assets/color_cards")
+def prebuiltBuiltinHaldAssetsDir = file("$prebuiltColorCardAssetsDir/color_card_hald")
+def prebuiltBuiltinHaldManifestFile = file("$prebuiltColorCardAssetsDir/color_card_builtin_hald_filters.json")
+def prebuiltFilmGrainAssetsDir = file("$prebuiltColorCardAssetsDir/color_card_film_grain")
+def prebuiltFilmGrainManifestFile = file("$prebuiltColorCardAssetsDir/color_card_film_grain_textures.json")
+def prebuiltFilterFeedDemoDir = file("$prebuiltColorCardAssetsDir/color_card_filter_feed_demo")
+def prebuiltFilterFeedDemoManifestFile = file("$prebuiltColorCardAssetsDir/color_card_filter_feed_demo_manifest.json")
+def prebuiltFilterFeedBootstrapDir = file("$prebuiltColorCardAssetsDir/color_card_filter_feed_bootstrap")
+def prebuiltFilterFeedBootstrapManifestFile = file("$prebuiltColorCardAssetsDir/color_card_filter_feed_bootstrap_manifest.json")
+def generatedFilterFeedDemoDir = file("$generatedColorCardAssetsDir/color_card_filter_feed_demo")
+def generatedFilterFeedDemoManifestFile = file("$generatedColorCardAssetsDir/color_card_filter_feed_demo_manifest.json")
+def filterPreviewExcludedFeedSampleIds = ["sample_12"] as Set
+def prebuiltAiMnnJniArm64Dir = file("$projectDir/prebuilt_assets/mnn_jni/arm64-v8a")
+def usePrebuiltFeedAssets = (findProperty("usePrebuiltFeedAssets") ?: "true").toString().toBoolean()
+def refreshPrebuiltFeedAssets = (findProperty("refreshPrebuiltFeedAssets") ?: "false").toString().toBoolean()
+def usePrebuiltMnnJni = (findProperty("usePrebuiltMnnJni") ?: "false").toString().toBoolean()
+def refreshPrebuiltMnnJni = (findProperty("refreshPrebuiltMnnJni") ?: "false").toString().toBoolean()
+def syncScreenshotClassifierModelAssets = tasks.register("syncScreenshotClassifierModelAssets") {
+    def sourceDir = rootProject.file("converted_tflite_quantized (6)")
+    def outputDir = file("$generatedColorCardAssetsDir/converted_tflite_quantized")
+    def modelFile = new File(sourceDir, "model.tflite")
+    def labelsFile = new File(sourceDir, "labels.txt")
+
+    inputs.files(modelFile, labelsFile)
+    outputs.dir(outputDir)
+
+    doLast {
+        if (!modelFile.exists()) {
+            throw new GradleException("Missing screenshot classifier model: ${modelFile.absolutePath}")
+        }
+        if (!labelsFile.exists()) {
+            throw new GradleException("Missing screenshot classifier labels: ${labelsFile.absolutePath}")
+        }
+        delete(outputDir)
+        outputDir.mkdirs()
+        copy {
+            from(modelFile)
+            into(outputDir)
+        }
+        copy {
+            from(labelsFile)
+            into(outputDir)
+        }
+    }
+}
+
+def syncColorCardFilterPreviewSampleAsset = tasks.register("syncColorCardFilterPreviewSampleAsset") {
+    def fallbackSourceFile = rootProject.file("slj.png")
+    def webpFile = file("$generatedColorCardAssetsDir/color_card_filter_preview_sample.webp")
+    def pngFile = file("$generatedColorCardAssetsDir/color_card_filter_preview_sample.png")
+
+    inputs.file(prebuiltFilterFeedDemoManifestFile)
+    inputs.dir(prebuiltFilterFeedDemoDir)
+    inputs.file(fallbackSourceFile)
+    outputs.files(webpFile, pngFile)
+
+    doLast {
+        generatedColorCardAssetsDir.mkdirs()
+        delete(webpFile)
+        delete(pngFile)
+
+        def ffmpegBinary = (System.getenv("FFMPEG_BINARY") ?: "ffmpeg").trim()
+        def sourceFile = null as File
+
+        if (generatedFilterFeedDemoManifestFile.exists() && generatedFilterFeedDemoDir.exists()) {
+            try {
+                def feedAssetFiles = (new JsonSlurper().parse(generatedFilterFeedDemoManifestFile) as List)
+                        .findAll { entry ->
+                            def id = (entry?.id ?: "").toString()
+                            def assetName = (entry?.assetName ?: "").toString()
+                            id != "watermark_template_demo" &&
+                                    !filterPreviewExcludedFeedSampleIds.contains(id) &&
+                                    assetName.startsWith("color_card_filter_feed_demo/")
+                        }
+                        .collect { entry ->
+                            new File(generatedColorCardAssetsDir, (entry?.assetName ?: "").toString())
+                        }
+                        .findAll { file -> file.exists() && file.length() > 0L }
+
+                if (!feedAssetFiles.isEmpty()) {
+                    def montageDir = new File(temporaryDir, "color_card_filter_preview_sample_montage")
+                    delete(montageDir)
+                    montageDir.mkdirs()
+
+                    def decodedFrames = []
+                    feedAssetFiles.eachWithIndex { File assetFile, int index ->
+                        def frameFile = new File(montageDir, String.format(Locale.US, "frame_%03d.png", index))
+                        frameFile.delete()
+                        def decodeResult = exec {
+                            ignoreExitValue = true
+                            commandLine ffmpegBinary,
+                                    "-hide_banner",
+                                    "-loglevel", "error",
+                                    "-y",
+                                    "-i", assetFile.absolutePath,
+                                    "-frames:v", "1",
+                                    frameFile.absolutePath
+                        }
+                        if (decodeResult.exitValue == 0 && frameFile.exists() && frameFile.length() > 0L) {
+                            decodedFrames << frameFile
+                        }
+                    }
+
+                    def decodedImages = decodedFrames.collect { frameFile ->
+                        try {
+                            ImageIO.read(frameFile)
+                        } catch (Exception ignored) {
+                            null
+                        }
+                    }.findAll { image -> image != null }
+
+                    if (!decodedImages.isEmpty()) {
+                        def tileCount = decodedImages.size() as int
+                        def columnCount = Math.max(1, Math.ceil(Math.sqrt(tileCount as double)) as int)
+                        def rowCount = Math.max(1, Math.ceil((tileCount as double) / (columnCount as double)) as int)
+                        def cellSize = 240
+                        def collageWidth = columnCount * cellSize
+                        def collageHeight = rowCount * cellSize
+                        def collage = new BufferedImage(collageWidth, collageHeight, BufferedImage.TYPE_INT_ARGB)
+                        Graphics2D graphics = collage.createGraphics()
+                        graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+                        graphics.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY)
+                        graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+                        graphics.setColor(new java.awt.Color(20, 20, 20))
+                        graphics.fillRect(0, 0, collageWidth, collageHeight)
+                        def cellPadding = 8
+                        decodedImages.eachWithIndex { BufferedImage image, int index ->
+                            def col = index % columnCount
+                            def row = (index / columnCount) as int
+                            def availableWidth = cellSize - (cellPadding * 2)
+                            def availableHeight = cellSize - (cellPadding * 2)
+                            def scale = Math.min(
+                                    availableWidth / Math.max(1d, image.width as double),
+                                    availableHeight / Math.max(1d, image.height as double)
+                            )
+                            def drawWidth = Math.max(1, Math.round(image.width * scale) as int)
+                            def drawHeight = Math.max(1, Math.round(image.height * scale) as int)
+                            def drawX = (col * cellSize) + ((cellSize - drawWidth) / 2) as int
+                            def drawY = (row * cellSize) + ((cellSize - drawHeight) / 2) as int
+                            graphics.drawImage(image, drawX, drawY, drawWidth, drawHeight, null)
+                        }
+                        graphics.dispose()
+
+                        def collageFile = new File(montageDir, "feed_montage.png")
+                        ImageIO.write(collage, "png", collageFile)
+                        if (collageFile.exists() && collageFile.length() > 0L) {
+                            sourceFile = collageFile
+                            logger.lifecycle("syncColorCardFilterPreviewSampleAsset: using feed montage (${decodedImages.size()} samples)")
+                        }
+                    }
+                }
+            } catch (Exception ignored) {
+                sourceFile = null
+            }
+        }
+
+        if (sourceFile == null || !sourceFile.exists()) {
+            sourceFile = fallbackSourceFile
+            logger.lifecycle("syncColorCardFilterPreviewSampleAsset: feed montage unavailable, fallback to slj.png")
+        }
+        if (!sourceFile.exists()) {
+            throw new GradleException("Missing filter preview sample asset: ${sourceFile.absolutePath}")
+        }
+
+        def optimizedWebp = new File(temporaryDir, "color_card_filter_preview_sample.webp")
+        optimizedWebp.parentFile.mkdirs()
+        optimizedWebp.delete()
+        def sourceIsWebp = sourceFile.name.toLowerCase(Locale.ROOT).endsWith(".webp")
+
+        def shouldUseWebp = false
+        try {
+            def result = exec {
+                ignoreExitValue = true
+                commandLine ffmpegBinary,
+                        "-hide_banner",
+                        "-loglevel", "error",
+                        "-y",
+                        "-i", sourceFile.absolutePath,
+                        "-c:v", "libwebp",
+                        "-quality", "82",
+                        "-compression_level", "6",
+                        optimizedWebp.absolutePath
+            }
+            shouldUseWebp = result.exitValue == 0 &&
+                    optimizedWebp.exists() &&
+                    optimizedWebp.length() > 0 &&
+                    optimizedWebp.length() < sourceFile.length()
+        } catch (Exception ignored) {
+            shouldUseWebp = false
+        }
+        if (!shouldUseWebp) {
+            try {
+                def result = exec {
+                    ignoreExitValue = true
+                    commandLine "cwebp",
+                            "-quiet",
+                            "-q", "82",
+                            sourceFile.absolutePath,
+                            "-o", optimizedWebp.absolutePath
+                }
+                shouldUseWebp = result.exitValue == 0 &&
+                        optimizedWebp.exists() &&
+                        optimizedWebp.length() > 0 &&
+                        optimizedWebp.length() < sourceFile.length()
+            } catch (Exception ignored) {
+                shouldUseWebp = false
+            }
+        }
+        if (!shouldUseWebp) {
+            // Pillow keeps alpha plane straight; only lossy RGB is acceptable here.
+            try {
+                def result = exec {
+                    ignoreExitValue = true
+                    commandLine "python3", "-c",
+                            "from PIL import Image; import sys; Image.open(sys.argv[1]).convert('RGBA' if Image.open(sys.argv[1]).mode in ('RGBA','LA','P') else 'RGB').save(sys.argv[2], 'WEBP', quality=82, method=6)",
+                            sourceFile.absolutePath,
+                            optimizedWebp.absolutePath
+                }
+                shouldUseWebp = result.exitValue == 0 &&
+                        optimizedWebp.exists() &&
+                        optimizedWebp.length() > 0 &&
+                        optimizedWebp.length() < sourceFile.length()
+            } catch (Exception ignored) {
+                shouldUseWebp = false
+            }
+        }
+        def useWebpOutput = shouldUseWebp || sourceIsWebp
+
+        copy {
+            from(shouldUseWebp ? optimizedWebp : sourceFile)
+            into(generatedColorCardAssetsDir)
+            rename { useWebpOutput ? webpFile.name : pngFile.name }
+        }
+    }
+}
+def syncColorCardFilterFeedDemoAssets = tasks.register("syncColorCardFilterFeedDemoAssets") {
+    def sourceDir = rootProject.file("demo")
+    def legacyWatermarkPreviewFile = file("src/main/res/drawable-nodpi/watermark_template_demo.jpg")
+    def outputDir = file("$generatedColorCardAssetsDir/color_card_filter_feed_demo")
+    def manifestFile = file("$generatedColorCardAssetsDir/color_card_filter_feed_demo_manifest.json")
+    def bootstrapOutputDir = file("$generatedColorCardAssetsDir/color_card_filter_feed_bootstrap")
+    def bootstrapManifestFile = file("$generatedColorCardAssetsDir/color_card_filter_feed_bootstrap_manifest.json")
+
+    inputs.dir(sourceDir)
+    inputs.file(legacyWatermarkPreviewFile)
+    inputs.property("usePrebuiltFeedAssets", usePrebuiltFeedAssets)
+    inputs.property("refreshPrebuiltFeedAssets", refreshPrebuiltFeedAssets)
+    outputs.dir(outputDir)
+    outputs.file(manifestFile)
+    outputs.dir(bootstrapOutputDir)
+    outputs.file(bootstrapManifestFile)
+
+    doLast {
+        delete(outputDir)
+        delete(manifestFile)
+        delete(bootstrapOutputDir)
+        delete(bootstrapManifestFile)
+        outputDir.mkdirs()
+        bootstrapOutputDir.mkdirs()
+        generatedColorCardAssetsDir.mkdirs()
+
+        def prebuiltFeedAssetsReady =
+                prebuiltFilterFeedDemoDir.exists() &&
+                prebuiltFilterFeedDemoManifestFile.exists() &&
+                prebuiltFilterFeedBootstrapDir.exists() &&
+                prebuiltFilterFeedBootstrapManifestFile.exists()
+        if (usePrebuiltFeedAssets && !refreshPrebuiltFeedAssets && prebuiltFeedAssetsReady) {
+            copy {
+                from(prebuiltFilterFeedDemoDir)
+                into(outputDir)
+            }
+            copy {
+                from(prebuiltFilterFeedDemoManifestFile)
+                into(generatedColorCardAssetsDir)
+            }
+            copy {
+                from(prebuiltFilterFeedBootstrapDir)
+                into(bootstrapOutputDir)
+            }
+            copy {
+                from(prebuiltFilterFeedBootstrapManifestFile)
+                into(generatedColorCardAssetsDir)
+            }
+            logger.lifecycle("syncColorCardFilterFeedDemoAssets: using prebuilt feed assets cache")
+            return
+        }
+
+        if (!legacyWatermarkPreviewFile.exists()) {
+            throw new GradleException("Missing watermark template demo asset: ${legacyWatermarkPreviewFile.absolutePath}")
+        }
+
+        def imageFiles = [legacyWatermarkPreviewFile]
+        if (sourceDir.exists()) {
+            imageFiles.addAll(
+                    sourceDir.listFiles()?.findAll { file ->
+                        file.isFile() && file.name.toLowerCase(Locale.ROOT).matches(/.*\.(jpg|jpeg|png|webp)$/)
+                    }?.sort { it.name.toLowerCase(Locale.ROOT) } ?: []
+            )
+        }
+        if (!imageFiles || imageFiles.isEmpty()) {
+            throw new GradleException("Missing demo filter feed assets: ${sourceDir.absolutePath}")
+        }
+
+        def ffmpegBinary = (System.getenv("FFMPEG_BINARY") ?: "ffmpeg").trim()
+        def manifestEntries = []
+        def generatedDemoEntries = []
+        def sampleIndex = 0
+
+        imageFiles.each { sourceFile ->
+            def isLegacyWatermarkPreview = sourceFile.absolutePath == legacyWatermarkPreviewFile.absolutePath
+            def assetId = isLegacyWatermarkPreview ? "watermark_template_demo" : "sample_${sampleIndex}"
+            def outputFileName = isLegacyWatermarkPreview ? "watermark_template_demo.webp" : "sample_${sampleIndex}.webp"
+            def sourceImage = ImageIO.read(sourceFile)
+            if (sourceImage == null) {
+                throw new GradleException("Unsupported demo image: ${sourceFile.absolutePath}")
+            }
+
+            def sourceWidth = sourceImage.width
+            def sourceHeight = sourceImage.height
+            def maxSide = 880d
+            def scale = Math.min(1d, maxSide / Math.max(sourceWidth, sourceHeight))
+            def targetWidth = Math.max(1, Math.round(sourceWidth * scale) as int)
+            def targetHeight = Math.max(1, Math.round(sourceHeight * scale) as int)
+
+            def scaledImage = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_ARGB)
+            Graphics2D graphics = scaledImage.createGraphics()
+            graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+            graphics.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY)
+            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+            graphics.drawImage(sourceImage, 0, 0, targetWidth, targetHeight, null)
+            graphics.dispose()
+
+            def normalizedImage = scaledImage
+
+            def webpFile = new File(outputDir, outputFileName)
+            def tempPngFile = new File(temporaryDir, "color_card_filter_feed_demo_${assetId}.png")
+            tempPngFile.parentFile.mkdirs()
+            tempPngFile.delete()
+            webpFile.delete()
+            ImageIO.write(normalizedImage, "png", tempPngFile)
+            def finalAssetName = "color_card_filter_feed_demo/${webpFile.name}"
+
+            try {
+                def result = exec {
+                    ignoreExitValue = true
+                    commandLine ffmpegBinary,
+                            "-hide_banner",
+                            "-loglevel", "error",
+                            "-y",
+                            "-i", tempPngFile.absolutePath,
+                            "-c:v", "libwebp",
+                            "-quality", "86",
+                            "-compression_level", "6",
+                            webpFile.absolutePath
+                }
+                if (result.exitValue == 0 &&
+                        webpFile.exists() &&
+                        webpFile.length() > 0) {
+                    finalAssetName = "color_card_filter_feed_demo/${webpFile.name}"
+                } else {
+                    throw new GradleException("Failed to encode demo asset as webp: ${sourceFile.absolutePath}")
+                }
+            } catch (Exception ignored) {
+                webpFile.delete()
+                throw new GradleException("Failed to encode demo asset as webp: ${sourceFile.absolutePath}", ignored)
+            } finally {
+                tempPngFile.delete()
+            }
+
+            manifestEntries << [
+                    id       : assetId,
+                    assetName: finalAssetName
+            ]
+            generatedDemoEntries << [
+                    id       : assetId,
+                    assetName: finalAssetName,
+                    image    : normalizedImage
+            ]
+            if (!isLegacyWatermarkPreview) {
+                sampleIndex++
+            }
+        }
+
+        manifestFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(manifestEntries))
+
+        def clamp255 = { double value ->
+            Math.max(0, Math.min(255, Math.round(value) as int))
+        }
+        def clamp01 = { double value ->
+            Math.max(0d, Math.min(1d, value))
+        }
+        def filmSimCanonicalIdByFamily = [
+                "5219"      : "film-sim-5219",
+                "c200"      : "film-sim-c200",
+                "ektar100"  : "film-sim-ektar100",
+                "pro400h"   : "film-sim-pro400h",
+                "spgold200" : "film-sim-spgold200",
+                "tx400"     : "film-sim-tx400",
+                "vivid250d" : "film-sim-vivid250d",
+                "鍏ㄨ兘400": "film-sim-allround400"
+        ]
+        def filmSimVariantRegex = java.util.regex.Pattern.compile(
+                '^(5219|C200|Ektar100|PRO400H|SPGOLD200|Tx400|vivid250D|鍏ㄨ兘400)((?:[+-]\\d+)|(?:[+-]?[sS]))$',
+                java.util.regex.Pattern.CASE_INSENSITIVE
+        )
+        def resolveBootstrapCanonicalId = { rawId, title ->
+            def safeRawId = rawId?.toString()?.trim()
+            if (!safeRawId) {
+                return null
+            }
+            def safeTitle = title?.toString()?.trim()
+            if (safeTitle?.contains("全能400")) {
+                return "film-sim-allround400"
+            }
+            def matcher = safeTitle ? filmSimVariantRegex.matcher(safeTitle) : null
+            if (matcher != null && matcher.matches()) {
+                def family = matcher.group(1)?.toLowerCase(Locale.ROOT)
+                return filmSimCanonicalIdByFamily[family] ?: safeRawId
+            }
+            safeRawId
+        }
+        def rgbToHsv = { int red, int green, int blue ->
+            java.awt.Color.RGBtoHSB(red, green, blue, null)
+        }
+        def hsvToRgb = { float hue, float saturation, float brightness ->
+            java.awt.Color.HSBtoRGB(hue, saturation, brightness)
+        }
+        def createArgbImage = { int width, int height ->
+            new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
+        }
+        def copyArgb = { BufferedImage source ->
+            def copy = createArgbImage(source.width, source.height)
+            Graphics2D graphics = copy.createGraphics()
+            graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+            graphics.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY)
+            graphics.drawImage(source, 0, 0, null)
+            graphics.dispose()
+            copy
+        }
+        def sampleColor = { BufferedImage image, int sampleX, int sampleY ->
+            image.getRGB(
+                    Math.max(0, Math.min(image.width - 1, sampleX)),
+                    Math.max(0, Math.min(image.height - 1, sampleY))
+            )
+        }
+        def buildFilteredPreview = { BufferedImage filteredImage ->
+            def result = createArgbImage(filteredImage.width, filteredImage.height)
+            Graphics2D graphics = result.createGraphics()
+            graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+            graphics.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY)
+            graphics.drawImage(filteredImage, 0, 0, null)
+            graphics.dispose()
+            result
+        }
+        def scalePreviewImage = { BufferedImage source, int maxSide, boolean preserveSharpEdges ->
+            int safeMaxSide = Math.max(1, maxSide as int)
+            int sourceWidth = Math.max(1, source.width)
+            int sourceHeight = Math.max(1, source.height)
+            double scale = Math.min(1d, safeMaxSide / Math.max(sourceWidth, sourceHeight))
+            if (Math.abs(scale - 1d) < 0.0001d) {
+                return copyArgb(source)
+            }
+            int targetWidth = Math.max(1, Math.round(sourceWidth * scale) as int)
+            int targetHeight = Math.max(1, Math.round(sourceHeight * scale) as int)
+            def scaled = createArgbImage(targetWidth, targetHeight)
+            Graphics2D graphics = scaled.createGraphics()
+            graphics.setRenderingHint(
+                    RenderingHints.KEY_INTERPOLATION,
+                    preserveSharpEdges
+                            ? RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR
+                            : RenderingHints.VALUE_INTERPOLATION_BICUBIC
+            )
+            graphics.setRenderingHint(
+                    RenderingHints.KEY_RENDERING,
+                    preserveSharpEdges
+                            ? RenderingHints.VALUE_RENDER_SPEED
+                            : RenderingHints.VALUE_RENDER_QUALITY
+            )
+            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+            graphics.drawImage(source, 0, 0, targetWidth, targetHeight, null)
+            graphics.dispose()
+            scaled
+        }
+        def applySelectiveRedPreview = { BufferedImage source ->
+            def output = createArgbImage(source.width, source.height)
+            for (int y = 0; y < source.height; y++) {
+                for (int x = 0; x < source.width; x++) {
+                    int argb = source.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 0xFF
+                    int red = (argb >>> 16) & 0xFF
+                    int green = (argb >>> 8) & 0xFF
+                    int blue = argb & 0xFF
+                    float[] hsv = rgbToHsv(red, green, blue)
+                    double hue = hsv[0]
+                    double sat = hsv[1]
+                    double hueDistance = Math.min(Math.abs(hue - 0d), 1d - Math.abs(hue - 0d))
+                    double accentMask = hueDistance <= 0.12d && sat >= 0.08d ? 1d : 0d
+                    int gray = clamp255((red * 0.299d) + (green * 0.587d) + (blue * 0.114d))
+                    int nr = clamp255((gray * (1d - accentMask)) + ((red * 1.10d) * accentMask))
+                    int ng = clamp255((gray * (1d - accentMask)) + ((green * 0.92d) * accentMask))
+                    int nb = clamp255((gray * (1d - accentMask)) + ((blue * 0.92d) * accentMask))
+                    output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                }
+            }
+            output
+        }
+        def applySelectiveColorPreview = { BufferedImage source, targetHue, hueRange ->
+            def output = createArgbImage(source.width, source.height)
+            for (int y = 0; y < source.height; y++) {
+                for (int x = 0; x < source.width; x++) {
+                    int argb = source.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 0xFF
+                    int red = (argb >>> 16) & 0xFF
+                    int green = (argb >>> 8) & 0xFF
+                    int blue = argb & 0xFF
+                    float[] hsv = rgbToHsv(red, green, blue)
+                    double hue = hsv[0]
+                    double sat = hsv[1]
+                    double hueDistance = Math.min(Math.abs(hue - targetHue), 1d - Math.abs(hue - targetHue))
+                    double accentMask = hueDistance <= hueRange && sat >= 0.04d ? 1d : 0d
+                    int gray = clamp255((red * 0.299d) + (green * 0.587d) + (blue * 0.114d))
+                    int nr = clamp255((gray * (1d - accentMask)) + ((red * 1.10d) * accentMask))
+                    int ng = clamp255((gray * (1d - accentMask)) + ((green * 0.92d) * accentMask))
+                    int nb = clamp255((gray * (1d - accentMask)) + ((blue * 0.92d) * accentMask))
+                    output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                }
+            }
+            output
+        }
+        def applyPixelPrimaryBluePreview = { BufferedImage source ->
+            def output = createArgbImage(source.width, source.height)
+            int blockSize = Math.max(4, Math.round(Math.max(source.width, source.height) / 42f) as int)
+            def darkColor = [5, 10, 29]
+            def lightColor = [45, 99, 255]
+            for (int blockTop = 0; blockTop < source.height; blockTop += blockSize) {
+                for (int blockLeft = 0; blockLeft < source.width; blockLeft += blockSize) {
+                    int blockRight = Math.min(source.width, blockLeft + blockSize)
+                    int blockBottom = Math.min(source.height, blockTop + blockSize)
+                    double lumaSum = 0d
+                    int count = 0
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int argb = source.getRGB(x, y)
+                            int red = (argb >>> 16) & 0xFF
+                            int green = (argb >>> 8) & 0xFF
+                            int blue = argb & 0xFF
+                            lumaSum += ((red * 0.299d) + (green * 0.587d) + (blue * 0.114d)) / 255d
+                            count++
+                        }
+                    }
+                    double luma = count > 0 ? clamp01(lumaSum / count) : 0.5d
+                    double eased = Math.pow(luma, 0.82d)
+                    int nr = clamp255((darkColor[0] * (1d - eased)) + (lightColor[0] * eased))
+                    int ng = clamp255((darkColor[1] * (1d - eased)) + (lightColor[1] * eased))
+                    int nb = clamp255((darkColor[2] * (1d - eased)) + (lightColor[2] * eased))
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int alpha = (source.getRGB(x, y) >>> 24) & 0xFF
+                            output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                        }
+                    }
+                }
+            }
+            output
+        }
+        def applyPixelDuotonePreview = { source, darkColor, lightColor, threshold, contrast, divisor ->
+            def output = createArgbImage(source.width, source.height)
+            int blockSize = Math.max(4, Math.round(Math.max(source.width, source.height) / Math.max(18f, divisor as float)) as int)
+            for (int blockTop = 0; blockTop < source.height; blockTop += blockSize) {
+                for (int blockLeft = 0; blockLeft < source.width; blockLeft += blockSize) {
+                    int blockRight = Math.min(source.width, blockLeft + blockSize)
+                    int blockBottom = Math.min(source.height, blockTop + blockSize)
+                    double lumaSum = 0d
+                    int count = 0
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int argb = source.getRGB(x, y)
+                            int red = (argb >>> 16) & 0xFF
+                            int green = (argb >>> 8) & 0xFF
+                            int blue = argb & 0xFF
+                            lumaSum += ((red * 0.299d) + (green * 0.587d) + (blue * 0.114d)) / 255d
+                            count++
+                        }
+                    }
+                    double luma = count > 0 ? clamp01(lumaSum / count) : 0.5d
+                    double contrasted = clamp01((((luma - 0.5d) * contrast) + 0.5d))
+                    def targetColor = contrasted >= threshold ? lightColor : darkColor
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int alpha = (source.getRGB(x, y) >>> 24) & 0xFF
+                            output.setRGB(
+                                    x,
+                                    y,
+                                    ((alpha & 0xFF) << 24) |
+                                            ((targetColor[0] & 0xFF) << 16) |
+                                            ((targetColor[1] & 0xFF) << 8) |
+                                            (targetColor[2] & 0xFF)
+                            )
+                        }
+                    }
+                }
+            }
+            output
+        }
+        def applyPixelContinuousPreview = { source, darkColor, lightColor, contrast ->
+            def output = createArgbImage(source.width, source.height)
+            int blockSize = Math.max(4, Math.round(Math.max(source.width, source.height) / 42f) as int)
+            for (int blockTop = 0; blockTop < source.height; blockTop += blockSize) {
+                for (int blockLeft = 0; blockLeft < source.width; blockLeft += blockSize) {
+                    int blockRight = Math.min(source.width, blockLeft + blockSize)
+                    int blockBottom = Math.min(source.height, blockTop + blockSize)
+                    double lumaSum = 0d
+                    int count = 0
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int argb = source.getRGB(x, y)
+                            int red = (argb >>> 16) & 0xFF
+                            int green = (argb >>> 8) & 0xFF
+                            int blue = argb & 0xFF
+                            lumaSum += ((red * 0.299d) + (green * 0.587d) + (blue * 0.114d)) / 255d
+                            count++
+                        }
+                    }
+                    double luma = count > 0 ? clamp01(lumaSum / count) : 0.5d
+                    double eased = Math.pow(clamp01((((luma - 0.5d) * contrast) + 0.5d)), 0.86d)
+                    int nr = clamp255((darkColor[0] * (1d - eased)) + (lightColor[0] * eased))
+                    int ng = clamp255((darkColor[1] * (1d - eased)) + (lightColor[1] * eased))
+                    int nb = clamp255((darkColor[2] * (1d - eased)) + (lightColor[2] * eased))
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int alpha = (source.getRGB(x, y) >>> 24) & 0xFF
+                            output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                        }
+                    }
+                }
+            }
+            output
+        }
+        def applyPixelOriginalPreview = { source ->
+            def output = createArgbImage(source.width, source.height)
+            int blockSize = Math.max(4, Math.round(Math.max(source.width, source.height) / 54f) as int)
+            for (int blockTop = 0; blockTop < source.height; blockTop += blockSize) {
+                for (int blockLeft = 0; blockLeft < source.width; blockLeft += blockSize) {
+                    int blockRight = Math.min(source.width, blockLeft + blockSize)
+                    int blockBottom = Math.min(source.height, blockTop + blockSize)
+                    double redSum = 0d
+                    double greenSum = 0d
+                    double blueSum = 0d
+                    int count = 0
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int argb = source.getRGB(x, y)
+                            redSum += (argb >>> 16) & 0xFF
+                            greenSum += (argb >>> 8) & 0xFF
+                            blueSum += argb & 0xFF
+                            count++
+                        }
+                    }
+                    int nr = clamp255(count > 0 ? redSum / count : 0d)
+                    int ng = clamp255(count > 0 ? greenSum / count : 0d)
+                    int nb = clamp255(count > 0 ? blueSum / count : 0d)
+                    for (int y = blockTop; y < blockBottom; y++) {
+                        for (int x = blockLeft; x < blockRight; x++) {
+                            int alpha = (source.getRGB(x, y) >>> 24) & 0xFF
+                            output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                        }
+                    }
+                }
+            }
+            output
+        }
+        def applyPaletteTonePreview = { source, previewColors, contrast, saturationBoost ->
+            def output = createArgbImage(source.width, source.height)
+            def palette = previewColors.collect { colorValue ->
+                if (colorValue instanceof String) {
+                    def normalized = colorValue.toString().replace("#", "")
+                    Integer.parseInt(normalized, 16)
+                } else {
+                    colorValue as Integer
+                }
+            }
+            if (palette.isEmpty()) {
+                return copyArgb(source)
+            }
+            for (int y = 0; y < source.height; y++) {
+                for (int x = 0; x < source.width; x++) {
+                    int argb = source.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 0xFF
+                    int red = (argb >>> 16) & 0xFF
+                    int green = (argb >>> 8) & 0xFF
+                    int blue = argb & 0xFF
+                    double luma = ((red * 0.299d) + (green * 0.587d) + (blue * 0.114d)) / 255d
+                    double contrasted = clamp01((((luma - 0.5d) * contrast) + 0.5d))
+                    double scaledIndex = contrasted * Math.max(0, palette.size() - 1)
+                    int leftIndex = Math.floor(scaledIndex).intValue()
+                    int rightIndex = Math.min(palette.size() - 1, leftIndex + 1)
+                    double mix = scaledIndex - leftIndex
+                    int leftColor = palette[leftIndex]
+                    int rightColor = palette[rightIndex]
+                    double toneRed = (((leftColor >>> 16) & 0xFF) * (1d - mix)) + (((rightColor >>> 16) & 0xFF) * mix)
+                    double toneGreen = (((leftColor >>> 8) & 0xFF) * (1d - mix)) + (((rightColor >>> 8) & 0xFF) * mix)
+                    double toneBlue = ((leftColor & 0xFF) * (1d - mix)) + ((rightColor & 0xFF) * mix)
+                    double sourceGray = luma * 255d
+                    double boostedRed = sourceGray + ((toneRed - sourceGray) * saturationBoost)
+                    double boostedGreen = sourceGray + ((toneGreen - sourceGray) * saturationBoost)
+                    double boostedBlue = sourceGray + ((toneBlue - sourceGray) * saturationBoost)
+                    int nr = clamp255(boostedRed)
+                    int ng = clamp255(boostedGreen)
+                    int nb = clamp255(boostedBlue)
+                    output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                }
+            }
+            output
+        }
+        def renderFfmpegHaldPreview = { BufferedImage source, String haldAssetName, String tempBaseName ->
+            def haldFile = new File(prebuiltColorCardAssetsDir, haldAssetName)
+            if (!haldFile.exists()) {
+                haldFile = new File(generatedColorCardAssetsDir, haldAssetName)
+            }
+            if (!haldFile.exists()) {
+                return copyArgb(source)
+            }
+            def sourcePngFile = new File(temporaryDir, "${tempBaseName}_source.png")
+            def outputPngFile = new File(temporaryDir, "${tempBaseName}_output.png")
+            sourcePngFile.parentFile.mkdirs()
+            sourcePngFile.delete()
+            outputPngFile.delete()
+            ImageIO.write(source, "png", sourcePngFile)
+            try {
+                def result = exec {
+                    ignoreExitValue = true
+                    commandLine ffmpegBinary,
+                            "-hide_banner",
+                            "-loglevel", "error",
+                            "-y",
+                            "-i", sourcePngFile.absolutePath,
+                            "-i", haldFile.absolutePath,
+                            "-filter_complex", "[0:v][1:v]haldclut",
+                            outputPngFile.absolutePath
+                }
+                if (result.exitValue == 0 && outputPngFile.exists() && outputPngFile.length() > 0) {
+                    def rendered = ImageIO.read(outputPngFile)
+                    if (rendered != null) {
+                        return rendered
+                    }
+                }
+            } catch (Exception ignored) {
+            } finally {
+                sourcePngFile.delete()
+                outputPngFile.delete()
+            }
+            copyArgb(source)
+        }
+        def applyBlackMistPreview = { BufferedImage source ->
+            def output = createArgbImage(source.width, source.height)
+            def tint = [246d, 217d, 238d]
+            for (int y = 0; y < source.height; y++) {
+                for (int x = 0; x < source.width; x++) {
+                    int argb = source.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 0xFF
+                    int red = (argb >>> 16) & 0xFF
+                    int green = (argb >>> 8) & 0xFF
+                    int blue = argb & 0xFF
+                    double blurRed = 0d
+                    double blurGreen = 0d
+                    double blurBlue = 0d
+                    double weightSum = 0d
+                    for (int dy = -2; dy <= 2; dy++) {
+                        for (int dx = -2; dx <= 2; dx++) {
+                            double weight = (dx == 0 && dy == 0) ? 4d : ((Math.abs(dx) + Math.abs(dy)) <= 2 ? 1.5d : 0.75d)
+                            int sample = sampleColor(source, x + dx, y + dy)
+                            blurRed += (((sample >>> 16) & 0xFF) * weight)
+                            blurGreen += (((sample >>> 8) & 0xFF) * weight)
+                            blurBlue += ((sample & 0xFF) * weight)
+                            weightSum += weight
+                        }
+                    }
+                    blurRed /= Math.max(0.0001d, weightSum)
+                    blurGreen /= Math.max(0.0001d, weightSum)
+                    blurBlue /= Math.max(0.0001d, weightSum)
+                    double luma = ((red * 0.299d) + (green * 0.587d) + (blue * 0.114d)) / 255d
+                    double highlight = clamp01((luma - 0.56d) / 0.40d)
+                    double softnessMix = 0.22d
+                    double bloomAmount = highlight * 0.32d
+                    double veilLift = (1d - luma) * 0.04d * 255d
+                    double glowRed = (blurRed * 0.70d) + (tint[0] * 0.30d)
+                    double glowGreen = (blurGreen * 0.76d) + (tint[1] * 0.24d)
+                    double glowBlue = (blurBlue * 0.64d) + (tint[2] * 0.36d)
+                    int nr = clamp255((red * (1d - softnessMix)) + (blurRed * softnessMix) + (glowRed * bloomAmount) + veilLift)
+                    int ng = clamp255((green * (1d - softnessMix)) + (blurGreen * softnessMix) + (glowGreen * bloomAmount) + veilLift)
+                    int nb = clamp255((blue * (1d - softnessMix)) + (blurBlue * softnessMix) + (glowBlue * bloomAmount) + veilLift)
+                    output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((nr & 0xFF) << 16) | ((ng & 0xFF) << 8) | (nb & 0xFF))
+                }
+            }
+            output
+        }
+        def applySubjectFramePreview = { BufferedImage source ->
+            def output = createArgbImage(source.width, source.height)
+            double aspect = source.width / Math.max(1d, source.height as double)
+            double rectWidth = aspect >= 1.35d ? 0.66d : (aspect <= 0.82d ? 0.54d : 0.60d)
+            double rectHeight = Math.max(0.42d, Math.min(0.72d, 0.33d / Math.max(0.001d, rectWidth)))
+            double centerX = 0.5d
+            double centerY = 0.48d
+            double left = Math.max(0d, centerX - (rectWidth / 2d))
+            double right = Math.min(1d, centerX + (rectWidth / 2d))
+            double top = Math.max(0d, centerY - (rectHeight / 2d))
+            double bottom = Math.min(1d, centerY + (rectHeight / 2d))
+            double borderThickness = 0.0085d
+            def border = [247, 243, 236]
+            for (int y = 0; y < source.height; y++) {
+                double ny = source.height <= 1 ? 0.5d : y / Math.max(1d, (source.height - 1) as double)
+                for (int x = 0; x < source.width; x++) {
+                    double nx = source.width <= 1 ? 0.5d : x / Math.max(1d, (source.width - 1) as double)
+                    int argb = source.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 0xFF
+                    int red = (argb >>> 16) & 0xFF
+                    int green = (argb >>> 8) & 0xFF
+                    int blue = argb & 0xFF
+                    boolean inside = nx >= left && nx <= right && ny >= top && ny <= bottom
+                    boolean onBorder =
+                            inside &&
+                                    (
+                                            Math.abs(nx - left) <= borderThickness ||
+                                                    Math.abs(nx - right) <= borderThickness ||
+                                                    Math.abs(ny - top) <= borderThickness ||
+                                                    Math.abs(ny - bottom) <= borderThickness
+                                    )
+                    if (onBorder) {
+                        output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((border[0] & 0xFF) << 16) | ((border[1] & 0xFF) << 8) | (border[2] & 0xFF))
+                        continue
+                    }
+                    if (inside) {
+                        output.setRGB(x, y, argb)
+                        continue
+                    }
+                    int gray = clamp255((red * 0.299d) + (green * 0.587d) + (blue * 0.114d))
+                    output.setRGB(x, y, ((alpha & 0xFF) << 24) | ((gray & 0xFF) << 16) | ((gray & 0xFF) << 8) | (gray & 0xFF))
+                }
+            }
+            output
+        }
+        def writeOptimizedPreviewAsset = { BufferedImage image, String baseName, boolean preserveSharpEdges = false ->
+            def webpFile = new File(bootstrapOutputDir, "${baseName}.webp")
+            def tempPngFile = new File(temporaryDir, "${baseName}.png")
+            tempPngFile.parentFile.mkdirs()
+            tempPngFile.delete()
+            webpFile.delete()
+            def optimizedImage = scalePreviewImage(
+                    image,
+                    preserveSharpEdges ? 640 : 520,
+                    preserveSharpEdges
+            )
+            ImageIO.write(optimizedImage, "png", tempPngFile)
+            def finalAssetName = "color_card_filter_feed_bootstrap/${webpFile.name}"
+            try {
+                def result = exec {
+                    ignoreExitValue = true
+                    commandLine ffmpegBinary,
+                            "-hide_banner",
+                            "-loglevel", "error",
+                            "-y",
+                            "-i", tempPngFile.absolutePath,
+                            "-c:v", "libwebp",
+                            "-quality", preserveSharpEdges ? "72" : "64",
+                            "-compression_level", "6",
+                            webpFile.absolutePath
+                }
+                if (result.exitValue == 0 &&
+                        webpFile.exists() &&
+                        webpFile.length() > 0) {
+                    finalAssetName = "color_card_filter_feed_bootstrap/${webpFile.name}"
+                } else {
+                    throw new GradleException("Failed to encode bootstrap asset as webp: ${baseName}")
+                }
+            } catch (Exception ignored) {
+                webpFile.delete()
+                throw new GradleException("Failed to encode bootstrap asset as webp: ${baseName}", ignored)
+            } finally {
+                tempPngFile.delete()
+            }
+            finalAssetName
+        }
+
+        def bootstrapPaletteIds = [
+                "cinematic",
+                "cinematicx-rec-709",
+                "cinematicx-rec-709-2",
+                "cinematicx-rec-709-3",
+                "cinematicx-rec-709-4",
+                "cinematicx-rec-709-5",
+                "cinematicx-rec-709-6",
+                "bleach-bypass",
+                "cinema3",
+                "classic-neg",
+                "eterna",
+                "nostalgic-neg",
+                "film-sim-c200",
+                "film-sim-ektar100",
+                "film-sim-pro400h",
+                "film-sim-5219",
+                "film-sim-tx400",
+                "claire",
+                "converted-with-color",
+                "amy",
+                "cms",
+                "fg-cinebright",
+                "fg-cinevibrant1",
+                "film-boost-10",
+                "film-tone-3",
+                "generate-by-resolve",
+                "generate-by-resolve-2",
+                "generate-by-resolve-3",
+                "generated-by-3d-lut-creator-pro-c-oleg-sharonov",
+                "hklike",
+                "moewarm",
+                "moeot",
+                "ogs",
+                "presetpro-rich-tines",
+                "presetpro-santorini",
+                "presetpro-sunset",
+                "print-film-2",
+                "polaroid-669",
+                "polaroid-690",
+                "polaroid-polachrome",
+                "polaroid-px-680-warm",
+                "pro-neg-hi",
+                "pro-neg-std",
+                "cc",
+                "cc1",
+                "cc2",
+                "astia",
+                "provia",
+                "reala-ace",
+                "velvia",
+                "film-sim-allround400",
+                "fuj-07-velvia"
+        ]
+        def haldManifestEntries = prebuiltBuiltinHaldManifestFile.exists()
+                ? new JsonSlurper().parse(prebuiltBuiltinHaldManifestFile)
+                : []
+        def haldPreviewColorsById = [:]
+        def haldAssetNameById = [:]
+        haldManifestEntries.each { item ->
+            def canonicalId = resolveBootstrapCanonicalId(
+                    item.id?.toString(),
+                    item.title?.toString()
+            )
+            if (canonicalId && canonicalId !in haldPreviewColorsById && item.previewColors instanceof List && !item.previewColors.isEmpty()) {
+                haldPreviewColorsById[canonicalId] = item.previewColors
+            }
+            def haldAssetName = item.assetName?.toString()?.trim()
+            if (canonicalId && haldAssetName && canonicalId !in haldAssetNameById) {
+                haldAssetNameById[canonicalId] = haldAssetName
+            }
+        }
+        def haldBootstrapSpecs = haldAssetNameById.collect { canonicalId, haldAssetName ->
+            if (!haldAssetName) {
+                return null
+            }
+            [
+                    paletteId   : "builtin_hald:${canonicalId}",
+                    buildPreview: { BufferedImage source ->
+                        renderFfmpegHaldPreview(
+                                source,
+                                haldAssetName,
+                                "hald_${canonicalId.replaceAll('[^a-zA-Z0-9_-]', '_')}"
+                        )
+                    }
+            ]
+        }.findAll { it != null }
+        def selectiveBootstrapSpecs = [
+                [
+                        paletteId   : "builtin_creative:selective-red",
+                        buildPreview: { BufferedImage source -> applySelectiveColorPreview(source, 0d, 0.12d) }
+                ],
+                [
+                        paletteId   : "builtin_creative:selective-green",
+                        buildPreview: { BufferedImage source -> applySelectiveColorPreview(source, (120d / 360d), 0.18d) }
+                ],
+                [
+                        paletteId   : "builtin_creative:selective-blue",
+                        buildPreview: { BufferedImage source -> applySelectiveColorPreview(source, (220d / 360d), 0.18d) }
+                ],
+                [
+                        paletteId   : "builtin_creative:black-mist",
+                        buildPreview: { BufferedImage source -> applyBlackMistPreview(source) }
+                ]
+        ]
+        def pixelBootstrapSpecs = [
+                [
+                        paletteId   : "builtin_pixel:pixel-yellow",
+                        buildPreview: { BufferedImage source -> applyPixelDuotonePreview(source, [5, 5, 5], [241, 210, 75], 0.56d, 2.45d, 18d) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-red",
+                        buildPreview: { BufferedImage source -> applyPixelDuotonePreview(source, [5, 2, 2], [246, 27, 18], 0.54d, 2.70d, 18d) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-blue",
+                        buildPreview: { BufferedImage source -> applyPixelDuotonePreview(source, [3, 3, 10], [9, 25, 255], 0.58d, 2.85d, 18d) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-gray",
+                        buildPreview: { BufferedImage source -> applyPixelDuotonePreview(source, [5, 5, 5], [240, 236, 228], 0.53d, 3.10d, 18d) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-primary-yellow",
+                        buildPreview: { BufferedImage source -> applyPixelContinuousPreview(source, [23, 19, 3], [246, 216, 91], 1.72d) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-primary-blue",
+                        buildPreview: { BufferedImage source -> applyPixelPrimaryBluePreview(source) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-primary-red",
+                        buildPreview: { BufferedImage source -> applyPixelContinuousPreview(source, [25, 6, 7], [255, 74, 64], 1.70d) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-original",
+                        buildPreview: { BufferedImage source -> applyPixelOriginalPreview(source) },
+                        preserveSharpEdges: true
+                ],
+                [
+                        paletteId   : "builtin_pixel:pixel-beads",
+                        buildPreview: { BufferedImage source -> applyPixelOriginalPreview(source) },
+                        preserveSharpEdges: true
+                ]
+        ]
+        def bootstrapSpecs = (haldBootstrapSpecs + selectiveBootstrapSpecs + pixelBootstrapSpecs)
+        def bootstrapManifestEntries = []
+        def bootstrapTargetCount = generatedDemoEntries.isEmpty() || bootstrapSpecs.isEmpty()
+                ? 0
+                : bootstrapSpecs.size()
+        if (!generatedDemoEntries.isEmpty() && !bootstrapSpecs.isEmpty()) {
+            def preferredDemoEntries = generatedDemoEntries.findAll { it.id != "watermark_template_demo" }
+            if (preferredDemoEntries.isEmpty()) {
+                preferredDemoEntries = generatedDemoEntries
+            }
+            def emittedPreviewKeys = [] as Set
+            def bootstrapIndex = 0
+            bootstrapSpecs.eachWithIndex { spec, specIndex ->
+                def demoEntry = preferredDemoEntries[specIndex % preferredDemoEntries.size()]
+                def previewKey = "${spec.paletteId}:${demoEntry.assetName}"
+                if (!emittedPreviewKeys.add(previewKey)) {
+                    return
+                }
+                def filteredImage = spec.buildPreview.call(copyArgb(demoEntry.image as BufferedImage)) as BufferedImage
+                def previewImage = buildFilteredPreview(filteredImage)
+                def finalAssetName = writeOptimizedPreviewAsset(
+                        previewImage,
+                        "bootstrap_${bootstrapIndex}",
+                        (spec.preserveSharpEdges ?: false) as boolean
+                )
+                bootstrapManifestEntries << [
+                        paletteId    : spec.paletteId,
+                        demoAssetName: demoEntry.assetName,
+                        assetName    : finalAssetName
+                ]
+                bootstrapIndex++
+            }
+        }
+
+        bootstrapManifestFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(bootstrapManifestEntries))
+
+        if (usePrebuiltFeedAssets) {
+            prebuiltColorCardAssetsDir.mkdirs()
+            delete(prebuiltFilterFeedDemoDir)
+            delete(prebuiltFilterFeedDemoManifestFile)
+            delete(prebuiltFilterFeedBootstrapDir)
+            delete(prebuiltFilterFeedBootstrapManifestFile)
+            prebuiltFilterFeedDemoDir.mkdirs()
+            prebuiltFilterFeedBootstrapDir.mkdirs()
+            copy {
+                from(outputDir)
+                into(prebuiltFilterFeedDemoDir)
+            }
+            copy {
+                from(manifestFile)
+                into(prebuiltColorCardAssetsDir)
+            }
+            copy {
+                from(bootstrapOutputDir)
+                into(prebuiltFilterFeedBootstrapDir)
+            }
+            copy {
+                from(bootstrapManifestFile)
+                into(prebuiltColorCardAssetsDir)
+            }
+        }
+    }
+}
+syncColorCardFilterPreviewSampleAsset.configure {
+    dependsOn(syncColorCardFilterFeedDemoAssets)
+}
+def syncColorCardTopJournalAsset = tasks.register("syncColorCardTopJournalAsset", Copy) {
+    from(rootProject.file("@colors.txt"))
+    into(generatedColorCardAssetsDir)
+    rename { "color_card_top_journal_palettes.txt" }
+}
+def syncColorCardNiceAsset = tasks.register("syncColorCardNiceAsset", Copy) {
+    from(rootProject.file("100.json"))
+    into(generatedColorCardAssetsDir)
+    rename { "color_card_nice_palettes.json" }
+}
+def syncColorCardPaletteerAsset = tasks.register("syncColorCardPaletteerAsset", Copy) {
+    from(rootProject.file("palettes_d.json"))
+    into(generatedColorCardAssetsDir)
+    rename { "color_card_paletteer_palettes_d.json" }
+}
+def syncColorCardWebGradientsAsset = tasks.register("syncColorCardWebGradientsAsset", Copy) {
+    from(rootProject.file("gradients-parsed.json"))
+    into(generatedColorCardAssetsDir)
+    rename { "color_card_gradients_parsed.json" }
+}
+def syncColorCardCoolhueAsset = tasks.register("syncColorCardCoolhueAsset", Copy) {
+    from(rootProject.file("coolhue.json"))
+    into(generatedColorCardAssetsDir)
+    rename { "color_card_coolhue.json" }
+}
+def registerColorCardRootSourceAssetTask = { String taskName, String sourceName, String outputName ->
+    tasks.register(taskName, Copy) {
+        from(rootProject.file(sourceName))
+        into(generatedColorCardAssetsDir)
+        rename { outputName }
+    }
+}
+def syncColorCardOkcolorsAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardOkcolorsAsset",
+        "okcolors.R",
+        "color_card_okcolors.R"
+)
+def syncColorCardGhibliAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardGhibliAsset",
+        "吉卜力.yml",
+        "color_card_ghibli.yml"
+)
+def syncColorCardArtistsYamlAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardArtistsYamlAsset",
+        "艺术家.yml",
+        "color_card_artists.yml"
+)
+def syncColorCardHermitageAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardHermitageAsset",
+        "圣彼得堡冬宫.R",
+        "color_card_hermitage.R"
+)
+def syncColorCardMexicanArtAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardMexicanArtAsset",
+        "墨西哥艺术.R",
+        "color_card_mexican_art.R"
+)
+def syncColorCardMetMuseumAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardMetMuseumAsset",
+        "大都会博物馆.R",
+        "color_card_met_museum.R"
+)
+def syncColorCardPacificAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardPacificAsset",
+        "太平洋.R",
+        "color_card_pacific.R"
+)
+def syncColorCardJapaneseTraditionalAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardJapaneseTraditionalAsset",
+        "日本传统色.tex",
+        "color_card_japanese_traditional.tex"
+)
+def syncColorCardAustraliaAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardAustraliaAsset",
+        "澳大利亚艺术、风景和野生动物.R",
+        "color_card_australia.R"
+)
+def syncColorCardDutchMastersAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardDutchMastersAsset",
+        "荷兰艺术家.R",
+        "color_card_dutch_masters.R"
+)
+def syncColorCardButterfliesAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardButterfliesAsset",
+        "蝴蝶的颜色.R",
+        "color_card_butterflies.R"
+)
+def syncColorCardChineseTraditionalAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardChineseTraditionalAsset",
+        "中国传统色色谱.xlsx",
+        "color_card_chinese_traditional.xlsx"
+)
+def syncColorCardDictionaryOfColourCombinationsAsset = tasks.register("syncColorCardDictionaryOfColourCombinationsAsset", Copy) {
+    from(rootProject.file("色彩组合词典")) {
+        include "swatches_*.json"
+    }
+    into(generatedColorCardAssetsDir)
+}
+
+def syncColorCardColorNamesBestOfAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardColorNamesBestOfAsset",
+        "colornames.bestof.min.json",
+        "color_card_colornames_bestof_min.json"
+)
+def syncColorCardGlobalUniversitiesAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardGlobalUniversitiesAsset",
+        "unicol_global_universities.yml",
+        "color_card_global_universities.yml"
+)
+def syncColorCardGrisAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardGrisAsset",
+        "gris.R",
+        "color_card_gris.R"
+)
+def syncColorCardGameAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardGameAsset",
+        "game.R",
+        "color_card_game.R"
+)
+def syncColorCardMoMAAsset = registerColorCardRootSourceAssetTask(
+        "syncColorCardMoMAAsset",
+        "MoMA.R",
+        "color_card_moma.R"
+)
+
+def detectColorCardHaldLevel = { File sourceFile ->
+    def image = ImageIO.read(sourceFile)
+    if (image == null) {
+        return null
+    }
+    def width = image.width
+    def height = image.height
+    if (width <= 0 || width != height) {
+        return null
+    }
+    def level = Math.round(Math.cbrt((double) width))
+    if (level <= 0) {
+        return null
+    }
+    return (level * level * level) == width ? (int) level : null
+}
+
+def normalizeColorCardHaldTitle = { String fileName ->
+    def stem = fileName.replaceFirst(/\.[^.]+$/, "")
+    def cleaned = stem
+            .replaceAll(/(?i)\s*-\s*converted with color(?:\s*\(\d+\))?/, "")
+            .replaceAll(/(?i)\.jpg/, "")
+            .replaceAll(/(?i)_srgb/, "")
+            .replaceAll(/[_]+/, " ")
+            .replaceAll(/\s+/, " ")
+            .trim()
+    return cleaned ?: stem
+}
+
+def slugifyColorCardHaldId = { String text ->
+    def slug = text
+            .toLowerCase(Locale.US)
+            .replaceAll(/[^a-z0-9]+/, "-")
+            .replaceAll(/^-+|-+$/, "")
+    return slug ?: "hald-filter"
+}
+
+def parseColorCardJSeriesAsset = { File sourceFile ->
+    if (!sourceFile.parentFile?.name?.equalsIgnoreCase("J")) {
+        return null
+    }
+    def name = sourceFile.name
+    def matcher = (name =~ /\((\d+)\)(?=\.[^.]+$)/)
+    def ordinal = matcher.find() ? (Integer.parseInt(matcher.group(1)) + 1) : 1
+    return [
+            assetId: "j-fresh-bright-${ordinal}",
+            title  : "清新透亮"
+    ]
+}
+
+def colorCardExtraRootHaldSources = [
+        [
+                file   : rootProject.file("cc.png"),
+                assetId: "cc",
+                title  : "cc"
+        ],
+        [
+                file   : rootProject.file("cc2.png"),
+                assetId: "cc1",
+                title  : "cc1"
+        ],
+        [
+                file   : rootProject.file("cc3.png"),
+                assetId: "cc2",
+                title  : "cc2"
+        ]
+].findAll { spec -> spec.file.exists() }
+
+def colorCardClassicMemorySourceDir = rootProject.file("png lut")
+def colorCardBlackWhiteEraSourceDir = rootProject.file("bw")
+
+def formatColorCardPreviewHex = { int rgb ->
+    def red = (rgb >> 16) & 0xFF
+    def green = (rgb >> 8) & 0xFF
+    def blue = rgb & 0xFF
+    return String.format("#%02X%02X%02X", red, green, blue)
+}
+
+def computeColorCardRawRgbaHash = { String ffmpegBinary, File imageFile ->
+    def outputBuffer = new ByteArrayOutputStream()
+    def result = exec {
+        ignoreExitValue = true
+        standardOutput = outputBuffer
+        errorOutput = new ByteArrayOutputStream()
+        commandLine ffmpegBinary,
+                "-hide_banner",
+                "-loglevel", "error",
+                "-i", imageFile.absolutePath,
+                "-f", "rawvideo",
+                "-pix_fmt", "rgba",
+                "-"
+    }
+    if (result.exitValue != 0) {
+        return null
+    }
+    return MessageDigest
+            .getInstance("MD5")
+            .digest(outputBuffer.toByteArray())
+            .encodeHex()
+            .toString()
+}
+
+def sampleColorCardHaldPreviewColors = { image, int haldLevel ->
+    def samplePoints = [
+            [0.22d, 0.18d, 0.16d],
+            [0.48d, 0.42d, 0.38d],
+            [0.80d, 0.66d, 0.56d],
+            [0.30d, 0.52d, 0.72d],
+            [0.90d, 0.92d, 0.94d]
+    ]
+    def cubeSide = haldLevel * haldLevel
+    def imageSide = haldLevel * cubeSide
+    def clampUnit = { value -> Math.max(0d, Math.min(1d, value as double)) }
+    def lerp = { start, end, amount ->
+        (start as double) + (((end as double) - (start as double)) * (amount as double))
+    }
+    def sampleDiscrete = { rIndex, gIndex, bIndex ->
+        def linearIndex = rIndex + (gIndex * cubeSide) + (bIndex * cubeSide * cubeSide)
+        def x = linearIndex % imageSide
+        def y = (int) (linearIndex / imageSide)
+        return image.getRGB(x, y)
+    }
+    def interpolateChannel = { c000, c100, c010, c110, c001, c101, c011, c111, rf, gf, bf, shift ->
+        def ch = { color -> (color >> shift) & 0xFF }
+        def c00 = lerp(ch(c000), ch(c100), rf)
+        def c10 = lerp(ch(c010), ch(c110), rf)
+        def c01 = lerp(ch(c001), ch(c101), rf)
+        def c11 = lerp(ch(c011), ch(c111), rf)
+        def c0 = lerp(c00, c10, gf)
+        def c1 = lerp(c01, c11, gf)
+        return (int) Math.round(lerp(c0, c1, bf))
+    }
+
+    return samplePoints.collect { point ->
+        def r = clampUnit(point[0]) * (cubeSide - 1)
+        def g = clampUnit(point[1]) * (cubeSide - 1)
+        def b = clampUnit(point[2]) * (cubeSide - 1)
+
+        def r0 = Math.max(0, Math.min(cubeSide - 1, (int) Math.floor(r)))
+        def g0 = Math.max(0, Math.min(cubeSide - 1, (int) Math.floor(g)))
+        def b0 = Math.max(0, Math.min(cubeSide - 1, (int) Math.floor(b)))
+        def r1 = Math.min(cubeSide - 1, r0 + 1)
+        def g1 = Math.min(cubeSide - 1, g0 + 1)
+        def b1 = Math.min(cubeSide - 1, b0 + 1)
+
+        def rf = clampUnit(r - r0)
+        def gf = clampUnit(g - g0)
+        def bf = clampUnit(b - b0)
+
+        def c000 = sampleDiscrete(r0, g0, b0)
+        def c100 = sampleDiscrete(r1, g0, b0)
+        def c010 = sampleDiscrete(r0, g1, b0)
+        def c110 = sampleDiscrete(r1, g1, b0)
+        def c001 = sampleDiscrete(r0, g0, b1)
+        def c101 = sampleDiscrete(r1, g0, b1)
+        def c011 = sampleDiscrete(r0, g1, b1)
+        def c111 = sampleDiscrete(r1, g1, b1)
+
+        def red = interpolateChannel(c000, c100, c010, c110, c001, c101, c011, c111, rf, gf, bf, 16)
+        def green = interpolateChannel(c000, c100, c010, c110, c001, c101, c011, c111, rf, gf, bf, 8)
+        def blue = interpolateChannel(c000, c100, c010, c110, c001, c101, c011, c111, rf, gf, bf, 0)
+        return formatColorCardPreviewHex((red << 16) | (green << 8) | blue)
+    }
+}
+
+def refreshColorCardBuiltinHaldAssets = tasks.register("refreshColorCardBuiltinHaldAssets") {
+    def sourceDirs = [
+            rootProject.file("cube"),
+            rootProject.file("胶片模拟"),
+            rootProject.file("J"),
+            colorCardClassicMemorySourceDir,
+            colorCardBlackWhiteEraSourceDir
+    ].findAll { it.exists() }
+    def manifestFile = prebuiltBuiltinHaldManifestFile
+
+    inputs.files(sourceDirs + colorCardExtraRootHaldSources.collect { spec -> spec.file })
+    outputs.dir(prebuiltBuiltinHaldAssetsDir)
+    outputs.file(manifestFile)
+
+    doLast {
+        prebuiltColorCardAssetsDir.mkdirs()
+        delete(prebuiltBuiltinHaldAssetsDir)
+        prebuiltBuiltinHaldAssetsDir.mkdirs()
+
+        def ffmpegBinary = (System.getenv("FFMPEG_BINARY") ?: "ffmpeg").trim()
+        def entries = []
+        def seenIds = [] as Set
+        def regularSourceDirs = sourceDirs.findAll { dir -> !dir.name.equalsIgnoreCase("J") }
+        def jSeriesSourceDirs = sourceDirs.findAll { dir -> dir.name.equalsIgnoreCase("J") }
+        def sourceFiles = regularSourceDirs.collectMany { dir ->
+            fileTree(dir) {
+                include "*.png"
+            }.files
+        }.sort { left, right -> left.absolutePath <=> right.absolutePath } +
+                colorCardExtraRootHaldSources.collect { spec -> spec.file } +
+                jSeriesSourceDirs.collectMany { dir ->
+                    fileTree(dir) {
+                        include "*.png"
+                    }.files
+                }.sort { left, right -> left.absolutePath <=> right.absolutePath }
+        def extraRootSpecByPath = colorCardExtraRootHaldSources.collectEntries { spec ->
+            [(spec.file.absolutePath): spec]
+        }
+
+        sourceFiles.eachWithIndex { File sourceFile, int index ->
+            def haldLevel = detectColorCardHaldLevel(sourceFile)
+            if (haldLevel == null) {
+                logger.lifecycle("Skipping non-Hald asset: ${sourceFile.name}")
+                return
+            }
+
+            def extraRootAsset = extraRootSpecByPath[sourceFile.absolutePath]
+            def jSeriesAsset = parseColorCardJSeriesAsset(sourceFile)
+            def isClassicMemoryAsset = colorCardClassicMemorySourceDir.exists() &&
+                    sourceFile.parentFile?.canonicalPath == colorCardClassicMemorySourceDir.canonicalPath
+            def isBlackWhiteEraAsset = colorCardBlackWhiteEraSourceDir.exists() &&
+                    sourceFile.parentFile?.canonicalPath == colorCardBlackWhiteEraSourceDir.canonicalPath
+            def title = extraRootAsset?.title ?: jSeriesAsset?.title ?: normalizeColorCardHaldTitle(sourceFile.name)
+            def baseId = extraRootAsset?.assetId ?: (jSeriesAsset
+                    ? jSeriesAsset.assetId
+                    : isClassicMemoryAsset
+                        ? "classic-memory-${slugifyColorCardHaldId(title)}"
+                        : isBlackWhiteEraAsset
+                            ? "black-white-era-${slugifyColorCardHaldId(title)}"
+                            : slugifyColorCardHaldId(title))
+            def uniqueId = baseId
+            def duplicateIndex = 2
+            while (!seenIds.add(uniqueId)) {
+                uniqueId = "${baseId}-${duplicateIndex++}"
+            }
+
+            def previewImage = ImageIO.read(sourceFile)
+            def previewColors = sampleColorCardHaldPreviewColors(previewImage, haldLevel)
+            previewImage?.flush()
+
+            def optimizedWebp = new File(temporaryDir, "${uniqueId}.webp")
+            optimizedWebp.parentFile.mkdirs()
+            optimizedWebp.delete()
+
+            def shouldUseWebp = false
+            try {
+                def result = exec {
+                    ignoreExitValue = true
+                    commandLine ffmpegBinary,
+                            "-hide_banner",
+                            "-loglevel", "error",
+                            "-y",
+                            "-i", sourceFile.absolutePath,
+                            "-c:v", "libwebp",
+                            "-lossless", "1",
+                            "-compression_level", "6",
+                            "-q:v", "100",
+                            optimizedWebp.absolutePath
+                }
+                shouldUseWebp = result.exitValue == 0 &&
+                        optimizedWebp.exists() &&
+                        optimizedWebp.length() > 0 &&
+                        optimizedWebp.length() < sourceFile.length()
+                if (shouldUseWebp) {
+                    def sourceHash = computeColorCardRawRgbaHash(ffmpegBinary, sourceFile)
+                    def webpHash = computeColorCardRawRgbaHash(ffmpegBinary, optimizedWebp)
+                    shouldUseWebp = sourceHash != null && sourceHash == webpHash
+                }
+            } catch (Exception ignored) {
+                shouldUseWebp = false
+            }
+
+            def outputExtension = shouldUseWebp ? "webp" : "png"
+            def outputFile = new File(prebuiltBuiltinHaldAssetsDir, "${uniqueId}.${outputExtension}")
+            copy {
+                from(shouldUseWebp ? optimizedWebp : sourceFile)
+                into(prebuiltBuiltinHaldAssetsDir)
+                rename { outputFile.name }
+            }
+
+            entries << [
+                    id           : uniqueId,
+                    title        : title,
+                    sourceTag    : jSeriesAsset ? "清新透亮" : "内置 Hald",
+                    assetName    : "color_card_hald/${outputFile.name}",
+                    haldLevel    : haldLevel,
+                    previewColors: previewColors,
+                    sortOrder    : index
+            ]
+        }
+
+        manifestFile.setText(
+                JsonOutput.prettyPrint(JsonOutput.toJson(entries)),
+                "UTF-8"
+        )
+    }
+}
+
+def syncColorCardBuiltinHaldAssets = tasks.register("syncColorCardBuiltinHaldAssets") {
+    def generatedManifestFile = file("$generatedColorCardAssetsDir/color_card_builtin_hald_filters.json")
+
+    inputs.dir(prebuiltBuiltinHaldAssetsDir)
+    inputs.file(prebuiltBuiltinHaldManifestFile)
+    outputs.dir(generatedBuiltinHaldAssetsDir)
+    outputs.file(generatedManifestFile)
+
+    doLast {
+        generatedColorCardAssetsDir.mkdirs()
+        delete(generatedBuiltinHaldAssetsDir)
+        generatedBuiltinHaldAssetsDir.mkdirs()
+        delete(generatedManifestFile)
+
+        if (!prebuiltBuiltinHaldAssetsDir.exists() || !prebuiltBuiltinHaldManifestFile.exists()) {
+            throw new GradleException(
+                    "Missing prebuilt builtin Hald assets. Run :app:refreshColorCardBuiltinHaldAssets once to regenerate them."
+            )
+        }
+
+        copy {
+            from(prebuiltBuiltinHaldAssetsDir)
+            into(generatedBuiltinHaldAssetsDir)
+        }
+        copy {
+            from(prebuiltBuiltinHaldManifestFile)
+            into(generatedColorCardAssetsDir)
+        }
+    }
+}
+
+def refreshColorCardFilmGrainAssets = tasks.register("refreshColorCardFilmGrainAssets") {
+    def sourceSpecs = [
+            [
+                    dir         : rootProject.file("32 film grain textures overlays 4K"),
+                    idPrefix    : "film-grain-core",
+                    outputPrefix: "grain-core",
+                    titlePrefix : "G"
+            ],
+            [
+                    dir         : rootProject.file("Film-Grain-Textures-FREE-Pack-8K"),
+                    idPrefix    : "film-grain-8k",
+                    outputPrefix: "grain-8k",
+                    titlePrefix : "K"
+            ],
+            [
+                    dir         : rootProject.file("Textures"),
+                    idPrefix    : "film-texture",
+                    outputPrefix: "texture",
+                    titlePrefix : "T"
+            ]
+    ]
+    def manifestFile = prebuiltFilmGrainManifestFile
+
+    sourceSpecs.each { spec ->
+        inputs.dir(spec.dir)
+    }
+    outputs.dir(prebuiltFilmGrainAssetsDir)
+    outputs.file(manifestFile)
+
+    doLast {
+        prebuiltColorCardAssetsDir.mkdirs()
+        delete(prebuiltFilmGrainAssetsDir)
+        prebuiltFilmGrainAssetsDir.mkdirs()
+        delete(manifestFile)
+
+        if (!sourceSpecs.any { it.dir.exists() }) {
+            manifestFile.setText("[]", "UTF-8")
+            return
+        }
+
+        def ffmpegBinary = (System.getenv("FFMPEG_BINARY") ?: "ffmpeg").trim()
+        def entries = []
+        def extractOrdinal = { File file, int fallbackOrdinal ->
+            def stem = file.name.replaceFirst(/\.[^.]+$/, "")
+            stem = stem.replaceFirst(/(?i)(?:[-_\s])\d+K$/, "")
+            def trailingMatcher = (stem =~ /(\d+)(?!.*\d)/)
+            if (trailingMatcher.find()) {
+                return Integer.parseInt(trailingMatcher.group(1))
+            }
+            def lastOrdinal = null
+            def anyMatcher = (stem =~ /(\d+)/)
+            while (anyMatcher.find()) {
+                lastOrdinal = Integer.parseInt(anyMatcher.group(1))
+            }
+            return lastOrdinal ?: fallbackOrdinal
+        }
+        sourceSpecs.each { spec ->
+            if (!spec.dir.exists()) {
+                return
+            }
+
+            def sourceFiles = fileTree(spec.dir) {
+                include "**/*.jpg", "**/*.jpeg", "**/*.png"
+            }.files.sort { left, right ->
+                def leftOrdinal = extractOrdinal(left, Integer.MAX_VALUE)
+                def rightOrdinal = extractOrdinal(right, Integer.MAX_VALUE)
+                leftOrdinal <=> rightOrdinal ?: left.absolutePath <=> right.absolutePath
+            }
+
+            sourceFiles.eachWithIndex { File sourceFile, int index ->
+                def ordinal = extractOrdinal(sourceFile, index + 1)
+                def uniqueId = String.format(Locale.US, "%s-%02d", spec.idPrefix, ordinal)
+                def title = String.format(Locale.US, "%s%02d", spec.titlePrefix, ordinal)
+                def outputFile = new File(
+                        prebuiltFilmGrainAssetsDir,
+                        String.format(Locale.US, "%s-%02d.webp", spec.outputPrefix, ordinal)
+                )
+
+                exec {
+                    commandLine ffmpegBinary,
+                            "-hide_banner",
+                            "-loglevel", "error",
+                            "-y",
+                            "-i", sourceFile.absolutePath,
+                            "-vf", "scale='if(gt(iw,ih),640,-2)':'if(gt(iw,ih),-2,640)':flags=lanczos,format=gray",
+                            "-c:v", "libwebp",
+                            "-quality", "60",
+                            "-compression_level", "6",
+                            outputFile.absolutePath
+                }
+
+                entries << [
+                        id       : uniqueId,
+                        title    : title,
+                        assetName: "color_card_film_grain/${outputFile.name}",
+                        sortOrder: entries.size()
+                ]
+            }
+        }
+
+        manifestFile.setText(
+                JsonOutput.prettyPrint(JsonOutput.toJson(entries)),
+                "UTF-8"
+        )
+    }
+}
+
+def syncColorCardFilmGrainAssets = tasks.register("syncColorCardFilmGrainAssets") {
+    def generatedManifestFile = file("$generatedColorCardAssetsDir/color_card_film_grain_textures.json")
+
+    inputs.dir(prebuiltFilmGrainAssetsDir)
+    inputs.file(prebuiltFilmGrainManifestFile)
+    outputs.dir(generatedFilmGrainAssetsDir)
+    outputs.file(generatedManifestFile)
+
+    doLast {
+        generatedColorCardAssetsDir.mkdirs()
+        delete(generatedFilmGrainAssetsDir)
+        generatedFilmGrainAssetsDir.mkdirs()
+        delete(generatedManifestFile)
+
+        if (!prebuiltFilmGrainAssetsDir.exists() || !prebuiltFilmGrainManifestFile.exists()) {
+            throw new GradleException(
+                    "Missing prebuilt film grain assets. Run :app:refreshColorCardFilmGrainAssets once to regenerate them."
+            )
+        }
+
+        copy {
+            from(prebuiltFilmGrainAssetsDir)
+            into(generatedFilmGrainAssetsDir)
+        }
+        copy {
+            from(prebuiltFilmGrainManifestFile)
+            into(generatedColorCardAssetsDir)
+        }
+    }
+}
+
+def syncColorCardAiMnnAssets = tasks.register("syncColorCardAiMnnAssets") {
+    def generatedManifestFile = file("$generatedColorCardAssetsDir/color_card_ai/mnn_filters.json")
+    def sourceFiles = rootProject.fileTree(rootProject.projectDir) {
+        include "*.mnn"
+    }
+
+    inputs.files(sourceFiles)
+    outputs.dir(generatedAiMnnAssetsDir)
+    outputs.file(generatedManifestFile)
+
+    doLast {
+        generatedAiMnnAssetsDir.mkdirs()
+        delete(generatedAiMnnAssetsDir)
+        generatedAiMnnAssetsDir.mkdirs()
+        delete(generatedManifestFile)
+
+        def entries = []
+        sourceFiles.files
+                .sort { left, right -> left.name <=> right.name }
+                .eachWithIndex { File sourceFile, int index ->
+                    def targetFile = new File(generatedAiMnnAssetsDir, sourceFile.name)
+                    copy {
+                        from(sourceFile)
+                        into(generatedAiMnnAssetsDir)
+                    }
+
+                    def stem = sourceFile.name.replaceFirst(/\.[^.]+$/, "")
+                    def normalizedStem = stem.trim().toLowerCase(Locale.US)
+                    def title = [
+                            "classic_neg": "NC",
+                            "v"          : "NV"
+                    ][normalizedStem] ?: stem
+                            .replaceAll(/[_-]+/, " ")
+                            .trim()
+                            .split(/\s+/)
+                            .collect { token -> token ? token.substring(0, 1).toUpperCase(Locale.US) + token.substring(1) : token }
+                            .join(" ")
+
+                    entries << [
+                            id              : "ai-mnn-${index + 1}",
+                            title           : title ?: "AI ${index + 1}",
+                            assetName       : "color_card_ai/filters/${targetFile.name}",
+                            inputColorOrder : "RGB",
+                            outputColorOrder: "RGB",
+                            inputLayout     : "NCHW",
+                            outputLayout    : "NCHW",
+                            threadCount     : 2
+                    ]
+                }
+
+        generatedManifestFile.parentFile.mkdirs()
+        generatedManifestFile.setText(
+                JsonOutput.prettyPrint(JsonOutput.toJson([
+                        id     : "ai-mnn-series",
+                        title  : "AI 调色",
+                        filters: entries
+                ])),
+                "UTF-8"
+        )
+    }
+}
+
+def syncColorCardAiMnnJniLibs = tasks.register("syncColorCardAiMnnJniLibs") {
+    def outputArm64Dir = file("$generatedAiMnnJniDir/arm64-v8a")
+    def builtLibMnnFile = file("$mnnRuntimeBuildDir/libMNN.so")
+    def builtLibMnnClFile = file("$mnnRuntimeBuildDir/libMNN_CL.so")
+    def builtLibMnnCoreFile = file("$mnnRuntimeBuildDir/source/jni/libmnncore.so")
+
+    def buildScriptPs1 = file("$rootDir/scripts/build_mnn_runtime.ps1")
+    if (buildScriptPs1.exists()) {
+        inputs.file(buildScriptPs1)
+    }
+    inputs.property("usePrebuiltMnnJni", usePrebuiltMnnJni)
+    inputs.property("refreshPrebuiltMnnJni", refreshPrebuiltMnnJni)
+    if (mnnSourceRootDir.exists()) {
+        inputs.dir(mnnSourceRootDir)
+    }
+    if (prebuiltAiMnnJniArm64Dir.exists()) {
+        inputs.dir(prebuiltAiMnnJniArm64Dir)
+    }
+    outputs.dir(generatedAiMnnJniDir)
+
+    doLast {
+        def requiredNames = [
+                "libMNN.so",
+                "libMNN_CL.so",
+                "libmnncore.so",
+                "libc++_shared.so"
+        ]
+        def prebuiltRequiredFiles = requiredNames.collect { fileName ->
+            new File(prebuiltAiMnnJniArm64Dir, fileName)
+        }
+        def prebuiltReady = prebuiltRequiredFiles.every { file -> file.exists() }
+        generatedAiMnnJniDir.mkdirs()
+        delete(generatedAiMnnJniDir)
+        outputArm64Dir.mkdirs()
+
+        if (usePrebuiltMnnJni && !refreshPrebuiltMnnJni && prebuiltReady) {
+            copy {
+                from(prebuiltAiMnnJniArm64Dir)
+                into(outputArm64Dir)
+            }
+            logger.lifecycle("syncColorCardAiMnnJniLibs: using prebuilt JNI cache")
+            return
+        }
+
+        if (!mnnSourceRootDir.exists()) {
+            if (prebuiltReady) {
+                copy {
+                    from(prebuiltAiMnnJniArm64Dir)
+                    into(outputArm64Dir)
+                }
+                logger.lifecycle("syncColorCardAiMnnJniLibs: MNN source missing, fallback to prebuilt JNI cache")
+                return
+            }
+            throw new GradleException("Missing local MNN source checkout: ${mnnSourceRootDir.absolutePath}")
+        }
+
+        if (!builtLibMnnFile.exists() || !builtLibMnnClFile.exists() || !builtLibMnnCoreFile.exists()) {
+            def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
+            if (osName.contains('windows')) {
+                exec {
+                    workingDir(rootDir)
+                    commandLine "powershell", "-ExecutionPolicy", "Bypass", "-File", file("$rootDir/scripts/build_mnn_runtime.ps1").absolutePath
+                }
+            } else {
+                throw new GradleException(
+                    "MNN runtime prebuilt .so files not found and auto-build is only supported on Windows.\n" +
+                    "Please build MNN manually or provide prebuilt files in: ${mnnRuntimeBuildDir}\n" +
+                    "Alternatively, set usePrebuiltMnnJni=true in gradle.properties and place .so files in: ${prebuiltAiMnnJniArm64Dir}")
+            }
+        }
+
+        copy {
+            from(builtLibMnnFile)
+            from(builtLibMnnClFile)
+            from(builtLibMnnCoreFile)
+            from(arm64LibcxxSharedFile)
+            into(outputArm64Dir)
+        }
+
+        def requiredFiles = requiredNames.collect { fileName ->
+            new File(outputArm64Dir, fileName)
+        }
+        requiredFiles.each { file ->
+            if (!file.exists()) {
+                throw new GradleException("Missing extracted MNN runtime library: ${file.absolutePath}")
+            }
+        }
+
+        if (usePrebuiltMnnJni) {
+            delete(prebuiltAiMnnJniArm64Dir)
+            prebuiltAiMnnJniArm64Dir.mkdirs()
+            copy {
+                from(outputArm64Dir)
+                into(prebuiltAiMnnJniArm64Dir)
+            }
+        }
+    }
+}
 
 android {
     namespace = "com.voicelike.app"
@@ -8,35 +1938,36 @@ android {
         applicationId "com.photoo.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 21
-        versionName "2.0"
+        versionCode 41
+        versionName "4.1"
+        buildConfigField "boolean", "CAMPFIRE_PAY_ENABLED", "false"
+        buildConfigField "String", "CAMPFIRE_PAY_BASE_URL", "\"${campfirePayBaseUrl.replace("\\", "\\\\").replace("\"", "\\\"")}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+            noCompress 'tflite'
         }
     }
 
     splits {
         abi {
-            enable true
+            enable = true
             reset()
-            include "armeabi-v7a", "arm64-v8a"
-            universalApk false
+            include "arm64-v8a"
+            universalApk = false
         }
     }
     buildTypes {
         release {
             minifyEnabled true
-            shrinkResources true
+            shrinkResources = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.5.8'
+        compose = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -45,6 +1976,56 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+    lint {
+        // Kotlin 2.3 + current Compose lint stack crashes in this detector.
+        disable 'CoroutineCreationDuringComposition'
+        disable 'UnrememberedAnimatable'
+        disable 'ProduceStateDoesNotAssignValue'
+        // Quality gate: exempt pre-existing issues, only block new ones.
+        baseline = file("lint-baseline.xml")
+        // Release speed: lintVital re-ran the full lint pass on every assembleRelease.
+        // Run `./gradlew :app:lint` explicitly when a lint pass is wanted.
+        checkReleaseBuilds = false
+    }
+    sourceSets {
+        main {
+            assets.srcDir generatedColorCardAssetsDir
+            jniLibs.srcDirs = ['src/main/jniLibs', generatedAiMnnJniDir.absolutePath]
+        }
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn(syncScreenshotClassifierModelAssets)
+    dependsOn(syncColorCardFilterPreviewSampleAsset)
+    dependsOn(syncColorCardFilterFeedDemoAssets)
+    dependsOn(syncColorCardTopJournalAsset)
+    dependsOn(syncColorCardNiceAsset)
+    dependsOn(syncColorCardPaletteerAsset)
+    dependsOn(syncColorCardWebGradientsAsset)
+    dependsOn(syncColorCardCoolhueAsset)
+    dependsOn(syncColorCardOkcolorsAsset)
+    dependsOn(syncColorCardGhibliAsset)
+    dependsOn(syncColorCardArtistsYamlAsset)
+    dependsOn(syncColorCardHermitageAsset)
+    dependsOn(syncColorCardMexicanArtAsset)
+    dependsOn(syncColorCardMetMuseumAsset)
+    dependsOn(syncColorCardPacificAsset)
+    dependsOn(syncColorCardJapaneseTraditionalAsset)
+    dependsOn(syncColorCardAustraliaAsset)
+    dependsOn(syncColorCardDutchMastersAsset)
+    dependsOn(syncColorCardButterfliesAsset)
+    dependsOn(syncColorCardChineseTraditionalAsset)
+    dependsOn(syncColorCardDictionaryOfColourCombinationsAsset)
+    dependsOn(syncColorCardColorNamesBestOfAsset)
+    dependsOn(syncColorCardGlobalUniversitiesAsset)
+    dependsOn(syncColorCardGrisAsset)
+    dependsOn(syncColorCardGameAsset)
+    dependsOn(syncColorCardMoMAAsset)
+    dependsOn(syncColorCardBuiltinHaldAssets)
+    dependsOn(syncColorCardFilmGrainAssets)
+    dependsOn(syncColorCardAiMnnAssets)
+    dependsOn(syncColorCardAiMnnJniLibs)
 }
 
 dependencies {
@@ -58,21 +2039,35 @@ dependencies {
     implementation "androidx.exifinterface:exifinterface:1.3.7"
 
     // Native Kotlin + Compose Dependencies
-    implementation platform('androidx.compose:compose-bom:2024.02.00')
+    implementation enforcedPlatform('androidx.compose:compose-bom:2026.01.01')
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
     implementation 'androidx.compose.material:material-icons-extended'
     implementation 'androidx.activity:activity-compose:1.8.2'
+    // Fold position for the split card-sorting layout on foldables (already resolved transitively).
+    implementation 'androidx.window:window:1.5.0'
     implementation 'io.coil-kt:coil-compose:2.5.0'
     implementation 'io.coil-kt:coil-video:2.5.0' // For video frames
+    implementation 'io.coil-kt:coil-gif:2.5.0' // For GIF
+    implementation 'io.coil-kt:coil-svg:2.5.0' // For SVG
+    implementation 'com.airbnb.android:lottie-compose:6.6.7'
     debugImplementation 'androidx.compose.ui:ui-tooling'
+    implementation('io.github.kyant0:backdrop:1.0.6') {
+        exclude group: 'org.jetbrains.compose.ui'
+        exclude group: 'org.jetbrains.compose.runtime'
+        exclude group: 'org.jetbrains.compose.annotation-internal'
+        exclude group: 'org.jetbrains.compose.collection-internal'
+        exclude group: 'org.jetbrains.androidx.lifecycle'
+        exclude group: 'org.jetbrains.androidx.savedstate'
+    }
     
     // Media3 for Video Playback
     implementation "androidx.media3:media3-exoplayer:1.2.0"
     implementation "androidx.media3:media3-ui:1.2.0"
     implementation "androidx.media3:media3-common:1.2.0"
+    implementation "androidx.media3:media3-effect:1.2.0"
     implementation "androidx.media3:media3-transformer:1.2.0"
 
     // Gson for persistence
@@ -83,9 +2078,20 @@ dependencies {
     
     // ML Kit Face Detection (Bundled version for China/Offline support)
     implementation 'com.google.mlkit:face-detection:16.1.6'
-    
+
     // Coroutines Play Services support (for await())
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
+
+    // CameraX
+    implementation "androidx.camera:camera-core:1.5.3"
+    implementation "androidx.camera:camera-camera2:1.5.3"
+    implementation "androidx.camera:camera-lifecycle:1.5.3"
+    implementation "androidx.camera:camera-view:1.5.3"
+
+    // TensorFlow Lite super resolution
+    implementation 'org.tensorflow:tensorflow-lite:2.17.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.17.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu-api:2.17.0'
 }
 
 try {
@@ -95,4 +2101,38 @@ try {
     }
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
+
+// Keep every release mapping: crash logs carry the R8 map id ("r8-map-id-<id>"), and retracing
+// needs that exact file, which the next release build would overwrite.
+// Archive: <android>/mapping-archive/v<name>-<code>-<map id prefix>/mapping.txt (gitignored).
+tasks.configureEach { task ->
+    if (task.name == 'minifyReleaseWithR8') {
+        task.doLast {
+            def mapping = file("$buildDir/outputs/mapping/release/mapping.txt")
+            if (!mapping.exists()) {
+                mapping = file("$buildDir/intermediates/mapping/release/minifyReleaseWithR8/mapping.txt")
+            }
+            if (!mapping.exists()) return
+            def mapId = 'unknown'
+            mapping.withReader { reader ->
+                for (int i = 0; i < 20; i++) {
+                    def line = reader.readLine()
+                    if (line == null) break
+                    if (line.startsWith('# pg_map_id: ')) {
+                        mapId = line.substring('# pg_map_id: '.length()).trim()
+                        break
+                    }
+                }
+            }
+            def config = android.defaultConfig
+            def dest = rootProject.file("mapping-archive/v${config.versionName}-${config.versionCode}-${mapId.take(12)}")
+            dest.mkdirs()
+            copy {
+                from mapping
+                into dest
+            }
+            logger.lifecycle("R8 mapping archived to ${dest}")
+        }
+    }
 }

@@ -1,0 +1,104 @@
+{
+ "swatches_e": [
+  {
+    "name": "Grayish Lavender - A",
+    "cmyk": [ 28, 28, 0, 0 ],
+    "combinations": [ 8, 15, 159, 177, 218, 248, 307 ]
+  },
+  {
+    "name": "Grayish Lavender - B",
+    "cmyk": [ 25, 33, 20, 0 ],
+    "combinations": [ 47, 56, 174, 187, 235, 327, 329, 338 ]
+  },
+  {
+    "name": "Laelia Pink",
+    "cmyk": [ 20, 48, 18, 0 ],
+    "combinations": [ 20, 254, 280, 337 ]
+  },
+  {
+    "name": "Lilac",
+    "cmyk": [ 28, 54, 8, 0 ],
+    "combinations": [ 143, 162, 282, 347 ]
+  },
+  {
+    "name": "Eupatorium Purple",
+    "cmyk": [ 25, 79, 12, 0 ],
+    "combinations": [ 215, 315, 322 ]
+  },
+  {
+    "name": "Light Mauve",
+    "cmyk": [ 43, 62, 5, 0 ],
+    "combinations": [ 23, 80, 128, 134, 180, 274, 331 ]
+  },
+  {
+    "name": "Aconite Violet",
+    "cmyk": [ 39, 68, 5, 0 ],
+    "combinations": [ 43, 64, 90, 187, 220, 257, 269, 301, 307, 324, 344 ]
+  },
+  {
+    "name": "Dull Blue Violet",
+    "cmyk": [ 57, 60, 17, 0 ],
+    "combinations": [ 9, 100 ]
+  },
+  {
+    "name": "Dark Soft Violet",
+    "cmyk": [ 70, 68, 13, 0 ],
+    "combinations": [ 64, 127, 197 ]
+  },
+  {
+    "name": "Blue Violet",
+    "cmyk": [ 72, 80, 0, 0 ],
+    "combinations": [ 116, 175, 196, 322, 345 ]
+  },
+  {
+    "name": "Purple Drab",
+    "cmyk": [ 38, 65, 49, 26 ],
+    "combinations": [ 236 ]
+  },
+  {
+    "name": "Deep Violet / Plumbeous",
+    "cmyk": [ 61, 52, 43, 7 ],
+    "combinations": [ 183, 192, 218 ]
+  },
+  {
+    "name": "Veronia Purple",
+    "cmyk": [ 42, 78, 46, 15 ],
+    "combinations": [ 13, 24, 168, 183 ]
+  },
+  {
+    "name": "Dark Slate Purple",
+    "cmyk": [ 64, 85, 60, 10 ],
+    "combinations": [ 225, 248 ]
+  },
+  {
+    "name": "Taupe Brown",
+    "cmyk": [ 30, 70, 35, 40 ],
+    "combinations": [ 57, 123, 174, 224, 275, 280, 288 ]
+  },
+  {
+    "name": "Violet Carmine",
+    "cmyk": [ 64, 90, 70, 10 ],
+    "combinations": [ 337 ]
+  },
+  {
+    "name": "Violet",
+    "cmyk": [ 85, 90, 18, 0 ],
+    "combinations": [ 42, 56, 130, 156, 164, 181, 205, 214, 226, 316, 331, 335 ]
+  },
+  {
+    "name": "Red Violet",
+    "cmyk": [ 76, 100, 25, 15 ],
+    "combinations": [ 4, 37, 134, 136, 170, 172, 183, 316 ]
+  },
+  {
+    "name": "Cotinga Purple",
+    "cmyk": [ 66, 100, 42, 40 ],
+    "combinations": [ 61, 181, 238, 253, 307, 329, 348 ]
+  },
+  {
+    "name": "Dusky Madder Violet",
+    "cmyk": [ 75, 100, 46, 30 ],
+    "combinations": [ 18, 50, 53, 82, 103, 314 ]
+  }
+ ]
+}

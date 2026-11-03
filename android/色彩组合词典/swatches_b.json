@@ -1,0 +1,249 @@
+{
+ "swatches_b": [
+  {
+    "name": "Sulpher Yellow",
+    "cmyk": [ 4, 4, 28, 0 ],
+    "combinations": [ 52, 72, 80, 104, 132, 135, 151, 208, 246, 254, 270, 294, 296, 310, 315, 320, 321, 326 ]
+  },
+  {
+    "name": "Pale Lemon Yellow",
+    "cmyk": [ 0, 4, 38, 0 ],
+    "combinations": [ 3, 31, 60, 76, 99, 109, 111, 169, 185, 195, 203, 228, 241, 261, 272, 281, 290, 292, 336 ]
+  },
+  {
+    "name": "Naples Yellow",
+    "cmyk": [ 2, 7, 44, 0 ],
+    "combinations": [ 14, 115, 166, 193, 303, 325 ]
+  },
+  {
+    "name": "Ivory Buff",
+    "cmyk": [ 8, 15, 40, 0 ],
+    "combinations": [ 11, 50, 94, 102, 126, 178, 184, 190, 209, 214, 235, 243, 262, 266, 301, 343 ]
+  },
+  {
+    "name": "Seashell Pink",
+    "cmyk": [ 0, 19, 23, 0 ],
+    "combinations": [ 45, 84, 88, 113, 150, 176, 194, 276, 334 ]
+  },
+  {
+    "name": "Light Pinkish Cinnamon",
+    "cmyk": [ 0, 25, 40, 0 ],
+    "combinations": [ 317 ]
+  },
+  {
+    "name": "Pinkish Cinnamon",
+    "cmyk": [ 5, 32, 53, 0 ],
+    "combinations": [ 78, 161, 175, 232, 258, 263, 292, 305, 310 ]
+  },
+  {
+    "name": "Cinnamon Buff",
+    "cmyk": [ 0, 25, 57, 0 ],
+    "combinations": [ 23 , 127, 137, 180, 210, 234, 246, 323, 344 ]
+  },
+  {
+    "name": "Cream Yellow",
+    "cmyk": [ 0, 28, 68, 0 ],
+    "combinations": [ 122, 192, 215, 226, 267, 278, 294, 295, 300, 302, 304, 311, 329, 342 ]
+  },
+  {
+    "name": "Golden Yellow",
+    "cmyk": [ 2, 42, 74, 0 ],
+    "combinations": [ 26, 81, 132, 138, 140, 179, 206, 229, 309, 315 ]
+  },
+  {
+    "name": "Vinaceous Cinnamon",
+    "cmyk": [ 4, 40, 42, 0 ],
+    "combinations": [ 203, 205, 213, 256, 260, 279, 299 ]
+  },
+  {
+    "name": "Ochraceous Salmon",
+    "cmyk": [ 15, 38, 55, 0 ],
+    "combinations": [ 32, 71, 121, 186, 217, 220, 223, 238, 296, 339 ]
+  },
+  {
+    "name": "Isabella Color",
+    "cmyk": [ 15, 28, 60, 10 ],
+    "combinations": [ 4, 12, 241, 292 ]
+  },
+  {
+    "name": "Maple",
+    "cmyk": [ 5, 26, 56, 20 ],
+    "combinations": [ 282 ]
+  },
+  {
+    "name": "Olive Buff",
+    "cmyk": [ 16, 6, 42, 12 ],
+    "combinations": [ 83, 175, 200, 330, 348 ]
+  },
+  {
+    "name": "Ecru",
+    "cmyk": [ 20, 25, 40, 6 ],
+    "combinations": [ 167, 249, 275, 279, 292, 302, 317, 327 ]
+  },
+  {
+    "name": "Yellow",
+    "cmyk": [ 0, 0, 100, 0 ],
+    "combinations": [ 22, 62, 68, 154, 240, 251, 295, 313 ]
+  },
+  {
+    "name": "Lemon Yellow",
+    "cmyk": [ 5, 0, 85, 0 ],
+    "combinations": [ 45, 123, 138, 158, 168, 173, 189, 210, 253, 259, 289, 298, 306, 317, 333 ]
+  },
+  {
+    "name": "Apricot Yellow",
+    "cmyk": [ 0, 10, 100, 0 ],
+    "combinations": [ 107, 129, 163, 198, 213, 247, 265, 284, 305, 319 ]
+  },
+  {
+    "name": "Pyrite Yellow",
+    "cmyk": [ 23, 25, 80, 0 ],
+    "combinations": [ 239, 250, 255, 287 ]
+  },
+  {
+    "name": "Olive Ocher",
+    "cmyk": [ 18, 26, 90, 0 ],
+    "combinations": [ 66, 148, 149, 156, 157, 249, 278 ]
+  },
+  {
+    "name": "Yellow Ocher",
+    "cmyk": [ 12, 28, 88, 0 ],
+    "combinations": [ 42, 96, 118, 124, 126, 191, 222, 325 ]
+  },
+  {
+    "name": "Orange Yellow",
+    "cmyk": [ 0, 33, 100, 0 ],
+    "combinations": [ 114, 148, 153, 164, 170, 257, 286, 338 ]
+  },
+  {
+    "name": "Yellow Orange",
+    "cmyk": [ 0, 45, 100, 0 ],
+    "combinations": [ 2, 53, 89, 151, 171, 209, 222, 235, 267, 288, 297, 312, 319, 335 ]
+  },
+  {
+    "name": "Apricot Orange",
+    "cmyk": [ 0, 55, 75, 0 ],
+    "combinations": [ 211, 253, 309, 328 ]
+  },
+  {
+    "name": "Orange",
+    "cmyk": [ 0, 68, 100, 0 ],
+    "combinations": [ 7, 46, 141, 144, 149, 256, 272 ]
+  },
+  {
+    "name": "Peach Red",
+    "cmyk": [ 0, 80, 90, 0 ],
+    "combinations": [ 115, 250, 274, 285, 298, 303, 326, 340 ]
+  },
+  {
+    "name": "English Red",
+    "cmyk": [ 13, 73, 100, 0 ],
+    "combinations": [ 1, 131, 190, 308, 339 ]
+  },
+  {
+    "name": "Cinnamon Rufous",
+    "cmyk": [ 20, 60, 82, 5 ],
+    "combinations": [ 8, 10, 103, 158, 172, 204, 206 ]
+  },
+  {
+    "name": "Orange Rufous",
+    "cmyk": [ 18, 65, 100, 8 ],
+    "combinations": [ 91, 102, 222 ]
+  },
+  {
+    "name": "Sulphine Yellow",
+    "cmyk": [ 24, 32, 100, 4 ],
+    "combinations": [ 36, 65, 142, 160, 252 ]
+  },
+  {
+    "name": "Khaki",
+    "cmyk": [ 24, 45, 100, 6 ],
+    "combinations": [ 129, 146, 159, 236, 248 ]
+  },
+  {
+    "name": "Citron Yellow",
+    "cmyk": [35, 17, 95, 0 ],
+    "combinations": [ 40, 87, 145, 150, 153, 196, 305, 323 ]
+  },
+  {
+    "name": "Citrine",
+    "cmyk": [36, 32, 100, 0 ],
+    "combinations": [ 59, 93, 132, 133, 262 ]
+  },
+  {
+    "name": "Buffy Citrine",
+    "cmyk": [ 42, 40, 82, 8 ],
+    "combinations": [ 100, 177, 233 ]
+  },
+  {
+    "name": "Dark Citrine",
+    "cmyk": [ 38, 34, 67, 20 ],
+    "combinations": [ 10, 41, 274, 304 ]
+  },
+  {
+    "name": "Light Grayish Olive",
+    "cmyk": [ 43, 36, 62, 19 ],
+    "combinations": [ 107, 184 ]
+  },
+  {
+    "name": "Krongbergs Green",
+    "cmyk": [ 48, 35, 70, 12 ],
+    "combinations": [ 29 ]
+  },
+  {
+    "name": "Olive",
+    "cmyk": [ 48, 38, 100, 15 ],
+    "combinations": [ 96, 201, 254, 258, 277, 310, 334 ]
+  },
+  {
+    "name": "Orange Citrine",
+    "cmyk": [ 28, 48, 92, 24 ],
+    "combinations": [ 212, 342 ]
+  },
+  {
+    "name": "Sudan Brown",
+    "cmyk": [ 25, 60, 65, 19 ],
+    "combinations": [ 207, 214, 273 ]
+  },
+  {
+    "name": "Olive Green",
+    "cmyk": [ 56, 40, 85, 22 ],
+    "combinations": [ 66, 243, 270, 297 ]
+  },
+  {
+    "name": "Light Brownish Olive",
+    "cmyk": [ 42, 46, 73, 24 ],
+    "combinations": [ 199, 318 ]
+  },
+  {
+    "name": "Deep Grayish Olive",
+    "cmyk": [ 50, 48, 78, 37 ],
+    "combinations": [ 146, 343 ]
+  },
+  {
+    "name": "Pale Raw Umber",
+    "cmyk": [ 46, 63, 87, 32 ],
+    "combinations": [ 26, 73, 160, 234, 296 ]
+  },
+  {
+    "name": "Sepia",
+    "cmyk": [ 48, 60, 100, 40 ],
+    "combinations": [ 24, 288 ]
+  },
+  {
+    "name": "Madder Brown",
+    "cmyk": [ 36, 88, 100, 38 ],
+    "combinations": [ 28, 79, 98, 173, 237, 275, 323 ]
+  },
+  {
+    "name": "Mars Brown Tobacco",
+    "cmyk": [ 39, 76, 100, 47 ],
+    "combinations": [ 19 ]
+  },
+  {
+    "name": "Vandyke Brown",
+    "cmyk": [ 56, 71, 97, 52 ],
+    "combinations": [ 110, 113, 118, 182, 192, 328 ]
+  }
+ ]
+}

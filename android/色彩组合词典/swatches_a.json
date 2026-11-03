@@ -1,0 +1,194 @@
+{
+ "swatches_a": [
+  {
+    "name": "Hermosa Pink",
+    "cmyk": [ 0, 30, 6, 0 ],
+    "combinations": [ 176, 227, 273 ]
+  },
+  {
+    "name": "Corinthian Pink",
+    "cmyk": [ 0, 35, 15, 0 ],
+    "combinations": [ 27, 43, 87, 97, 128, 169, 174, 206, 246, 254, 264, 342 ]
+  },
+  {
+    "name": "Cameo Pink",
+    "cmyk": [ 10, 32, 19, 0 ],
+    "combinations": [ 101, 105, 116, 120, 165, 231 ]
+  },
+  {
+    "name": "Fawn",
+    "cmyk": [ 18, 31, 30, 0 ],
+    "combinations": [ 18, 125, 308 ]
+  },
+  {
+    "name": "Light Brown Drab",
+    "cmyk": [ 8, 30, 20, 25 ],
+    "combinations": [ 35, 68, 185, 191, 223, 239, 244, 268, 285, 321  ]
+  },
+  {
+    "name": "Coral Red",
+    "cmyk": [ 0, 55, 40, 0 ],
+    "combinations": [ 92, 123, 320, 332 ]
+  },
+  {
+    "name": "Fresh Color",
+    "cmyk": [ 0, 53, 45, 0 ],
+    "combinations": [ 240 ]
+  },
+  {
+    "name": "Grenadine Pink",
+    "cmyk": [ 0, 62, 58, 0 ],
+    "combinations": [ 6, 21, 112, 166, 193, 201, 230, 300, 315, 341 ]
+  },
+  {
+    "name": "Eosine Pink",
+    "cmyk": [ 0, 63, 23, 0 ],
+    "combinations": [ 34, 59, 90, 108, 134, 153, 197, 242, 248, 276, 287, 314, 327, 336 ]
+  },
+  {
+    "name": "Spinel Red",
+    "cmyk": [ 0, 70, 21, 0 ],
+    "combinations": [ 14, 147, 165, 184, 195, 224, 277 ]
+  },
+  {
+    "name": "Old Rose",
+    "cmyk": [ 15, 70, 40, 0 ],
+    "combinations": [ 55, 162, 260, 265 ]
+  },
+  {
+    "name": "Eugenia Red | A",
+    "cmyk": [ 7, 76, 60, 0 ],
+    "combinations": [ 284 ]
+  },
+  {
+    "name": "Eugenia Red | B",
+    "cmyk": [ 0, 80, 50, 10 ],
+    "combinations": [ 17, 77, 252, 262, 270, 280, 282, 325 ]
+  },
+  {
+    "name": "Raw Sienna",
+    "cmyk": [ 18, 58, 100, 12 ],
+    "combinations": [ 3, 13, 33, 70, 86, 130, 131, 182, 243, 247, 252, 255, 268, 269, 279, 293, 298, 319, 327 ]
+  },
+  {
+    "name": "Vinaceous Tawny",
+    "cmyk": [ 17, 72, 100, 6 ],
+    "combinations": [ 40, 85, 244 ]
+  },
+  {
+    "name": "Jasper Red",
+    "cmyk": [ 2, 83, 100, 0 ],
+    "combinations": [ 155, 194, 216, 219 ]
+  },
+  {
+    "name": "Spectrum Red",
+    "cmyk": [ 5, 100, 100, 0 ],
+    "combinations": [ 257, 266, 301, 322 ]
+  },
+  {
+    "name": "Red Orange",
+    "cmyk": [ 9, 90, 100, 0 ],
+    "combinations": [ 31, 164, 179, 241, 264 ]
+  },
+  {
+    "name": "Etruscan Red",
+    "cmyk": [ 16, 80, 74, 6 ],
+    "combinations": [ 25, 47, 97, 137, 152, 185, 275 ]
+  },
+  {
+    "name": "Burnt Sienna",
+    "cmyk": [ 22, 76, 100, 15 ],
+    "combinations": [ 198, 242, 263, 285, 286, 297, 312, 333, 343 ]
+  },
+  {
+    "name": "Ochre Red",
+    "cmyk": [ 18, 73, 63, 20 ],
+    "combinations": [ 199, 283 ]
+  },
+  {
+    "name": "Scarlet",
+    "cmyk": [ 10, 95, 72, 7 ],
+    "combinations": [ 136, 308, 332 ]
+  },
+  {
+    "name": "Carmine",
+    "cmyk": [ 0, 100, 75, 16 ],
+    "combinations": [ 39, 117, 122, 154, 225, 232, 307, 313 ]
+  },
+  {
+    "name": "Indian Lake",
+    "cmyk": [ 12, 89, 35, 9 ],
+    "combinations": [ 299, 331 ]
+  },
+  {
+    "name": "Rosolanc Purple",
+    "cmyk": [ 30, 90, 33, 0 ],
+    "combinations": [ 48, 144, 170, 204, 277, 346 ]
+  },
+  {
+    "name": "Pomegranite Purple",
+    "cmyk": [ 23, 100, 50, 6 ],
+    "combinations": [ 220, 271 ]
+  },
+  {
+    "name": "Hydrangea Red",
+    "cmyk": [ 38, 90, 70, 0 ],
+    "combinations": [ 142 ]
+  },
+  {
+    "name": "Brick Red",
+    "cmyk": [ 22, 84, 100, 18 ],
+    "combinations": [ 37, 108, 246, 322, 328 ]
+  },
+  {
+    "name": "Carmine Red",
+    "cmyk": [ 25, 95, 80, 16 ],
+    "combinations": [ 35, 51, 104, 130, 181, 200, 221, 228, 233, 237, 245, 338 ]
+  },
+  {
+    "name": "Pompeian Red",
+    "cmyk": [ 18, 97, 74, 19 ],
+    "combinations": [ 30, 71, 120, 212, 311, 324 ]
+  },
+  {
+    "name": "Red",
+    "cmyk": [ 30, 100, 70, 10 ],
+    "combinations": [ 251, 261 ]
+  },
+  {
+    "name": "Brown",
+    "cmyk": [ 35, 74, 90, 35 ],
+    "combinations": [ 110, 121, 145, 161 ]
+  },
+  {
+    "name": "Hay's Russet",
+    "cmyk": [ 37, 85, 87, 35 ],
+    "combinations": [ 58, 82, 95, 152, 186, 231, 249, 304, 314, 336, 345 ]
+  },
+  {
+    "name": "Vandyke Red",
+    "cmyk": [ 32, 95, 95, 33 ],
+    "combinations": [ 16, 133, 147, 316, 335 ]
+  },
+  {
+    "name": "Pansy Purple",
+    "cmyk": [ 34, 100, 60, 34 ],
+    "combinations": [ 157, 273 ]
+  },
+  {
+    "name": "Pale Burnt Lake",
+    "cmyk": [ 25, 90, 80, 40 ],
+    "combinations": [ 124, 171, 177, 205, 217, 258, 269, 283 ]
+  },
+  {
+    "name": "Violet Red",
+    "cmyk": [ 75, 100, 50, 5 ],
+    "combinations": [ 9 ]
+  },
+  {
+    "name": "Vistoris Lake",
+    "cmyk": [ 40, 71, 55, 40 ],
+    "combinations": [ 63, 91, 165, 226, 290, 337 ]
+  }
+ ]
+}

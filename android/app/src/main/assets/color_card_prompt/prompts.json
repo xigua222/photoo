@@ -1,0 +1,4240 @@
+{
+    "version": 3,
+    "source": "projectnext",
+    "notes": "Live prompts stay in entries. draft_entries are staged prompts that can already ship once assets and copy are ready.",
+    "categories": [
+        {
+            "key": "light_portrait",
+            "order": 1,
+            "zh_title": "光感写真",
+            "en_title": "Light Portrait",
+            "zh_subtitle": "强调闪光、胶片、阳光和成片光感的人像方向",
+            "en_subtitle": "Portrait prompts led by flash, film texture, sunlight, and strong image-light quality."
+        },
+        {
+            "key": "social_portrait",
+            "order": 2,
+            "zh_title": "社交人像",
+            "en_title": "Social Portrait",
+            "zh_subtitle": "更偏角色感、社交平台表达和即时分享气质",
+            "en_subtitle": "Portrait prompts with stronger social, character, and shareable image appeal."
+        },
+        {
+            "key": "mood_portrait",
+            "order": 3,
+            "zh_title": "情绪人像",
+            "en_title": "Mood Portrait",
+            "zh_subtitle": "以氛围、电影感和情绪张力为主的人像表达",
+            "en_subtitle": "Portraits driven by atmosphere, cinematic framing, and emotional tension."
+        },
+        {
+            "key": "practical_remix",
+            "order": 4,
+            "zh_title": "实用改造",
+            "en_title": "Practical Remix",
+            "zh_subtitle": "更偏耐用、稳定、实拍友好的人像优化",
+            "en_subtitle": "Reference-based portrait upgrades that stay practical, stable, and easy to reuse."
+        },
+        {
+            "key": "creative_remix",
+            "order": 5,
+            "zh_title": "创意重绘",
+            "en_title": "Creative Remix",
+            "zh_subtitle": "对参考图做更明显的图像化重构和视觉重写",
+            "en_subtitle": "More visibly transformed remixes that rewrite the reference with stronger graphic intervention."
+        },
+        {
+            "key": "avatar_redraw",
+            "order": 6,
+            "zh_title": "头像转绘",
+            "en_title": "Avatar & Redraw",
+            "zh_subtitle": "适合头像、照片转绘和人物风格迁移",
+            "en_subtitle": "Prompts for avatars, portrait redraws, and person-focused style transfers."
+        },
+        {
+            "key": "narrative_scene",
+            "order": 7,
+            "zh_title": "叙事场景",
+            "en_title": "Narrative Scene",
+            "zh_subtitle": "以环境、景别和画面叙事为主的插画方向",
+            "en_subtitle": "Illustration prompts led by environment, composition distance, and scene storytelling."
+        },
+        {
+            "key": "handmade_texture",
+            "order": 8,
+            "zh_title": "手作质感",
+            "en_title": "Handmade Texture",
+            "zh_subtitle": "更强调笔触、纸感和手工媒介的温度",
+            "en_subtitle": "Prompts that foreground paper grain, brushwork, and handmade media warmth."
+        },
+        {
+            "key": "playful_character",
+            "order": 9,
+            "zh_title": "童趣角色",
+            "en_title": "Playful Character",
+            "zh_subtitle": "适合可爱角色、小卡片、贴纸和轻量漫画表达",
+            "en_subtitle": "Cute character prompts for cards, stickers, and light comic-style visuals."
+        },
+        {
+            "key": "graphic_layout",
+            "order": 10,
+            "zh_title": "图形版式",
+            "en_title": "Graphic Layout",
+            "zh_subtitle": "强调平面构成、版式控制和品牌图形语言",
+            "en_subtitle": "Prompts centered on layout, graphic composition, and brand-oriented visual language."
+        },
+        {
+            "key": "cinematic_narrative",
+            "order": 11,
+            "zh_title": "影视叙事",
+            "en_title": "Cinematic Narrative",
+            "zh_subtitle": "更强调镜头感、世界观和叙事镜头表达",
+            "en_subtitle": "Story-driven prompts with stronger cinematic framing and worldbuilding."
+        },
+        {
+            "key": "editorial_panel",
+            "order": 12,
+            "zh_title": "连环出版",
+            "en_title": "Editorial Panel",
+            "zh_subtitle": "更偏多格、截帧、杂志页和出版物气质",
+            "en_subtitle": "Prompts shaped by panels, still frames, magazine pages, and editorial print language."
+        },
+        {
+            "key": "oriental_aesthetics",
+            "order": 13,
+            "zh_title": "东方意象",
+            "en_title": "Oriental Aesthetics",
+            "zh_subtitle": "以东方审美语汇和中式表达方式为主",
+            "en_subtitle": "Prompts grounded in oriental visual vocabulary and Chinese-inspired aesthetics."
+        },
+        {
+            "key": "style_experiment",
+            "order": 14,
+            "zh_title": "抽象实验",
+            "en_title": "Style Experiment",
+            "zh_subtitle": "更偏媒介语言、超现实和视觉实验",
+            "en_subtitle": "Prompts focused on medium experiments, surrealism, and visual-language exploration."
+        },
+        {
+            "key": "object_display",
+            "order": 15,
+            "zh_title": "物件陈列",
+            "en_title": "Object Display",
+            "zh_subtitle": "适合单品、器物、产品和主体陈列式画面",
+            "en_subtitle": "Prompts for hero-object shots, product displays, and object-centered composition."
+        },
+        {
+            "key": "spatial_build",
+            "order": 16,
+            "zh_title": "空间构筑",
+            "en_title": "Spatial Build",
+            "zh_subtitle": "以城市、建筑和微缩空间组织为主",
+            "en_subtitle": "Prompts built around cities, architecture, and miniature spatial organization."
+        }
+    ],
+    "entries": [
+        {
+            "id": "00002",
+            "image_key": "00002",
+            "category_key": "light_portrait",
+            "zh_title": "手机闪光纯欲写真",
+            "en_title": "Flash Mood Portrait",
+            "zh_summary": "低角度抓拍感，适合室内暗背景与冷白皮写真。",
+            "en_summary": "Low-angle flash portrait with a casual candid mood.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "写真",
+                "闪光灯",
+                "韩系"
+            ],
+            "prompt": "生成写真 不要项链，不要背包，低角度仰拍，画面微倾斜，营造随性抓拍感，直接复制就能用，轻松拍出纯欲氛围感写真，背景为色调偏中性且模糊的昏暗房间，年轻的韩系美女，冷白色的皮肤，一头深棕色的长波浪卷发显得有些凌乱，发丝随意地垂落在脸庞和眼睛上，身着一件细肩带的浅色上衣，脸上带着一种微妙的纯欲表情，半睁着慵懒的双眼微微向右看，双唇丰满且带着光泽，呈现出粉中透红的颜色，嘴唇微微撅起，流露出柔和的忧郁又诱人的气质，双手托着头，手指轻按脸颊、双手托腮，手指轻按脸颊，手肘自然支撑，无浓妆，仅唇部有光泽感，突出原生妆容质感。奶油肌底，轻薄底妆，眉毛自然微乱，突出素颜纯欲感。嘴唇丰满有光泽，粉中透红，微微撅起，呈现纯欲且带柔和忧郁的气质，半睁着慵懒双眼，视线微向右看，苍白冷白色皮肤，在手机闪光灯下呈现局部过曝高光，浅色细肩带吊带背心，露出肩颈线条",
+            "prompt_template": "生成一组低角度仰拍的纯欲氛围写真，主体为{{subject_identity}}，背景为{{scene}}，发型为{{hair_style}}，服饰为{{outfit}}。画面微倾斜，营造随性抓拍感，冷白皮，手机闪光灯带来局部过曝高光，半睁慵懒眼神与带光泽的嘴唇共同强化松弛又诱人的气质，突出肩颈线条与原生妆容质感。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "年轻的韩系美女"
+                },
+                {
+                    "key": "scene",
+                    "zh_label": "场景",
+                    "en_label": "Scene",
+                    "default_value": "色调偏中性且模糊的昏暗房间"
+                },
+                {
+                    "key": "hair_style",
+                    "zh_label": "发型",
+                    "en_label": "Hair",
+                    "default_value": "深棕色的长波浪卷发，发丝略显凌乱"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "细肩带的浅色上衣"
+                }
+            ]
+        },
+        {
+            "id": "00003",
+            "image_key": "00003",
+            "category_key": "narrative_scene",
+            "zh_title": "草原留白插画",
+            "en_title": "Open Prairie Illustration",
+            "zh_summary": "适合做绘本封面、文艺海报和高级感绿色场景。",
+            "en_summary": "A sparse green illustration prompt for editorial and storybook scenes.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "插画",
+                "留白",
+                "草原"
+            ],
+            "prompt": "风格：简约，高级，留白，草原风景广袤 元素：绘本插画，高定插画，绿色调，高级感，文艺插画，水彩风格，高原，雪山，绿色，森林，大色块，颗粒感，增加肌理，抽象插画，扁平插画，鸟瞰视角。大师作品，梦境系列，意识流，几米叙事风格，明亮配色。高分辨率，细节丰富，氛围感强烈 参数：构图紧凑，笔触细腻，画面层次丰富",
+            "prompt_template": "风格为简约、高级、留白的{{scene}}插画。核心元素包括{{elements}}，整体保持绿色调与文艺气质，结合水彩风格、大色块、颗粒肌理、鸟瞰视角和意识流叙事感。画面配色明亮，层次丰富，细节完整，适合绘本封面或高级感场景海报。",
+            "editable_slots": [
+                {
+                    "key": "scene",
+                    "zh_label": "主场景",
+                    "en_label": "Scene",
+                    "default_value": "草原风景"
+                },
+                {
+                    "key": "elements",
+                    "zh_label": "关键元素",
+                    "en_label": "Elements",
+                    "default_value": "高原、雪山、绿色森林"
+                }
+            ]
+        },
+        {
+            "id": "00004",
+            "image_key": "00004",
+            "category_key": "avatar_redraw",
+            "zh_title": "像素萌宠头像",
+            "en_title": "Pixel Pet Avatar",
+            "zh_summary": "适合做像素头像、宠物拟人和小图标。",
+            "en_summary": "A clean pixel avatar template for cute pets and simple icons.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "像素",
+                "头像",
+                "萌宠"
+            ],
+            "prompt": "A simple doodle of a cute（品种），Pixel illustration , white background, in the style of tom whalen, iames bullough, flat illustration, clean and simple, vector, simple minimal, vector, in the style of graphic design-inspired illustrations, from behance, UL illustration, Dribbble, best quality",
+            "prompt_template": "A simple doodle of a cute {{breed}}, Pixel illustration, white background, in the style of tom whalen and iames bullough, flat illustration, clean and simple, vector, graphic design-inspired, best quality.",
+            "editable_slots": [
+                {
+                    "key": "breed",
+                    "zh_label": "品种",
+                    "en_label": "Breed",
+                    "default_value": "cat"
+                }
+            ]
+        },
+        {
+            "id": "00005",
+            "image_key": "00005",
+            "category_key": "avatar_redraw",
+            "zh_title": "卡通头像贴纸板",
+            "en_title": "Avatar Sticker Sheet",
+            "zh_summary": "一组多角色头像模板，适合表情包和社交头像。",
+            "en_summary": "A multi-character avatar sheet prompt for stickers and profile packs.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "头像",
+                "贴纸",
+                "卡通"
+            ],
+            "prompt": "a sheet of cute cartoon avatar icons with different hair colors and expressions, in a simple drawing style, colorful, with bold lines and flat colors. the characters' facial features include short, curly, blonde bangs and pink cheeks. this set includes male characters, female characters, older people, children aged between five and ten years old, and young adults around twenty or thirty years old, all in high resolution.",
+            "prompt_template": "A sheet of cute cartoon avatar icons with {{character_group}}, in a simple drawing style, colorful, with bold lines and flat colors. The key facial traits include {{visual_traits}}. Keep the overall sheet unified, playful, and high resolution.",
+            "editable_slots": [
+                {
+                    "key": "character_group",
+                    "zh_label": "角色组合",
+                    "en_label": "Character Group",
+                    "default_value": "male characters, female characters, older people, children aged between five and ten years old, and young adults around twenty or thirty years old"
+                },
+                {
+                    "key": "visual_traits",
+                    "zh_label": "核心特征",
+                    "en_label": "Visual Traits",
+                    "default_value": "short, curly, blonde bangs and pink cheeks"
+                }
+            ]
+        },
+        {
+            "id": "00006",
+            "image_key": "00006",
+            "category_key": "graphic_layout",
+            "zh_title": "风信子复古海报",
+            "en_title": "Hyacinth Retro Poster",
+            "zh_summary": "孟菲斯加极简构图，适合文艺展讯和品牌小海报。",
+            "en_summary": "A minimalist retro poster prompt with a soft Memphis flavor.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "海报",
+                "孟菲斯",
+                "复古"
+            ],
+            "prompt": "风信子极简主义复古海报，侧面是一张小卡片和一本书，浅蓝色和浅紫色的配色方案，浅紫色背景为Gerd Arntz风格，孟菲斯风格，简单细节，极简艺术，平面插图",
+            "prompt_template": "{{main_subject}}极简主义复古海报，侧面搭配{{side_objects}}，使用{{palette}}配色方案，背景带有 Gerd Arntz 风格与孟菲斯气质，细节简洁，构图克制，呈现极简艺术和平面插图感。",
+            "editable_slots": [
+                {
+                    "key": "main_subject",
+                    "zh_label": "主体",
+                    "en_label": "Main Subject",
+                    "default_value": "风信子"
+                },
+                {
+                    "key": "side_objects",
+                    "zh_label": "配角物件",
+                    "en_label": "Side Objects",
+                    "default_value": "一张小卡片和一本书"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "配色",
+                    "en_label": "Palette",
+                    "default_value": "浅蓝色和浅紫色"
+                }
+            ]
+        },
+        {
+            "id": "00007",
+            "image_key": "00007",
+            "category_key": "cinematic_narrative",
+            "zh_title": "史诗剪影叙事海报",
+            "en_title": "Epic Silhouette Poster",
+            "zh_summary": "把世界观塞进人物轮廓里，适合电影、IP 和史诗主题。",
+            "en_summary": "A cinematic silhouette poster prompt built for epic lore and worldbuilding.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "史诗",
+                "海报",
+                "叙事"
+            ],
+            "prompt": "根据【】自动生成一张收藏版史诗叙事海报： 巨大优雅的人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具与氛围。整体不是普通拼贴，而是高级的剪影轮廓填充式叙事合成，带有双重曝光式联想，但更偏电影海报与梦幻水彩插画融合风格。画面风格要求：\n- 柔和空气透视\n- 轻雾化过渡\n- 纸张颗粒\n- 边缘飞白与刷痕\n- 大面积留白\n- 版式克制高级\n- 整体气质安静、宏大、神圣、怀旧、诗意、传说感强\n风格、色彩、场景、材质全部根据主题自动适配，所有元素必须强绑定主题，一眼识别。\n明确避免：\n- 不要杂乱\n- 不要硬拼贴\n- 不要模板化背景\n- 不要廉价奇幻素材",
+            "prompt_template": "根据【{{theme}}】自动生成一张收藏版史诗叙事海报：巨大优雅的{{silhouette_subject}}剪影作为外轮廓，剪影内部生长出{{narrative_elements}}。整体不是普通拼贴，而是高级的剪影轮廓填充式叙事合成，带有双重曝光联想，更偏电影海报与梦幻水彩插画融合风格，整体气质{{mood}}。",
+            "editable_slots": [
+                {
+                    "key": "theme",
+                    "zh_label": "主题",
+                    "en_label": "Theme",
+                    "default_value": "古代神话冒险"
+                },
+                {
+                    "key": "silhouette_subject",
+                    "zh_label": "剪影主体",
+                    "en_label": "Silhouette Subject",
+                    "default_value": "人物侧脸"
+                },
+                {
+                    "key": "narrative_elements",
+                    "zh_label": "叙事元素",
+                    "en_label": "Narrative Elements",
+                    "default_value": "完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物与道具"
+                },
+                {
+                    "key": "mood",
+                    "zh_label": "整体气质",
+                    "en_label": "Mood",
+                    "default_value": "安静、宏大、神圣、怀旧、诗意、传说感强"
+                }
+            ]
+        },
+        {
+            "id": "00008",
+            "image_key": "00008",
+            "category_key": "light_portrait",
+            "zh_title": "球场闪光胶片少女",
+            "en_title": "Court Flash Film Portrait",
+            "zh_summary": "第一人称低角度和直闪胶片感，适合青春编辑写真。",
+            "en_summary": "A direct-flash court portrait with youthful editorial energy.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "人像",
+                "胶片",
+                "球场"
+            ],
+            "prompt": "ultra-realistic 35mm color film photo of a Chinese girl idol in her early 20s, shot from a first-person low angle on a basketball court at dusk, harsh direct flash, high contrast, sharp highlights on skin and clothes, strong eye catchlights, realistic pores, dewy porcelain skin, subtle freckles on nose and cheeks, almond fox eyes, high nose bridge, sharp V-line jaw, dark brown long hair, fresh sporty makeup, soft pink parted lips, gentle smile, soft fragile longing gaze, body slightly turned sideways, naturally arched back, one leg extended toward camera, the other slightly bent, hands lightly resting on a shoulder-height basketball pole, blurred hoop and court in background, shallow depth of field, authentic analog film grain, slight color shift, cinematic youthful editorial aesthetic.",
+            "prompt_template": "ultra-realistic 35mm color film photo of {{subject_identity}}, shot from a first-person low angle in {{scene}}, harsh direct flash, realistic pores and eye catchlights, {{styling}}, soft fragile gaze, shallow depth of field, authentic analog film grain, slight color shift, cinematic youthful editorial aesthetic.",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "a Chinese girl idol in her early 20s"
+                },
+                {
+                    "key": "scene",
+                    "zh_label": "场景",
+                    "en_label": "Scene",
+                    "default_value": "a basketball court at dusk"
+                },
+                {
+                    "key": "styling",
+                    "zh_label": "造型细节",
+                    "en_label": "Styling",
+                    "default_value": "dark brown long hair, fresh sporty makeup, soft pink parted lips, one leg extended toward camera, hands lightly resting on a basketball pole"
+                }
+            ]
+        },
+        {
+            "id": "00009",
+            "image_key": "00009",
+            "category_key": "object_display",
+            "zh_title": "布丁奶茶等轴图标",
+            "en_title": "Isometric Milk Tea Icon",
+            "zh_summary": "菜单商品图常用结构，适合饮品、电商单品和图标化展示。",
+            "en_summary": "An isometric product icon prompt for drinks, menus, and item showcases.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "商品图",
+                "3D",
+                "饮品"
+            ],
+            "prompt": "创建一个简单的3D等轴测图标，俯视图，道具需要与我提供的道具图片结构一致，简约，渲染质感到位，CG渲染，杯子玻璃通透，要让人感到清爽有食欲，白色背景，一杯布丁奶茶，轻写实饮品插画风格，菜单商品图标风格，白色纯背景，单个杯子居中展示，玻璃杯质感清晰，饮品颜色通透，冰块细节自然，构图简洁干净，光影柔和统一，高级感，适合奶茶店/鸡尾酒菜单展示，无文字，无手，无桌面杂物，无复杂背景",
+            "prompt_template": "创建一个简单的 3D 等轴测图标，主体为{{product}}，容器为{{vessel_style}}。整体采用轻写实饮品插画风格，白色纯背景，单个主体居中展示，玻璃通透、冰块细节自然、光影柔和统一，适合{{menu_use}}。",
+            "editable_slots": [
+                {
+                    "key": "product",
+                    "zh_label": "产品",
+                    "en_label": "Product",
+                    "default_value": "布丁奶茶"
+                },
+                {
+                    "key": "vessel_style",
+                    "zh_label": "容器样式",
+                    "en_label": "Vessel",
+                    "default_value": "玻璃杯"
+                },
+                {
+                    "key": "menu_use",
+                    "zh_label": "使用场景",
+                    "en_label": "Use Case",
+                    "default_value": "奶茶店或鸡尾酒菜单展示"
+                }
+            ]
+        },
+        {
+            "id": "00010",
+            "image_key": "00010",
+            "category_key": "playful_character",
+            "zh_title": "治愈全家福插画",
+            "en_title": "Cozy Family Illustration",
+            "zh_summary": "可爱家庭合照模板，适合亲子、纪念日和头像插画。",
+            "en_summary": "A cute family portrait illustration prompt with a warm storybook feel.",
+            "platform": "Nano Banana 2",
+            "example": "no",
+            "tags": [
+                "家庭",
+                "治愈",
+                "绘本"
+            ],
+            "prompt": "可爱治愈系简笔插画，一家三口合照风格，白色纯背景，妈妈长发，爸爸短发，宝宝坐在中间偏上位置，戴着黄色卡通小怪兽帽子，宝宝穿黑白条纹衣服，妈妈穿浅绿色上衣，爸爸穿深蓝色上衣，爸爸右手比耶，一家人都带着淡粉色腮红和微笑表情，黑色粗线条勾勒，五官极简，圆润脸型，韩系手绘头像风，扁平化卡通插画，干净留白，温馨家庭感，儿童绘本风，简洁柔和配色，正面构图，人物半身合照，治愈、可爱、温暖。",
+            "prompt_template": "可爱治愈系简笔插画，{{family_group}}合照风格，白色纯背景。宝宝佩戴{{baby_accessory}}，整体服装配色为{{outfit_palette}}。黑色粗线条勾勒、五官极简、脸颊淡粉、扁平化卡通上色，整体温馨、可爱、治愈，适合儿童绘本风家庭肖像。",
+            "editable_slots": [
+                {
+                    "key": "family_group",
+                    "zh_label": "家庭组合",
+                    "en_label": "Family Group",
+                    "default_value": "一家三口"
+                },
+                {
+                    "key": "baby_accessory",
+                    "zh_label": "宝宝配饰",
+                    "en_label": "Baby Accessory",
+                    "default_value": "黄色卡通小怪兽帽子"
+                },
+                {
+                    "key": "outfit_palette",
+                    "zh_label": "服装配色",
+                    "en_label": "Outfit Palette",
+                    "default_value": "妈妈浅绿色上衣、爸爸深蓝色上衣、宝宝黑白条纹衣服"
+                }
+            ]
+        },
+        {
+            "id": "00011",
+            "image_key": "00011",
+            "category_key": "avatar_redraw",
+            "zh_title": "いらすとや照片转绘",
+            "en_title": "Irasutoya Photo Remix",
+            "zh_summary": "把真实照片转成经典日系免费插画站风格。",
+            "en_summary": "A photo-to-illustration prompt inspired by the Irasutoya style.",
+            "platform": "General",
+            "example": "no",
+            "tags": [
+                "照片转插画",
+                "日系",
+                "教程"
+            ],
+            "prompt": "将照片中的人物转换成いらすとや风格的日式卡通插画，保留原照片的人物数量、站位关系、动作姿势和整体构图，人物表情自然亲切，五官极简，黑色粗线条勾勒，圆润脸型，小点眼睛，简单鼻子和嘴巴，脸颊带淡淡粉色腮红，扁平化上色，低细节服装褶皱，色块干净，配色柔和明快，整体简洁可爱、温馨治愈、轻松日常的日本免费素材插画风，白色或浅色纯净背景，画面干净留白，无复杂光影，无真实皮肤纹理，无写实细节，像儿童教材或生活场景说明插图。",
+            "prompt_template": "将照片中的人物转换成{{style_direction}}，保留原照片的人物数量、站位关系、动作姿势和整体构图。整体五官极简、黑色粗线条勾勒、配色柔和明快，背景为{{background_style}}，最终呈现出适合{{usage_scene}}的轻松治愈插画感。",
+            "editable_slots": [
+                {
+                    "key": "style_direction",
+                    "zh_label": "转绘风格",
+                    "en_label": "Style Direction",
+                    "default_value": "いらすとや风格的日式卡通插画"
+                },
+                {
+                    "key": "background_style",
+                    "zh_label": "背景风格",
+                    "en_label": "Background",
+                    "default_value": "白色或浅色纯净背景"
+                },
+                {
+                    "key": "usage_scene",
+                    "zh_label": "使用场景",
+                    "en_label": "Usage Scene",
+                    "default_value": "儿童教材或生活场景说明插图"
+                }
+            ]
+        },
+        {
+            "id": "00012",
+            "image_key": "00012",
+            "category_key": "editorial_panel",
+            "zh_title": "宋朝打工人 RISO 插画",
+            "en_title": "RISO Office Lady",
+            "zh_summary": "东方人物题材和 RISO 错版质感结合，很适合做风格海报。",
+            "en_summary": "An experimental RISO illustration prompt blending history and office satire.",
+            "platform": "Nano Banana 2",
+            "example": "no",
+            "tags": [
+                "RISO",
+                "职场",
+                "实验风"
+            ],
+            "prompt": "维沃杜·马维斯插画风格。宋朝仕女在工位上边敲键盘边吸咖啡，加班火冒三丈，特写，突出咖啡，伊夫·克莱因的多色套印；RISO印刷带来网状纹理和错位叠加的错版效果，半透明性质，丝网版画技术呈现色彩重叠融合，罗尔纯半色调增强视觉层次；ASCII art数字媒体艺术，动态叠加构图。",
+            "prompt_template": "维沃杜·马维斯插画风格，{{character}}正在{{action}}，情绪呈现{{emotion}}。画面突出咖啡与工位细节，采用伊夫·克莱因多色套印、RISO 印刷网状纹理、错版叠加、半透明套色与 ASCII art 数字媒体艺术，形成强烈的实验插画效果。",
+            "editable_slots": [
+                {
+                    "key": "character",
+                    "zh_label": "角色",
+                    "en_label": "Character",
+                    "default_value": "宋朝仕女"
+                },
+                {
+                    "key": "action",
+                    "zh_label": "动作",
+                    "en_label": "Action",
+                    "default_value": "在工位上边敲键盘边吸咖啡"
+                },
+                {
+                    "key": "emotion",
+                    "zh_label": "情绪",
+                    "en_label": "Emotion",
+                    "default_value": "加班火冒三丈"
+                }
+            ]
+        },
+        {
+            "id": "00013",
+            "image_key": "00013",
+            "category_key": "object_display",
+            "zh_title": "新中式产品商业图",
+            "en_title": "Eastern Product Ad Shot",
+            "zh_summary": "适合洗护、香氛和高质感单品图，强调东方材质和商业光线。",
+            "en_summary": "A warm new-Chinese product prompt for premium commercial imagery.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "产品摄影",
+                "新中式",
+                "电商"
+            ],
+            "prompt": "专业级商业产品摄影，新中式东方美学风格，整体呈现温暖、高级且富有质感的视觉氛围。采用中长焦定焦镜头，以略微仰视的角度拍摄，使用侧逆光配合柔和的轮廓光，营造出通透的琥珀色瓶身与深褐枯木的明暗层次。画面采用非对称平衡构图，主体为一瓶洗发水产品，以倾斜45度角的姿态置于风化的枯木沉木枝干表面。枯木表面呈现粗糙皲裂的肌理，背景为渐变的暖棕至浅米色调，实现极致的浅景深效果，使背景完全虚化以突出主体。主体紧致水瓶身颜色以智能参考图为准，整体色彩以暖棕、深褐为主色调，以及枯木的沧桑肌理。",
+            "prompt_template": "专业级商业产品摄影，新中式东方美学风格。主体为{{product}}，以 45 度倾斜姿态置于{{support_material}}表面。背景使用{{palette}}渐变色调，配合中长焦镜头、侧逆光和柔和轮廓光，营造温暖、高级、富有质感的电商商业图氛围。",
+            "editable_slots": [
+                {
+                    "key": "product",
+                    "zh_label": "产品",
+                    "en_label": "Product",
+                    "default_value": "一瓶洗发水产品"
+                },
+                {
+                    "key": "support_material",
+                    "zh_label": "承托物",
+                    "en_label": "Support Material",
+                    "default_value": "风化的枯木沉木枝干"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "背景色调",
+                    "en_label": "Palette",
+                    "default_value": "暖棕至浅米色"
+                }
+            ]
+        },
+        {
+            "id": "00014",
+            "image_key": "00014",
+            "category_key": "social_portrait",
+            "zh_title": "玩偶店甜妹写真",
+            "en_title": "Plush Store Kawaii Portrait",
+            "zh_summary": "粉彩玩偶店氛围，适合可爱、甜妹、韩日系人像。",
+            "en_summary": "A soft kawaii portrait prompt set in a pastel plush toy store.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "甜妹",
+                "玩偶店",
+                "写真"
+            ],
+            "prompt": "Ultra HD edit, a soft and cute-faced woman with long dark brown hair with natural shine, neatly flowing down her back. She looks over her shoulder with a sweet expression and a slight smile, her large clear eyes gazing at the camera, giving a warm and adorable impression. Her skin appears bright and smooth, with natural soft pink makeup, rosy nude lips, and light eye makeup. She wears a casual feminine outfit: a thin knitted long-sleeve sweater in pastel light blue with subtle white stripes, creating a cozy and soft vibe. On her head is a fluffy cream-colored dog character headband with long dangling ears, a small white hat, and a pink ribbon accent, looking cute and charming. She hugs a soft cream-yellow dog plush with shiny green eyes, dressed in matching blue-white stripes, held tightly in front of her chest, creating a warm and adorable scene. The background is inside a pastel-themed toy store, filled with neatly arranged bright pink shelves displaying similar dog plush with the same headbands. The store interior has pink, peach, and cream tones, vintage-style decorative walls and chalkboards, with warm and soft indoor lighting. The photo composition is a medium close-up, with shallow depth of field so the subject is sharp while the background is slightly blurred. Soft, even lighting without harsh shadows, producing bright pastel colors, dreamy and aesthetic. Kawaii, cute aesthetic, Japanese-Korean style, ultra high resolution, realistic textures, soft focus, clean details, cozy atmosphere.",
+            "prompt_template": "Ultra HD edit of {{subject_identity}} in {{scene}}. She wears {{outfit}}, with {{head_accessory}} on her head, and hugs {{prop_plush}} in front of her chest. Keep pastel tones, soft indoor lighting, shallow depth of field, and a dreamy kawaii Japanese-Korean aesthetic.",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "a soft and cute-faced woman with long dark brown hair"
+                },
+                {
+                    "key": "scene",
+                    "zh_label": "场景",
+                    "en_label": "Scene",
+                    "default_value": "a pastel-themed toy store"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "a thin knitted long-sleeve sweater in pastel light blue with subtle white stripes"
+                },
+                {
+                    "key": "head_accessory",
+                    "zh_label": "头饰",
+                    "en_label": "Head Accessory",
+                    "default_value": "a fluffy cream-colored dog character headband with long dangling ears, a small white hat, and a pink ribbon accent"
+                },
+                {
+                    "key": "prop_plush",
+                    "zh_label": "手持玩偶",
+                    "en_label": "Prop Plush",
+                    "default_value": "a soft cream-yellow dog plush with shiny green eyes"
+                }
+            ]
+        },
+        {
+            "id": "00015",
+            "image_key": "00015",
+            "category_key": "cinematic_narrative",
+            "zh_title": "速度感游戏 CG",
+            "en_title": "Dynamic Game CG",
+            "zh_summary": "强调速度、强透视和冲击力，适合游戏视觉和角色海报。",
+            "en_summary": "A high-energy CG prompt with motion, scale, and dramatic perspective.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "游戏CG",
+                "动势",
+                "电影感"
+            ],
+            "prompt": "游戏CG风格，极具艺术感、震撼人心，色彩丰富。暗部叠加，特写镜头，超高清。落叶飞滅，前景落叶虚化，动态模糊，背景动态虚化，阳光灿烂，蓝天白云，光影交错，仰拍特写镜头。突出速度感和视觉冲击力，强透视，原比例",
+            "prompt_template": "游戏 CG 风格，围绕{{subject_scene}}展开。画面加入{{motion_elements}}，并结合{{weather_light}}、强透视、动态虚化与仰拍特写镜头，突出速度感、视觉冲击力与高饱和电影级画面质感。",
+            "editable_slots": [
+                {
+                    "key": "subject_scene",
+                    "zh_label": "主体场景",
+                    "en_label": "Subject Scene",
+                    "default_value": "高速冲刺中的角色或载具"
+                },
+                {
+                    "key": "motion_elements",
+                    "zh_label": "动态元素",
+                    "en_label": "Motion Elements",
+                    "default_value": "落叶飞舞、前景落叶虚化"
+                },
+                {
+                    "key": "weather_light",
+                    "zh_label": "天气光线",
+                    "en_label": "Weather & Light",
+                    "default_value": "阳光灿烂、蓝天白云、光影交错"
+                }
+            ]
+        },
+        {
+            "id": "00016",
+            "image_key": "00016",
+            "category_key": "editorial_panel",
+            "zh_title": "哲理四格漫画",
+            "en_title": "Philosophical Four Panel",
+            "zh_summary": "适合做小红书漫画、哲思内容和情绪反转型故事。",
+            "en_summary": "A structured four-panel story prompt for reflective comics and social content.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "四格漫画",
+                "哲理",
+                "叙事"
+            ],
+            "prompt": "帮我生成图片：基于主题,创作一个富有哲理的四格漫画故事。故事结构:\n**第一格:问题/现状呈现**\n- 场景描述\n- 人物动作和表情\n- 对话内容\n- 旁白(点明主题)\n**第二格:问题加深/冲突**\n- 场景描述\n- 人物动作和表情变化\n- 对话内容\n- 旁白(揭示困境）\n**第三格:转折/觉醒**\n- 场景描述\n- 人物动作和表情转变\n- 对话内容\n- 旁白(引导思考)\n**第四格:升华/智慧**\n- 场景描述\n- 人物动作和表情释然\n- 对话内容\n- 旁白(传达哲理)\n- 橙色标签(核心关键词)\n\n**故事要点:**\n- 使用视觉隐喻(如:推墙与门、紧握与松手、高度与花朵等)\n- 对比强烈(前三格 vs 第四格)\n- 结尾升华,传达深刻哲理\n- 简洁有力,不拖沓\n将完整的四格故事呈现给用户确认。",
+            "prompt_template": "帮我生成图片：基于{{theme}}，创作一个富有哲理的四格漫画故事。请在四格中使用{{visual_metaphors}}作为视觉隐喻，并在第四格加入橙色标签【{{keyword_tag}}】。整体要求对比鲜明、转折清楚、结尾升华，传达深刻哲理。",
+            "editable_slots": [
+                {
+                    "key": "theme",
+                    "zh_label": "主题",
+                    "en_label": "Theme",
+                    "default_value": "放下执念"
+                },
+                {
+                    "key": "visual_metaphors",
+                    "zh_label": "视觉隐喻",
+                    "en_label": "Visual Metaphors",
+                    "default_value": "推墙与门、紧握与松手、高度与花朵"
+                },
+                {
+                    "key": "keyword_tag",
+                    "zh_label": "核心关键词",
+                    "en_label": "Keyword Tag",
+                    "default_value": "释然"
+                }
+            ]
+        },
+        {
+            "id": "00017",
+            "image_key": "00017",
+            "category_key": "spatial_build",
+            "zh_title": "广州新春城市海报",
+            "en_title": "Guangzhou Spring Poster",
+            "zh_summary": "城市宣传和国潮视觉都很适合，画面结构和文案位都比较完整。",
+            "en_summary": "A festive city campaign prompt with strong composition and layout direction.",
+            "platform": "General",
+            "example": "no",
+            "tags": [
+                "城市海报",
+                "国潮",
+                "新春"
+            ],
+            "prompt": "一张充满新春喜庆氛围但不失高雅格调的 2026 城市宣传海报。双重曝光，构图延续了S型的流动感；在纯白的纹理背景右下角，一个身穿中国传统服饰的微缩人物正在挥舞着一条长长的红色丝绸舞带，这条红绸在空中舞动，不仅展现出丝绸的柔顺质感，更在向左上方飘动的过程中，奇幻地变形成了一条壮丽的山脉河流。在这条“河流”中，叠加了一个有山有海河的广州城市手绘图，国潮，景色尽在眼底，壮阔雄伟，令人震撼。广州的地标建筑(广州塔，珠江新城建筑群，珠江, 广州城里古建筑，游轮，白云山）。云雾环绕，仙气缥缈，色彩丰富，结构复杂，细节丰富，但因为大面积的留白，画面依然显得清新脱俗，左下角排版着\"SPRING 2026\"和竖排的宣传语，整体寓意\"千年商都，魅力广州\"。文字排版优美，大方，字迹清晰完整，尺寸9:16。",
+            "prompt_template": "一张充满新春喜庆氛围但不失高雅格调的 {{year}} 城市宣传海报。纯白纹理背景右下角，一位身穿中国传统服饰的微缩人物挥舞红色丝绸舞带，红绸向左上方飘动并奇幻地变形成壮丽山河。在这条“河流”中，叠加一幅{{city}}城市手绘图，并呈现{{city_landmarks}}等地标元素。左下角排版 {{headline}} 和竖排宣传语，整体寓意“{{slogan}}”，画面保留双重曝光、国潮手绘、云雾缭绕与大面积留白。",
+            "editable_slots": [
+                {
+                    "key": "year",
+                    "zh_label": "年份",
+                    "en_label": "Year",
+                    "default_value": "2026"
+                },
+                {
+                    "key": "city",
+                    "zh_label": "城市",
+                    "en_label": "City",
+                    "default_value": "广州"
+                },
+                {
+                    "key": "city_landmarks",
+                    "zh_label": "城市地标",
+                    "en_label": "City Landmarks",
+                    "default_value": "广州塔、珠江新城建筑群、珠江、广州城里古建筑、游轮、白云山"
+                },
+                {
+                    "key": "headline",
+                    "zh_label": "主标题",
+                    "en_label": "Headline",
+                    "default_value": "SPRING 2026"
+                },
+                {
+                    "key": "slogan",
+                    "zh_label": "宣传语",
+                    "en_label": "Slogan",
+                    "default_value": "千年商都，魅力广州"
+                }
+            ]
+        },
+        {
+            "id": "00018",
+            "image_key": "00018",
+            "category_key": "graphic_layout",
+            "zh_title": "奶油日系拍立得海报",
+            "en_title": "Creamy Polaroid Poster",
+            "zh_summary": "柔和、可爱、轻复古，适合生活方式和治愈系内容封面。",
+            "en_summary": "A creamy Japanese-style poster prompt with soft retro warmth.",
+            "platform": "General",
+            "example": "no",
+            "tags": [
+                "日系海报",
+                "拍立得",
+                "治愈"
+            ],
+            "prompt": "奶油米色背景的极简日系海报设计，中央两张交叠摆放的拍立得照片，轻微错落排版，照片带柔和阴影与真实纸张边缘质感，相框内是粉彩风Q版白发老爷爷形象，圆眼镜，蓬松白发，浓密白胡子，脸颊微红，表情温和可爱，一张穿绿色衣服，一张戴蓝色围巾，两张形象略有区别但风格统一，色彩柔和褪色，低饱和粉彩配色，细腻颗粒感，轻微做旧纸张纹理，童趣治愈插画风，干净留白构图，版式简洁，现代日系平面海报设计，温柔可爱，轻复古质感，柔和自然光，画面高级克制，插画细节精致",
+            "prompt_template": "{{background}}的极简日系海报设计，中央两张交叠摆放的拍立得照片。相框内角色为{{character}}，两张照片的差异设定为{{photo_variation}}。整体保持低饱和粉彩配色、轻复古纸张纹理、童趣治愈插画感与克制高级的现代日系版式。",
+            "editable_slots": [
+                {
+                    "key": "background",
+                    "zh_label": "背景",
+                    "en_label": "Background",
+                    "default_value": "奶油米色背景"
+                },
+                {
+                    "key": "character",
+                    "zh_label": "主体角色",
+                    "en_label": "Character",
+                    "default_value": "粉彩风 Q 版白发老爷爷"
+                },
+                {
+                    "key": "photo_variation",
+                    "zh_label": "双张差异",
+                    "en_label": "Photo Variation",
+                    "default_value": "一张穿绿色衣服，一张戴蓝色围巾"
+                }
+            ]
+        },
+        {
+            "id": "00019",
+            "image_key": "00019",
+            "category_key": "cinematic_narrative",
+            "zh_title": "新海诚失焦动漫海报",
+            "en_title": "Shinkai Haze Poster",
+            "zh_summary": "橙白朦胧、多重曝光和大留白，适合青春感日漫海报。",
+            "en_summary": "A hazy anime poster prompt with bright Shinkai-style light and layered exposure.",
+            "platform": "General",
+            "example": "no",
+            "tags": [
+                "动漫海报",
+                "多重曝光",
+                "梦核"
+            ],
+            "prompt": "帮我生成图片：这是一张采用新海诚日漫风格的动漫海报，画面有着极其精致的细节刻画，色彩明亮。以夸张的视角呈现，营造出朦胧的橙黄色与白色氛围。近景处是模糊隐约的女孩人像剪影，呈现动态模糊、迷幻的效果，运用了多重曝光、暗调与高曝、拖影、失焦以及近景失焦虚化等手法，带有强烈的胶片颗粒感，与远处清晰的场景多重完美融合重叠，形成奇幻的超现实意境。画面中还以模糊笔触的英文信息进行点缀解析，整体具有光朦的朦胧美学和光影美学，且有着大面积留白，尽显抽象、漫延的梦核风格，宛如电影场景般，充满高级感，似摄影获奖作品般的杰作。比例 9:16.",
+            "prompt_template": "帮我生成图片：这是一张采用新海诚日漫风格的动漫海报，主题为{{poster_theme}}。近景是{{foreground_subject}}，运用动态模糊、多重曝光、拖影、失焦和胶片颗粒感，与远处清晰场景融合。画面中加入{{text_overlay}}作为解析信息，整体保留朦胧橙黄光影、大面积留白和梦核电影感。",
+            "editable_slots": [
+                {
+                    "key": "poster_theme",
+                    "zh_label": "海报主题",
+                    "en_label": "Poster Theme",
+                    "default_value": "朦胧黄昏中的青春告别"
+                },
+                {
+                    "key": "foreground_subject",
+                    "zh_label": "前景主体",
+                    "en_label": "Foreground Subject",
+                    "default_value": "模糊隐约的女孩人像剪影"
+                },
+                {
+                    "key": "text_overlay",
+                    "zh_label": "画面文案",
+                    "en_label": "Text Overlay",
+                    "default_value": "模糊笔触的英文信息"
+                }
+            ]
+        },
+        {
+            "id": "00020",
+            "image_key": "00020",
+            "category_key": "spatial_build",
+            "zh_title": "天气城市微缩卡片",
+            "en_title": "Weather City Miniature",
+            "zh_summary": "等轴城市天气卡片结构，适合城市宣传和信息化封面。",
+            "en_summary": "An isometric city-weather card prompt for campaign graphics and info covers.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "微缩城市",
+                "天气卡片",
+                "等轴"
+            ],
+            "prompt": "Present a clear, 45° top-down isometric miniature 3D cartoon scene of [Shenzhen]featuring its most iconic landmarks and\narchitectural elements. Use soft, refined textures with realistic PBR materials and gentle, lifelike lighting and shadows. Integrate the current\nweather conditions directly into the city\nenvironment to create an immersive atmospheric mood. Use a clean, minimalistic composition with a soft, solid-colored background. At the\ntop-center, place the title “[ShenzhenlJ”in\nlarge bold text, a prominent weather icon beneath\nit, then the date (small text) and temperature (medium text). All text must be centered with consistent spacing, and may subtly overlap the tops of the buildings. Square 1080×1080\ndimension.",
+            "prompt_template": "Present a clear, 45° top-down isometric miniature 3D cartoon scene of {{city}}, featuring {{landmarks}}. Integrate {{weather_mood}} directly into the city environment. At the top-center, place the title “{{city}}”, then a weather icon, then {{date_temp}}. Keep the composition minimal, atmospheric, and square 1080×1080.",
+            "editable_slots": [
+                {
+                    "key": "city",
+                    "zh_label": "城市",
+                    "en_label": "City",
+                    "default_value": "Shenzhen"
+                },
+                {
+                    "key": "landmarks",
+                    "zh_label": "地标元素",
+                    "en_label": "Landmarks",
+                    "default_value": "its most iconic landmarks and architectural elements"
+                },
+                {
+                    "key": "weather_mood",
+                    "zh_label": "天气氛围",
+                    "en_label": "Weather Mood",
+                    "default_value": "the current weather conditions"
+                },
+                {
+                    "key": "date_temp",
+                    "zh_label": "日期温度信息",
+                    "en_label": "Date & Temperature",
+                    "default_value": "the date and temperature"
+                }
+            ]
+        },
+        {
+            "id": "00021",
+            "image_key": "00021",
+            "category_key": "light_portrait",
+            "zh_title": "复古办公室直闪写真",
+            "en_title": "Vintage Office Flash Portrait",
+            "zh_summary": "90年代办公室、直闪与杂乱桌面，适合杂志感复古写真。",
+            "en_summary": "A direct-flash office portrait prompt with vintage chaos and magazine energy.",
+            "platform": "Seed",
+            "example": "optional",
+            "tags": [
+                "直闪",
+                "复古办公室",
+                "胶片感"
+            ],
+            "prompt": "candid shot of a young asian woman sitting in a vintage leather office chair, wearing a black blazer and mini skirt, unbuttoned white shirt, black sheer stockings, messy short hair, holding a landline telephone receiver, intense gaze at camera chaotic desk filled with piles of papers and files.wood paneled walls, direct flash, harsh lighting.motion blur on hand, slight fisheye lens distortion.90s aesthetic, film grain, disposable camera style, lo-fi photography, high contrast, moody atmosphere",
+            "prompt_template": "candid shot of {{subject_identity}} in {{desk_scene}}, wearing {{outfit}}, direct flash, harsh lighting, motion blur, slight fisheye distortion, 90s aesthetic, film grain, disposable camera style, high contrast, moody atmosphere.",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "a young asian woman"
+                },
+                {
+                    "key": "desk_scene",
+                    "zh_label": "办公场景",
+                    "en_label": "Desk Scene",
+                    "default_value": "a vintage leather office chair with a chaotic desk filled with piles of papers and files, wood paneled walls"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "a black blazer and mini skirt, unbuttoned white shirt, black sheer stockings, messy short hair"
+                }
+            ]
+        },
+        {
+            "id": "00022",
+            "image_key": "00022",
+            "category_key": "cinematic_narrative",
+            "zh_title": "新海诚清晨动漫质感",
+            "en_title": "Shinkai Morning Anime Look",
+            "zh_summary": "高饱和蓝天与清晨透光，适合日系转绘和动画封面。",
+            "en_summary": "A bright morning anime look inspired by Shinkai skies and transparent light.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "新海诚",
+                "动漫",
+                "清晨"
+            ],
+            "prompt": "动漫风格，新海诚风格，日系动漫质感。蓝天白云，清晨柔和阳光，色彩通透，高饱和色彩，清新通透色调，整体光影柔和且富有层次，",
+            "prompt_template": "动漫风格，新海诚风格，日系动漫质感。场景为{{scene}}，整体光线为{{light_quality}}，色彩通透，高饱和但柔和，具有清晨空气感和层次分明的日系动画背景效果。",
+            "editable_slots": [
+                {
+                    "key": "scene",
+                    "zh_label": "场景",
+                    "en_label": "Scene",
+                    "default_value": "蓝天白云下的清晨街道或校园"
+                },
+                {
+                    "key": "light_quality",
+                    "zh_label": "光线质感",
+                    "en_label": "Light Quality",
+                    "default_value": "清晨柔和阳光"
+                }
+            ]
+        },
+        {
+            "id": "00023",
+            "image_key": "00023",
+            "category_key": "graphic_layout",
+            "zh_title": "月亮还没来海报",
+            "en_title": "Moon Hasn't Arrived Poster",
+            "zh_summary": "暮色海景加手写字海报，适合情绪文案和歌单封面。",
+            "en_summary": "A romantic dusk-poster prompt for lyric visuals and mood-driven covers.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "文字海报",
+                "黄昏",
+                "浪漫"
+            ],
+            "prompt": "一张海报，背景是粉橙渐变的黄昏海景（海面呈深紫蓝色，天际悬挂看一轮橙红色满月）。月亮下部是两位背对镜头的人物（坐于礁石上，衣着颜色错落），视觉核心是画面上方的白色手写汉字“月亮还没来”，字体笔触舒展轻盈、带有飞白与线条延伸设计，营造出浪漫梦幻又略带静谧的氛围。",
+            "prompt_template": "一张海报，背景是{{sea_scene}}。月亮下部是{{characters}}，画面上方写着白色手写汉字“{{headline}}”，字体舒展轻盈，带飞白和线条延伸设计，整体营造浪漫梦幻又略带静谧的氛围。",
+            "editable_slots": [
+                {
+                    "key": "sea_scene",
+                    "zh_label": "海景背景",
+                    "en_label": "Sea Scene",
+                    "default_value": "粉橙渐变的黄昏海景，海面深紫蓝色，天际悬挂橙红色满月"
+                },
+                {
+                    "key": "characters",
+                    "zh_label": "人物设置",
+                    "en_label": "Characters",
+                    "default_value": "两位背对镜头的人物，坐于礁石上，衣着颜色错落"
+                },
+                {
+                    "key": "headline",
+                    "zh_label": "标题",
+                    "en_label": "Headline",
+                    "default_value": "月亮还没来"
+                }
+            ]
+        },
+        {
+            "id": "00024",
+            "image_key": "00024",
+            "category_key": "narrative_scene",
+            "zh_title": "治愈动物园插画",
+            "en_title": "Healing Zoo Illustration",
+            "zh_summary": "极简童趣动物群像，适合绘本、海报和壁纸。",
+            "en_summary": "A playful healing-zoo illustration prompt for storybooks, posters, and wallpapers.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "治愈",
+                "动物",
+                "插画"
+            ],
+            "prompt": "帮我生成图片：极简画风，治愈系插画，童趣，涂鸦风格，意识流，迷你世界，一群小动物，梦幻花园，梦境插画，极简插画，大色块，颗粒感，增加肌理、抽象插画，扁平插画，纯色背景，比例[9:16」",
+            "prompt_template": "帮我生成图片：极简画风、治愈系、童趣涂鸦风格的插画，主体为{{animal_group}}，场景为{{dream_scene}}。整体保留大色块、颗粒肌理、抽象扁平插画与迷你世界般的梦境气质，比例 9:16。",
+            "editable_slots": [
+                {
+                    "key": "animal_group",
+                    "zh_label": "主体动物",
+                    "en_label": "Animal Group",
+                    "default_value": "一群小动物"
+                },
+                {
+                    "key": "dream_scene",
+                    "zh_label": "梦境场景",
+                    "en_label": "Dream Scene",
+                    "default_value": "梦幻花园"
+                }
+            ]
+        },
+        {
+            "id": "00025",
+            "image_key": "00025",
+            "category_key": "style_experiment",
+            "zh_title": "视觉残影摄影",
+            "en_title": "Afterimage Art Photo",
+            "zh_summary": "拖影、弥散渐变和超现实噪点，适合抽象摄影实验。",
+            "en_summary": "An abstract photography prompt with afterimages, gradients, and surreal grain.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "残影",
+                "迷幻",
+                "摄影实验"
+            ],
+            "prompt": "视觉残影，创意摄影，迷幻，弥散渐变，层次感，噪点摄影，超现实主义美学，肌理感，艺术氛围感加强",
+            "prompt_template": "围绕{{subject}}呈现{{visual_effect}}，结合创意摄影、迷幻氛围、弥散渐变、层次感、噪点摄影与超现实主义美学，强化肌理感和艺术氛围。",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "人物或物件"
+                },
+                {
+                    "key": "visual_effect",
+                    "zh_label": "核心效果",
+                    "en_label": "Visual Effect",
+                    "default_value": "视觉残影"
+                }
+            ]
+        },
+        {
+            "id": "00026",
+            "image_key": "00026",
+            "category_key": "narrative_scene",
+            "zh_title": "水彩野餐静物",
+            "en_title": "Watercolor Picnic Still Life",
+            "zh_summary": "水彩花园加复古静物，适合生活方式插画和封面图。",
+            "en_summary": "A watercolor picnic still-life prompt for lifestyle illustrations and covers.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "水彩",
+                "静物",
+                "野餐"
+            ],
+            "prompt": "帮我生成图片：艺术水彩画法，大片白色小雏菊花丛，有一组复古音响装置，复古相机、堆叠的书籍、黑底白点花盆里的绿植、黑胶唱片机、水果盘、水壶，还有一个盒子装着橙色郁金香，有点异国风情，复古艺术气感觉，配色优雅，活泼",
+            "prompt_template": "帮我生成图片：艺术水彩画法。主体花卉为{{main_flowers}}，画面中摆放{{object_set}}。整体呈现异国复古艺术气息，配色优雅活泼，适合做静物系绘本或装饰插画。",
+            "editable_slots": [
+                {
+                    "key": "main_flowers",
+                    "zh_label": "主要花卉",
+                    "en_label": "Main Flowers",
+                    "default_value": "大片白色小雏菊花丛"
+                },
+                {
+                    "key": "object_set",
+                    "zh_label": "静物组合",
+                    "en_label": "Object Set",
+                    "default_value": "复古音响装置、复古相机、堆叠书籍、绿植花盆、黑胶唱片机、水果盘、水壶和装着橙色郁金香的盒子"
+                }
+            ]
+        },
+        {
+            "id": "00027",
+            "image_key": "00027",
+            "category_key": "spatial_build",
+            "zh_title": "厚涂城市微景观",
+            "en_title": "Impasto City Miniature",
+            "zh_summary": "厚涂微景观和钟楼城景，适合城市视觉概念稿。",
+            "en_summary": "A thick-paint miniature city prompt for concept art and city identity visuals.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "厚涂",
+                "城市",
+                "微景观"
+            ],
+            "prompt": "油画风格，3D，微景观，厚涂，厚薄不同塑造立体感，居中斜构图的一抹绿色，绿色上（西安钟楼，水中倒影，城楼背后有云彩，云层中升起的太阳)，极简俯视图，大面积留白，白色纹理纸质背景。",
+            "prompt_template": "油画风格的 3D 微景观，主体空间为{{city_scene}}，整体以{{main_color}}为核心色块。采用厚涂塑造立体感，居中斜构图、极简俯视图、大面积留白和白色纹理纸背景，呈现克制又厚重的城市装置感。",
+            "editable_slots": [
+                {
+                    "key": "city_scene",
+                    "zh_label": "城市主体",
+                    "en_label": "City Scene",
+                    "default_value": "西安钟楼、水中倒影、城楼背后的云彩与云层中升起的太阳"
+                },
+                {
+                    "key": "main_color",
+                    "zh_label": "主色块",
+                    "en_label": "Main Color",
+                    "default_value": "一抹绿色"
+                }
+            ]
+        },
+        {
+            "id": "00028",
+            "image_key": "00028",
+            "category_key": "oriental_aesthetics",
+            "zh_title": "新中式禅意水墨",
+            "en_title": "Zen Ink Landscape",
+            "zh_summary": "流动靛蓝水墨与留白山景，适合东方抽象场景。",
+            "en_summary": "A flowing indigo ink-landscape prompt with spacious Eastern abstraction.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "水墨",
+                "新中式",
+                "留白"
+            ],
+            "prompt": "The new Chinese - style Zen ink - wash landscape painting uses flowing indigo ink to create fantastically shaped abstract mountains and clouds. It has swirling textures like natural marble. Among the mountains, there are several sturdy guest - welcoming pine trees. The pine needles are cyan - blue, the branches are reddish - brown and dotted with a few red flower clusters.There is also a slender waterfall - like stream of ink. In the middle of the picture stands asilhouette in red. The overall picture has a large area of blank space. The picture mainly features indigo, cyan - gray, and ochre - red. Thebrushstrokes are light, transparent, creating anethereal and distant oriental artistic conception. It has a high resolution and is rich in details.",
+            "prompt_template": "The new Chinese-style Zen ink-wash landscape uses {{mountain_palette}} to create abstract mountains and clouds. Among the mountains stand {{tree_type}}, and in the middle stands {{red_figure}}. Keep large blank space, flowing ink texture, and an ethereal oriental atmosphere with high detail.",
+            "editable_slots": [
+                {
+                    "key": "mountain_palette",
+                    "zh_label": "山水配色",
+                    "en_label": "Mountain Palette",
+                    "default_value": "indigo, cyan-gray, and ochre-red"
+                },
+                {
+                    "key": "tree_type",
+                    "zh_label": "树木类型",
+                    "en_label": "Tree Type",
+                    "default_value": "welcoming pine trees with cyan-blue needles and reddish-brown branches"
+                },
+                {
+                    "key": "red_figure",
+                    "zh_label": "红色人物",
+                    "en_label": "Red Figure",
+                    "default_value": "a silhouette in red"
+                }
+            ]
+        },
+        {
+            "id": "00029",
+            "image_key": "00029",
+            "category_key": "social_portrait",
+            "zh_title": "猫娘女仆写真",
+            "en_title": "Cat Maid Portrait",
+            "zh_summary": "室内暖光、日系房间和女仆造型，适合角色写真。",
+            "en_summary": "A stylized cat-maid portrait prompt with warm indoor light and cosplay energy.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "角色写真",
+                "猫娘",
+                "日系房间"
+            ],
+            "prompt": "帮我生成图片：你是拍写真摄影的大师，懂得电影艺术级别的审美与构图，严格参照以下提示词，生成图片正向提示词：masterpiece,最高画质，超高清，8k分辨率，超写实人像摄影，1个少女，单人，全身镜头，低角度仰拍，温柔甜美的微笑，可爱的圆眼睛，深棕色双马尾长发，猫耳女仆头饰，带铃铛的黑色项圈，黑白配色女仆裙，裙边蕾丝装饰，围裙上有黑色猫爪印图案，灰色格纹蝴蝶结装饰，黑色渔网袜：1.2.柔和的室内暖光，暖色调氛围，木质墙面上贴满二次元动漫海报，可爱的日系房间背景，置物架上的茶杯和点心，温馨治愈的氛围，景深效果，电影级构图，背景虚化，前景脚部柔焦：1.1，照片级真实感，皮肤纹理细腻自然，清透自然的皮肤质感，淡妆，脸颊带淡淡的红晕.动态姿势，猫爪手势，直视镜头，天真无辜的表情，面部焦点清晰，背景虚化，镜头光晕，暖光氛围反向提示词：低画质，模糊，像素感，丑陋，畸形，毁容，多余的肢体，缺失的肢体，人体结构错误，手畸形，手指畸形，多余的手指，缺失的手指，手指融合，脚部畸形，多余的脚趾，缺失的脚趾，比例失调，斗鸡眼，歪牙面部画崩，手部画崩，脚部画崩，脸部扭曲，透视错误",
+            "prompt_template": "帮我生成图片：超写实人像摄影，主体为{{subject_identity}}。头饰与配饰为{{accessory}}，服饰为{{outfit}}，背景场景为{{room_scene}}。保持低角度仰拍、暖色室内光、日系房间陈设、景深虚化和电影级构图，让整体呈现可爱又精致的角色写真感。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "1 个少女，单人，全身镜头，温柔甜美的微笑，可爱的圆眼睛，深棕色双马尾长发"
+                },
+                {
+                    "key": "accessory",
+                    "zh_label": "头饰配饰",
+                    "en_label": "Accessory",
+                    "default_value": "猫耳女仆头饰和带铃铛的黑色项圈"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "黑白配色女仆裙，裙边蕾丝装饰，围裙上有黑色猫爪印图案，灰色格纹蝴蝶结装饰，黑色渔网袜"
+                },
+                {
+                    "key": "room_scene",
+                    "zh_label": "房间场景",
+                    "en_label": "Room Scene",
+                    "default_value": "木质墙面上贴满二次元动漫海报，置物架上有茶杯和点心的可爱日系房间"
+                }
+            ]
+        },
+        {
+            "id": "00030",
+            "image_key": "00030",
+            "category_key": "narrative_scene",
+            "zh_title": "空中花园绘本插画",
+            "en_title": "Sky Garden Illustration",
+            "zh_summary": "宝蓝天空和极简花园，适合绘本封面与场景插画。",
+            "en_summary": "A blue-sky garden illustration prompt for storybook covers and scenic artworks.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "绘本",
+                "空中花园",
+                "极简"
+            ],
+            "prompt": "绘本插画，空中花园，宝蓝色的天空和白云，颗粒感，模糊，全景，极简主义，抽象插画，扁平插画，大色块，画面以蓝色白色绿色为主。",
+            "prompt_template": "绘本插画，主体场景为{{scene}}，天空为{{sky_color}}，整体以{{palette}}为主。保留颗粒感、模糊、全景、极简主义、抽象扁平插画和大色块构成。",
+            "editable_slots": [
+                {
+                    "key": "scene",
+                    "zh_label": "场景",
+                    "en_label": "Scene",
+                    "default_value": "空中花园"
+                },
+                {
+                    "key": "sky_color",
+                    "zh_label": "天空",
+                    "en_label": "Sky",
+                    "default_value": "宝蓝色的天空和白云"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "蓝色、白色、绿色"
+                }
+            ]
+        },
+        {
+            "id": "00031",
+            "image_key": "00031",
+            "category_key": "style_experiment",
+            "zh_title": "中式梦核超现实大片",
+            "en_title": "Chinese Dreamcore Editorial",
+            "zh_summary": "新中式礼服与超现实庭院，适合梦核大片和概念视觉。",
+            "en_summary": "A surreal Chinese dreamcore fashion prompt for editorial-scale concept imagery.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "梦核",
+                "新中式",
+                "时尚大片"
+            ],
+            "prompt": "超现实中式梦核场景，一位美丽的东亚女性身着流动的粉白渐变新中式礼服，礼服上有立体花朵装饰与网纱披肩，慵懒地倚靠在深色雕花木桌上。场景设置在超现实的中式庭院中，有幻彩釉面花瓶插着粉色樱花枝、金色烛台与燃烧的蜡烛、盆景松树、太湖石假山和粉色贝壳状装置。地面是镜面般的水面，反射着场景，漂浮着蝴蝶。整体色调以柔和的薰衣草粉、幻彩粉彩与金色点缀为主，电影感灯光，体积光，超精细、8K，照片级真实感，奢华时尚大片风格",
+            "prompt_template": "超现实中式梦核场景，主体为{{subject_identity}}，服饰为{{outfit}}，空间道具为{{surreal_props}}。整体以{{main_palette}}为主，结合镜面水面、蝴蝶、电影感灯光和体积光，呈现奢华时尚大片般的超现实中式场景。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "一位美丽的东亚女性"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "流动的粉白渐变新中式礼服，带立体花朵装饰与网纱披肩"
+                },
+                {
+                    "key": "surreal_props",
+                    "zh_label": "超现实道具",
+                    "en_label": "Surreal Props",
+                    "default_value": "幻彩釉面花瓶、粉色樱花枝、金色烛台、盆景松树、太湖石假山和粉色贝壳状装置"
+                },
+                {
+                    "key": "main_palette",
+                    "zh_label": "主色调",
+                    "en_label": "Main Palette",
+                    "default_value": "柔和的薰衣草粉、幻彩粉彩与金色点缀"
+                }
+            ]
+        },
+        {
+            "id": "00032",
+            "image_key": "00032",
+            "category_key": "handmade_texture",
+            "zh_title": "羊毛毡绘本风",
+            "en_title": "Felt Storybook Style",
+            "zh_summary": "毛毡肌理和极简扁平造型，适合手作感插画。",
+            "en_summary": "A wool-felt illustration prompt with handmade texture and storybook softness.",
+            "platform": "Seed",
+            "example": "optional",
+            "tags": [
+                "羊毛毡",
+                "绘本",
+                "手作感"
+            ],
+            "prompt": "羊毛毡绘本，画面表面浓密负载的毛毡绒毛纹理，极简扁平写意的画风，神秘宁静，细毛细小琐碎，画面覆盖一层细小的毛发，起毛的效果，毛毡工艺，用细小绒毛组成一个【任意事物】",
+            "prompt_template": "羊毛毡绘本，画面以{{subject}}为主体，整体气质为{{mood}}。保留浓密毛毡绒毛纹理、极简扁平写意画风、细小起毛效果和手工毛毡工艺感。",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "任意事物"
+                },
+                {
+                    "key": "mood",
+                    "zh_label": "氛围",
+                    "en_label": "Mood",
+                    "default_value": "神秘宁静"
+                }
+            ]
+        },
+        {
+            "id": "00033",
+            "image_key": "00033",
+            "category_key": "mood_portrait",
+            "zh_title": "夜景松弛感写真",
+            "en_title": "Loose Night Portrait",
+            "zh_summary": "保留人物原貌做夜景补光改造，适合社媒写真和头像。",
+            "en_summary": "A night-scene portrait remix prompt that keeps the subject and upgrades lighting.",
+            "platform": "Seed",
+            "example": "optional",
+            "tags": [
+                "参考图",
+                "夜景",
+                "写真改造"
+            ],
+            "prompt": "确保女孩的五官相貌不变，去除所有配件道具服饰及背景，生成10张不同表情动作姿势的图片，女孩长发自然散落，部分发丝微乱地垂在脸颊两侧，营造出随性松弛的氛围，搭配白色头戴式耳机，增添青春活力感。穿着浅色系简约吊带，露出优美肩颈线条：手部佩戴细巧的戒指，与整体清新风格相契合。以深色夜景为背景，利用环境中微弱的光斑（如远处的灯光）作为点缀，营造朦胧氛围感；同时对人物面部进行明显补光，让面部在暗环境中清晰且有光泽，形成强烈的明暗对比，突出主体。采用近景构图，聚焦人物上半身及面部，精准展现妆造细节；拍摄角度略微从下往上，更好地展示肩颈线条，增强人物形象的张力。借助手中的棒棒糖道具，增加画面的故事感与生活气息，使人物姿态更自然；背景的光斑虚化效果（散景），进一步强化了夜景的朦胧氛围。整体色调偏向冷调的蓝灰色，契合夜晚的清冷氛围，同时提亮肤色，让皮肤看起来白皙通透：后期对画面的对比度和锐度进行调整，使人物发丝、面部细节等更加清晰。比例3:4，原比例原比例原比例原比例。原比例",
+            "prompt_template": "确保主体五官相貌不变，生成一组松弛夜景写真。主体为{{subject_identity}}，服饰为{{outfit}}，道具为{{props}}，场景为{{night_scene}}。采用近景构图、略微仰拍、明显面部补光和散景虚化，整体色调偏冷蓝灰，突出青春感与生活片段感。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "长发女孩"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "浅色系简约吊带"
+                },
+                {
+                    "key": "props",
+                    "zh_label": "道具",
+                    "en_label": "Props",
+                    "default_value": "白色头戴式耳机、细巧戒指、手中的棒棒糖"
+                },
+                {
+                    "key": "night_scene",
+                    "zh_label": "夜景背景",
+                    "en_label": "Night Scene",
+                    "default_value": "深色夜景背景与远处微弱光斑"
+                }
+            ]
+        },
+        {
+            "id": "00034",
+            "image_key": "00034",
+            "category_key": "style_experiment",
+            "zh_title": "复古蒸汽波梦核",
+            "en_title": "Vaporwave Dreamcore",
+            "zh_summary": "Windows 98 碎片和 CRT 氛围，适合 Y2K 概念视觉。",
+            "en_summary": "A vaporwave dreamcore prompt with Windows 98 fragments and CRT nostalgia.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "蒸汽波",
+                "Y2K",
+                "梦核"
+            ],
+            "prompt": "A surreal dreamcore landscape with a soft grassy field under a hazy sky. In the distant background, a single vaporwave retro sun inspired by Windows 98 desktop imagery hangs low on the horizon, softly banded and glowing in muted cyan and pink. Scattered Windows 98-era UI fragments float gently in midair above the grass, including classic gray window frames, pixelated cursors, low-resolution dialog boxes, and detached interface elements with no logical function. A subtle CRT glow and soft screen bloom diffuse through the atmosphere, blending vaporwave, Y2K, and dreamcore aesthetics. The mood is nostalgic, uncanny, and serene, with a slightly surreal digital melancholy. Soft lighting, airy composition, cinematic depth, minimal clutter, dreamy textures.",
+            "prompt_template": "A surreal dreamcore landscape with {{landscape}}. In the distance hangs {{retro_sun}}, while {{ui_fragments}} float gently in midair. Keep a subtle CRT glow, screen bloom, vaporwave and Y2K melancholy, soft lighting, airy composition, and cinematic depth.",
+            "editable_slots": [
+                {
+                    "key": "landscape",
+                    "zh_label": "地景",
+                    "en_label": "Landscape",
+                    "default_value": "a soft grassy field under a hazy sky"
+                },
+                {
+                    "key": "retro_sun",
+                    "zh_label": "复古太阳",
+                    "en_label": "Retro Sun",
+                    "default_value": "a single vaporwave retro sun inspired by Windows 98 desktop imagery"
+                },
+                {
+                    "key": "ui_fragments",
+                    "zh_label": "界面碎片",
+                    "en_label": "UI Fragments",
+                    "default_value": "classic gray window frames, pixelated cursors, low-resolution dialog boxes, and detached interface elements"
+                }
+            ]
+        },
+        {
+            "id": "00035",
+            "image_key": "00035",
+            "category_key": "mood_portrait",
+            "zh_title": "隔鱼缸忧郁写真",
+            "en_title": "Aquarium Gaze Portrait",
+            "zh_summary": "隔着鱼缸的水波光影和忧郁侧脸，适合氛围感人像。",
+            "en_summary": "A moody portrait prompt shot through an aquarium with rippling light.",
+            "platform": "Seed",
+            "example": "optional",
+            "tags": [
+                "鱼缸",
+                "忧郁",
+                "水波光影"
+            ],
+            "prompt": "帮我生成图片：隔着鱼缸拍女孩，女孩子长直发，侧脸忧郁的眼神，周围游着好多金鱼，女孩注视着金鱼，昏暗的灯光，真实水波光影，脸上的光影，高度详细，人物在图片右侧，隔着鱼缸拍摄的，超高分辦率，32K UHD，最佳品质。原比例。",
+            "prompt_template": "帮我生成图片：隔着鱼缸拍摄{{subject_identity}}，周围游着{{fish_type}}。保持{{lighting}}、真实水波光影和脸上的反射光影，人物位于画面右侧，以高细节与高分辨率呈现出忧郁安静的气质。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "一个侧脸忧郁的长直发女孩"
+                },
+                {
+                    "key": "fish_type",
+                    "zh_label": "鱼群",
+                    "en_label": "Fish",
+                    "default_value": "好多金鱼"
+                },
+                {
+                    "key": "lighting",
+                    "zh_label": "灯光",
+                    "en_label": "Lighting",
+                    "default_value": "昏暗的灯光"
+                }
+            ]
+        },
+        {
+            "id": "00036",
+            "image_key": "00036",
+            "category_key": "practical_remix",
+            "zh_title": "阳光少女面部改造",
+            "en_title": "Sunlit Face Remix",
+            "zh_summary": "保持原脸做清醒系高光改造，适合阳光感头像优化。",
+            "en_summary": "A sunlit face-remix prompt for bright, airy portrait upgrades while keeping identity.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "阳光",
+                "面部特写"
+            ],
+            "prompt": "帮我生成图片：采用细腻皮肤真实质感的风格，画面中展现了一个不改变原图形象的萌萌少女的脸部特写，通过略微俯视的镜头角度进行呈现。背景营造出清醒系且阳光的场景氛围，少女有着散乱的头发随风飘动的感觉，发型不变，发丝随风飘动，不改变原片发色。她的眼神闪闪发光，其中带着阳光和魅惑的情绪，尽显魅惑高冷的气质。画面着重句勒了少女的面部细节，高先处理十分讲究，同时画面虽现出带有摄影机极蓝噪点的画质，并且有着蓝白色通透效果。原比例。不要改变人脸比例和形象!!!比例3：4。不同角度多来几张。",
+            "prompt_template": "帮我生成图片：在不改变原图形象的前提下，呈现{{subject_identity}}的脸部特写。背景氛围为{{background_mood}}，头发状态为{{hair_motion}}。画面强调细腻真实的皮肤质感、闪亮眼神、蓝白通透效果与轻微噪点感，整体偏清醒系、阳光系。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "萌萌少女"
+                },
+                {
+                    "key": "background_mood",
+                    "zh_label": "背景氛围",
+                    "en_label": "Background Mood",
+                    "default_value": "清醒系且阳光的场景氛围"
+                },
+                {
+                    "key": "hair_motion",
+                    "zh_label": "发丝状态",
+                    "en_label": "Hair Motion",
+                    "default_value": "散乱的头发随风飘动"
+                }
+            ]
+        },
+        {
+            "id": "00037",
+            "image_key": "00037",
+            "category_key": "mood_portrait",
+            "zh_title": "清冷湿发暗调人像",
+            "en_title": "Cold Wet-Hair Remix",
+            "zh_summary": "暗色湿发与蓝白噪点，适合高冷危险感写真改造。",
+            "en_summary": "A dark, wet-hair remix prompt for cold and dangerous portrait moods.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "湿发",
+                "暗调"
+            ],
+            "prompt": "采用细腻皮肤真实质感的风格 画面中展现妖治少女的脸部特写 通过俯视的镜头角度进行虽现 背景为暗色 营造出暗色系且阴郁的场景氛围少女有着散乱的湿漉漉的长发 发丝粘在脸上不改变原片发色他的眼神胧 其中带着危险和眷恋的情绪尽显腹黑高冷的气质画面着重句勒了少女的面部细节高先处理十分讲究同时画面虽现出带有摄影机极蓝噪点的画质 并且有强烈的蓝白色曝先效果原比例。",
+            "prompt_template": "采用细腻皮肤真实质感的风格，画面呈现{{subject_identity}}的脸部特写。背景氛围为{{mood}}，头发状态为{{hair_state}}。整体保留俯视镜头、蓝白曝光、危险又眷恋的眼神以及高冷腹黑的情绪张力。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "妖治少女"
+                },
+                {
+                    "key": "mood",
+                    "zh_label": "场景氛围",
+                    "en_label": "Mood",
+                    "default_value": "暗色系且阴郁的场景氛围"
+                },
+                {
+                    "key": "hair_state",
+                    "zh_label": "发丝状态",
+                    "en_label": "Hair State",
+                    "default_value": "散乱的湿漉漉长发，发丝粘在脸上"
+                }
+            ]
+        },
+        {
+            "id": "00038",
+            "image_key": "00038",
+            "category_key": "practical_remix",
+            "zh_title": "清新自然户外改造",
+            "en_title": "Fresh Outdoor Remix",
+            "zh_summary": "户外绿植和柔和自然光，适合清透治愈系人像。",
+            "en_summary": "A fresh outdoor portrait-remix prompt with greenery and soft natural light.",
+            "platform": "General",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "自然光",
+                "治愈"
+            ],
+            "prompt": "参考图片上女生的脸。画面呈现一种柔和清新的视觉风格，一位女生置身户外，她的棕色长直发，以及被风吹乱遮挡面部的发丝、尽显慵懒，冷白皮、纤细眉毛、下垂眼尾和淡粉唇色，愈显他无辜疏离的气质。身穿白色简约上衣的他，背影是郁郁葱葱的绿色灌木，丛和树木，明亮自然光营造出柔和滤镜效果，整体氛围。温柔清冷，色调清新治愈，比例4：3",
+            "prompt_template": "参考图片上女生的脸。主体为{{subject_identity}}，服饰为{{outfit}}，户外背景为{{outdoor_scene}}。整体采用柔和清新的自然光和轻滤镜效果，营造温柔清冷、清新治愈的户外人像氛围。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "棕色长直发、冷白皮、纤细眉毛、下垂眼尾和淡粉唇色的女生"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "白色简约上衣"
+                },
+                {
+                    "key": "outdoor_scene",
+                    "zh_label": "户外背景",
+                    "en_label": "Outdoor Scene",
+                    "default_value": "郁郁葱葱的绿色灌木丛和树木"
+                }
+            ]
+        },
+        {
+            "id": "00039",
+            "image_key": "00039",
+            "category_key": "mood_portrait",
+            "zh_title": "电影感复古写真改造",
+            "en_title": "Cinematic Retro Portrait Remix",
+            "zh_summary": "保留角色五官做胶片质感大片，适合高级人像升级。",
+            "en_summary": "A cinematic retro remix prompt that preserves the face and adds film-editorial mood.",
+            "platform": "Nano Banana 2",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "胶片",
+                "电影感"
+            ],
+            "prompt": "根据上传的角色照片生成超逼真的电影感肖像，高端时尚，画幅杂志风格摄影，朦胧美学，胶片质感：\n主体：仅使用图1角色的面部参考作为主要拍摄对象，面部特征、骨骼结构和自然肤质（可见毛孔）需100%匹配，。不得改变种族或性别特征，角色是亚洲中国女性。侧身站立，转身看向观众。\n姿势：回头看，头部微微倾斜，身体侧向镜头。\n表情：柔和、中性或略带忧郁的沉思眼神，嘴唇微微张开。\n衣服：与参考图2完全一致的绿色低胸中式旗袍\n可见性：大部分被阴影和前景元素遮挡。\n头发--\n颜色：深棕色至黑色。\n发型：长长的、松散的、蓬松的波浪卷，略显凌乱的质感。\n灯光、光照: 强烈的背光照射，在散落的发丝上形成发光的光晕效果（轮廓光）。\n面部--\n肤色: 白皙/苍白，带有暖色调。\n妆容：极简的‘裸妆’，自然的唇色。\nvisible_items: 由于取景和光线原因，没有清晰可见的项目。\n环境--\n场景：杂乱的室内空间，类似工作室、储藏室或旧书店。\n背景元素：木架上堆放着一些模糊不清的物品、纸张、盒子和塑料包装。\n前景元素: 模糊的半透明物体（可能是玻璃、塑料片或防尘罩）营造出层次感和反射效果。\n灯光--\n来源：自然阳光透过左侧的窗户照射进来。\n品质：黄金时段，温暖，光线柔和但方向性强。\n效果：头发上的强逆光/轮廓光，在光线中舞动的体积尘埃颗粒，镜头光晕，柔和的眩光，光与影之间的戏剧性对比。\n相机、机位--\n视角：平视角度，透过前景障碍物（玻璃或杂物）拍摄。\n焦点：浅景深（散景），眼睛/脸部清晰对焦，背景和前景模糊。\nlens_character: 柔焦，胶片颗粒模拟，轻微光晕效果。\n风格--\n美学：电影感、氛围感、怀旧、生活片段式、空灵。\n氛围：梦幻、亲密、安静、感伤。\n视觉参考: 胶片摄影，日本摄影集风格。\n画面比例3:4，2K-HD-输出",
+            "prompt_template": "根据上传的角色照片生成超逼真的电影感肖像。保持角色面部特征不变，主体服饰为{{outfit}}。人物处于{{interior_scene}}，前景加入{{foreground_elements}}。整体采用{{lighting_style}}与浅景深，营造{{overall_mood}}，呈现怀旧的胶片摄影与日本摄影集质感。",
+            "editable_slots": [
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "绿色低胸中式旗袍"
+                },
+                {
+                    "key": "interior_scene",
+                    "zh_label": "室内环境",
+                    "en_label": "Interior Scene",
+                    "default_value": "杂乱的室内空间，类似工作室、储藏室或旧书店"
+                },
+                {
+                    "key": "foreground_elements",
+                    "zh_label": "前景遮挡",
+                    "en_label": "Foreground Elements",
+                    "default_value": "模糊的半透明玻璃、塑料片或防尘罩"
+                },
+                {
+                    "key": "lighting_style",
+                    "zh_label": "光线风格",
+                    "en_label": "Lighting Style",
+                    "default_value": "强逆光、体积尘埃、镜头光晕与柔和眩光"
+                },
+                {
+                    "key": "overall_mood",
+                    "zh_label": "整体气质",
+                    "en_label": "Overall Mood",
+                    "default_value": "电影感、氛围感、怀旧、生活片段式、空灵"
+                }
+            ]
+        },
+        {
+            "id": "00040",
+            "image_key": "00040",
+            "category_key": "social_portrait",
+            "zh_title": "浴室网感自拍",
+            "en_title": "Bathroom Selfie Vibe",
+            "zh_summary": "前置自拍、冷感松弛和网感姿态，适合社媒风写真。",
+            "en_summary": "A bathroom selfie prompt with influencer-style ease and cool social-media energy.",
+            "platform": "Seed",
+            "example": "optional",
+            "tags": [
+                "自拍",
+                "网感",
+                "浴室"
+            ],
+            "prompt": "网红，超高颜值，在浴室用手机拍摄的网感自拍照，不看镜头，高冷风格，放荡不羁，自然松弛感，每一个细节都体现出无比的真实，前置摄像头拍摄，22岁，长发，露肩，网图，细节丰富的发丝，钓系拍照姿势，绿茶心机拍照风格，真人照片。",
+            "prompt_template": "网感自拍照，主体为{{subject_identity}}，拍摄场景为{{device_scene}}，姿态与风格为{{pose_style}}。保持真人照片质感、前置镜头视角、自然松弛感和细节丰富的发丝，呈现高冷又带点心机感的社交平台自拍。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "22 岁长发高颜值女生"
+                },
+                {
+                    "key": "device_scene",
+                    "zh_label": "拍摄场景",
+                    "en_label": "Device Scene",
+                    "default_value": "在浴室用手机拍摄"
+                },
+                {
+                    "key": "pose_style",
+                    "zh_label": "姿态风格",
+                    "en_label": "Pose Style",
+                    "default_value": "不看镜头的钓系拍照姿势，带绿茶心机感"
+                }
+            ]
+        },
+        {
+            "id": "00041",
+            "image_key": "00041",
+            "category_key": "practical_remix",
+            "zh_title": "穿搭解析图解",
+            "en_title": "Outfit Breakdown Board",
+            "zh_summary": "把人物扩成穿搭分解与材质说明，适合人设页和种草图。",
+            "en_summary": "A hyper-real outfit breakdown prompt for lookbooks, persona pages, and shopping posts.",
+            "platform": "Nano Banana 2",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "穿搭图解",
+                "人设"
+            ],
+            "prompt": "你是超精细的“实拍照片级角色图解”专家。\n请在100%保持上传人物的面部、发型、服装和质感的前提下，生成图解。\n任务：根据上传的人物照片中央：放置人物全身实拍原图。周围：环绕配置以下实拍素材：\n服装分解：由外到内展示衣物单品（真实质感，含内层细节）。\n表情差分：3-4种面部特写（冷静、害羞、惊讶、专注等）。\n材质特写：布料、肌肤、配饰的微距细节。生活小物：包包内容物、化妆品、日记、等符合人设的物品。\nVisual Guidelines （视觉指南）布局：白底，中央人物，周围素材均匀分布，用细致的摄影风线条连接。\n风格：完全实拍照片风(Hyper-real Photo)。严禁插画或动漫风格。",
+            "prompt_template": "你是超精细的“实拍照片级角色图解”专家。请在 100% 保持上传人物的面部、发型、服装和质感的前提下，生成图解。中央放置人物全身实拍原图，周围加入{{expressions}}等表情差分、{{lifestyle_items}}等生活小物，并采用{{layout}}布局。整体必须保持 Hyper-real Photo 风格，严禁插画或动漫感。",
+            "editable_slots": [
+                {
+                    "key": "expressions",
+                    "zh_label": "表情差分",
+                    "en_label": "Expressions",
+                    "default_value": "冷静、害羞、惊讶、专注"
+                },
+                {
+                    "key": "lifestyle_items",
+                    "zh_label": "生活小物",
+                    "en_label": "Lifestyle Items",
+                    "default_value": "包包内容物、化妆品、日记等符合人设的物品"
+                },
+                {
+                    "key": "layout",
+                    "zh_label": "版式布局",
+                    "en_label": "Layout",
+                    "default_value": "白底，中央人物，周围素材均匀分布，用细致摄影风线条连接"
+                }
+            ]
+        },
+        {
+            "id": "00042",
+            "image_key": "00042",
+            "category_key": "creative_remix",
+            "zh_title": "极简黑裙时尚肖像",
+            "en_title": "Minimal Black Dress Portrait",
+            "zh_summary": "保留人物原貌做时装大片姿态变化，适合形象升级。",
+            "en_summary": "A minimalist black-dress portrait remix for polished fashion-style identity upgrades.",
+            "platform": "Nano Banana 2",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "黑裙",
+                "时尚肖像"
+            ],
+            "prompt": "以人物原貌为核心，完整保留她的五官、面孔、发型和身份特征。画面呈现为一张干净、时尚的肖像，她身着极简设计的黑色连衣裙，剪裁利落优雅。可选择正面微笑、轻微侧身、双手交叉、单手插兜或下颌轻抬等姿态，整体姿态放松但不失自信，气质平静而从容。背景为明亮、纯净的单色调，没有任何杂乱元素。整体氛围专业、简洁，具备时尚杂志大片的质感。",
+            "prompt_template": "以人物原貌为核心，完整保留五官、面孔、发型和身份特征。主体服饰为{{dress}}，姿态为{{pose}}，背景为{{background}}。整体氛围专业、简洁、时尚，具备高级时尚杂志大片的质感。",
+            "editable_slots": [
+                {
+                    "key": "dress",
+                    "zh_label": "服饰",
+                    "en_label": "Dress",
+                    "default_value": "极简设计的黑色连衣裙"
+                },
+                {
+                    "key": "pose",
+                    "zh_label": "姿态",
+                    "en_label": "Pose",
+                    "default_value": "正面微笑、轻微侧身、双手交叉、单手插兜或下颌轻抬"
+                },
+                {
+                    "key": "background",
+                    "zh_label": "背景",
+                    "en_label": "Background",
+                    "default_value": "明亮纯净的单色背景"
+                }
+            ]
+        },
+        {
+            "id": "00043",
+            "image_key": "00043",
+            "category_key": "oriental_aesthetics",
+            "zh_title": "小猫追蝴蝶国风插画",
+            "en_title": "Cat Chasing Butterfly",
+            "zh_summary": "国风山水色调里的白猫小景，适合治愈系插画。",
+            "en_summary": "A gentle Chinese-style cat illustration prompt with soft landscape tones.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "国风",
+                "小猫",
+                "插画"
+            ],
+            "prompt": "grass with a white cute cat, chasing a butterfly, It is in the style of traditional Chinese landscape painting, with dark cyan and purple colors, light gray, green leaves, a cat's eye view, rich details, high-definition images, and a flat composition.The overall color tone is soft and elegant, featuring exquisite lines and clear texture,",
+            "prompt_template": "{{animal}}在草地上追逐{{companion}}，整体采用传统中国山水画风格，配色为{{palette}}，保持高处俯看视角、柔和优雅色调、细致线条和清晰纹理，呈现精致的国风动物插画。",
+            "editable_slots": [
+                {
+                    "key": "animal",
+                    "zh_label": "主体动物",
+                    "en_label": "Animal",
+                    "default_value": "一只白色可爱小猫"
+                },
+                {
+                    "key": "companion",
+                    "zh_label": "陪衬元素",
+                    "en_label": "Companion",
+                    "default_value": "一只蝴蝶"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "深青、紫色、浅灰与绿色"
+                }
+            ]
+        },
+        {
+            "id": "00044",
+            "image_key": "00044",
+            "category_key": "creative_remix",
+            "zh_title": "漫画破壁写真",
+            "en_title": "Comic Breakout Remix",
+            "zh_summary": "把真人拉进黑白漫画格，适合强叙事海报和社媒封面。",
+            "en_summary": "A comic-breakout remix prompt that places a real subject inside dramatic manga panels.",
+            "platform": "Nano Banana 2",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "漫画",
+                "破壁"
+            ],
+            "prompt": "从上传图片中提取的核心人物，以饱满、鲜艳的逼真色彩和清晰细节呈现。人物通过富有戏剧性的光线处理，极为醒目突出。背景是一幅细节繁复的多格黑白漫画，完全没有文字，充满了幽默、夸张的叙事，且核心人物直接出现在这些叙事中。这些漫画格子不仅要描绘人物处于有趣、轻松或略带荒诞的场景中，还要将核心人物无缝融入周围的漫画世界。色彩鲜明的主体人物应看起来仿佛是这个充满活力的单色漫画现实中不可或缺的一部分，人物“定格”或者”“走出”某个特定漫画格子，强调人物”打破次元壁“效果，展现人物从漫画世界中走出来的视觉冲击力。其姿势和表情与周围的黑白叙事直接呼应漫画格子采用经典的高对比度漫画风格绘制，线条粗犷，并通过富有创意的排列构成一个连贯且引人入胜的叙事背景，将色彩鲜艳的人物与细节丰富的单色漫画环境紧密联系起来。",
+            "prompt_template": "从上传图片中提取核心人物，以饱满鲜艳的逼真色彩和清晰细节呈现。背景是一组细节繁复的多格黑白漫画，叙事内容围绕{{comic_story}}展开，整体漫画格子采用{{panel_style}}。色彩鲜明的人物需要定格或走出漫画格子，形成强烈的“打破次元壁”效果。",
+            "editable_slots": [
+                {
+                    "key": "comic_story",
+                    "zh_label": "漫画叙事",
+                    "en_label": "Comic Story",
+                    "default_value": "有趣、轻松或略带荒诞的场景故事"
+                },
+                {
+                    "key": "panel_style",
+                    "zh_label": "格子风格",
+                    "en_label": "Panel Style",
+                    "default_value": "经典高对比度漫画风格，线条粗犷，排列富有节奏"
+                }
+            ]
+        },
+        {
+            "id": "00045",
+            "image_key": "00045",
+            "category_key": "practical_remix",
+            "zh_title": "商务简历照",
+            "en_title": "Executive Resume Portrait",
+            "zh_summary": "生活照转商务头像，适合简历和 LinkedIn 风格成片。",
+            "en_summary": "A resume-photo remix prompt that turns casual life shots into executive portraits.",
+            "platform": "Nano Banana 2",
+            "example": "yes",
+            "tags": [
+                "参考图",
+                "商务照",
+                "简历"
+            ],
+            "prompt": "将上传的生活照片转换为一张高端的男士商务简历照。保持人物的原始面部特征和身份完全一致。构图为正式的头肩半身照，1:1长宽比，画面干净，比例均衡。人物穿着高质感的纯色衬衣（海军蓝、深灰或浅蓝)，必须有领，整洁优雅，无图案或标志。背景为柔和的渐变或微纹理摄影棚背景，颜色选择中性色（浅灰或米色），并略微虚化以增加景深。采用柔和的棚拍光线，自然突出面部特征，肤色真实，清晰度高。整体氛围应当自信、亲和、现代，表情自然放松且专业。最终照片应呈现出精致的企业高管风格，适合用于简历或Linkedn.--不要文字、标志、水印、杂乱或艺术滤镜效果",
+            "prompt_template": "将上传的生活照片转换为一张高端商务简历照。人物保持原始面部特征和身份一致，穿着{{shirt_color}}纯色衬衣，背景为{{background_color}}，整体呈现{{professional_style}}。构图正式、棚拍光线柔和、肤色真实，适合用于简历或职业资料页。",
+            "editable_slots": [
+                {
+                    "key": "shirt_color",
+                    "zh_label": "衬衣颜色",
+                    "en_label": "Shirt Color",
+                    "default_value": "海军蓝"
+                },
+                {
+                    "key": "background_color",
+                    "zh_label": "背景颜色",
+                    "en_label": "Background Color",
+                    "default_value": "浅灰或米色"
+                },
+                {
+                    "key": "professional_style",
+                    "zh_label": "职业气质",
+                    "en_label": "Professional Style",
+                    "default_value": "精致的企业高管风格"
+                }
+            ]
+        },
+        {
+            "id": "00046",
+            "image_key": "00046",
+            "category_key": "style_experiment",
+            "zh_title": "怪诞奢靡抽象油画",
+            "en_title": "Decadent Abstract Oil Dream",
+            "zh_summary": "水墨、厚涂和怪诞梦境混合，适合高情绪概念视觉。",
+            "en_summary": "A decadent abstract oil-dream prompt blending ink, impasto, and surreal luxury.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "抽象油画",
+                "怪诞",
+                "厚涂"
+            ],
+            "prompt": "帮我生成图片：采用水墨、国风色彩的抽象画面，基于印象派和梵高的油画风格，借助厚涂和晕染的水粉技法，呈现出厚重的颜料质感，尽显超古风主义美学。以独特的动态视角从侧面进行呈现，金色与黑红色交织的主色调营造出潦草且充满故事感的氛围。姿态优美、细节丰富的场景表现出极度精致繁华混乱的奢华，画面中的颗粒感与肌理感增添了艺术韵味和层次感。在抽象派超现实主义意识流油画风格下，运用图像拼贴和轮廓提取构建拼贴风格，厚涂晕染的水粉让色彩丰富饱满，带有颗粒感、肌理感和支离破碎感，透光感体现出空间，以8K超高分辨率呈现出印象派笔触感和丰富细节，传达出神秘、阴暗、奢靡、颓废、随意的氛围，展现生命消散的怪诞梦境。比例 3:4。",
+            "prompt_template": "帮我生成图片：围绕{{subject_mood}}展开抽象画面，采用{{medium_language}}，主色调为{{palette}}。保留印象派与厚涂晕染技法、颗粒肌理、拼贴感、超现实意识流与怪诞奢靡气质，画幅比例 3:4。",
+            "editable_slots": [
+                {
+                    "key": "subject_mood",
+                    "zh_label": "主题意象",
+                    "en_label": "Subject Mood",
+                    "default_value": "生命消散的怪诞梦境"
+                },
+                {
+                    "key": "medium_language",
+                    "zh_label": "媒介语言",
+                    "en_label": "Medium Language",
+                    "default_value": "水墨、国风色彩、梵高式油画和厚涂水粉"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主色调",
+                    "en_label": "Palette",
+                    "default_value": "金色与黑红色交织"
+                }
+            ]
+        },
+        {
+            "id": "00054",
+            "image_key": "00054",
+            "category_key": "cinematic_narrative",
+            "zh_title": "80 年代 OVA 截图风",
+            "en_title": "80s OVA Screenshot Style",
+            "zh_summary": "赛璐璐、CRT 和 VHS 质感叠加，适合复古动画截图和怀旧视觉实验。",
+            "en_summary": "A retro 80s OVA screenshot prompt with cel animation, CRT scanlines, and VHS texture.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "OVA",
+                "VHS",
+                "复古动画"
+            ],
+            "prompt": "80年代末日本动画OVA截图，4:3，手绘赛璐璐质感。\n\n主体/场景：：（填你的现代内容/参考图）\n\n画面：低保真粉彩、轻微褪色泛黄、粗糙线稿，怀旧都市氛围。\n特效：CRT扫描线+轻微屏幕弯曲，VHS噪点/抖动/色溢出/色差。\n字幕：底部一行黄色像素字幕（伪日语或英语）",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "80 年代末日本动画 OVA 截图，4:3，手绘赛璐璐质感。主体 / 场景为{{subject_scene}}。画面保持低保真粉彩、轻微褪色泛黄、粗糙线稿、怀旧都市氛围，叠加 CRT 扫描线、屏幕弯曲、VHS 噪点和色差。底部添加一行 {{subtitle}} 像素字幕。",
+            "editable_slots": [
+                {
+                    "key": "subject_scene",
+                    "zh_label": "主体场景",
+                    "en_label": "Subject Scene",
+                    "default_value": "你的现代内容或参考图"
+                },
+                {
+                    "key": "subtitle",
+                    "zh_label": "底部字幕",
+                    "en_label": "Subtitle",
+                    "default_value": "伪日语或英语"
+                }
+            ]
+        },
+        {
+            "id": "00055",
+            "image_key": "00055",
+            "category_key": "oriental_aesthetics",
+            "zh_title": "上美影水墨绘本",
+            "en_title": "Shanghai Animation Ink Storybook",
+            "zh_summary": "新中式水墨加上美影旧动画气质，适合绘本封面和经典人物场景。",
+            "en_summary": "A Chinese ink storybook prompt inspired by classic Shanghai Animation Studio aesthetics.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "上美影",
+                "水墨绘本",
+                "新中式"
+            ],
+            "prompt": "帮我生成图片：新中式水墨绘本，致敬80年代上美影风格。强调大巧若拙的毛笔触感与宣纸纹理，低饱和矿物色，极简留白构图。画面人物为主体视觉，比例3:4，唐僧西天取经",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "帮我生成图片：新中式水墨绘本，致敬 80 年代上美影风格。强调{{ink_style}}、宣纸纹理、低饱和矿物色和极简留白构图。画面以{{story_subject}}为主体视觉，比例 3:4。",
+            "editable_slots": [
+                {
+                    "key": "story_subject",
+                    "zh_label": "故事主体",
+                    "en_label": "Story Subject",
+                    "default_value": "唐僧西天取经"
+                },
+                {
+                    "key": "ink_style",
+                    "zh_label": "笔墨质感",
+                    "en_label": "Ink Style",
+                    "default_value": "大巧若拙的毛笔触感"
+                }
+            ]
+        },
+        {
+            "id": "00057",
+            "image_key": "00057",
+            "category_key": "light_portrait",
+            "zh_title": "富士 NC 咖啡馆胶片少女",
+            "en_title": "Fujifilm NC Cafe Portrait",
+            "zh_summary": "阳光过曝的复古咖啡馆胶片写真，适合日系少女和怀旧美学人像。",
+            "en_summary": "A sunlit retro cafe portrait with heavy 35mm grain, dreamy overexposure, and nostalgic Fujifilm NC film mood.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "胶片",
+                "少女",
+                "阳光"
+            ],
+            "prompt": "这是一张采用富士NC模拟风格拍摄的35mm胶片照片，颗粒感较重。照片中，一位年轻的日本女性在阳光洒满的复古咖啡馆里，展现出一种纯真而性感的魅力（纯粹的欲望美学）。她深色的头发编成两条辫子，并用丝带固定。她身穿一件敞开的灰色短款开襟羊毛衫，内搭一件饰有黑色波点的白色迷你连衣裙。她的姿势既娇羞又迷人：侧身坐在木椅上，双腿交叠，凸显出她脚上的黑色厚底玛丽珍鞋。她回眸看向镜头，眼神羞涩而诱人，轻轻咬着下唇。照片采用明显的过曝处理，营造出透过大窗户透出的梦幻般的过曝高光、柔和的粉彩色调、漏光以及怀旧的高噪点胶片质感。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "这是一张采用{{film_style}}拍摄的 35mm 胶片照片，颗粒感较重。照片中，{{subject_identity}}在{{scene}}里，展现出{{aesthetic_mood}}。她{{hairstyle}}。她身穿{{outfit}}。她的姿势{{pose}}，凸显出{{shoe_detail}}。她{{expression}}。照片采用{{highlight_effect}}，营造出{{light_mood}}。",
+            "editable_slots": [
+                {
+                    "key": "film_style",
+                    "zh_label": "胶片风格",
+                    "en_label": "Film Style",
+                    "default_value": "富士NC模拟风格"
+                },
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject",
+                    "default_value": "一位年轻的日本女性"
+                },
+                {
+                    "key": "scene",
+                    "zh_label": "场景",
+                    "en_label": "Scene",
+                    "default_value": "阳光洒满的复古咖啡馆"
+                },
+                {
+                    "key": "aesthetic_mood",
+                    "zh_label": "人物气质",
+                    "en_label": "Aesthetic Mood",
+                    "default_value": "一种纯真而性感的魅力（纯粹的欲望美学）"
+                },
+                {
+                    "key": "hairstyle",
+                    "zh_label": "发型",
+                    "en_label": "Hairstyle",
+                    "default_value": "深色的头发编成两条辫子，并用丝带固定"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "一件敞开的灰色短款开襟羊毛衫，内搭一件饰有黑色波点的白色迷你连衣裙"
+                },
+                {
+                    "key": "pose",
+                    "zh_label": "姿势",
+                    "en_label": "Pose",
+                    "default_value": "既娇羞又迷人：侧身坐在木椅上，双腿交叠"
+                },
+                {
+                    "key": "shoe_detail",
+                    "zh_label": "鞋履细节",
+                    "en_label": "Shoe Detail",
+                    "default_value": "她脚上的黑色厚底玛丽珍鞋"
+                },
+                {
+                    "key": "expression",
+                    "zh_label": "神态",
+                    "en_label": "Expression",
+                    "default_value": "回眸看向镜头，眼神羞涩而诱人，轻轻咬着下唇"
+                },
+                {
+                    "key": "highlight_effect",
+                    "zh_label": "曝光效果",
+                    "en_label": "Highlight Effect",
+                    "default_value": "明显的过曝处理"
+                },
+                {
+                    "key": "light_mood",
+                    "zh_label": "光影氛围",
+                    "en_label": "Light Mood",
+                    "default_value": "透过大窗户透出的梦幻般的过曝高光、柔和的粉彩色调、漏光以及怀旧的高噪点胶片质感"
+                }
+            ]
+        },
+        {
+            "id": "00058",
+            "image_key": "00058",
+            "category_key": "editorial_panel",
+            "zh_title": "霓虹机甲天台少女",
+            "en_title": "Neon Mecha Rooftop Girl",
+            "zh_summary": "90 年代 OVA 截图感和赛博夜景结合，适合复古机甲与霓虹都市动漫画面。",
+            "en_summary": "A 90s OVA-style cyberpunk night prompt for neon cityscapes, mecha, and retro anime frames.",
+            "platform": "GPT-Image",
+            "example": "no",
+            "tags": [
+                "复古动漫",
+                "赛博夜景",
+                "机甲"
+            ],
+            "prompt": "90's anime vintage anime screenshot woman sitting on skyscraper night scene neon lights flying mechs in background",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "90's anime vintage anime screenshot of {{subject_scene}}, set in {{neon_city}}, with {{background_elements}}. Keep the retro OVA frame feeling, neon atmosphere, and dramatic nighttime skyline.",
+            "editable_slots": [
+                {
+                    "key": "subject_scene",
+                    "zh_label": "主体场景",
+                    "en_label": "Subject Scene",
+                    "default_value": "a woman sitting on a skyscraper"
+                },
+                {
+                    "key": "neon_city",
+                    "zh_label": "霓虹城市场景",
+                    "en_label": "Neon City",
+                    "default_value": "a night scene with neon lights"
+                },
+                {
+                    "key": "background_elements",
+                    "zh_label": "背景元素",
+                    "en_label": "Background Elements",
+                    "default_value": "flying mechs in the background"
+                }
+            ]
+        },
+        {
+            "id": "00059",
+            "image_key": "00059",
+            "category_key": "style_experiment",
+            "zh_title": "克莱因蓝花马幻觉图",
+            "en_title": "Klein Blue Floral Horse",
+            "zh_summary": "克莱因蓝、半色调和超现实花马组合，适合艺术海报和视觉实验。",
+            "en_summary": "A surreal floral horse prompt with Klein blue, halftone texture, and psychedelic poster energy.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "克莱因蓝",
+                "超现实",
+                "半色调"
+            ],
+            "prompt": "极简，未来主义，光效应艺术风格，纯克莱因蓝色背景，幻觉+重复+致幻，弥散，色彩半调，丝网印，半调图案，颗粒感，复古。随机模糊，随机构图，随机蝴蝶，随机植物，花从下面是绿色的草地开始生长并最终组成马的形状，繁花，鲜花簇拥，视觉错觉，艺术感加强，超现实主义，投影+荧光+柔光+虚化+色散，氛围感加强，反光+珠光，超清晰，高级的氛围感",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "极简未来主义光效艺术风格，背景为{{base_background}}，主体结构为{{core_shape}}，并加入{{extras}}。整体保留幻觉感、半色调、丝网印颗粒、超现实投影和色散效果，呈现高级的致幻视觉海报气质。",
+            "editable_slots": [
+                {
+                    "key": "base_background",
+                    "zh_label": "背景",
+                    "en_label": "Base Background",
+                    "default_value": "纯克莱因蓝色背景"
+                },
+                {
+                    "key": "core_shape",
+                    "zh_label": "主体造型",
+                    "en_label": "Core Shape",
+                    "default_value": "花朵从绿色草地生长并最终组成马的形状"
+                },
+                {
+                    "key": "extras",
+                    "zh_label": "附加元素",
+                    "en_label": "Extras",
+                    "default_value": "随机蝴蝶与随机植物"
+                }
+            ]
+        },
+        {
+            "id": "00060",
+            "image_key": "00060",
+            "category_key": "graphic_layout",
+            "zh_title": "极简品牌矢量插画",
+            "en_title": "Minimal Brand Vector Art",
+            "zh_summary": "大色块和精确曲线的品牌插画基底，适合系统化视觉和应用场景配图。",
+            "en_summary": "A clean brand-illustration base with precise curves, layered flat shapes, and scalable system feel.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "极简矢量",
+                "品牌插画",
+                "大色块"
+            ],
+            "prompt": "极简抽象插画。 扁平但有层感的矢量风格形状， 精确的曲线，一致的笔触逻辑， 高度协调的有限配色方案， 平衡的间距和对齐， 设计感系统化且具有可扩展性， 类似于成熟的品牌插画集。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "围绕{{illustration_system}}，生成极简抽象插画。保持{{palette}}、扁平但有层感的矢量形状、精确曲线、一致笔触逻辑与系统化设计感，使它看起来像成熟品牌插画集的一部分。",
+            "editable_slots": [
+                {
+                    "key": "illustration_system",
+                    "zh_label": "插画主体",
+                    "en_label": "Illustration System",
+                    "default_value": "一组品牌级抽象图形"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "配色策略",
+                    "en_label": "Palette",
+                    "default_value": "高度协调的有限配色方案"
+                }
+            ]
+        },
+        {
+            "id": "00061",
+            "image_key": "00061",
+            "category_key": "editorial_panel",
+            "zh_title": "哑光褪色四宫格",
+            "en_title": "Faded Matte Four-Panel",
+            "zh_summary": "褪色单色摄影和雾感排版结合，适合旅行拼贴和静谧编辑系画面。",
+            "en_summary": "A faded monochrome four-panel prompt for quiet editorial collages and atmospheric travel scenes.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "四宫格",
+                "褪色摄影",
+                "哑光纸感"
+            ],
+            "prompt": "创作高品质哑光纸上的褪色单色摄影风格极简主义大气艺术四宫格。质感应具有微妙的胶片颗粒，柔和的奶油米色和去饱和灰色调，营造干净、梦幻、朦胧的低对比度氛围。四个面板排列如下：左上角展示新西兰南阿尔卑斯山的层叠薄雾山脉，最底部有奥克兰城市的微小清晰剪影。右上角描绘一位孤独旅行者走在北地Te Paki平滑沙丘上进入雾中，线条简洁，负空间广阔。左下角呈现惠灵顿滨水区天际线从浓重的港口薄雾中隐约升起，飘渺如幽灵。右下角展示抽象禅意几何，苍白大太阳下的同心水波纹，远处孤独的天空塔剪影。整体情绪沉思而宁静，避免撕裂纸张、污垢、污渍、颓废、划痕、高对比度、刺眼线条、模糊、杂乱或失真。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "创作高品质哑光纸上的褪色单色摄影风格极简主义四宫格。四个面板依次为：左上 {{panel_one}}；右上 {{panel_two}}；左下 {{panel_three}}；右下 {{panel_four}}。整体保持奶油米色与去饱和灰色调、微妙胶片颗粒、低对比度和宁静沉思氛围。",
+            "editable_slots": [
+                {
+                    "key": "panel_one",
+                    "zh_label": "左上画面",
+                    "en_label": "Panel One",
+                    "default_value": "层叠薄雾山脉，最底部有微小清晰的城市剪影"
+                },
+                {
+                    "key": "panel_two",
+                    "zh_label": "右上画面",
+                    "en_label": "Panel Two",
+                    "default_value": "一位孤独旅行者走在平滑沙丘上进入雾中"
+                },
+                {
+                    "key": "panel_three",
+                    "zh_label": "左下画面",
+                    "en_label": "Panel Three",
+                    "default_value": "滨水区天际线从浓重港口薄雾中隐约升起"
+                },
+                {
+                    "key": "panel_four",
+                    "zh_label": "右下画面",
+                    "en_label": "Panel Four",
+                    "default_value": "抽象禅意几何，苍白大太阳下的同心水波纹和远处孤独塔楼剪影"
+                }
+            ]
+        },
+        {
+            "id": "00062",
+            "image_key": "00062",
+            "category_key": "creative_remix",
+            "zh_title": "真人服装波普改绘",
+            "en_title": "Pop Art Clothing Remix",
+            "zh_summary": "只改服装不改真人主体，适合穿搭图解、波普造型和潮流视觉改造。",
+            "en_summary": "A reference-photo remix that keeps the real person intact while redrawing only the outfit in pop-art style.",
+            "platform": "GPT-Image2",
+            "example": "yes",
+            "tags": [
+                "波普服装",
+                "真人改造",
+                "穿搭图解"
+            ],
+            "prompt": "你正在编辑上传的真实照片。\n\n保持人物的身体、面部、头发、皮肤质感和背景完全不变。\n不要改变人物的身份或任何真实细节。\n\n仅将服装转换为干净、大胆的波普艺术风格插画，同时保留原始服装的：\n- 形状\n- 轮廓\n- 配色方案\n- 图案位置\n- 口袋位置\n- 领口和接缝\n- 主要视觉设计元素\n\n插画要求：\n- 在服装边缘使用粗黑色轮廓线。\n- 将褶皱和皱纹转换为简化的卡通风格线条。\n- 保留原始配色方案，但使其更明亮、更干净、更具图形感。\n- 将纹理、标志或图案转换为平面、矢量风格版本。\n- 添加小的时尚装饰，如白色高光笔触或服装周围的极简运动线条，以营造波普艺术效果。\n- 使插画服装看起来有意\"绘制在\"真实人物上方，具有清晰的边缘和纯色。\n- 确保插画像真实织物一样自然地包裹身体。\n\n限制：\n- 不要添加任何角色、动物、生物或吉祥物。\n- 不要引入任何受版权保护的元素。\n- 仅将服装本身转换为风格化插画；保持其他一切完全真实。\n\n目标：\n创建一个混合艺术作品，其中人物保持照片写实，但服装被重新绘制为基于原始服装设计的充满活力的矢量风格波普艺术插画。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "你正在编辑上传的真实照片。保持人物身体、面部、头发、皮肤质感和背景不变。仅将服装转换为{{illustration_style}}，并加入{{embellishments}}。保留原始服装的形状、轮廓、配色、图案位置、口袋、领口和接缝，让衣服像被重新绘制在真实人物身上一样自然。",
+            "editable_slots": [
+                {
+                    "key": "illustration_style",
+                    "zh_label": "插画风格",
+                    "en_label": "Illustration Style",
+                    "default_value": "干净、大胆的波普艺术风格插画"
+                },
+                {
+                    "key": "embellishments",
+                    "zh_label": "附加装饰",
+                    "en_label": "Embellishments",
+                    "default_value": "白色高光笔触或服装周围的极简运动线条"
+                }
+            ]
+        },
+        {
+            "id": "00063",
+            "image_key": "00063",
+            "category_key": "avatar_redraw",
+            "zh_title": "Pixar 风 3D 头像",
+            "en_title": "Pixar-Style 3D Avatar",
+            "zh_summary": "把上传人像转成工作室渲染感 3D 头像，适合社交头像和角色卡。",
+            "en_summary": "Turn an uploaded portrait into a polished 3D avatar with a bright studio-rendered Pixar-like feel.",
+            "platform": "Qwen-Image",
+            "example": "yes",
+            "tags": [
+                "3D头像",
+                "Pixar风",
+                "上传转绘"
+            ],
+            "prompt": "生成一幅 3D 头像：\n\n对象为上传图像中的年轻女性，面带灿烂笑容\n\n背景干净白色\n\n概念数字艺术风格，Pixar 风格\n\n高质量渲染，柔和光照，纹理光滑\n\n色彩鲜明\n\n身体与面部比例真实，但带有卡通感\n\n呈现工作室渲染效果",
+            "prompt_template": "生成一幅 3D 头像：对象为上传图像中的{{subject_identity}}，背景为{{background}}，整体采用{{render_style}}。要求高质量渲染、柔和光照、纹理光滑、色彩鲜明，并保持真实比例基础上的卡通感。",
+            "editable_slots": [
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体描述",
+                    "en_label": "Subject Identity",
+                    "default_value": "年轻女性"
+                },
+                {
+                    "key": "background",
+                    "zh_label": "背景",
+                    "en_label": "Background",
+                    "default_value": "干净白色"
+                },
+                {
+                    "key": "render_style",
+                    "zh_label": "渲染风格",
+                    "en_label": "Render Style",
+                    "default_value": "概念数字艺术风格，Pixar 风格"
+                }
+            ],
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00064",
+            "image_key": "00064",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00065",
+            "image_key": "00065",
+            "category_key": "creative_remix",
+            "zh_title": "糖果怪物涂鸦包裹",
+            "en_title": "Candy Monster Wraparound",
+            "zh_summary": "保留真人主体，在周围叠满糖果怪物和霓虹涂鸦，适合潮流海报和街头视觉。",
+            "en_summary": "Surround a real person with dense candy-monster doodles and neon pop graphics while keeping the subject photorealistic.",
+            "platform": "GPT-Image2",
+            "example": "yes",
+            "tags": [
+                "涂鸦怪物",
+                "糖果元素",
+                "真人包裹"
+            ],
+            "prompt": "Use the uploaded photo.\nDo NOT alter the person's real appearance - keep the person's face, body, clothing, colors, and texture completely photorealistic.\nDo NOT change the background perspective.\nDo NOT turn the person into a drawing or illustration.\n\nAdd a dense, overloaded layer of pop-style illustrated sweets monsters and graphic decorations ONLY around the person (and on top of their clothing if needed), but never on their skin or face.\n\nIllustrated elements:\n- many colorful cartoon monsters with thick black outlines, flat colors, and cute-but-ugly expressions\n- sweets-inspired monsters: bananas, cookies, strawberries, melting chocolate, lollipops, ice cream, oranges, cupcakes, donuts, candy pieces, soda bottles, etc.\n- additional graphic shapes: stars, hearts, arrows, drips, splashes, zigzag lines, exclamation marks, motion lines, sparkles, bubbles, comic-style text shapes (but no real text)\n\nMake the decoration very dense and busy:\n- fill the space behind the person with overlapping sweets monsters and shapes\n- add monsters peeking from behind the shoulders, around the bag, at the person's feet, and near the head\n- allow some monsters and shapes to overlap the clothing and accessories (shirt, shorts, bag, shoes), but keep the skin of the face, arms, and legs photorealistic and visible\n- use multiple layers of illustrations in front of and behind the person to create depth\n- add glowing outlines, small white dots, and speed lines around the person to emphasize energy\n\nColor and style:\n- use a vivid, neon-like color palette (hot pink, yellow, cyan, lime, orange, purple, turquoise)\n- keep all illustrated elements flat and graphic with clean edges and bold outlines\n- ensure shadows and overlap suggest interaction with the real person (e.g., slight shadows on clothing where monsters touch)\n\nOverall goal:\nCreate a highly decorated, maximalist pop-art scene where the real person stands in the middle, surrounded and wrapped by a chaotic crowd of playful sweets monsters and graphic doodles, while the person remains clearly photorealistic.",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "Use the uploaded photo. Keep the real person photorealistic, but surround them with {{monster_theme}}. Use {{palette}} and make the composition {{density}}. Allow the illustrated layer to overlap clothing and accessories while keeping the face and skin realistic.",
+            "editable_slots": [
+                {
+                    "key": "monster_theme",
+                    "zh_label": "怪物主题",
+                    "en_label": "Monster Theme",
+                    "default_value": "dense sweets monsters, candy doodles, and graphic decorations"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "色板",
+                    "en_label": "Palette",
+                    "default_value": "a vivid neon palette of hot pink, yellow, cyan, lime, orange, purple, and turquoise"
+                },
+                {
+                    "key": "density",
+                    "zh_label": "画面密度",
+                    "en_label": "Density",
+                    "default_value": "very dense, overloaded, and busy with layered foreground and background elements"
+                }
+            ]
+        },
+        {
+            "id": "00066",
+            "image_key": "00066",
+            "category_key": "object_display",
+            "zh_title": "德系极简电脑棚拍",
+            "en_title": "Germanic Minimal Device Shot",
+            "zh_summary": "德系工业设计和极简棚拍结合，适合科技单品、工业产品和概念展示。",
+            "en_summary": "A restrained industrial-design prompt for minimal product renders, museum-like device shots, and concept objects.",
+            "platform": "GPT-Image2",
+            "example": "no",
+            "tags": [
+                "工业设计",
+                "极简产品",
+                "德系理性"
+            ],
+            "prompt": "设计一款几何形态极其纯粹，倒角圆润的 【笔记本电脑】。外形应当像60年代的经典电子产品一样直观，克制。 材质与细节：放弃复杂的装饰。外壳采用高品质的哑光灰白色聚碳酸酯或缎面阳极氧化铝。表面必须是均匀的哑光质感，没有任何多余的反光。接口处设计精密，接缝极小。 关键色彩指令（视觉焦点）：整个机身是中性的（灰白或银色），但在机身一侧必须有一个醒目的，具有功能性的几何元素（例如：一个圆形的锁定按钮，一个推拉开关，或是一根连接线)，这个元素具有鲜明的标志性色彩例如：经典的橙色，森林绿，或深钴蓝)。这是画面中唯一的色彩高光。 关键图形细节：在机身表面，应用Helvetica字体的黑色印刷。排版必须极其严谨，遵循网格系统。只保留最核心的信息，文字要小而清晰，位置精确，体现德国工业设计的理性美。 环境与背景：极简的无缝影棚。背景采用与机身色彩略有区分的浅灰色或暖米色纯色背景，营造出一种类似博物馆陈列或高端建筑杂志的氛围。没有复杂的虚化，一切都显得平静，有序。光影与摄影：使用柔和的，无方向性的平光(Flat Lighting)，模拟自然天光。消除强烈的阴影，强调物体的轮廓和形式感。100mm镜头，正交视图或微侧角度(lsometricfeel)，深景深，确保产品整体清晰锐利。",
+            "prompt_template": "设计一款几何形态极其纯粹、倒角圆润的【{{product}}】。机身一侧加入{{accent_element}}作为功能性几何亮点，其颜色为{{accent_color}}。整体保持德系理性工业设计、哑光质感、精密接缝、极简影棚和柔和平光。",
+            "editable_slots": [
+                {
+                    "key": "product",
+                    "zh_label": "产品名称",
+                    "en_label": "Product",
+                    "default_value": "笔记本电脑"
+                },
+                {
+                    "key": "accent_element",
+                    "zh_label": "点睛结构",
+                    "en_label": "Accent Element",
+                    "default_value": "一个圆形锁定按钮或推拉开关"
+                },
+                {
+                    "key": "accent_color",
+                    "zh_label": "点睛颜色",
+                    "en_label": "Accent Color",
+                    "default_value": "经典橙色"
+                }
+            ],
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00067",
+            "image_key": "00067",
+            "category_key": "mood_portrait",
+            "zh_title": "车窗绿意通勤写真",
+            "en_title": "Car Window Commute Portrait",
+            "zh_summary": "保留原貌加车内出行场景和富士胶片感，适合松弛生活流人像。",
+            "en_summary": "A reference-photo portrait remix with car-window greenery, relaxed commute mood, and Fujifilm-style texture.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "车内写真",
+                "富士胶片",
+                "生活感"
+            ],
+            "prompt": "保持五官不变，以车内场景为核心，透过车窗能看到清新的街景绿意，营造出日常又松弛的氛围：发型为慵懒长发，被风吹起，衣服棕色毛毛皮草，白色吊带，下面浅蓝色牛仔阔腿裤，画面捕捉看向镜头或窗外，营造城市出行里的慵懒片刻，头发丝和脸上都有光影效果，结合简约穿搭与清新窗外景，传递出舒适自在的生活氛围感，富士胶片感，原比例",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "保持五官不变，以车内场景为核心。发型为{{hair_style}}，服饰为{{outfit}}，窗外景为{{window_scene}}。整体营造城市出行中的慵懒片刻，强调光影落在发丝和脸上的效果，以及富士胶片般的松弛生活感。",
+            "editable_slots": [
+                {
+                    "key": "hair_style",
+                    "zh_label": "发型",
+                    "en_label": "Hair Style",
+                    "default_value": "慵懒长发，被风吹起"
+                },
+                {
+                    "key": "outfit",
+                    "zh_label": "服饰",
+                    "en_label": "Outfit",
+                    "default_value": "棕色毛毛皮草、白色吊带和浅蓝色牛仔阔腿裤"
+                },
+                {
+                    "key": "window_scene",
+                    "zh_label": "窗外景色",
+                    "en_label": "Window Scene",
+                    "default_value": "清新的街景绿意"
+                }
+            ]
+        },
+        {
+            "id": "00068",
+            "image_key": "00068",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00069",
+            "image_key": "00069",
+            "category_key": "oriental_aesthetics",
+            "zh_title": "宋韵花窗插花海报",
+            "en_title": "Song-Era Floral Window Poster",
+            "zh_summary": "太湖石与宋代窗花结合，适合新中式海报和东方艺术概念图。",
+            "en_summary": "A contemporary oriental poster prompt combining Taihu stone, Song-style lattice windows, and floral arrangements.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "新中式",
+                "宋代美学",
+                "插花"
+            ],
+            "prompt": "平面插画，海报设计，高级感排版，新中式美学，中国当代艺术风格，新中式宋代主题，国风美学，高饱和渐变背景，超现实，中式插花，高低错落，有节奏，从太湖石里面长出来各种各样的花朵，有长辦秋菊、牡丹、梅花，背景中间有宋代窗花镂空，旁边有一只小鸟，渐变和肌理磨砂处理，造型柔和，水面，倒影，中式建筑，中式花纹，不透明和半透明质感，黑粉渐变色，工笔画，层次感，弥散渐变。请你学习好提示词和图片，并记住提示词规律。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "平面插画与海报设计结合的新中式画面。主体结构为{{stone_form}}中生长出的{{flower_set}}，背景加入{{window_pattern}}，并保留高饱和渐变、超现实插花、水面倒影、中式建筑纹样与弥散渐变。整体呈现当代东方美学与高级排版感。",
+            "editable_slots": [
+                {
+                    "key": "stone_form",
+                    "zh_label": "主体石景",
+                    "en_label": "Stone Form",
+                    "default_value": "太湖石"
+                },
+                {
+                    "key": "flower_set",
+                    "zh_label": "花卉组合",
+                    "en_label": "Flower Set",
+                    "default_value": "秋菊、牡丹、梅花等花朵"
+                },
+                {
+                    "key": "window_pattern",
+                    "zh_label": "窗花元素",
+                    "en_label": "Window Pattern",
+                    "default_value": "宋代窗花镂空"
+                }
+            ]
+        },
+        {
+            "id": "00070",
+            "image_key": "00070",
+            "category_key": "spatial_build",
+            "zh_title": "乐高外滩城市景",
+            "en_title": "LEGO Bund Cityscape",
+            "zh_summary": "用乐高砖块重建上海外滩，适合城市宣传、乐高创作和微缩景观表现。",
+            "en_summary": "Rebuild Shanghai’s Bund in LEGO form for miniature cityscapes, tourism visuals, and playful landmark scenes.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "乐高",
+                "上海外滩",
+                "微缩城市"
+            ],
+            "prompt": "创建一幅高度精细且色彩鲜艳的乐高版上海外滩景象。前景呈现经典的外滩历史建筑群，用乐高砖块精致还原西式与新古典主义风格的建筑立面，包括钟楼、穹顶、柱廊等细节。乐高小人们正在沿江漫步、拍照、观光，街道两旁停靠着经典样式的乐高汽车。背景是壮观的黄浦江，以蓝色半透明乐高砖拼接，江面上有乐高渡轮和游览船。对岸的浦东陆家嘴高楼林立，包括东方明珠塔、上海中心、金茂大厦和环球金融中心，这些超现代乐高摩天大楼色彩丰富、造型逼真。天空为乐高明亮蓝色，点缀少量白色乐高积木云朵，整体呈现充满活力与现代感的视觉效果。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "创建一幅高度精细且色彩鲜艳的乐高版{{city}}景象。前景还原{{historic_landmarks}}，对岸天际线呈现{{skyline_landmarks}}。保留乐高小人、车辆、江面船只、蓝色积木水面和明亮天空，让整体呈现活力十足的城市微缩景观。",
+            "editable_slots": [
+                {
+                    "key": "city",
+                    "zh_label": "城市",
+                    "en_label": "City",
+                    "default_value": "上海外滩"
+                },
+                {
+                    "key": "historic_landmarks",
+                    "zh_label": "前景地标",
+                    "en_label": "Historic Landmarks",
+                    "default_value": "外滩历史建筑群、钟楼、穹顶和柱廊"
+                },
+                {
+                    "key": "skyline_landmarks",
+                    "zh_label": "远景天际线",
+                    "en_label": "Skyline Landmarks",
+                    "default_value": "东方明珠塔、上海中心、金茂大厦和环球金融中心"
+                }
+            ]
+        },
+        {
+            "id": "00071",
+            "image_key": "00071",
+            "category_key": "oriental_aesthetics",
+            "zh_title": "幽兰留白艺术海报",
+            "en_title": "Blue Orchid Art Poster",
+            "zh_summary": "蓝色幽兰、后印象派笔触和大面积留白结合，适合花卉视觉和文艺海报。",
+            "en_summary": "A poetic orchid poster prompt with luminous blue flowers, painterly strokes, and generous editorial blank space.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "兰花",
+                "艺术海报",
+                "留白"
+            ],
+            "prompt": "海报设计，手绘风格兰花，平面插画，主体是多株蓝色幽兰，后印象派风格的笔触，花卉摇曳，线条抽象简约，柔和花卉柔焦效果，营造出梦幻而空灵的氛围，光斑笔刷，颜色明亮鲜艳，对比强烈，蓝色治愈系。背景大面积留白，画面需带有海报排版的文字区域布局感",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "海报设计，主体为{{flower}}，整体需要预留{{text_layout}}。保持手绘花卉、后印象派笔触、柔焦效果、蓝色治愈系配色和大面积留白，使画面兼具艺术海报气质与文字排版空间。",
+            "editable_slots": [
+                {
+                    "key": "flower",
+                    "zh_label": "主体花卉",
+                    "en_label": "Flower",
+                    "default_value": "多株蓝色幽兰"
+                },
+                {
+                    "key": "text_layout",
+                    "zh_label": "文字排版区",
+                    "en_label": "Text Layout",
+                    "default_value": "带有海报排版的文字区域布局感"
+                }
+            ]
+        },
+        {
+            "id": "00072",
+            "image_key": "00072",
+            "category_key": "social_portrait",
+            "zh_title": "故意拍糊的 iPhone 自拍",
+            "en_title": "Accidental iPhone Selfie",
+            "zh_summary": "随手误拍般的混乱自拍质感，适合真实感快照和反精致人像。",
+            "en_summary": "An intentionally mediocre iPhone selfie prompt with awkward framing, slight blur, and unpolished snapshot realism.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "快照",
+                "自拍",
+                "反精致"
+            ],
+            "prompt": "请生成一张类似你自己的iphone 自拍照，没有明确的主体或构图感，就像是随手一拍的快照。照片略带运动模糊，阳光灯光不均导致轻微曝光过度。角度尴尬，构图混乱，整体呈现出一种刻意的平庸感，就像是从口袋里拿手机时不小心拍到的一张自拍",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "请生成一张类似{{device_photo}}的快照。画面存在{{lighting_issue}}，并且构图体现{{composition_flaw}}。整体呈现故意平庸、像从口袋里掏手机时误拍到的随手自拍感。",
+            "editable_slots": [
+                {
+                    "key": "device_photo",
+                    "zh_label": "设备快照",
+                    "en_label": "Device Photo",
+                    "default_value": "你自己的 iPhone 自拍照"
+                },
+                {
+                    "key": "lighting_issue",
+                    "zh_label": "曝光问题",
+                    "en_label": "Lighting Issue",
+                    "default_value": "阳光灯光不均导致轻微曝光过度"
+                },
+                {
+                    "key": "composition_flaw",
+                    "zh_label": "构图问题",
+                    "en_label": "Composition Flaw",
+                    "default_value": "没有明确主体、角度尴尬、画面略带运动模糊"
+                }
+            ]
+        },
+        {
+            "id": "00073",
+            "image_key": "00073",
+            "category_key": "handmade_texture",
+            "zh_title": "粉彩雾气狐狸绘本",
+            "en_title": "Pastel Mist Fox Storybook",
+            "zh_summary": "喷枪般融化边缘和低对比粉彩，适合治愈系动物绘本和柔雾插画。",
+            "en_summary": "A soft pastel fox illustration with melted edges, hazy glow, and gentle storybook atmosphere.",
+            "platform": "GPT-Image2",
+            "example": "no",
+            "tags": [
+                "狐狸",
+                "粉彩绘本",
+                "治愈"
+            ],
+            "prompt": "梦幻粉彩狐狸插画，狐狸用极简形体表现，像被雾气包裹，边缘融化，空气刷喷枪质感，奶油般柔软的渐变上色，蜜桃橘、乳白、雾蓝、淡粉配色，花朵细小可爱，画面安静治愈，大面积留白，低对比度，柔焦，发光晕染，朦胧光效，轻微胶片颗粒，细腻噪点纸感，儿童绘本般的温柔氛围，无清晰描边，无复杂细节，极简、纯净、轻盈、治愈",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "梦幻粉彩{{animal}}插画，主体像被雾气包裹，边缘融化，采用空气刷喷枪质感与奶油般柔软渐变上色。配色为{{palette}}，点缀{{decoration}}。整体保持治愈、留白、低对比度和儿童绘本般的轻盈气质。",
+            "editable_slots": [
+                {
+                    "key": "animal",
+                    "zh_label": "主体动物",
+                    "en_label": "Animal",
+                    "default_value": "狐狸"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "蜜桃橘、乳白、雾蓝、淡粉"
+                },
+                {
+                    "key": "decoration",
+                    "zh_label": "点缀元素",
+                    "en_label": "Decoration",
+                    "default_value": "细小可爱的花朵"
+                }
+            ]
+        },
+        {
+            "id": "00074",
+            "image_key": "00074",
+            "category_key": "playful_character",
+            "zh_title": "雨天撑伞小男孩",
+            "en_title": "Rainy Umbrella Boy",
+            "zh_summary": "发光白线和雨滴小鱼点缀，适合儿童绘本和温柔小场景。",
+            "en_summary": "A minimalist childlike illustration of a boy in the rain, accented with glowing outlines and whimsical fish.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "雨天",
+                "儿童画",
+                "发光轮廓"
+            ],
+            "prompt": "A young boy holding an umbrella in the rain,\nminimalist children's drawing style thick white lines, glowing contours.\nThe background is softly blurred with rainy puddles\nand soft blue splashes. Floating elements like raindrops\nand little fish add a whimsical touch. Full-body view,\nwarm and simple aesthetic.",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "{{subject}} holding an umbrella in the rain, with {{weather_scene}}. Add {{whimsical_elements}} around the scene. Keep a minimalist children's drawing style with thick white glowing contours, soft blur, and a warm simple full-body composition.",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "A young boy"
+                },
+                {
+                    "key": "weather_scene",
+                    "zh_label": "雨景环境",
+                    "en_label": "Weather Scene",
+                    "default_value": "rainy puddles and soft blue splashes"
+                },
+                {
+                    "key": "whimsical_elements",
+                    "zh_label": "童趣元素",
+                    "en_label": "Whimsical Elements",
+                    "default_value": "floating raindrops and little fish"
+                }
+            ]
+        },
+        {
+            "id": "00075",
+            "image_key": "00075",
+            "category_key": "handmade_texture",
+            "zh_title": "照片转浮世绘",
+            "en_title": "Photo-to-Ukiyo-e",
+            "zh_summary": "参考川濑巴水等大师，把上传照片转成浮世绘风格，适合风景和纪念照转绘。",
+            "en_summary": "Transform an uploaded photo into ukiyo-e style using classic printmaking references from Japanese masters.",
+            "platform": "YB",
+            "example": "yes",
+            "tags": [
+                "浮世绘",
+                "照片转绘",
+                "日式版画"
+            ],
+            "prompt": "参考川濑巴水、土屋光逸、吉田博、葛饰北斋的绘画风格，将所提供照片转化为 浮世绘风格 。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "参考{{style_refs}}的绘画风格，将所提供照片转化为{{target_style}}。",
+            "editable_slots": [
+                {
+                    "key": "style_refs",
+                    "zh_label": "参考大师",
+                    "en_label": "Style References",
+                    "default_value": "川濑巴水、土屋光逸、吉田博、葛饰北斋"
+                },
+                {
+                    "key": "target_style",
+                    "zh_label": "目标风格",
+                    "en_label": "Target Style",
+                    "default_value": "浮世绘风格"
+                }
+            ]
+        },
+        {
+            "id": "00076",
+            "image_key": "00076",
+            "category_key": "graphic_layout",
+            "zh_title": "黑绿极简品牌海报",
+            "en_title": "Black-Green Brand Poster",
+            "zh_summary": "浅灰底和黑绿双色人物，适合品牌 KV、阅读场景和极简平面插画。",
+            "en_summary": "A black-and-green minimal poster illustration for brand key visuals, editorial reading scenes, and flat design layouts.",
+            "platform": "GPT-Image2",
+            "example": "no",
+            "tags": [
+                "品牌海报",
+                "黑绿配色",
+                "极简插画"
+            ],
+            "prompt": "一张极简扁平矢量风格的品牌海报插画。画面使用浅灰背景，主体为黑色与鲜亮绿色的双色搭配。人物为高度简化的女性角色，五官极少，仅用小圆点和简单线条表示，头发和衣服用大块面几何造型概括。整体使用粗黑描边，边缘圆润，家具与道具包括单人沙发、书本、台灯、电脑、绿植等，呈现安静的阅读或办公场景。构图留白很多，主体位于画面中下方，整体有现代编辑插画、北欧极简平面设计、品牌海报的感觉。不要真实光影，不要渐变，不要纹理，不要复杂背景，不要写实。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "一张极简扁平矢量风格的品牌海报插画。主体角色为{{character}}，主强调色为{{accent_color}}，场景为{{room_scene}}。保留浅灰背景、粗黑描边、圆润边缘和大量留白，呈现现代编辑插画与品牌海报感。",
+            "editable_slots": [
+                {
+                    "key": "character",
+                    "zh_label": "主体角色",
+                    "en_label": "Character",
+                    "default_value": "高度简化的女性角色"
+                },
+                {
+                    "key": "accent_color",
+                    "zh_label": "强调色",
+                    "en_label": "Accent Color",
+                    "default_value": "鲜亮绿色"
+                },
+                {
+                    "key": "room_scene",
+                    "zh_label": "场景内容",
+                    "en_label": "Room Scene",
+                    "default_value": "安静的阅读或办公场景，含单人沙发、书本、台灯、电脑和绿植"
+                }
+            ]
+        },
+        {
+            "id": "00077",
+            "image_key": "00077",
+            "category_key": "handmade_texture",
+            "zh_title": "粉蜡笔治愈小场景",
+            "en_title": "Soft Crayon Mini Scenes",
+            "zh_summary": "粉蜡笔纸感和低饱和色块结合，适合儿童绘本分镜和温柔日常。",
+            "en_summary": "A soft crayon-and-colored-pencil storybook prompt for gentle everyday scenes and childlike vignettes.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "油画棒",
+                "儿童绘本",
+                "纸张纹理"
+            ],
+            "prompt": "一组治愈系儿童绘本插画小场景，采用粉蜡笔、油画棒和彩铅混合的手绘质感，画在有明显颗粒纹理的纸上。整体配色低饱和、柔和梦幻，以奶油黄、雾蓝、薄荷绿、米白、浅粉为主。边缘略微虚化，带有干擦和叠色痕迹，画面安静温柔，带一点稚拙可爱的童趣。场景包括金鱼、玻璃鱼缸、放风筝的小孩、白色玩具熊和室内角落。不要写实，不要高清锐利，不要强烈光影，不要复杂细节，强调纸张纹理、粉质笔触和绘本感。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "一组治愈系儿童绘本插画小场景，场景集合为{{scene_set}}，配色为{{palette}}。保持粉蜡笔、油画棒和彩铅混合的纸面手绘质感，边缘略微虚化，整体安静温柔，充满童趣。",
+            "editable_slots": [
+                {
+                    "key": "scene_set",
+                    "zh_label": "场景集合",
+                    "en_label": "Scene Set",
+                    "default_value": "金鱼、玻璃鱼缸、放风筝的小孩、白色玩具熊和室内角落"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "奶油黄、雾蓝、薄荷绿、米白、浅粉"
+                }
+            ]
+        },
+        {
+            "id": "00078",
+            "image_key": "00078",
+            "category_key": "playful_character",
+            "zh_title": "笨拙木刻贴纸",
+            "en_title": "Naive Woodcut Sticker",
+            "zh_summary": "粗黑线和白边模切贴纸质感，适合角色贴纸、物件图标和小周边。",
+            "en_summary": "A rough, primitive sticker prompt with woodcut-like marker texture and a bold white die-cut border.",
+            "platform": "Seed",
+            "example": "optional",
+            "tags": [
+                "贴纸",
+                "木刻感",
+                "粗笔触"
+            ],
+            "prompt": "A high-resolution image of a single, standalone die-cut sticker, perfectly isolated on a pure solid background. The sticker features a primitive, highly simplified hand-drawn illustration of panda. The design is in a naive, raw art aesthetic, heavily resembling a rough woodblock print or a clunky, thick permanent marker sketch. It features extremely thick, high-contrast black ink strokes. There is prominent dry-brush texture within the ink, showing rough gaps and paper texture. Crucially, retain the natural, inherent colors of the subject, but render them exclusively as flat, bold, solid marker color blocks applied roughly. Absolutely no shading blending, or gradients. The entire design is enclosed within a prominent, thick, highly irregular, pure white die-cut paper border, making it appear as a physical, ready-to-peel sticker",
+            "prompt_template": "A high-resolution image of a single, standalone die-cut sticker on {{background}}. The sticker features a primitive hand-drawn illustration of {{subject}}, with {{border_style}}. Keep the rough woodcut feel, dry-brush texture, flat marker color blocks, and no gradients.",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "贴纸主体",
+                    "en_label": "Subject",
+                    "default_value": "panda"
+                },
+                {
+                    "key": "background",
+                    "zh_label": "背景",
+                    "en_label": "Background",
+                    "default_value": "a pure solid background"
+                },
+                {
+                    "key": "border_style",
+                    "zh_label": "白边样式",
+                    "en_label": "Border Style",
+                    "default_value": "a thick, irregular pure white die-cut paper border"
+                }
+            ],
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00079",
+            "image_key": "00079",
+            "category_key": "cinematic_narrative",
+            "zh_title": "青春坡道动画海报",
+            "en_title": "Youthful Hillside Anime Poster",
+            "zh_summary": "超广角草坡和微小人物组合，适合青春系动画海报和治愈风景叙事。",
+            "en_summary": "A wide-angle anime landscape poster with tiny figures, spring hillsides, and luminous youth-drama atmosphere.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "青春动画",
+                "草坡",
+                "远景"
+            ],
+            "prompt": "日系青春动画海报，治愈系风景插画，竖版，超广角远景，巨大斜坡草地，春日山坡，少年少女，自行车，坐在草地上的女孩，远处田野和平原，蓝粉渐变天空，柔软云层，纸飞机，白色花瓣飘散，小白花点缀，清新明亮配色，黄绿色草地，湖蓝远景，空气透视，柔和水彩厚涂质感，人物很小，弱化五官，手绘动画背景，美术电影感，宁静自由，青春感，梦幻治愈",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "日系青春动画海报，主体人物为{{protagonists}}，核心场景为{{landscape}}，天空与漂浮元素为{{sky_elements}}。整体保持竖版、超广角远景、柔和水彩厚涂质感和宁静自由的青春治愈氛围。",
+            "editable_slots": [
+                {
+                    "key": "protagonists",
+                    "zh_label": "人物组合",
+                    "en_label": "Protagonists",
+                    "default_value": "少年少女、自行车和坐在草地上的女孩"
+                },
+                {
+                    "key": "landscape",
+                    "zh_label": "地景",
+                    "en_label": "Landscape",
+                    "default_value": "巨大斜坡草地、春日山坡、远处田野和平原"
+                },
+                {
+                    "key": "sky_elements",
+                    "zh_label": "天空元素",
+                    "en_label": "Sky Elements",
+                    "default_value": "蓝粉渐变天空、柔软云层、纸飞机、白色花瓣和小白花"
+                }
+            ]
+        },
+        {
+            "id": "00080",
+            "image_key": "00080",
+            "category_key": "playful_character",
+            "zh_title": "Q版萌系绘本小卡",
+            "en_title": "Chibi Storybook Card",
+            "zh_summary": "大头小身和低饱和糖果色结合，适合儿童角色卡和可爱插画。",
+            "en_summary": "A cute chibi illustration prompt with soft candy colors, simple features, and small-card composition.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "Q版",
+                "萌系",
+                "角色卡"
+            ],
+            "prompt": "日系萌系儿童绘本插画风，Q版角色，大头小身，圆脸，大眼睛，五官极简，呆萌微惊讶表情，粗深色手绘描边，扁平化大色块上色，低细节，轻微粉彩和蜡笔颗粒质感，高明度低饱和配色，薄荷绿、天蓝、浅粉、奶油白、淡黄为主，柔和阴影，背景简洁干净，儿童动画感，复古可爱，轻松治愈，手绘插画，小卡片构图，日系独立动画短片气质",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "日系萌系儿童绘本插画风，主体为{{character}}，表情为{{expression}}，配色为{{palette}}。保持粗深色手绘描边、扁平大色块、低细节、轻微粉彩蜡笔颗粒和轻松治愈的小卡片构图。",
+            "editable_slots": [
+                {
+                    "key": "character",
+                    "zh_label": "主体角色",
+                    "en_label": "Character",
+                    "default_value": "Q 版大头小身角色"
+                },
+                {
+                    "key": "expression",
+                    "zh_label": "表情",
+                    "en_label": "Expression",
+                    "default_value": "呆萌微惊讶表情"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "薄荷绿、天蓝、浅粉、奶油白、淡黄"
+                }
+            ]
+        },
+        {
+            "id": "00081",
+            "image_key": "00081",
+            "category_key": "narrative_scene",
+            "zh_title": "柔焦木屋印象派",
+            "en_title": "Soft-Focus Cabin Impression",
+            "zh_summary": "边缘融化和画布纹理叠加，适合夏日记忆感和诗意自然风景。",
+            "en_summary": "A dreamy impressionist cabin prompt with melted edges, canvas texture, and sun-washed memory mood.",
+            "platform": "YB",
+            "example": "no",
+            "tags": [
+                "木屋",
+                "印象派",
+                "柔焦"
+            ],
+            "prompt": "一栋小木屋，朦胧印象派风格，柔焦失焦，边缘融化，松散笔触，干刷与湿画法结合，油画棒与粉彩混合质感，明显画布纹理，高明度低饱和，雾蓝、鼠尾草绿、奶油白、浅柠檬黄配色，阳光轻微过曝，空气感强，安静治愈，细节概括化，非写实，夏日记忆感，诗意自然氛围",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "{{subject}}，朦胧印象派风格，配色为{{palette}}，整体情绪为{{season_memory}}。保留柔焦失焦、边缘融化、松散笔触、画布纹理和轻微过曝阳光，使画面像一段被记住的夏日自然记忆。",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "一栋小木屋"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "雾蓝、鼠尾草绿、奶油白、浅柠檬黄"
+                },
+                {
+                    "key": "season_memory",
+                    "zh_label": "记忆氛围",
+                    "en_label": "Season Memory",
+                    "default_value": "安静治愈的夏日记忆感"
+                }
+            ]
+        },
+        {
+            "id": "00082",
+            "image_key": "00082",
+            "category_key": "playful_character",
+            "zh_title": "笨拙动物四格漫画",
+            "en_title": "Awkward Animal Four-Panel",
+            "zh_summary": "RISO 套印和呆萌动物表情结合，适合独立小刊和怪趣涂鸦漫画。",
+            "en_summary": "A clumsy animal four-panel comic prompt with risograph misregistration, crayon outlines, and indie zine charm.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "四格漫画",
+                "RISO",
+                "动物涂鸦"
+            ],
+            "prompt": "四宫格动物涂鸦漫画，故意画得很笨很呆的动物角色，巨大不对称的圆眼睛，表情发愣，造型极简且比例别扭，粗糙抖动的黑色蜡笔描边，线条颗粒感很重，平涂色块，明显纸张纹理和噪点，低保真独立漫画小刊物风，riso印刷质感，丝网印刷颗粒，轻微红蓝错版套印，边缘有偏移感，背景非常简单，粗边框分格，配色以浅粉、天蓝、橘桃、奶白为主，整体怪趣、木讷、幽默、随意、土土的可爱，不精致，不高级，不写实",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "四宫格动物涂鸦漫画，主体为{{animal_group}}，配色为{{palette}}，印刷质感为{{print_texture}}。整体故意笨拙、木讷、幽默，保留粗糙蜡笔线条、纸张纹理和独立小刊物式的低保真趣味。",
+            "editable_slots": [
+                {
+                    "key": "animal_group",
+                    "zh_label": "动物组合",
+                    "en_label": "Animal Group",
+                    "default_value": "故意画得很笨很呆的动物角色"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "浅粉、天蓝、橘桃、奶白"
+                },
+                {
+                    "key": "print_texture",
+                    "zh_label": "印刷质感",
+                    "en_label": "Print Texture",
+                    "default_value": "RISO 丝网印刷颗粒和轻微红蓝错版套印"
+                }
+            ]
+        },
+        {
+            "id": "00083",
+            "image_key": "00083",
+            "category_key": "handmade_texture",
+            "zh_title": "木刻感亲子绘本",
+            "en_title": "Woodcut Family Storybook",
+            "zh_summary": "拓印边缘和大留白构图结合，适合朴素温暖的家庭绘本场景。",
+            "en_summary": "A warm family-storybook prompt with woodcut texture, restrained color blocks, and generous blank space.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "木刻感",
+                "亲子",
+                "留白"
+            ],
+            "prompt": "极简木刻印章感儿童绘本插画，一位戴帽女性和两个孩子在户外，少线条轮廓，黑色手绘简笔，不规则但简洁，不要密集排线，以大面积留白和色块为主，米白底，草木绿和珊瑚橘点缀，轻微手工拓印质感，边缘微微毛糙，人物稚拙可爱，复古编辑插画感，低细节，朴素温暖，无写实，无复杂背景",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "极简木刻印章感儿童绘本插画，人物组合为{{characters}}，点缀色为{{accent_colors}}，构图为{{background_space}}。保持黑色手绘简笔、大面积留白、手工拓印质感和朴素温暖的亲子氛围。",
+            "editable_slots": [
+                {
+                    "key": "characters",
+                    "zh_label": "人物组合",
+                    "en_label": "Characters",
+                    "default_value": "一位戴帽女性和两个孩子"
+                },
+                {
+                    "key": "accent_colors",
+                    "zh_label": "点缀色",
+                    "en_label": "Accent Colors",
+                    "default_value": "草木绿和珊瑚橘"
+                },
+                {
+                    "key": "background_space",
+                    "zh_label": "留白方式",
+                    "en_label": "Background Space",
+                    "default_value": "米白底、大面积留白和简洁色块"
+                }
+            ]
+        },
+        {
+            "id": "00084",
+            "image_key": "00084",
+            "category_key": "object_display",
+            "zh_title": "手作独角兽雕塑",
+            "en_title": "Handmade Unicorn Sculpture",
+            "zh_summary": "木雕纸塑布偶混合材质，适合艺术玩具、展陈物件和定格道具摄影。",
+            "en_summary": "A handcrafted art-toy prompt with wood, papier-mache, and cloth-doll texture for collectible sculpture shots.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "独角兽",
+                "手作玩具",
+                "定格道具"
+            ],
+            "prompt": "一个独角兽； 风格为手工艺术玩具 / 定格动画道具感，木雕、纸塑、布偶混合材质，哑光上色，表面有轻微木纹、纤维感、刷痕和手作痕迹，造型圆润概括，比例夸张，童趣、怪诞、治愈，纯色极简背景，主体居中，像画廊里的收藏级手作雕塑摄影，柔和棚拍光线，干净阴影，高级但天真，蓝黄或高明度撞色配色",
+            "prompt_template": "一个{{subject}}；风格为手工艺术玩具 / 定格动画道具感，材质为{{material_mix}}。保持哑光上色、手作痕迹、圆润概括造型、纯色极简背景和柔和棚拍光线，像画廊中的收藏级手作雕塑摄影。",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "主体",
+                    "en_label": "Subject",
+                    "default_value": "独角兽"
+                },
+                {
+                    "key": "material_mix",
+                    "zh_label": "材质组合",
+                    "en_label": "Material Mix",
+                    "default_value": "木雕、纸塑、布偶混合材质"
+                }
+            ],
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00085",
+            "image_key": "00085",
+            "category_key": "editorial_panel",
+            "zh_title": "民艺杂志平面插画",
+            "en_title": "Folk Editorial Print",
+            "zh_summary": "RISO 限色和中世纪现代感结合，适合封面、专栏和复古编辑插画。",
+            "en_summary": "A folk-art editorial illustration prompt with limited risograph colors, playful figures, and retro magazine charm.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "民艺",
+                "杂志插画",
+                "丝网印刷"
+            ],
+            "prompt": "一张复古杂志感的手绘平面插画，带有稚拙民俗艺术和中世纪现代设计气质，使用丝网印刷 / riso 版画般的有限配色：浅粉背景、米白留白、主体为高饱和群青蓝，辅以奶油黄点缀。人物与动物以极简扁平形体表现，比例略微夸张，五官简化，轮廓线不均匀，带有手绘排线、刮擦线、点状图案和布料纹样。整体幽默、时尚、诗意，留白充足，背景带柔和色块衬托主体，具有手工印刷质感，不写实，不3D，不高清照片感。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "一张复古杂志感的手绘平面插画，主体组合为{{subject_group}}，配色为{{palette}}，并加入{{print_details}}。整体保持稚拙民俗艺术、中世纪现代设计气质、留白充足和手工印刷质感，不写实、不 3D。",
+            "editable_slots": [
+                {
+                    "key": "subject_group",
+                    "zh_label": "主体组合",
+                    "en_label": "Subject Group",
+                    "default_value": "人物与动物"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "浅粉背景、米白留白、高饱和群青蓝主体和奶油黄点缀"
+                },
+                {
+                    "key": "print_details",
+                    "zh_label": "印刷细节",
+                    "en_label": "Print Details",
+                    "default_value": "手绘排线、刮擦线、点状图案和布料纹样"
+                }
+            ]
+        },
+        {
+            "id": "00086",
+            "image_key": "00086",
+            "category_key": "playful_character",
+            "zh_title": "橘猫独立绘本封面",
+            "en_title": "Orange Cat Storybook Cover",
+            "zh_summary": "彩铅和油画棒混合肌理，适合童趣角色封面和动物绘本。",
+            "en_summary": "An orange-cat storybook cover prompt with crayon texture, bold matte colors, and indie picture-book charm.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "橘猫",
+                "绘本封面",
+                "彩铅纹理"
+            ],
+            "prompt": "一只橘猫，儿童绘本插画风，极简稚拙角色设计，大眼睛小五官，几何化造型，彩铅与油画棒混合质感，毛发由方向性排线组成，粗颗粒纸张纹理，哑光印刷感，高纯度大色块配色，芥末黄、深青绿、焦橙、米白为主，轻微怪诞但可爱，留白充足，构图简洁，像独立绘本封面，非写实，非光滑数码质感",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "一只{{animal}}，儿童绘本插画风，配色为{{palette}}，整体气质为{{cover_mood}}。保留极简稚拙角色设计、彩铅与油画棒混合质感、方向性毛发排线和粗颗粒纸张纹理。",
+            "editable_slots": [
+                {
+                    "key": "animal",
+                    "zh_label": "主体动物",
+                    "en_label": "Animal",
+                    "default_value": "橘猫"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "主配色",
+                    "en_label": "Palette",
+                    "default_value": "芥末黄、深青绿、焦橙、米白"
+                },
+                {
+                    "key": "cover_mood",
+                    "zh_label": "封面气质",
+                    "en_label": "Cover Mood",
+                    "default_value": "轻微怪诞但可爱，像独立绘本封面"
+                }
+            ]
+        },
+        {
+            "id": "00088",
+            "image_key": "00088",
+            "category_key": "mood_portrait",
+            "zh_title": "盛夏拼贴阴郁少女",
+            "en_title": "Surreal Summer Collage Girl",
+            "zh_summary": "厚涂拼贴和花叶冲突感结合，适合情绪肖像与故事感氛围画面。",
+            "en_summary": "A surreal summer portrait prompt that blends thick gouache, collage language, and a moody girl with lush foliage.",
+            "platform": "GPT-Image2",
+            "example": "no",
+            "tags": [
+                "拼贴",
+                "少女",
+                "厚涂"
+            ],
+            "prompt": "帮我生成图片：以超现实主义美学风格，绘制一张动态角度的图片，展现盛夏场景。画面运用厚涂和晕染水粉技法，带有深颗粒感和颜料的涂抹肌理感，增强艺术氛围感。通过图像拼贴和轮廓提取呈现拼贴风格的贴画设计，适度留白。画面中有生机盎然的枝叶和绽开的花朵，搭配一位阴郁少女，营造出漫画感和故事感十足的氛围，具有高级的氛围感和层次感，体现矛盾冲突的视觉冲击与有机融合。比例 1:1。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "帮我生成图片：以超现实主义美学风格，绘制一张动态角度的{{season_scene}}图片。画面运用{{medium_style}}，带有深颗粒感和颜料的涂抹肌理感，增强艺术氛围感。通过{{collage_language}}呈现拼贴风格的贴画设计，适度留白。画面中有{{plant_elements}}，搭配{{subject_identity}}，营造{{emotional_mood}}。比例 1:1。",
+            "editable_slots": [
+                {
+                    "key": "season_scene",
+                    "zh_label": "季节场景",
+                    "en_label": "Season Scene",
+                    "default_value": "盛夏场景"
+                },
+                {
+                    "key": "medium_style",
+                    "zh_label": "绘画技法",
+                    "en_label": "Medium Style",
+                    "default_value": "厚涂和晕染水粉技法"
+                },
+                {
+                    "key": "collage_language",
+                    "zh_label": "拼贴语言",
+                    "en_label": "Collage Language",
+                    "default_value": "图像拼贴和轮廓提取"
+                },
+                {
+                    "key": "plant_elements",
+                    "zh_label": "植物元素",
+                    "en_label": "Plant Elements",
+                    "default_value": "生机盎然的枝叶和绽开的花朵"
+                },
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人设",
+                    "en_label": "Subject Identity",
+                    "default_value": "一位阴郁少女"
+                },
+                {
+                    "key": "emotional_mood",
+                    "zh_label": "情绪氛围",
+                    "en_label": "Emotional Mood",
+                    "default_value": "漫画感和故事感十足、具有高级氛围感和层次感的矛盾冲突视觉"
+                }
+            ]
+        },
+        {
+            "id": "00089",
+            "image_key": "00089",
+            "category_key": "oriental_aesthetics",
+            "zh_title": "中式怪诞神话长景",
+            "en_title": "Grotesque Chinese Myth Scene",
+            "zh_summary": "工笔水墨和怪诞神话感结合，适合纵向史诗场景与中式奇诡叙事。",
+            "en_summary": "A Chinese grotesque myth-scene prompt with ink texture, gongbi linework, and eerie poetic atmosphere.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "中式怪诞",
+                "水墨",
+                "神话"
+            ],
+            "prompt": "帮我生成图片：采用中式怪诞的艺术流派，结合具有水墨质感的视觉风格，以工笔勾勒的细腻笔触，绘制出一幅如梦如幻的大场景画面。画面中展现着神话与传说中的神秘主体，通过丰富的色彩层次塑造出逼真的质感，背景的光影效果营造出诡异凄美的氛围，整体充满艺术感。比例 9:16。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "帮我生成图片：采用{{style_direction}}，结合{{ink_texture}}，以{{brushwork}}绘制出一幅如梦如幻的大场景画面。画面中展现{{myth_subject}}，通过{{color_depth}}塑造出逼真的质感，背景的光影效果营造{{atmosphere}}，整体充满艺术感。比例 9:16。",
+            "editable_slots": [
+                {
+                    "key": "style_direction",
+                    "zh_label": "艺术流派",
+                    "en_label": "Style Direction",
+                    "default_value": "中式怪诞的艺术流派"
+                },
+                {
+                    "key": "ink_texture",
+                    "zh_label": "视觉质感",
+                    "en_label": "Ink Texture",
+                    "default_value": "具有水墨质感的视觉风格"
+                },
+                {
+                    "key": "brushwork",
+                    "zh_label": "笔触方式",
+                    "en_label": "Brushwork",
+                    "default_value": "工笔勾勒的细腻笔触"
+                },
+                {
+                    "key": "myth_subject",
+                    "zh_label": "神话主体",
+                    "en_label": "Myth Subject",
+                    "default_value": "神话与传说中的神秘主体"
+                },
+                {
+                    "key": "color_depth",
+                    "zh_label": "色彩层次",
+                    "en_label": "Color Depth",
+                    "default_value": "丰富的色彩层次"
+                },
+                {
+                    "key": "atmosphere",
+                    "zh_label": "氛围",
+                    "en_label": "Atmosphere",
+                    "default_value": "诡异凄美的氛围"
+                }
+            ]
+        },
+        {
+            "id": "00090",
+            "image_key": "00090",
+            "category_key": "narrative_scene",
+            "zh_title": "千里江山光感山河",
+            "en_title": "Glowing Blue-Green Mountains",
+            "zh_summary": "青绿山水灵感和透明金光结合，适合宏阔山河与东方史诗场景。",
+            "en_summary": "An epic mountain-landscape prompt inspired by A Thousand Li of Rivers and Mountains with luminous depth and pale gold light.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "青绿山水",
+                "山河",
+                "金光"
+            ],
+            "prompt": "一幅8K超高分辨率的艺术杰作，展现极致的细节和超凡的精细度。场景灵感来源于《千里江山图》，细腻描绘了中国名山大川的生动与动态，立体光效营造出神秘的氛围，同时点缀以淡雅的透明金光。整幅画作以逼真的细节和精湛的笔法精心渲染，呈现出一场视觉盛宴。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "一幅 8K 超高分辨率的艺术杰作，场景灵感来源于《{{reference_work}}》。细腻描绘{{landscape_subject}}的生动与动态，{{light_effect}}营造出神秘的氛围，同时点缀以{{gold_detail}}。整幅画作以{{render_quality}}精心渲染，呈现出一场视觉盛宴。",
+            "editable_slots": [
+                {
+                    "key": "reference_work",
+                    "zh_label": "参考作品",
+                    "en_label": "Reference Work",
+                    "default_value": "千里江山图"
+                },
+                {
+                    "key": "landscape_subject",
+                    "zh_label": "山河主体",
+                    "en_label": "Landscape Subject",
+                    "default_value": "中国名山大川"
+                },
+                {
+                    "key": "light_effect",
+                    "zh_label": "光效设定",
+                    "en_label": "Light Effect",
+                    "default_value": "立体光效"
+                },
+                {
+                    "key": "gold_detail",
+                    "zh_label": "金光细节",
+                    "en_label": "Gold Detail",
+                    "default_value": "淡雅的透明金光"
+                },
+                {
+                    "key": "render_quality",
+                    "zh_label": "渲染质感",
+                    "en_label": "Render Quality",
+                    "default_value": "逼真的细节和精湛的笔法"
+                }
+            ]
+        },
+        {
+            "id": "00091",
+            "image_key": "00091",
+            "category_key": "editorial_panel",
+            "zh_title": "撞色复古少女四宫格",
+            "en_title": "Retro Pop Girl Grid",
+            "zh_summary": "美式复古卡通和波普撞色结合，适合人物拼页、复古海报和漫画式版面。",
+            "en_summary": "A four-panel retro girl illustration prompt that mixes American vintage cartoon, shojo manga, and pop-art contrast.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "四宫格",
+                "复古漫画",
+                "波普"
+            ],
+            "prompt": "帮我生成图片：这是一幅具有美式复古卡通插画风，同时融合日系少女漫画与波普艺术特点的四宫格半身平面插画。画面采用高饱和度撞色搭配，以黄、粉、蓝、绿等明亮色彩形成强烈对比，带有波普艺术的视觉冲击力，线条简洁流畅，轮廓清晰，有着平面装饰感。每一格都塑造了一位典型复古漫画少女，有着放大的眼睛，卷发造型蓬松灵动，分别佩戴着蝴蝶结、花朵耳环等装饰元素，充满甜美复古感。画面无复杂光影，以平涂色彩为主，少量星光、纹理点缀增加层次感，整体呈现出复古印刷质感，且四格中少女有着不同的发型和衣服。比例 1:1。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "帮我生成图片：这是一幅具有{{style_mix}}的四宫格半身平面插画。画面采用{{palette}}形成强烈对比，带有{{visual_impact}}，线条简洁流畅，轮廓清晰，有着平面装饰感。每一格都塑造{{character_group}}，并加入{{accessory_elements}}等装饰元素。画面以平涂色彩为主，少量星光和纹理点缀增加层次感，整体呈现{{print_mood}}。比例 1:1。",
+            "editable_slots": [
+                {
+                    "key": "style_mix",
+                    "zh_label": "风格组合",
+                    "en_label": "Style Mix",
+                    "default_value": "美式复古卡通插画风，同时融合日系少女漫画与波普艺术特点"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "撞色色板",
+                    "en_label": "Palette",
+                    "default_value": "黄、粉、蓝、绿等高饱和明亮色彩"
+                },
+                {
+                    "key": "visual_impact",
+                    "zh_label": "视觉冲击",
+                    "en_label": "Visual Impact",
+                    "default_value": "波普艺术的视觉冲击力"
+                },
+                {
+                    "key": "character_group",
+                    "zh_label": "人物设定",
+                    "en_label": "Character Group",
+                    "default_value": "一位典型复古漫画少女，四格里拥有不同的发型和衣服"
+                },
+                {
+                    "key": "accessory_elements",
+                    "zh_label": "装饰元素",
+                    "en_label": "Accessory Elements",
+                    "default_value": "蝴蝶结、花朵耳环"
+                },
+                {
+                    "key": "print_mood",
+                    "zh_label": "印刷质感",
+                    "en_label": "Print Mood",
+                    "default_value": "复古印刷质感"
+                }
+            ]
+        },
+        {
+            "id": "00092",
+            "image_key": "00092",
+            "category_key": "style_experiment",
+            "zh_title": "Keith Haring 独角兽涂鸦",
+            "en_title": "Keith Haring Unicorn",
+            "zh_summary": "撞色几何和简洁轮廓结合，适合图形海报、贴纸和高能量涂鸦角色。",
+            "en_summary": "A bold doodle prompt with Keith Haring energy, geometric contrast, and a playful unicorn character.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "Keith Haring",
+                "涂鸦",
+                "独角兽"
+            ],
+            "prompt": "Keith Haring 涂鸦风格，主体是一只线条简洁明快的小独角兽，它有着圆润的轮廓，身上的毛发用大胆的亮黄色填充，背景是充满活力的撞色几何图案，整体画面充满动感和童趣，色彩饱和度高，视觉冲击力强。比例 1:1。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "Keith Haring 涂鸦风格，主体是{{subject}}，它有着{{line_style}}，身上的毛发或主体色块以{{subject_color}}填充，背景是{{background_pattern}}，整体画面充满{{scene_energy}}。比例 1:1。",
+            "editable_slots": [
+                {
+                    "key": "subject",
+                    "zh_label": "主体角色",
+                    "en_label": "Subject",
+                    "default_value": "一只线条简洁明快的小独角兽"
+                },
+                {
+                    "key": "line_style",
+                    "zh_label": "线条风格",
+                    "en_label": "Line Style",
+                    "default_value": "圆润而简洁明快的轮廓线"
+                },
+                {
+                    "key": "subject_color",
+                    "zh_label": "主体颜色",
+                    "en_label": "Subject Color",
+                    "default_value": "大胆的亮黄色"
+                },
+                {
+                    "key": "background_pattern",
+                    "zh_label": "背景图案",
+                    "en_label": "Background Pattern",
+                    "default_value": "充满活力的撞色几何图案"
+                },
+                {
+                    "key": "scene_energy",
+                    "zh_label": "画面能量",
+                    "en_label": "Scene Energy",
+                    "default_value": "动感、童趣和强烈视觉冲击力"
+                }
+            ]
+        },
+        {
+            "id": "00093",
+            "image_key": "00093",
+            "category_key": "handmade_texture",
+            "zh_title": "莫奈窗边忧郁印象",
+            "en_title": "Monet Window Reverie",
+            "zh_summary": "淡紫冷调和朦胧笔触结合，适合窗边室内景、忧郁诗意和印象派氛围画。",
+            "en_summary": "An impressionist window-scene prompt with Monet softness, cool lilac tones, and a quiet melancholic atmosphere.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "莫奈",
+                "印象派",
+                "窗边"
+            ],
+            "prompt": "风格： 莫奈印象派油画风格，细腻笔触，柔和色块，朦胧空气感，轻微虚焦\n主体： 室内窗边，窗外枝蔓与花朵，轻薄窗帘随风摆动\n色调： 淡紫色主调，雾蓝、灰粉、奶白，室外蓝天明亮，室内偏冷偏暗\n光线： 室外阳光明媚，室内光影朦胧，内外明暗对比强烈\n氛围： 夏末初秋，安静、忧郁、淡淡凄凉、诗意、窒息般的美感\n细节： 花朵轻晃，枝叶轻摆，窗纱飘动，空气中有柔雾感与流动的光",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "风格：{{style_direction}}。主体：{{subject_scene}}。色调：{{palette}}。光线：{{light_setup}}。氛围：{{mood}}。细节：{{motion_details}}。",
+            "editable_slots": [
+                {
+                    "key": "style_direction",
+                    "zh_label": "绘画风格",
+                    "en_label": "Style Direction",
+                    "default_value": "莫奈印象派油画风格，细腻笔触，柔和色块，朦胧空气感，轻微虚焦"
+                },
+                {
+                    "key": "subject_scene",
+                    "zh_label": "主体场景",
+                    "en_label": "Subject Scene",
+                    "default_value": "室内窗边，窗外枝蔓与花朵，轻薄窗帘随风摆动"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "色调",
+                    "en_label": "Palette",
+                    "default_value": "淡紫色主调，雾蓝、灰粉、奶白，室外蓝天明亮，室内偏冷偏暗"
+                },
+                {
+                    "key": "light_setup",
+                    "zh_label": "光线",
+                    "en_label": "Light Setup",
+                    "default_value": "室外阳光明媚，室内光影朦胧，内外明暗对比强烈"
+                },
+                {
+                    "key": "mood",
+                    "zh_label": "氛围",
+                    "en_label": "Mood",
+                    "default_value": "夏末初秋，安静、忧郁、淡淡凄凉、诗意、窒息般的美感"
+                },
+                {
+                    "key": "motion_details",
+                    "zh_label": "动态细节",
+                    "en_label": "Motion Details",
+                    "default_value": "花朵轻晃，枝叶轻摆，窗纱飘动，空气中有柔雾感与流动的光"
+                }
+            ]
+        },
+        {
+            "id": "00094",
+            "image_key": "00094",
+            "category_key": "graphic_layout",
+            "zh_title": "穆夏花饰古典海报",
+            "en_title": "Mucha Floral Poster",
+            "zh_summary": "古典女性和繁复花饰环绕结合，适合新艺术风海报和装饰性人物插画。",
+            "en_summary": "An Art Nouveau poster prompt with a graceful woman, ornate floral framing, and classic Mucha-style decoration.",
+            "platform": "GPT-Image2",
+            "example": "no",
+            "tags": [
+                "穆夏",
+                "新艺术",
+                "装饰海报"
+            ],
+            "prompt": "风格： 穆夏风格，新艺术风格，装饰性古典插画，流畅优美的线条，精致繁复的纹样，理想化女性美，典雅浪漫的海报艺术感。\n主体： 一位气质高雅的女性，姿态柔美端庄，面容精致宁静，头戴华丽而精巧的头饰，身穿一件带有复杂装饰花纹的长裙，服饰华美而优雅。\n陪体 / 装饰元素： 女性周围环绕着飘逸的飘带与繁茂的植物图案，包含花卉、藤蔓、叶片等装饰元素，飘带在风中轻轻舞动，与植物纹样交织成富有节奏感的构图；背景可加入圆形装饰框与边饰，强化穆夏式海报风格。\n色调： 柔和的金色、淡紫色、浅绿色为主，辅以米白和低饱和复古色彩，整体典雅、柔和、高贵。\n光线： 光线从画面一侧轻柔照射，形成温和细腻的明暗层次，使人物与装饰纹样带有朦胧而迷人的光泽。\n氛围： 优雅、浪漫、古典、梦幻，带有神秘而迷人的诗意，整体华丽精致又安静柔美。\n细节： 强调精巧头饰、复杂裙装纹样、轻盈飘带、繁复植物装饰、流畅轮廓线与细腻笔触，画面装饰丰富但不杂乱，层次清晰、构图均衡。",
+            "asset_status": "ready",
+            "status": "draft",
+            "prompt_template": "风格：{{style_direction}}。主体：{{subject_identity}}。陪体 / 装饰元素：{{decor_elements}}。色调：{{palette}}。光线：{{light_setup}}。氛围：{{mood}}。细节：{{detail_focus}}。",
+            "editable_slots": [
+                {
+                    "key": "style_direction",
+                    "zh_label": "风格方向",
+                    "en_label": "Style Direction",
+                    "default_value": "穆夏风格，新艺术风格，装饰性古典插画，流畅优美的线条，精致繁复的纹样，理想化女性美，典雅浪漫的海报艺术感"
+                },
+                {
+                    "key": "subject_identity",
+                    "zh_label": "主体人物",
+                    "en_label": "Subject Identity",
+                    "default_value": "一位气质高雅的女性，姿态柔美端庄，面容精致宁静，头戴华丽而精巧的头饰，身穿一件带有复杂装饰花纹的长裙，服饰华美而优雅"
+                },
+                {
+                    "key": "decor_elements",
+                    "zh_label": "装饰元素",
+                    "en_label": "Decor Elements",
+                    "default_value": "女性周围环绕着飘逸的飘带与繁茂的植物图案，包含花卉、藤蔓、叶片等装饰元素，并加入圆形装饰框与边饰"
+                },
+                {
+                    "key": "palette",
+                    "zh_label": "色调",
+                    "en_label": "Palette",
+                    "default_value": "柔和的金色、淡紫色、浅绿色为主，辅以米白和低饱和复古色彩"
+                },
+                {
+                    "key": "light_setup",
+                    "zh_label": "光线",
+                    "en_label": "Light Setup",
+                    "default_value": "光线从画面一侧轻柔照射，形成温和细腻的明暗层次"
+                },
+                {
+                    "key": "mood",
+                    "zh_label": "氛围",
+                    "en_label": "Mood",
+                    "default_value": "优雅、浪漫、古典、梦幻，带有神秘而迷人的诗意"
+                },
+                {
+                    "key": "detail_focus",
+                    "zh_label": "细节重点",
+                    "en_label": "Detail Focus",
+                    "default_value": "精巧头饰、复杂裙装纹样、轻盈飘带、繁复植物装饰、流畅轮廓线与细腻笔触"
+                }
+            ]
+        }
+    ],
+    "draft_entries": [
+        {
+            "id": "00047",
+            "image_key": "00047",
+            "category_key": "graphic_poster",
+            "zh_title": "跑车发动机蓝图稿",
+            "en_title": "Sports Engine Blueprint",
+            "zh_summary": "蓝图式机械设计草图，适合概念展示、结构说明和工业海报。",
+            "en_summary": "A technical blueprint-style engine sketch prompt for industrial concept boards and design posters.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "蓝图",
+                "工业设计",
+                "线稿"
+            ],
+            "prompt": "以蓝图的风格制作【跑车发动机】，设计草图。并包括尺寸和解释性文本注释。应使用线条和测量值来指示各个部位的尺寸，给草图以技术和详细的感觉。除了主要设计外，还包括显示不同角度的零散缩略图，立体景深",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00048",
+            "image_key": "00048",
+            "category_key": "graphic_poster",
+            "zh_title": "极简建筑线稿海报",
+            "en_title": "Minimal Architecture Line Poster",
+            "zh_summary": "黑白建筑线稿配单一高亮色，适合现代海报、空间视觉和设计提案。",
+            "en_summary": "A minimal black-and-white architectural line-art poster prompt with a single highlight color.",
+            "platform": "YB",
+            "example": "no",
+            "tags": [
+                "建筑",
+                "线稿",
+                "海报"
+            ],
+            "prompt": "角色：资深插画设计师目标：将建筑或空间图像，转换为具有高级设计感的极简线稿插画，使用黑白双色作为主色调，并叠加单一的明亮强调色（黄色）以突出重点，用于现代海报排版与视觉传达。极简建筑线条艺术，矢量图形风格，海报设计布局，纯白色背景。单色，单强调点色（明亮的暖黄色）。干净的黑色线条轮廓，明显的线宽对比：厚的结构轮廓和薄的内部细节。建筑立面上交错的垂直线条图案。平面插图，2D投影，几何抽象，高对比度，现代商业建筑设计，杰作，清晰的矢量边缘。",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00049",
+            "image_key": "00049",
+            "category_key": "style_experiment_illustration",
+            "zh_title": "玉兰蜻蜓半色调画报",
+            "en_title": "Halftone Magnolia Print",
+            "zh_summary": "复古网点印刷加油画肌理，适合花卉装饰画和旧杂志质感视觉。",
+            "en_summary": "A vintage halftone floral print prompt with old-magazine texture and painterly detail.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "半色调",
+                "花卉",
+                "复古印刷"
+            ],
+            "prompt": "复古半色调网点印刷风格（Halftone），兼具艺术油画肌理。画面主体是几朵盛放的玉兰花，花瓣层次柔和，光影细腻，背景隐约有一只轻盈蜻蜓盘旋。整体由细腻彩色网点纹理构成，充满复古画报印刷质感。色彩从浓郁的墨绿背景过渡到温柔的玫红与暖金光晕，光影朦胧梦幻。构图优雅舒展，边缘柔和，氛围浪漫复古，如同老杂志艺术插画，高饱和度，装饰感极强。",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00050",
+            "image_key": "00050",
+            "category_key": "sweet_character_portrait",
+            "zh_title": "韩系眼镜回眸肖像",
+            "en_title": "Korean Chic Portrait",
+            "zh_summary": "冷感韩系少女半身像，适合商业人像、社媒头像和精修质感写真。",
+            "en_summary": "A polished Korean-style half-body portrait prompt with clean beauty lighting and chic styling.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "韩系",
+                "少女",
+                "肖像"
+            ],
+            "prompt": "一、画面主题\n1 人物类型：年轻女性单人半身近景肖像\n2 姿态视角：侧身回眸，肩背朝向镜头外侧，头部微转看向镜头\n3 取景范围：头部到上背部与肩部，人物占画面主体，留少量背景空间\n4 画面比例：竖幅，人物略偏左，眼睛位于上三分线附近\n\n二、五官与表情\n1 表情气质：清冷克制，略带疏离感，不露齿\n2 眼部特征：大眼比例，睫毛清晰，眼神聚焦镜头，眼下轻微卧蚕与柔和阴影\n3 唇部特征：饱满水润，边缘柔和，带明显高光与果冻质感\n4 肤感特征：极致细腻平滑，毛孔弱化，整体偏白净通透\n\n三、妆容风格\n1 底妆：高遮瑕与柔雾磨皮结合，局部保留自然高光\n2 腮红：从颧骨到眼下扩散的粉色晕染，轻薄但可见\n3 眼妆：细致上眼线与自然加深眼尾，浅棕灰系过渡，整体干净\n4 唇妆：粉豆沙到浅玫瑰的渐变，叠加强光泽感\n\n四、发型与配饰\n1 发型：深色直发，低马尾或低位扎发，头顶蓬松自然\n2 刘海：中分，细碎发丝垂落两侧贴近脸颊\n3 眼镜：金属细框透明镜片，椭圆偏方的镜框，镜腿有金属装饰\n4 耳饰：耳廓位置小型耳钉，低调点缀\n\n五、服装与肌肤细节\n1 服装：红色细肩带，露背设计，肩带在画面右侧清晰可见\n2 皮肤光泽：肩背处有柔和反光，呈现细腻奶油肌质感\n\n六、光线与影调\n1 主光方向：左前上方柔光，覆盖面大，阴影非常软\n2 补光：正前方弱补光，压低对比度，使面部几乎无硬阴影\n3 高光控制：鼻梁、上唇、下唇与眼镜边缘有小面积亮点高光\n4 整体影调：低对比、柔雾感、层次细腻，暗部不死黑\n\n七、背景与环境\n1 背景：纯净单色浅粉灰渐变墙面，无纹理无杂物\n2 景深：背景强虚化或本身极简，使人物轮廓更突出\n3 氛围：干净、静谧、带轻微甜冷感\n\n八、镜头与画面质感模拟\n1 焦距感觉：中长焦近景压缩感，脸部比例自然不夸张\n2 景深表现：眼睛清晰，耳后与背景明显虚化\n3 清晰度：五官边缘清晰但不过锐，整体偏柔\n4 噪点：几乎无颗粒，呈现干净的商业人像质感\n\n九、后期处理要点\n1 磨皮：强但自然，保留少量面部结构与阴影过渡\n2 色彩：整体偏冷白肤色，腮红与唇色偏粉，红肩带饱和但不过分\n3 光晕：轻微柔光扩散效果，让高光更圆润\n4 统一性：控制对比与锐度，保持通透、柔和、清洁的画面一致性\n\n十、反向提示词\n1 画面问题：过度锐化、强对比、硬阴影、背景杂乱、噪点颗粒明显\n2 人物问题：夸张表情、露齿大笑、皮肤粗糙毛孔明显、油光满面、脸部畸变\n3 风格偏离：浓重舞台妆、强烈复古色偏、复杂服饰、夸张饰品、强烈环境光源干扰",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00051",
+            "image_key": "00051",
+            "category_key": "sweet_character_portrait",
+            "zh_title": "老 iPhone 白曝自拍",
+            "en_title": "Overexposed iPhone Selfie",
+            "zh_summary": "带老手机白曝感的居家近景自拍，适合网感头像和生活流社媒视觉。",
+            "en_summary": "An overexposed old-iPhone selfie prompt with casual indoor clutter and soft K-style beauty.",
+            "platform": "Qwen-Image",
+            "example": "no",
+            "tags": [
+                "自拍",
+                "白曝",
+                "居家"
+            ],
+            "prompt": "帮我生成图片：一、画面主题\n1 主体内容：超近景半身人像，年轻女性正对镜头，摆出可爱动作\n2 五官特点：脸型精致、眼睛偏大、右眼下方点了一颗小痣、唇色淡粉、妆容干净偏日韩感\n\n二、构图与视角\n1 景别：近景，人物占画面主要面积，人物部分超出画面四条边\n2 视角：略高机位或持机自然角度\n3 画面层次：无景深，像是用老款iPhone手机拍摄的，画面曝光明显、泛白\n\n三、光线与曝光\n1 光源方向：右侧强烈阳光\n2 光线质感：右侧强曝光、边缘带轻微光晕\n3 曝光特征：整体偏亮，高调倾向，局部高光略溢出\n4 对比关系：低对比、阴影浅\n\n四、清晰度与质感\n1 细节策略：主体五官与手部相对清楚，但整体锐度不硬\n2 皮肤质感：细腻平滑，磨皮观感\n3 画面颗粒：颗粒感弱\n\n五、造型与道具要点\n1 发型元素：刘海与侧发自然蓬松，头发上有可爱小发夹点缀\n2 手部元素：长甲造型，带亮片与浅色装饰图案，增加精致感\n3 服装质感：浅色家居感上衣，带蕾丝边或柔软边饰，强化温柔气质\n\n六、背景与环境\n1 场景类型：室内居家空间，背后桌子上杂乱，随意摆满生活用品\n2 干净程度：真实日常但不喧宾夺主",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00052",
+            "image_key": "00052",
+            "category_key": "avatar_redraw",
+            "zh_title": "蜡笔小新转绘",
+            "en_title": "Crayon Shin-chan Redraw",
+            "zh_summary": "把角色转成蜡笔小新经典动画风，适合头像、贴纸和搞怪人物卡。",
+            "en_summary": "A reference-based Crayon Shin-chan style redraw prompt for playful avatars and stickers.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "转绘",
+                "动画风",
+                "参考图"
+            ],
+            "prompt": "Transform the character into the classic “Crayon Shin-chan” anime style. Use simple, wobbly black outline lines. Color with flat, bright fill colors (no shading). Exaggerate the facial features: simple dot eyes, thick eyebrows, and a mischievous or surprised mouth. Make the body proportions cute and chibi-like. Background in simple cartoon style.",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00053",
+            "image_key": "00053",
+            "category_key": "flash_film_portrait",
+            "zh_title": "花田直闪时装片",
+            "en_title": "Flower Field Flash Portrait",
+            "zh_summary": "低机位直闪加高饱和花海，适合时尚大片和超现实写真。",
+            "en_summary": "A bold flower-field fashion portrait prompt with direct flash and surreal color impact.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "花田",
+                "直闪",
+                "时尚写真"
+            ],
+            "prompt": "使用附图，在阳光明媚的户外，以繁花似锦的花田为背景，拍摄一张引人注目的时尚人像。照片采用数码相机拍摄，并使用强光闪光灯。相机角度较低并略微向上倾斜，增强了画面的活力和戏剧性。人物周围环绕着色彩艳丽的大朵罂粟花，黄色、粉色和橙色交相辉映，有的位于前景，有的位于背景，营造出沉浸式的花海效果。湛蓝的天空提供了清爽而对比鲜明的背景。整体氛围大胆、时尚且充满奇思妙想，使服装和花朵的鲜艳色彩在宁静的天空映衬下格外醒目。照片的整体构图应营造出一种既俏皮又时尚的氛围，并带有一丝超现实主义色彩，通过直接闪光灯拍摄来强调质感和色彩。",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00054",
+            "image_key": "00054",
+            "category_key": "style_experiment_illustration",
+            "zh_title": "80 年代 OVA 截图风",
+            "en_title": "80s OVA Screenshot Style",
+            "zh_summary": "赛璐璐、CRT 和 VHS 质感叠加，适合复古动画截图和怀旧视觉实验。",
+            "en_summary": "A retro 80s OVA screenshot prompt with cel animation, CRT scanlines, and VHS texture.",
+            "platform": "Seed",
+            "example": "yes",
+            "tags": [
+                "OVA",
+                "VHS",
+                "复古动画"
+            ],
+            "prompt": "80年代末日本动画OVA截图，4:3，手绘赛璐璐质感。\n\n主体/场景：：（填你的现代内容/参考图）\n\n画面：低保真粉彩、轻微褪色泛黄、粗糙线稿，怀旧都市氛围。\n特效：CRT扫描线+轻微屏幕弯曲，VHS噪点/抖动/色溢出/色差。\n字幕：底部一行黄色像素字幕（伪日语或英语）",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00055",
+            "image_key": "00055",
+            "category_key": "storybook_scene",
+            "zh_title": "上美影水墨绘本",
+            "en_title": "Shanghai Animation Ink Storybook",
+            "zh_summary": "新中式水墨加上美影旧动画气质，适合绘本封面和经典人物场景。",
+            "en_summary": "A Chinese ink storybook prompt inspired by classic Shanghai Animation Studio aesthetics.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "上美影",
+                "水墨绘本",
+                "新中式"
+            ],
+            "prompt": "帮我生成图片：新中式水墨绘本，致敬80年代上美影风格。强调大巧若拙的毛笔触感与宣纸纹理，低饱和矿物色，极简留白构图。画面人物为主体视觉，比例3:4，唐僧西天取经",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00057",
+            "image_key": "00057",
+            "category_key": "flash_film_portrait",
+            "zh_title": "富士 NC 咖啡馆胶片少女",
+            "en_title": "Fujifilm NC Cafe Portrait",
+            "zh_summary": "阳光过曝的复古咖啡馆胶片写真，适合日系少女和怀旧美学人像。",
+            "en_summary": "A sunlit retro cafe portrait with heavy 35mm grain, dreamy overexposure, and nostalgic Fujifilm NC film mood.",
+            "platform": "Seed",
+            "example": "no",
+            "tags": [
+                "胶片",
+                "少女",
+                "阳光"
+            ],
+            "prompt": "这是一张采用富士NC模拟风格拍摄的35mm胶片照片，颗粒感较重。照片中，一位年轻的日本女性在阳光洒满的复古咖啡馆里，展现出一种纯真而性感的魅力（纯粹的欲望美学）。她深色的头发编成两条辫子，并用丝带固定。她身穿一件敞开的灰色短款开襟羊毛衫，内搭一件饰有黑色波点的白色迷你连衣裙。她的姿势既娇羞又迷人：侧身坐在木椅上，双腿交叠，凸显出她脚上的黑色厚底玛丽珍鞋。她回眸看向镜头，眼神羞涩而诱人，轻轻咬着下唇。照片采用明显的过曝处理，营造出透过大窗户透出的梦幻般的过曝高光、柔和的粉彩色调、漏光以及怀旧的高噪点胶片质感。",
+            "asset_status": "ready",
+            "status": "draft"
+        },
+        {
+            "id": "00058",
+            "image_key": "00058",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00059",
+            "image_key": "00059",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00060",
+            "image_key": "00060",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00061",
+            "image_key": "00061",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00062",
+            "image_key": "00062",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00063",
+            "image_key": "00063",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00064",
+            "image_key": "00064",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00065",
+            "image_key": "00065",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00066",
+            "image_key": "00066",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00067",
+            "image_key": "00067",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00068",
+            "image_key": "00068",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00069",
+            "image_key": "00069",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00070",
+            "image_key": "00070",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00071",
+            "image_key": "00071",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00072",
+            "image_key": "00072",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00073",
+            "image_key": "00073",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00074",
+            "image_key": "00074",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00075",
+            "image_key": "00075",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00076",
+            "image_key": "00076",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00077",
+            "image_key": "00077",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00078",
+            "image_key": "00078",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00079",
+            "image_key": "00079",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00080",
+            "image_key": "00080",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00081",
+            "image_key": "00081",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00082",
+            "image_key": "00082",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00083",
+            "image_key": "00083",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00084",
+            "image_key": "00084",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00085",
+            "image_key": "00085",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        },
+        {
+            "id": "00086",
+            "image_key": "00086",
+            "category_key": "",
+            "zh_title": "",
+            "en_title": "",
+            "zh_summary": "",
+            "en_summary": "",
+            "platform": "",
+            "example": "no",
+            "tags": [
+                "",
+                "",
+                ""
+            ],
+            "prompt": "",
+            "asset_status": "",
+            "status": "draft"
+        }
+    ]
+}

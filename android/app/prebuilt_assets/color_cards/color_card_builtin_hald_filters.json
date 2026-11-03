@@ -1,0 +1,2072 @@
+[
+    {
+        "id": "black-white-era-converted-with-color-10",
+        "title": "_- converted with Color (10)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-converted-with-color-10.png",
+        "haldLevel": 8,
+        "previewColors": [
+            "#282828",
+            "#9F9F9F",
+            "#E8E8E8",
+            "#DBDBDB",
+            "#000000"
+        ],
+        "sortOrder": 0
+    },
+    {
+        "id": "black-white-era-converted-with-color-11",
+        "title": "_- converted with Color (11)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-converted-with-color-11.png",
+        "haldLevel": 8,
+        "previewColors": [
+            "#202020",
+            "#717171",
+            "#C1C1C1",
+            "#727272",
+            "#000000"
+        ],
+        "sortOrder": 1
+    },
+    {
+        "id": "black-white-era-converted-with-color-8",
+        "title": "_- converted with Color (8)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-converted-with-color-8.png",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2E2E2E",
+            "#888888",
+            "#C8C8C8",
+            "#818181",
+            "#000000"
+        ],
+        "sortOrder": 2
+    },
+    {
+        "id": "black-white-era-converted-with-color-9",
+        "title": "_- converted with Color (9)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-converted-with-color-9.png",
+        "haldLevel": 8,
+        "previewColors": [
+            "#292929",
+            "#9A9A9A",
+            "#E2E2E2",
+            "#929292",
+            "#000000"
+        ],
+        "sortOrder": 3
+    },
+    {
+        "id": "black-white-era-agfa-apx-100",
+        "title": "agfa apx 100",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-agfa-apx-100.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#464646",
+            "#A2A2A2",
+            "#DDDDDD",
+            "#CBCBCB",
+            "#F9F9F9"
+        ],
+        "sortOrder": 4
+    },
+    {
+        "id": "black-white-era-agfa-apx-25",
+        "title": "agfa apx 25",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-agfa-apx-25.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#282828",
+            "#838383",
+            "#CACACA",
+            "#A7A7A7",
+            "#F2F2F2"
+        ],
+        "sortOrder": 5
+    },
+    {
+        "id": "black-white-era-fuji-neopan-1600",
+        "title": "fuji neopan 1600",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-fuji-neopan-1600.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1B1B1B",
+            "#696969",
+            "#BDBDBD",
+            "#9B9B9B",
+            "#F0F0F0"
+        ],
+        "sortOrder": 6
+    },
+    {
+        "id": "black-white-era-fuji-neopan-acros-100",
+        "title": "fuji neopan acros 100",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-fuji-neopan-acros-100.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#232323",
+            "#5D5D5D",
+            "#A0A0A0",
+            "#767676",
+            "#E1E1E1"
+        ],
+        "sortOrder": 7
+    },
+    {
+        "id": "black-white-era-ilford-delta-100",
+        "title": "ilford delta 100",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-delta-100.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#292929",
+            "#777777",
+            "#B6B6B6",
+            "#A4A4A4",
+            "#EFEFEF"
+        ],
+        "sortOrder": 8
+    },
+    {
+        "id": "black-white-era-ilford-delta-3200",
+        "title": "ilford delta 3200",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-delta-3200.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2E2E2E",
+            "#696969",
+            "#B1B1B1",
+            "#848484",
+            "#E8E8E8"
+        ],
+        "sortOrder": 9
+    },
+    {
+        "id": "black-white-era-ilford-delta-400",
+        "title": "ilford delta 400",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-delta-400.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#262626",
+            "#606060",
+            "#A7A7A7",
+            "#8D8D8D",
+            "#EAEAEA"
+        ],
+        "sortOrder": 10
+    },
+    {
+        "id": "black-white-era-ilford-fp4-plus-125",
+        "title": "ilford fp4 plus 125",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-fp4-plus-125.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#383838",
+            "#777777",
+            "#BABABA",
+            "#A6A6A6",
+            "#E9E9E9"
+        ],
+        "sortOrder": 11
+    },
+    {
+        "id": "black-white-era-ilford-hp5-plus-400",
+        "title": "ilford hp5 plus 400",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-hp5-plus-400.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1E1E1E",
+            "#676767",
+            "#BCBCBC",
+            "#9C9C9C",
+            "#F4F4F4"
+        ],
+        "sortOrder": 12
+    },
+    {
+        "id": "black-white-era-ilford-hps-800",
+        "title": "ilford hps 800",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-hps-800.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1E1E1E",
+            "#666666",
+            "#BCBCBC",
+            "#9C9C9C",
+            "#F5F5F5"
+        ],
+        "sortOrder": 13
+    },
+    {
+        "id": "black-white-era-ilford-pan-f-plus-50",
+        "title": "ilford pan f plus 50",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-pan-f-plus-50.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2A2A2A",
+            "#777777",
+            "#BEBEBE",
+            "#A0A0A0",
+            "#EEEEEE"
+        ],
+        "sortOrder": 14
+    },
+    {
+        "id": "black-white-era-ilford-xp2",
+        "title": "ilford xp2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-ilford-xp2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#222222",
+            "#5B5B5B",
+            "#A0A0A0",
+            "#929292",
+            "#E8E8E8"
+        ],
+        "sortOrder": 15
+    },
+    {
+        "id": "black-white-era-kodak-bw-400-cn",
+        "title": "kodak bw 400 cn",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-kodak-bw-400-cn.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2B2B2B",
+            "#666666",
+            "#ACACAC",
+            "#878787",
+            "#E9E9E9"
+        ],
+        "sortOrder": 16
+    },
+    {
+        "id": "black-white-era-kodak-hie-hs-infra",
+        "title": "kodak hie (hs infra)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-kodak-hie-hs-infra.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#404040",
+            "#979797",
+            "#EBEBEB",
+            "#989898",
+            "#FEFEFE"
+        ],
+        "sortOrder": 17
+    },
+    {
+        "id": "black-white-era-kodak-t-max-100",
+        "title": "kodak t-max 100",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-kodak-t-max-100.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#252525",
+            "#606060",
+            "#A8A8A8",
+            "#898989",
+            "#EAEAEA"
+        ],
+        "sortOrder": 18
+    },
+    {
+        "id": "black-white-era-kodak-t-max-3200",
+        "title": "kodak t-max 3200",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-kodak-t-max-3200.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#212121",
+            "#727272",
+            "#BDBDBD",
+            "#A0A0A0",
+            "#EDEDED"
+        ],
+        "sortOrder": 19
+    },
+    {
+        "id": "black-white-era-kodak-t-max-400",
+        "title": "kodak t-max 400",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-kodak-t-max-400.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#202020",
+            "#666666",
+            "#ACACAC",
+            "#999999",
+            "#EDEDED"
+        ],
+        "sortOrder": 20
+    },
+    {
+        "id": "black-white-era-kodak-tri-x-400",
+        "title": "kodak tri-x 400",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-kodak-tri-x-400.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#252525",
+            "#707070",
+            "#AEAEAE",
+            "#999999",
+            "#E9E9E9"
+        ],
+        "sortOrder": 21
+    },
+    {
+        "id": "black-white-era-polaroid-664",
+        "title": "polaroid 664",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-polaroid-664.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3A3A3A",
+            "#898989",
+            "#B5B5B5",
+            "#9C9C9C",
+            "#E7E7E7"
+        ],
+        "sortOrder": 22
+    },
+    {
+        "id": "black-white-era-polaroid-667",
+        "title": "polaroid 667",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-polaroid-667.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2D2D2D",
+            "#7B7B7B",
+            "#C2C2C2",
+            "#969696",
+            "#EBEBEB"
+        ],
+        "sortOrder": 23
+    },
+    {
+        "id": "black-white-era-polaroid-672",
+        "title": "polaroid 672",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-polaroid-672.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1D1D1D",
+            "#5A5A5A",
+            "#A6A6A6",
+            "#787878",
+            "#E0E0E0"
+        ],
+        "sortOrder": 24
+    },
+    {
+        "id": "black-white-era-rollei-ir-400",
+        "title": "rollei ir 400",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-rollei-ir-400.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1E1E1E",
+            "#606060",
+            "#D6D6D6",
+            "#0E0E0E",
+            "#E8E8E8"
+        ],
+        "sortOrder": 25
+    },
+    {
+        "id": "black-white-era-rollei-ortho-25",
+        "title": "rollei ortho 25",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-rollei-ortho-25.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#272727",
+            "#646464",
+            "#CCCCCC",
+            "#D1D1D1",
+            "#FDFDFD"
+        ],
+        "sortOrder": 26
+    },
+    {
+        "id": "black-white-era-rollei-retro-100-tonal",
+        "title": "rollei retro 100 tonal",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-rollei-retro-100-tonal.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#303030",
+            "#707070",
+            "#B1B1B1",
+            "#B0B0B0",
+            "#ECECEC"
+        ],
+        "sortOrder": 27
+    },
+    {
+        "id": "black-white-era-rollei-retro-80s",
+        "title": "rollei retro 80s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/black-white-era-rollei-retro-80s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#121212",
+            "#545454",
+            "#CECECE",
+            "#777777",
+            "#F9F9F9"
+        ],
+        "sortOrder": 28
+    },
+    {
+        "id": "amy",
+        "title": "Amy",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/amy.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1D2831",
+            "#5D6876",
+            "#C59A92",
+            "#0085B9",
+            "#E2E7F4"
+        ],
+        "sortOrder": 29
+    },
+    {
+        "id": "cms",
+        "title": "CMS",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cms.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3C393D",
+            "#817C81",
+            "#D6BEB2",
+            "#5298DC",
+            "#EFFBFE"
+        ],
+        "sortOrder": 30
+    },
+    {
+        "id": "cinematic",
+        "title": "Cinematic",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematic.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1F1717",
+            "#66564C",
+            "#C39679",
+            "#2D7D9F",
+            "#D8DEDA"
+        ],
+        "sortOrder": 31
+    },
+    {
+        "id": "cinematicx-rec-709",
+        "title": "CinematicX (Rec.709)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematicx-rec-709.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2E2119",
+            "#846D58",
+            "#C6A990",
+            "#347E93",
+            "#D4D2CA"
+        ],
+        "sortOrder": 32
+    },
+    {
+        "id": "cinematicx-rec-709-2",
+        "title": "CinematicX (Rec.709)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematicx-rec-709-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2B1B1C",
+            "#77615A",
+            "#C29C8B",
+            "#165C66",
+            "#BDC8C7"
+        ],
+        "sortOrder": 33
+    },
+    {
+        "id": "cinematicx-rec-709-3",
+        "title": "CinematicX (Rec.709)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematicx-rec-709-3.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#272C2C",
+            "#64655E",
+            "#C1A58D",
+            "#186D71",
+            "#BCD7D1"
+        ],
+        "sortOrder": 34
+    },
+    {
+        "id": "cinematicx-rec-709-4",
+        "title": "CinematicX (Rec.709)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematicx-rec-709-4.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3C2E1A",
+            "#786052",
+            "#D6AD82",
+            "#0677B0",
+            "#E2EBE9"
+        ],
+        "sortOrder": 35
+    },
+    {
+        "id": "cinematicx-rec-709-5",
+        "title": "CinematicX (Rec.709)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematicx-rec-709-5.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#25221A",
+            "#7C6B5C",
+            "#CFAA8F",
+            "#317BB0",
+            "#E9EAEA"
+        ],
+        "sortOrder": 36
+    },
+    {
+        "id": "cinematicx-rec-709-6",
+        "title": "CinematicX (Rec.709)",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinematicx-rec-709-6.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#28251D",
+            "#635A52",
+            "#C1A895",
+            "#297992",
+            "#DEECF1"
+        ],
+        "sortOrder": 37
+    },
+    {
+        "id": "claire",
+        "title": "Claire",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/claire.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#282D39",
+            "#576378",
+            "#A99292",
+            "#006FAF",
+            "#D0E1EF"
+        ],
+        "sortOrder": 38
+    },
+    {
+        "id": "fg-cinebright",
+        "title": "FG CineBright",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/fg-cinebright.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3C3628",
+            "#BA9879",
+            "#FFDCB3",
+            "#7899B2",
+            "#FFFFFE"
+        ],
+        "sortOrder": 39
+    },
+    {
+        "id": "fg-cinevibrant1",
+        "title": "FG CineVibrant1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/fg-cinevibrant1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3D3024",
+            "#6E604C",
+            "#DCAA70",
+            "#01699A",
+            "#F2F6FB"
+        ],
+        "sortOrder": 40
+    },
+    {
+        "id": "fuj-07-velvia",
+        "title": "FUJ 07 - Velvia +",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/fuj-07-velvia.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2E1917",
+            "#847B6A",
+            "#E1C1A8",
+            "#1A7ACE",
+            "#F0F2F9"
+        ],
+        "sortOrder": 41
+    },
+    {
+        "id": "film-boost-10",
+        "title": "Film Boost 10",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/film-boost-10.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#312825",
+            "#6F605C",
+            "#B58778",
+            "#006998",
+            "#CFD6DE"
+        ],
+        "sortOrder": 42
+    },
+    {
+        "id": "film-tone-3",
+        "title": "Film Tone 3",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/film-tone-3.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#392F2A",
+            "#7D7165",
+            "#C39E84",
+            "#2A81A0",
+            "#D6E3DE"
+        ],
+        "sortOrder": 43
+    },
+    {
+        "id": "generate-by-resolve",
+        "title": "Generate by Resolve",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/generate-by-resolve.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#121111",
+            "#806156",
+            "#F8DCB5",
+            "#0078C3",
+            "#FDFEFE"
+        ],
+        "sortOrder": 44
+    },
+    {
+        "id": "generate-by-resolve-2",
+        "title": "Generate by Resolve",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/generate-by-resolve-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#130F0C",
+            "#836456",
+            "#F1DBB7",
+            "#007CC3",
+            "#FCFDFE"
+        ],
+        "sortOrder": 45
+    },
+    {
+        "id": "generate-by-resolve-3",
+        "title": "Generate by Resolve",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/generate-by-resolve-3.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#121511",
+            "#82685C",
+            "#F4DBC2",
+            "#0082C9",
+            "#FDFDFE"
+        ],
+        "sortOrder": 46
+    },
+    {
+        "id": "generated-by-3d-lut-creator-pro-c-oleg-sharonov",
+        "title": "Generated by 3D LUT Creator Pro (c) Oleg Sharonov",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/generated-by-3d-lut-creator-pro-c-oleg-sharonov.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1B140C",
+            "#895940",
+            "#DEC585",
+            "#025394",
+            "#E5EFE9"
+        ],
+        "sortOrder": 47
+    },
+    {
+        "id": "hklike",
+        "title": "HKLIKE",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/hklike.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#45332C",
+            "#8B7261",
+            "#D6AB87",
+            "#53A5B8",
+            "#DADEDB"
+        ],
+        "sortOrder": 48
+    },
+    {
+        "id": "m-fahri-100c-negative",
+        "title": "M Fahri - 100c Negative",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/m-fahri-100c-negative.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#24211E",
+            "#8E746C",
+            "#DFC0A7",
+            "#2170AA",
+            "#FBE9E2"
+        ],
+        "sortOrder": 49
+    },
+    {
+        "id": "moewarm",
+        "title": "MoeWarm",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/moewarm.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#291F1D",
+            "#8D6455",
+            "#DFBB9A",
+            "#52879D",
+            "#EDE6DE"
+        ],
+        "sortOrder": 50
+    },
+    {
+        "id": "ogs",
+        "title": "OGS",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/ogs.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2A2A26",
+            "#7C6D66",
+            "#CDA896",
+            "#4499C3",
+            "#E1E1E9"
+        ],
+        "sortOrder": 51
+    },
+    {
+        "id": "presetpro-rich-tines",
+        "title": "Presetpro - Rich Tines",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/presetpro-rich-tines.png",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2F2120",
+            "#7B615A",
+            "#E7B69C",
+            "#027CB0",
+            "#000000"
+        ],
+        "sortOrder": 52
+    },
+    {
+        "id": "presetpro-santorini",
+        "title": "Presetpro - Santorini",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/presetpro-santorini.png",
+        "haldLevel": 8,
+        "previewColors": [
+            "#262823",
+            "#7B695F",
+            "#CBA990",
+            "#2E9AA7",
+            "#000000"
+        ],
+        "sortOrder": 53
+    },
+    {
+        "id": "presetpro-sunset",
+        "title": "Presetpro - Sunset",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/presetpro-sunset.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#261E1A",
+            "#85705B",
+            "#F6C7A9",
+            "#0191C9",
+            "#F7F6F5"
+        ],
+        "sortOrder": 54
+    },
+    {
+        "id": "print-film-2",
+        "title": "Print Film 2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/print-film-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2A221E",
+            "#736761",
+            "#C2A28F",
+            "#3771B2",
+            "#DDE5F0"
+        ],
+        "sortOrder": 55
+    },
+    {
+        "id": "converted-with-color",
+        "title": "_- converted with Color",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/converted-with-color.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2C2117",
+            "#7B6450",
+            "#D1A27D",
+            "#3081B3",
+            "#E1DEDB"
+        ],
+        "sortOrder": 56
+    },
+    {
+        "id": "astia",
+        "title": "astia",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/astia.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3A281D",
+            "#AE9582",
+            "#F7D5B8",
+            "#67B7FA",
+            "#F7FAFC"
+        ],
+        "sortOrder": 57
+    },
+    {
+        "id": "bleach-bypass",
+        "title": "bleach bypass",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/bleach-bypass.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#2A2421",
+            "#B0A39A",
+            "#F3E7DC",
+            "#A9CBD8",
+            "#FAFAFA"
+        ],
+        "sortOrder": 58
+    },
+    {
+        "id": "cinema3",
+        "title": "cinema3",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cinema3.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1C1613",
+            "#654630",
+            "#DA9957",
+            "#1A5875",
+            "#E1E5E1"
+        ],
+        "sortOrder": 59
+    },
+    {
+        "id": "classic-chrome",
+        "title": "classic chrome",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-chrome.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#342621",
+            "#AF978B",
+            "#F5DBCC",
+            "#73BEDF",
+            "#F9FBFC"
+        ],
+        "sortOrder": 60
+    },
+    {
+        "id": "classic-neg",
+        "title": "classic neg",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-neg.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#2D261F",
+            "#C3A18D",
+            "#FAE5D7",
+            "#AAD0F1",
+            "#FBFBFB"
+        ],
+        "sortOrder": 61
+    },
+    {
+        "id": "eterna",
+        "title": "eterna",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/eterna.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3F332F",
+            "#A69285",
+            "#ECD3BF",
+            "#7FB7D9",
+            "#F7F9FA"
+        ],
+        "sortOrder": 62
+    },
+    {
+        "id": "fj",
+        "title": "fj",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/fj.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#392923",
+            "#7E6B52",
+            "#D8A56C",
+            "#2985C3",
+            "#E5E8EB"
+        ],
+        "sortOrder": 63
+    },
+    {
+        "id": "moeot",
+        "title": "moeot",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/moeot.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#28262B",
+            "#A0867B",
+            "#EAC8AB",
+            "#52A8CC",
+            "#F1F0EC"
+        ],
+        "sortOrder": 64
+    },
+    {
+        "id": "nostalgic-neg",
+        "title": "nostalgic neg",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/nostalgic-neg.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#412C1E",
+            "#B1927C",
+            "#F5D7B6",
+            "#73BBE2",
+            "#F9F8F7"
+        ],
+        "sortOrder": 65
+    },
+    {
+        "id": "polaroid-669",
+        "title": "polaroid 669",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/polaroid-669.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#283630",
+            "#83716F",
+            "#CCB9A5",
+            "#43A5C5",
+            "#E6FAEC"
+        ],
+        "sortOrder": 66
+    },
+    {
+        "id": "polaroid-690",
+        "title": "polaroid 690",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/polaroid-690.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2C211E",
+            "#9C7A75",
+            "#E4BFB5",
+            "#4B8CCE",
+            "#E6F1F6"
+        ],
+        "sortOrder": 67
+    },
+    {
+        "id": "polaroid-polachrome",
+        "title": "polaroid polachrome",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/polaroid-polachrome.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2D2423",
+            "#897B79",
+            "#CCB8B1",
+            "#919EB6",
+            "#EDE9F2"
+        ],
+        "sortOrder": 68
+    },
+    {
+        "id": "polaroid-px-680-warm",
+        "title": "polaroid px-680 warm",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/polaroid-px-680-warm.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#4A3B1A",
+            "#A87F56",
+            "#DDBB88",
+            "#8C958F",
+            "#EBD9C3"
+        ],
+        "sortOrder": 69
+    },
+    {
+        "id": "pro-neg-hi",
+        "title": "pro neg hi",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro-neg-hi.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#32251E",
+            "#A99283",
+            "#FBD8C0",
+            "#7DB9F1",
+            "#FBFDFE"
+        ],
+        "sortOrder": 70
+    },
+    {
+        "id": "pro-neg-std",
+        "title": "pro neg std",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro-neg-std.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3C302A",
+            "#A89286",
+            "#F4D7C3",
+            "#7DBCE8",
+            "#F8FBFC"
+        ],
+        "sortOrder": 71
+    },
+    {
+        "id": "provia",
+        "title": "provia",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/provia.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3B2B23",
+            "#AD9281",
+            "#F8D8BE",
+            "#72BBF1",
+            "#F8FBFC"
+        ],
+        "sortOrder": 72
+    },
+    {
+        "id": "reala-ace",
+        "title": "reala ace",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/reala-ace.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#402F27",
+            "#B59B8B",
+            "#FFE0C7",
+            "#77B9E6",
+            "#F9FBFD"
+        ],
+        "sortOrder": 73
+    },
+    {
+        "id": "velvia",
+        "title": "velvia",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/velvia.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#392217",
+            "#AB917B",
+            "#FFD8AD",
+            "#6EB2FF",
+            "#FBFEFE"
+        ],
+        "sortOrder": 74
+    },
+    {
+        "id": "classic-memory-astia",
+        "title": "astia",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-astia.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3A281D",
+            "#AE9582",
+            "#F7D5B8",
+            "#67B7FA",
+            "#F7FAFC"
+        ],
+        "sortOrder": 75
+    },
+    {
+        "id": "classic-memory-bleach-bypass",
+        "title": "bleach bypass",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-bleach-bypass.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#2A2421",
+            "#B0A39A",
+            "#F3E7DC",
+            "#A9CBD8",
+            "#FAFAFA"
+        ],
+        "sortOrder": 76
+    },
+    {
+        "id": "classic-memory-classic-chrome",
+        "title": "classic chrome",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-classic-chrome.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#342621",
+            "#AF978B",
+            "#F5DBCC",
+            "#73BEDF",
+            "#F9FBFC"
+        ],
+        "sortOrder": 77
+    },
+    {
+        "id": "classic-memory-classic-neg",
+        "title": "classic neg",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-classic-neg.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#2D261F",
+            "#C3A18D",
+            "#FAE5D7",
+            "#AAD0F1",
+            "#FBFBFB"
+        ],
+        "sortOrder": 78
+    },
+    {
+        "id": "classic-memory-eterna",
+        "title": "eterna",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-eterna.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3F332F",
+            "#A69285",
+            "#ECD3BF",
+            "#7FB7D9",
+            "#F7F9FA"
+        ],
+        "sortOrder": 79
+    },
+    {
+        "id": "classic-memory-nostalgic-neg",
+        "title": "nostalgic neg",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-nostalgic-neg.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#412C1E",
+            "#B1927C",
+            "#F5D7B6",
+            "#73BBE2",
+            "#F9F8F7"
+        ],
+        "sortOrder": 80
+    },
+    {
+        "id": "classic-memory-pro-neg-hi",
+        "title": "pro neg hi",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-pro-neg-hi.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#32251E",
+            "#A99283",
+            "#FBD8C0",
+            "#7DB9F1",
+            "#FBFDFE"
+        ],
+        "sortOrder": 81
+    },
+    {
+        "id": "classic-memory-pro-neg-std",
+        "title": "pro neg std",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-pro-neg-std.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3C302A",
+            "#A89286",
+            "#F4D7C3",
+            "#7DBCE8",
+            "#F8FBFC"
+        ],
+        "sortOrder": 82
+    },
+    {
+        "id": "classic-memory-provia",
+        "title": "provia",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-provia.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#3B2B23",
+            "#AD9281",
+            "#F8D8BE",
+            "#72BBF1",
+            "#F8FBFC"
+        ],
+        "sortOrder": 83
+    },
+    {
+        "id": "classic-memory-reala-ace",
+        "title": "reala ace",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-reala-ace.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#402F27",
+            "#B59B8B",
+            "#FFE0C7",
+            "#77B9E6",
+            "#F9FBFD"
+        ],
+        "sortOrder": 84
+    },
+    {
+        "id": "classic-memory-velvia",
+        "title": "velvia",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/classic-memory-velvia.webp",
+        "haldLevel": 6,
+        "previewColors": [
+            "#392217",
+            "#AB917B",
+            "#FFD8AD",
+            "#6EB2FF",
+            "#FBFEFE"
+        ],
+        "sortOrder": 85
+    },
+    {
+        "id": "5219-2",
+        "title": "5219+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/5219-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3B3D39",
+            "#80776B",
+            "#C6A994",
+            "#5988B6",
+            "#E8EBE6"
+        ],
+        "sortOrder": 86
+    },
+    {
+        "id": "5219-4",
+        "title": "5219+4",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/5219-4.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#4F4B45",
+            "#958A7F",
+            "#CFBCA5",
+            "#6D98BA",
+            "#E8E4E1"
+        ],
+        "sortOrder": 87
+    },
+    {
+        "id": "5219-2-2",
+        "title": "5219-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/5219-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2C2D31",
+            "#736C65",
+            "#C4A58E",
+            "#4880B1",
+            "#E6E5E7"
+        ],
+        "sortOrder": 88
+    },
+    {
+        "id": "5219-4-2",
+        "title": "5219-4",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/5219-4-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#392B32",
+            "#726B65",
+            "#C8AD90",
+            "#5E82B7",
+            "#F0EEE9"
+        ],
+        "sortOrder": 89
+    },
+    {
+        "id": "5219-s",
+        "title": "5219-s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/5219-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2C2D31",
+            "#736C65",
+            "#C4A58E",
+            "#4880B1",
+            "#E6E5E7"
+        ],
+        "sortOrder": 90
+    },
+    {
+        "id": "c200-1",
+        "title": "C200+1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/c200-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3B3430",
+            "#948377",
+            "#DFC1B3",
+            "#499ECB",
+            "#F2F0F7"
+        ],
+        "sortOrder": 91
+    },
+    {
+        "id": "c200-2",
+        "title": "C200+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/c200-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#494035",
+            "#A7958B",
+            "#E6C4BE",
+            "#59A8D1",
+            "#F4ECF2"
+        ],
+        "sortOrder": 92
+    },
+    {
+        "id": "c200-1-2",
+        "title": "C200-1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/c200-1-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#373431",
+            "#907869",
+            "#DFBAA1",
+            "#4595BB",
+            "#F2F0F4"
+        ],
+        "sortOrder": 93
+    },
+    {
+        "id": "c200-2-2",
+        "title": "C200-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/c200-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2F322F",
+            "#89776C",
+            "#D9AF9B",
+            "#4391B8",
+            "#EEE8E9"
+        ],
+        "sortOrder": 94
+    },
+    {
+        "id": "c200s",
+        "title": "C200S",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/c200s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3B3632",
+            "#9D877C",
+            "#E6C2B5",
+            "#4EA3D0",
+            "#F4F2FB"
+        ],
+        "sortOrder": 95
+    },
+    {
+        "id": "ektar100-2",
+        "title": "Ektar100+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/ektar100-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#554A44",
+            "#A39484",
+            "#D9CBAF",
+            "#6E9DC8",
+            "#EDF1E9"
+        ],
+        "sortOrder": 96
+    },
+    {
+        "id": "ektar100-4",
+        "title": "Ektar100+4",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/ektar100-4.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#6E6056",
+            "#AAA498",
+            "#CBC8B6",
+            "#80A8C3",
+            "#D6DAD4"
+        ],
+        "sortOrder": 97
+    },
+    {
+        "id": "ektar100-2-2",
+        "title": "Ektar100-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/ektar100-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#292D2F",
+            "#7A7267",
+            "#C7AA8C",
+            "#3C77AF",
+            "#E7EAE1"
+        ],
+        "sortOrder": 98
+    },
+    {
+        "id": "ektar100-4-2",
+        "title": "Ektar100-4",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/ektar100-4-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2B2627",
+            "#796D61",
+            "#DAB08D",
+            "#3973AE",
+            "#F2EEE8"
+        ],
+        "sortOrder": 99
+    },
+    {
+        "id": "ektar100-s",
+        "title": "Ektar100-s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/ektar100-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#303030",
+            "#87756C",
+            "#D1B89A",
+            "#497FBF",
+            "#EBF1EC"
+        ],
+        "sortOrder": 100
+    },
+    {
+        "id": "pro400h-1",
+        "title": "PRO400H+1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro400h-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#4B3A28",
+            "#B6937C",
+            "#EFC9B5",
+            "#53ADCD",
+            "#F5EFEE"
+        ],
+        "sortOrder": 101
+    },
+    {
+        "id": "pro400h-2",
+        "title": "PRO400H+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro400h-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#5C4532",
+            "#C29E89",
+            "#F2CEBD",
+            "#67B5CF",
+            "#F7F0EE"
+        ],
+        "sortOrder": 102
+    },
+    {
+        "id": "pro400h-1-2",
+        "title": "PRO400H-1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro400h-1-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3A3326",
+            "#9C7D61",
+            "#ECBEA5",
+            "#4892BB",
+            "#F7F3F5"
+        ],
+        "sortOrder": 103
+    },
+    {
+        "id": "pro400h-2-2",
+        "title": "PRO400H-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro400h-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3F4033",
+            "#837462",
+            "#D8B1A0",
+            "#4982AF",
+            "#EEEDF4"
+        ],
+        "sortOrder": 104
+    },
+    {
+        "id": "pro400h-s",
+        "title": "PRO400H-s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/pro400h-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3E3323",
+            "#A7866D",
+            "#EEC4AC",
+            "#4DA0C6",
+            "#F6F2F1"
+        ],
+        "sortOrder": 105
+    },
+    {
+        "id": "spgold200-1",
+        "title": "SPGOLD200+1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/spgold200-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#362F23",
+            "#9D8974",
+            "#E5CBBC",
+            "#519ACC",
+            "#F4F5FC"
+        ],
+        "sortOrder": 106
+    },
+    {
+        "id": "spgold200-2",
+        "title": "SPGOLD200+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/spgold200-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#463A29",
+            "#A79481",
+            "#EAD3CB",
+            "#5CA1D3",
+            "#F6F6FD"
+        ],
+        "sortOrder": 107
+    },
+    {
+        "id": "spgold200-s",
+        "title": "SPGOLD200+S",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/spgold200-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2A2823",
+            "#937E69",
+            "#E3C6AE",
+            "#4A90C4",
+            "#F5F4FC"
+        ],
+        "sortOrder": 108
+    },
+    {
+        "id": "spgold200-1-2",
+        "title": "SPGOLD200-1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/spgold200-1-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2A2926",
+            "#8E7861",
+            "#E1C1A2",
+            "#4B8AB8",
+            "#F6F3F9"
+        ],
+        "sortOrder": 109
+    },
+    {
+        "id": "spgold200-2-2",
+        "title": "SPGOLD200-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/spgold200-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#272928",
+            "#7A6A58",
+            "#D9B592",
+            "#4B79A2",
+            "#F4EFF4"
+        ],
+        "sortOrder": 110
+    },
+    {
+        "id": "tx400-1",
+        "title": "Tx400+1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/tx400-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3E3E3E",
+            "#8A8A8A",
+            "#B8B8B8",
+            "#A2A2A2",
+            "#DADADA"
+        ],
+        "sortOrder": 111
+    },
+    {
+        "id": "tx400-2",
+        "title": "Tx400+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/tx400-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#494949",
+            "#878787",
+            "#B2B2B2",
+            "#9C9C9C",
+            "#D6D6D6"
+        ],
+        "sortOrder": 112
+    },
+    {
+        "id": "tx400-1-2",
+        "title": "Tx400-1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/tx400-1-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#282828",
+            "#747474",
+            "#B2B2B2",
+            "#939393",
+            "#DEDEDE"
+        ],
+        "sortOrder": 113
+    },
+    {
+        "id": "tx400-2-2",
+        "title": "Tx400-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/tx400-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#373737",
+            "#7F7F7F",
+            "#B9B9B9",
+            "#9C9C9C",
+            "#E4E4E4"
+        ],
+        "sortOrder": 114
+    },
+    {
+        "id": "tx400-3",
+        "title": "Tx400-3",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/tx400-3.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3C3C3C",
+            "#6C6C6C",
+            "#A6A6A6",
+            "#868686",
+            "#DADADA"
+        ],
+        "sortOrder": 115
+    },
+    {
+        "id": "tx400-s",
+        "title": "Tx400-s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/tx400-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#282828",
+            "#757575",
+            "#A8A8A8",
+            "#8E8E8E",
+            "#D2D2D2"
+        ],
+        "sortOrder": 116
+    },
+    {
+        "id": "vivid250d-1",
+        "title": "vivid250D+1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/vivid250d-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#443B34",
+            "#94867C",
+            "#D7C3AD",
+            "#5889C0",
+            "#EAEFE9"
+        ],
+        "sortOrder": 117
+    },
+    {
+        "id": "vivid250d-2",
+        "title": "vivid250D+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/vivid250d-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#4C3F35",
+            "#968A7C",
+            "#D4C3AD",
+            "#5D8BBC",
+            "#E8EFEA"
+        ],
+        "sortOrder": 118
+    },
+    {
+        "id": "vivid250d-1-2",
+        "title": "vivid250D-1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/vivid250d-1-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#372C27",
+            "#8D7B6B",
+            "#D7BCA2",
+            "#4A7DB6",
+            "#E8EBED"
+        ],
+        "sortOrder": 119
+    },
+    {
+        "id": "vivid250d-2-2",
+        "title": "vivid250D-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/vivid250d-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#352926",
+            "#7D6D62",
+            "#D2B297",
+            "#4575B2",
+            "#E7E8ED"
+        ],
+        "sortOrder": 120
+    },
+    {
+        "id": "vivid250d-s",
+        "title": "vivid250D-s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/vivid250d-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#38302C",
+            "#8E8076",
+            "#D5BEA7",
+            "#4A80BE",
+            "#E6EBEA"
+        ],
+        "sortOrder": 121
+    },
+    {
+        "id": "400-1",
+        "title": "\u5168\u80fd400+1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/400-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#4F4234",
+            "#A5968A",
+            "#D9C9B9",
+            "#78A6D9",
+            "#EAEEF4"
+        ],
+        "sortOrder": 122
+    },
+    {
+        "id": "400-2",
+        "title": "\u5168\u80fd400+2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/400-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#675542",
+            "#B2A29A",
+            "#E0D3C6",
+            "#8FB2E0",
+            "#ECEFF5"
+        ],
+        "sortOrder": 123
+    },
+    {
+        "id": "400-1-2",
+        "title": "\u5168\u80fd400-1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/400-1-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#342B24",
+            "#877661",
+            "#CFB498",
+            "#568FC5",
+            "#E8ECF3"
+        ],
+        "sortOrder": 124
+    },
+    {
+        "id": "400-2-2",
+        "title": "\u5168\u80fd400-2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/400-2-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#302C2B",
+            "#746859",
+            "#C9AC90",
+            "#4981C2",
+            "#E3E5F2"
+        ],
+        "sortOrder": 125
+    },
+    {
+        "id": "400-s",
+        "title": "\u5168\u80fd400-s",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/400-s.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#40372D",
+            "#96877A",
+            "#D4BEA9",
+            "#659AD1",
+            "#EBEDF3"
+        ],
+        "sortOrder": 126
+    },
+    {
+        "id": "cc",
+        "title": "cc",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cc.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3F342D",
+            "#918377",
+            "#DCC3B0",
+            "#58A0C2",
+            "#F1F7FB"
+        ],
+        "sortOrder": 127
+    },
+    {
+        "id": "cc1",
+        "title": "cc1",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cc1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#453527",
+            "#A08876",
+            "#D5B79E",
+            "#5A8FB6",
+            "#E5E2E4"
+        ],
+        "sortOrder": 128
+    },
+    {
+        "id": "cc2",
+        "title": "cc2",
+        "sourceTag": "\u5185\u7f6e Hald",
+        "assetName": "color_card_hald/cc2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#3E2E2C",
+            "#927E7D",
+            "#C8AEA7",
+            "#488AB1",
+            "#DBDCE5"
+        ],
+        "sortOrder": 129
+    },
+    {
+        "id": "j-fresh-bright-2",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-2.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2C2422",
+            "#856F5C",
+            "#E3B998",
+            "#0075B0",
+            "#DCDFE3"
+        ],
+        "sortOrder": 130
+    },
+    {
+        "id": "j-fresh-bright-3",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-3.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#1C251E",
+            "#888E78",
+            "#DCCBBC",
+            "#0094C3",
+            "#DDE4EA"
+        ],
+        "sortOrder": 131
+    },
+    {
+        "id": "j-fresh-bright-4",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-4.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#26231D",
+            "#968D75",
+            "#DCCCB0",
+            "#00A1CD",
+            "#E6F0F1"
+        ],
+        "sortOrder": 132
+    },
+    {
+        "id": "j-fresh-bright-5",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-5.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#2D251C",
+            "#9A8C71",
+            "#DCC9B0",
+            "#02A1C9",
+            "#E1EBED"
+        ],
+        "sortOrder": 133
+    },
+    {
+        "id": "j-fresh-bright-6",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-6.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#995F20",
+            "#C89D7A",
+            "#FFB78F",
+            "#009AF6",
+            "#F6FCFE"
+        ],
+        "sortOrder": 134
+    },
+    {
+        "id": "j-fresh-bright-7",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-7.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#8C5A41",
+            "#C09899",
+            "#E9BD9D",
+            "#1079ED",
+            "#E0DBF7"
+        ],
+        "sortOrder": 135
+    },
+    {
+        "id": "j-fresh-bright-8",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-8.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#4B3E44",
+            "#998197",
+            "#F0D3D3",
+            "#15C0FB",
+            "#FBFDFF"
+        ],
+        "sortOrder": 136
+    },
+    {
+        "id": "j-fresh-bright-1",
+        "title": "\u6e05\u65b0\u900f\u4eae",
+        "sourceTag": "\u6e05\u65b0\u900f\u4eae",
+        "assetName": "color_card_hald/j-fresh-bright-1.webp",
+        "haldLevel": 8,
+        "previewColors": [
+            "#291D18",
+            "#9C856D",
+            "#F0D1B8",
+            "#028CBD",
+            "#F2F4F3"
+        ],
+        "sortOrder": 137
+    }
+]

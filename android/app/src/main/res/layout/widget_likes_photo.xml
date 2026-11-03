@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_likes_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_likes_placeholder">
+
+    <ImageView
+        android:id="@+id/widget_likes_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/widget_likes_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/widget_likes_placeholder" />
+
+    <TextView
+        android:id="@+id/widget_likes_empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#5F000000"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="6dp"
+        android:text="@string/widget_likes_empty"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+</FrameLayout>

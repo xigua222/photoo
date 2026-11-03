@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.voicelike.app.widgetlikes.LikesWidgetPickerActivity"
+    android:description="@string/widget_likes_picker_hint"
+    android:initialLayout="@layout/widget_likes_photo"
+    android:minHeight="120dp"
+    android:minWidth="120dp"
+    android:previewImage="@drawable/widget_likes_preview"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="2"
+    android:targetCellWidth="2"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen" />
