@@ -3,7 +3,7 @@
 # PHOTOO
 
 [![License](https://img.shields.io/badge/License-photoo%20Source%20License-blue.svg)](LICENSE)
-![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-blueviolet.svg)
+![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
 ![Version](https://img.shields.io/badge/Android-v4.0-orange.svg)
 ![Help](https://img.shields.io/badge/帮助中心-photooapp.com%2Fhelp-informational.svg)
 
@@ -15,7 +15,7 @@
 
 ## 🎯 photoo 是什么？
 
-**photoo** 是一款原生极简的照片整理工具，如今覆盖 **Android 与 iOS 双平台**。
+**photoo** 是一款 Android 原生的极简照片整理工具。
 
 滑动卡片就能快速整理相册——左滑删除，右滑收藏，上滑保留。还有一系列"该有的全都有"的功能：相册洞察生成专属摄影画像、PCS 色彩系统、照片水印边框、集邮打卡、沉浸式回顾喜爱照片、智能识别相似照片和低质量图片、视频和图片压缩......
 
@@ -68,9 +68,8 @@
 
 | 平台 | 渠道 | 说明 |
 | --- | --- | --- |
-| **Android（中国大陆）** | [蒲公英](https://www.pgyer.com/photoo-android) · [GitHub Releases](https://github.com/xigua222/photoo/releases/latest) | 公开内测，免费，无需登录 |
-| **Android（海外）** | 华为 AppGallery · 三星 Galaxy Store | 已上架，免费 |
-| **iOS** | App Store 搜索 "Photoo" | 会员制（年订阅 / 月订阅 / 永久买断） |
+| **中国大陆** | [蒲公英](https://www.pgyer.com/photoo-android) · [GitHub Releases](https://github.com/xigua222/photoo/releases/latest) | 公开内测，免费，无需登录 |
+| **海外** | 华为 AppGallery · 三星 Galaxy Store | 已上架，免费 |
 
 > 安卓 APK 安装时可能需要允许"安装未知来源应用"；商店更新与应用内更新均可用。
 
@@ -89,7 +88,7 @@
 
 关于联网，我们如实说明：核心功能支持完全离线使用；可选的联网仅发生在**检查更新、访问帮助中心、主动开启并提交诊断反馈**时，不会上传你的照片。
 
-iOS 端因平台运营成本采用会员制，这是无奈但必要的取舍；**Android 中国大陆版本已开放的功能永久免费**。各平台的具体承诺以应用内协议为准。
+**中国大陆版本已开放的功能永久免费**，请放心使用。
 
 ---
 

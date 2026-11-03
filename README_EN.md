@@ -5,7 +5,7 @@
 > Your Memories. Private. Intelligent.
 
 [![License](https://img.shields.io/badge/License-photoo%20Source%20License-blue.svg)](LICENSE_EN)
-![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-blueviolet.svg)
+![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
 ![Version](https://img.shields.io/badge/Android-v4.0-orange.svg)
 ![Help](https://img.shields.io/badge/Help%20Center-photooapp.com%2Fhelp-informational.svg)
 
@@ -17,7 +17,7 @@
 
 ## 🎯 What is photoo?
 
-**photoo** is a native, minimalist photo organization tool—now on both **Android and iOS**.
+**photoo** is an Android-native, minimalist photo organization tool.
 
 Swipe cards to quickly organize your gallery—swipe left to delete, right to favorite, up to keep. Plus a bunch of "nice to have" features: photo insights with a personalized photography profile, the PCS color system, photo watermark frames, stamp collecting, immersive review of your favorites, smart detection of similar and low-quality shots, video and image compression...
 
@@ -70,9 +70,8 @@ A fresh visual language across the startup screen, top bars and core surfaces—
 
 | Platform | Channel | Notes |
 | --- | --- | --- |
-| **Android (Mainland China)** | [Pgyer](https://www.pgyer.com/photoo-android) · [GitHub Releases](https://github.com/xigua222/photoo/releases/latest) | Open beta, free, no sign-in |
-| **Android (Global)** | Huawei AppGallery · Samsung Galaxy Store | Live and free |
-| **iOS** | Search "Photoo" on the App Store | Membership (yearly / monthly / lifetime) |
+| **Mainland China** | [Pgyer](https://www.pgyer.com/photoo-android) · [GitHub Releases](https://github.com/xigua222/photoo/releases/latest) | Open beta, free, no sign-in |
+| **Global** | Huawei AppGallery · Samsung Galaxy Store | Live and free |
 
 > Sideloading the APK may require enabling "Install from Unknown Sources"; both in-app and store updates are supported.
 
@@ -91,7 +90,7 @@ Photos are absolutely private. That's why photoo was built around one core princ
 
 To be fully transparent about networking: core features work completely offline. Optional network access happens only for **update checks, the help center, and diagnostics you explicitly enable and submit**—never your photos.
 
-iOS uses a membership model to cover platform costs; **features already released on Android (Mainland China) stay free forever**. Platform-specific terms live in the in-app agreements.
+**Features already released in Mainland China stay free forever.**
 
 ---
 
