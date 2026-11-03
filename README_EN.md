@@ -50,7 +50,7 @@ Your personal photography profile: favorite cameras, shooting-location heatmap, 
 Glass panel, subject outline, breakout styles and more—so your photos look their best when shared.
 
 ### 🤖 Lensy, On-Device AI
-A companion persona built in-house. Suggestions while organizing, grading references, even the help-center chat bot—all running locally, no network required.
+A companion persona built in-house. Organizing suggestions, grading references, the occasional witty review—all running locally, no network required.
 
 ### 🔍 Smart Detection & Compression
 * **Similar Photos**: auto-find duplicates and near-identical shots
@@ -71,7 +71,7 @@ A fresh visual language across the startup screen, top bars and core surfaces—
 | Platform | Channel | Notes |
 | --- | --- | --- |
 | **Mainland China** | [Pgyer](https://www.pgyer.com/photoo-android) · [GitHub Releases](https://github.com/xigua222/photoo/releases/latest) | Open beta, free, no sign-in |
-| **Global** | Huawei AppGallery · Samsung Galaxy Store | Live and free |
+| **Global** | [Huawei AppGallery](https://url.cloud.huawei.com/A594Jp6ztK) · [Samsung Galaxy Store](https://apps.samsung.com/appquery/appDetail.as?appId=com.photoo.app) | Live and free |
 
 > Sideloading the APK may require enabling "Install from Unknown Sources"; both in-app and store updates are supported.
 
@@ -113,11 +113,11 @@ Bug reports via Issues are welcome—please include device model, OS version, re
 
 ## 🤝 Feedback & Community
 
-* **Help Center**: [photooapp.com/help](https://photooapp.com/help) (with the Lensy chat bot)
-* **Xiaohongshu**: @超级西瓜 ｜ **Coolapk**: @西瓜发电机xg
+* **Help Center**: [photooapp.com/help](https://photooapp.com/help)
+* **Xiaohongshu (RED)**: @超级西瓜 (*Super Watermelon*) ｜ **Coolapk**: @西瓜发电机xg
 * **QQ beta group**: 878648547
 * **Email**: photoo@superwatermelon.cn
-* **Campfire Plan**: if you like photoo, spread the word—or [buy the developer a milk tea](https://ko-fi.com/I2I01XARUK) to help it go further
+* **Campfire Plan**: if you like photoo, spread the word—or [treat the developer to a milk tea](https://ko-fi.com/I2I01XARUK) to help it go further
 
 photoo development is ongoing—there's always more to improve. We'd love your feedback, or your company in building it!
 

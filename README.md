@@ -48,7 +48,7 @@
 玻璃面板、主体描边、冲破边框等多种样式，让照片以更好看的姿态被分享。
 
 ### 🤖 Lensy 端侧 AI
-自研的端侧陪伴虚拟形象。整理时的建议、调色时的参考、帮助中心的智能客服——全部在设备本地完成，不联网也能工作。
+自研的端侧陪伴虚拟形象。整理时的建议、调色时的参考，甚至偶尔的锐评——全部在设备本地完成，不联网也能工作。
 
 ### 🔍 智能识别与压缩
 * **相似照片**：自动找出重复或极其相似的照片
@@ -69,7 +69,7 @@
 | 平台 | 渠道 | 说明 |
 | --- | --- | --- |
 | **中国大陆** | [蒲公英](https://www.pgyer.com/photoo-android) · [GitHub Releases](https://github.com/xigua222/photoo/releases/latest) | 公开内测，免费，无需登录 |
-| **海外** | 华为 AppGallery · 三星 Galaxy Store | 已上架，免费 |
+| **海外** | [华为 AppGallery](https://url.cloud.huawei.com/A594Jp6ztK) · [三星 Galaxy Store](https://apps.samsung.com/appquery/appDetail.as?appId=com.photoo.app) | 已上架，免费 |
 
 > 安卓 APK 安装时可能需要允许"安装未知来源应用"；商店更新与应用内更新均可用。
 
@@ -111,7 +111,7 @@ cd android
 
 ## 🤝 反馈与社区
 
-* **帮助中心**：[photooapp.com/help](https://photooapp.com/help)（含 Lensy 智能客服）
+* **帮助中心**：[photooapp.com/help](https://photooapp.com/help)
 * **小红书**：@超级西瓜 ｜ **酷安**：@西瓜发电机xg
 * **QQ 内测群**：878648547
 * **邮箱**：photoo@superwatermelon.cn
